@@ -18,11 +18,15 @@ namespace Phalcon\Mvc\Router {
 
 		protected $_methods;
 
+		protected $_hostname;
+
 		protected $_converters;
 
 		protected $_id;
 
 		protected $_name;
+
+		protected $_beforeMatch;
 
 		protected static $_uniqueId;
 
@@ -48,8 +52,13 @@ namespace Phalcon\Mvc\Router {
 		/**
 		 * Set one or more HTTP methods that constraint the matching of the route
 		 *
+		 *<code>
+		 * $route->via('GET');
+		 * $route->via(array('GET', 'POST'));
+		 *</code>
+		 *
 		 * @param string|array $httpMethods
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Router\Route
 		 */
 		public function via($httpMethods){ }
 
@@ -74,19 +83,35 @@ namespace Phalcon\Mvc\Router {
 		/**
 		 * Sets the route's name
 		 *
+		 *<code>
+		 * $router->add('/about', array(
+		 *     'controller' => 'about'
+		 * ))->setName('about');
+		 *</code>
+		 *
 		 * @param string $name
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Router\Route
 		 */
 		public function setName($name){ }
 
 
 		/**
-		 * Sets a set of HTTP methods that constraint the matching of the route
+		 * Sets a callback that is called if the route is matched.
+		 * The developer can implement any arbitrary conditions here
+		 * If the callback returns false the route is treaded as not matched
 		 *
-		 * @param string|array $httpMethods
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @param callback $callback
+		 * @return \Phalcon\Mvc\Router\Route
 		 */
-		public function setHttpMethods($httpMethods){ }
+		public function beforeMatch($callback){ }
+
+
+		/**
+		 * Returns the 'before match' callback if any
+		 *
+		 * @return mixed
+		 */
+		public function getBeforeMatch(){ }
 
 
 		/**
@@ -130,6 +155,20 @@ namespace Phalcon\Mvc\Router {
 
 
 		/**
+		 * Sets a set of HTTP methods that constraint the matching of the route (alias of via)
+		 *
+		 *<code>
+		 * $route->setHttpMethods('GET');
+		 * $route->setHttpMethods(array('GET', 'POST'));
+		 *</code>
+		 *
+		 * @param string|array $httpMethods
+		 * @return \Phalcon\Mvc\Router\Route
+		 */
+		public function setHttpMethods($httpMethods){ }
+
+
+		/**
 		 * Returns the HTTP methods that constraint matching the route
 		 *
 		 * @return string|array
@@ -138,11 +177,32 @@ namespace Phalcon\Mvc\Router {
 
 
 		/**
+		 * Sets a hostname restriction to the route
+		 *
+		 *<code>
+		 * $route->setHostname('localhost');
+		 *</code>
+		 *
+		 * @param string|array $httpMethods
+		 * @return \Phalcon\Mvc\Router\Route
+		 */
+		public function setHostname($hostname){ }
+
+
+		/**
+		 * Returns the hostname restriction if any
+		 *
+		 * @return string
+		 */
+		public function getHostname(){ }
+
+
+		/**
 		 * Adds a converter to perform an additional transformation for certain parameter
 		 *
 		 * @param string $name
 		 * @param callable $converter
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Router\Route
 		 */
 		public function convert($name, $converter){ }
 

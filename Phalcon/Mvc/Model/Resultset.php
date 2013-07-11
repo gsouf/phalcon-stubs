@@ -225,5 +225,22 @@ namespace Phalcon\Mvc\Model {
 		 */
 		public function delete($conditionCallback=null){ }
 
+
+		/**
+		 * Filters a resultset returning only those the developer requires
+		 *
+		 *<code>
+		 * $filtered = $robots->filter(function($robot){
+		 *		if ($robot->id < 3) {
+		 *			return $robot;
+		 *		}
+		 *	});
+		 *</code>
+		 *
+		 * @param callback $filter
+		 * @return \Phalcon\Mvc\Model[]
+		 */
+		public function filter($filter){ }
+
 	}
 }

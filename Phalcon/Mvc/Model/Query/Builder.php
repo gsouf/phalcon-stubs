@@ -44,6 +44,12 @@ namespace Phalcon\Mvc\Model\Query {
 
 		protected $_sharedLock;
 
+		protected $_bindParams;
+
+		protected $_bindTypes;
+
+		protected $_hiddenParamNumber;
+
 		/**
 		 * \Phalcon\Mvc\Model\Query\Builder constructor
 		 *
@@ -129,7 +135,10 @@ namespace Phalcon\Mvc\Model\Query {
 		 * Adds a join to the query
 		 *
 		 *<code>
+		 *	$builder->join('Robots');
+		 *	$builder->join('Robots', 'r.id = RobotsParts.robots_id');
 		 *	$builder->join('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *	$builder->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
 		 *</code>
 		 *
 		 * @param string $model
@@ -179,35 +188,86 @@ namespace Phalcon\Mvc\Model\Query {
 		 *</code>
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
-		public function where($conditions){ }
+		public function where($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using a AND operator
 		 *
 		 *<code>
-		 *	$builder->andWhere('name = :name: AND id > :id:');
+		 *	$builder->andWhere('name = "Peter"');
+		 *	$builder->andWhere('name = :name: AND id > :id:', array('name' => 'Peter', 'id' => 100));
 		 *</code>
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
-		public function andWhere($conditions){ }
+		public function andWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using a OR operator
 		 *
 		 *<code>
-		 *	$builder->orWhere('name = :name: AND id > :id:');
+		 *	$builder->orWhere('name = "Peter"');
+		 *	$builder->orWhere('name = :name: AND id > :id:', array('name' => 'Peter', 'id' => 100));
 		 *</code>
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
-		public function orWhere($conditions){ }
+		public function orWhere($conditions, $bindParams=null, $bindTypes=null){ }
+
+
+		/**
+		 * Appends a BETWEEN condition to the current conditions
+		 *
+		 *<code>
+		 *	$builder->betweenWhere('price', 100.25, 200.50);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param mixed $minimum
+		 * @param mixed $maximum
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function betweenWhere($expr, $minimum, $maximum){ }
+
+
+		/**
+		 * Appends an IN condition to the current conditions
+		 *
+		 *<code>
+		 *	$builder->inWhere('id', [1, 2, 3]);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param array $values
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function inWhere($expr, $values){ }
+
+
+		/**
+		 * Appends a NOT IN condition to the current conditions
+		 *
+		 *<code>
+		 *	$builder->notInWhere('id', [1, 2, 3]);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param array $values
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function notInWhere($expr, $values){ }
 
 
 		/**

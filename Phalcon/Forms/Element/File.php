@@ -11,7 +11,7 @@ namespace Phalcon\Forms\Element {
 	class File extends \Phalcon\Forms\Element {
 
 		/**
-		 * Renders the element widget
+		 * Renders the element widget returning html
 		 *
 		 * @param array $attributes
 		 * @return string

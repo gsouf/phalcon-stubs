@@ -3,7 +3,9 @@
 namespace Phalcon\Queue\Beanstalk {
 
 	/**
-	 * Phalcon\Queue\Beanstalk\Job initializer
+	 * Phalcon\Queue\Beanstalk\Job
+	 *
+	 * Represents a job in a beanstalk queue
 	 */
 	
 	class Job {
@@ -15,9 +17,29 @@ namespace Phalcon\Queue\Beanstalk {
 		protected $_body;
 
 		/**
-		 * \Phalcon\Queue\Beanstalk\Job constructor
+		 * \Phalcon\Queue\Beanstalk\Job
+		 *
+		 * @param \Phalcon\Queue\Beanstalk $queue
+		 * @param string $id
+		 * @param string $body
 		 */
 		public function __construct($queue, $id, $body){ }
+
+
+		/**
+		 * Returns the job id
+		 *
+		 * @return string
+		 */
+		public function getId(){ }
+
+
+		/**
+		 * Returns the job body
+		 *
+		 * @return string
+		 */
+		public function getBody(){ }
 
 
 		/**

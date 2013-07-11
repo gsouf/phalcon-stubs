@@ -131,9 +131,19 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Mounts a collection of handlers
+		 *
+		 * @param \Phalcon\Mvc\Collection $collection
+		 * @return \Phalcon\Mvc\Micro
+		 */
+		public function mount($collection){ }
+
+
+		/**
 		 * Sets a handler that will be called when the router doesn't match any of the defined routes
 		 *
 		 * @param callable $handler
+		 * @return \Phalcon\Mvc\Micro
 		 */
 		public function notFound($handler){ }
 

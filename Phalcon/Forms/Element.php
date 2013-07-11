@@ -14,11 +14,17 @@ namespace Phalcon\Forms {
 
 		protected $_name;
 
+		protected $_value;
+
 		protected $_label;
 
 		protected $_attributes;
 
 		protected $_validators;
+
+		protected $_filters;
+
+		protected $_options;
 
 		/**
 		 * \Phalcon\Forms\Element constructor
@@ -64,6 +70,23 @@ namespace Phalcon\Forms {
 
 
 		/**
+		 * Sets the element's filters
+		 *
+		 * @param array|string $filters
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setFilters($filters){ }
+
+
+		/**
+		 * Returns the element's filters
+		 *
+		 * @return mixed
+		 */
+		public function getFilters(){ }
+
+
+		/**
 		 * Adds a group of validators
 		 *
 		 * @param \Phalcon\Validation\ValidatorInterface[]
@@ -90,13 +113,13 @@ namespace Phalcon\Forms {
 
 
 		/**
-		 * Returns an array of attributes for \Phalcon\Tag helpers prepared
+		 * Returns an array of attributes for  prepared attributes for \Phalcon\Tag helpers
 		 * according to the element's parameters
 		 *
 		 * @param array $attributes
 		 * @return array
 		 */
-		public function prepareAttributes($attributes){ }
+		public function prepareAttributes($attributes=null){ }
 
 
 		/**
@@ -107,6 +130,16 @@ namespace Phalcon\Forms {
 		 * @return \Phalcon\Forms\ElementInterface
 		 */
 		public function setAttribute($attribute, $value){ }
+
+
+		/**
+		 * Returns the value of an attribute if present
+		 *
+		 * @param string $attribute
+		 * @param mixed $defaultValue
+		 * @return mixed
+		 */
+		public function getAttribute($attribute, $defaultValue=null){ }
 
 
 		/**
@@ -127,6 +160,43 @@ namespace Phalcon\Forms {
 
 
 		/**
+		 * Sets an option for the element
+		 *
+		 * @param string $option
+		 * @param mixed $value
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setUserOption($option, $value){ }
+
+
+		/**
+		 * Returns the value of an option if present
+		 *
+		 * @param string $option
+		 * @param mixed $defaultValue
+		 * @return mixed
+		 */
+		public function getUserOption($option, $defaultValue=null){ }
+
+
+		/**
+		 * Sets options for the element
+		 *
+		 * @param array $options
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setUserOptions($options){ }
+
+
+		/**
+		 * Returns the options for the element
+		 *
+		 * @return array
+		 */
+		public function getUserOptions(){ }
+
+
+		/**
 		 * Sets the element label
 		 *
 		 * @param string $label
@@ -141,6 +211,58 @@ namespace Phalcon\Forms {
 		 * @return string
 		 */
 		public function getLabel(){ }
+
+
+		/**
+		 * Generate the HTML to label the element
+		 *
+		 * @return string
+		 */
+		public function label(){ }
+
+
+		/**
+		 * Sets a default value in case the form does not use an entity
+		 * or there is no value available for the element in $_POST
+		 *
+		 * @param mixed $value
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setDefault($value){ }
+
+
+		/**
+		 * Returns the default value assigned to the element
+		 *
+		 * @return mixed
+		 */
+		public function getDefault(){ }
+
+
+		/**
+		 * Returns the element's value
+		 *
+		 * @return mixed
+		 */
+		public function getValue(){ }
+
+
+		/**
+		 * Returns the messages that belongs to the element
+		 * The element needs to be attached to a form
+		 *
+		 * @return \Phalcon\Validation\Message\Group
+		 */
+		public function getMessages(){ }
+
+
+		/**
+		 * Returns the messages that belongs to the element
+		 * The element needs to be attached to a form
+		 *
+		 * @return boolean
+		 */
+		public function hasMessages(){ }
 
 
 		/**

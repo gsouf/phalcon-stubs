@@ -69,6 +69,10 @@ namespace Phalcon\Mvc\Model {
 
 		protected $_uniqueRow;
 
+		protected $_bindParams;
+
+		protected $_bindTypes;
+
 		/**
 		 * \Phalcon\Mvc\Model\Query constructor
 		 *
@@ -372,6 +376,40 @@ namespace Phalcon\Mvc\Model {
 		 * @return int
 		 */
 		public function getType(){ }
+
+
+		/**
+		 * Set default bind parameters
+		 *
+		 * @param array $bindParams
+		 * @return \Phalcon\Mvc\Model\Query
+		 */
+		public function setBindParams($bindParams){ }
+
+
+		/**
+		 * Returns default bind params
+		 *
+		 * @return array
+		 */
+		public function getBindParams(){ }
+
+
+		/**
+		 * Set default bind parameters
+		 *
+		 * @param array $bindTypes
+		 * @return \Phalcon\Mvc\Model\Query
+		 */
+		public function setBindTypes($bindTypes){ }
+
+
+		/**
+		 * Returns default bind types
+		 *
+		 * @return array
+		 */
+		public function getBindTypes(){ }
 
 
 		/**

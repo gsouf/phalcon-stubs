@@ -46,7 +46,8 @@ namespace Phalcon\Http {
 
 
 		/**
-		 * Gets a variable from the $_REQUEST superglobal applying filters if needed
+		 * Gets a variable from the $_REQUEST superglobal applying filters if needed.
+		 * If no parameters are given the $_REQUEST superglobal is returned
 		 *
 		 *<code>
 		 *	//Returns value from $_REQUEST["user_email"] without sanitizing
@@ -61,11 +62,12 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function get($name, $filters=null, $defaultValue=null){ }
+		public function get($name=null, $filters=null, $defaultValue=null){ }
 
 
 		/**
 		 * Gets a variable from the $_POST superglobal applying filters if needed
+		 * If no parameters are given the $_POST superglobal is returned
 		 *
 		 *<code>
 		 *	//Returns value from $_POST["user_email"] without sanitizing
@@ -80,11 +82,12 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function getPost($name, $filters=null, $defaultValue=null){ }
+		public function getPost($name=null, $filters=null, $defaultValue=null){ }
 
 
 		/**
 		 * Gets variable from $_GET superglobal applying filters if needed
+		 * If no parameters are given the $_GET superglobal is returned
 		 *
 		 *<code>
 		 *	//Returns value from $_GET["id"] without sanitizing
@@ -102,7 +105,7 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function getQuery($name, $filters=null, $defaultValue=null){ }
+		public function getQuery($name=null, $filters=null, $defaultValue=null){ }
 
 
 		/**
@@ -319,15 +322,16 @@ namespace Phalcon\Http {
 		 *
 		 * @return boolean
 		 */
-		public function hasFiles(){ }
+		public function hasFiles($notErrored=null){ }
 
 
 		/**
 		 * Gets attached files as \Phalcon\Http\Request\File instances
 		 *
+		 * @param boolean $notErrored
 		 * @return \Phalcon\Http\Request\File[]
 		 */
-		public function getUploadedFiles(){ }
+		public function getUploadedFiles($notErrored=null){ }
 
 
 		/**

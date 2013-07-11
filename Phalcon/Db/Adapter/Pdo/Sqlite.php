@@ -66,5 +66,13 @@ namespace Phalcon\Db\Adapter\Pdo {
 		 */
 		public function describeReferences($table, $schema=null){ }
 
+
+		/**
+		 * Check whether the database system requires an explicit value for identity columns
+		 *
+		 * @return boolean
+		 */
+		public function useExplicitIdValue(){ }
+
 	}
 }

@@ -28,7 +28,7 @@ namespace Phalcon\Acl {
 		 * Adds a role to the ACL list. Second parameter lets to inherit access data from other existing role
 		 *
 		 * @param  \Phalcon\Acl\RoleInterface $role
-		 * @param  array $accessInherits
+		 * @param  string $accessInherits
 		 * @return boolean
 		 */
 		public function addRole($role, $accessInherits=null);

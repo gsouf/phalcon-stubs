@@ -38,6 +38,7 @@ namespace Phalcon\Queue {
 
 
 		/**
+		 * Reserves a job in the queue
 		 *
 		 * @return boolean|Phalcon\Queue\Beanstalk\Job
 		 */

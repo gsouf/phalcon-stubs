@@ -119,6 +119,7 @@ namespace Phalcon\Mvc\Model {
 		 * Initializes a model in the model manager
 		 *
 		 * @param \Phalcon\Mvc\ModelInterface $model
+		 * @return boolean
 		 */
 		public function initialize($model){ }
 

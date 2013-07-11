@@ -122,6 +122,7 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param \Phalcon\Mvc\ModelInterface $model
 		 * @param int $index
+		 * @return array
 		 */
 		public function readMetaDataIndex($model, $index){ }
 

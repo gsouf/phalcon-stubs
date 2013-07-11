@@ -55,6 +55,14 @@ namespace Phalcon\Mvc {
 		protected $_moduleObject;
 
 		/**
+		 * \Phalcon\Mvc\Application
+		 *
+		 * @param \Phalcon\DI $dependencyInjector
+		 */
+		public function __construct($dependencyInjector=null){ }
+
+
+		/**
 		 * Register an array of modules present in the application
 		 *
 		 *<code>
@@ -72,6 +80,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param array $modules
 		 * @param boolean $merge
+		 * @param \Phalcon\Mvc\Application
 		 */
 		public function registerModules($modules, $merge=null){ }
 

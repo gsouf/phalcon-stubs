@@ -13,12 +13,6 @@ namespace Phalcon\Http\Response {
 		protected $_headers;
 
 		/**
-		 * \Phalcon\Http\Response\Headers constructor
-		 */
-		public function __construct(){ }
-
-
-		/**
 		 * Sets a header to be sent at the end of the request
 		 *
 		 * @param string $name

@@ -13,6 +13,13 @@ namespace Phalcon\Forms {
 
 		protected $_forms;
 
+		/**
+		 * Creates a form registering it in the forms manager
+		 *
+		 * @param string $name
+		 * @param object $entity
+		 * @return \Phalcon\Forms\Form
+		 */
 		public function create($name=null, $entity=null){ }
 
 
@@ -22,7 +29,25 @@ namespace Phalcon\Forms {
 		 * @param string $name
 		 * @return \Phalcon\Forms\Form
 		 */
-		public function get(){ }
+		public function get($name){ }
+
+
+		/**
+		 * Checks if a form is registered in the forms manager
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function has($name){ }
+
+
+		/**
+		 * Registers a form in the Forms Manager
+		 *
+		 * @param string $name
+		 * @return \Phalcon\Forms\Form
+		 */
+		public function set($name, $form){ }
 
 	}
 }

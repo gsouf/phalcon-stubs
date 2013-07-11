@@ -45,9 +45,13 @@ namespace Phalcon\Mvc\Router {
 
 		protected $_prefix;
 
+		protected $_hostname;
+
 		protected $_paths;
 
 		protected $_routes;
+
+		protected $_beforeMatch;
 
 		/**
 		 * \Phalcon\Mvc\Router\Group constructor
@@ -55,6 +59,23 @@ namespace Phalcon\Mvc\Router {
 		 * @param array $paths
 		 */
 		public function __construct($paths=null){ }
+
+
+		/**
+		 * Set a hostname restriction for all the routes in the group
+		 *
+		 * @param string $hostname
+		 * @return \Phalcon\Mvc\Router\Group
+		 */
+		public function setHostname($hostname){ }
+
+
+		/**
+		 * Returns the hostname restriction
+		 *
+		 * @return string
+		 */
+		public function getHostname(){ }
 
 
 		/**
@@ -72,6 +93,23 @@ namespace Phalcon\Mvc\Router {
 		 * @return string
 		 */
 		public function getPrefix(){ }
+
+
+		/**
+		 * Set a before-match condition for the whole group
+		 *
+		 * @param string $prefix
+		 * @return \Phalcon\Mvc\Router\Group
+		 */
+		public function beforeMatch($beforeMatch){ }
+
+
+		/**
+		 * Returns the before-match condition if any
+		 *
+		 * @return string
+		 */
+		public function getBeforeMatch(){ }
 
 
 		/**

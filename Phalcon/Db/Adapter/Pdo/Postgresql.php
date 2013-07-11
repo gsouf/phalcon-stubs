@@ -51,6 +51,14 @@ namespace Phalcon\Db\Adapter\Pdo {
 
 
 		/**
+		 * Check whether the database system requires an explicit value for identity columns
+		 *
+		 * @return boolean
+		 */
+		public function useExplicitIdValue(){ }
+
+
+		/**
 		 * Return the default identity value to insert in an identity column
 		 *
 		 * @return \Phalcon\Db\RawValue

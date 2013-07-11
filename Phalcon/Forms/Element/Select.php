@@ -10,7 +10,7 @@ namespace Phalcon\Forms\Element {
 	
 	class Select extends \Phalcon\Forms\Element {
 
-		protected $_options;
+		protected $_optionsValues;
 
 		/**
 		 * \Phalcon\Forms\Element constructor
@@ -43,13 +43,13 @@ namespace Phalcon\Forms\Element {
 		 * Adds an option to the current options
 		 *
 		 * @param array $option
-		 * @return $this;
+		 * @return $this
 		 */
 		public function addOption($option){ }
 
 
 		/**
-		 * Renders the element widget
+		 * Renders the element widget returning html
 		 *
 		 * @param array $attributes
 		 * @return string

@@ -2,7 +2,7 @@
     "name": "sneakybobito/phalcon-stubs",
     "type": "library",
     "description": "IDE Stubs for phalconphp",
-    "version" : "1.0.0",
+    "version" : "1.1.0",
     "keywords": ["IDE","stubs","phalcon"],
     "homepage": "https://github.com/SneakyBobito/phalcon-stubs",
     "require": {

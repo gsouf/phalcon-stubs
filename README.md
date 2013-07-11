@@ -3,4 +3,4 @@ phalcon-stubs
 
 Phalconphp stubs for IDEs 
 
-v1.0.0
+v1.1.0

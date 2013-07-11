@@ -49,11 +49,13 @@ namespace Phalcon\Mvc\Model\Resultset {
 
 		/**
 		 * Returns a complete resultset as an array, if the resultset has a big number of rows
-		 * it could consume more memory than currently it does.
+		 * it could consume more memory than currently it does. Export the resultset to an array
+		 * couldn't be faster with a large number of records
 		 *
+		 * @param boolean $renameColumns
 		 * @return array
 		 */
-		public function toArray(){ }
+		public function toArray($renameColumns=null){ }
 
 
 		/**

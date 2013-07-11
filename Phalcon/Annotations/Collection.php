@@ -13,7 +13,7 @@ namespace Phalcon\Annotations {
 	 *     echo 'Name=', $annotation->getName(), PHP_EOL;
 	 * }
 	 *
-	 * //Check if the annotations has an specific
+	 * //Check if the annotations has a specific
 	 * var_dump($classAnnotations->has('Cacheable'));
 	 *
 	 * //Get an specific annotation in the collection
@@ -89,12 +89,21 @@ namespace Phalcon\Annotations {
 
 
 		/**
-		 * Returns an annotation by its name
+		 * Returns the first annotation that match a name
 		 *
 		 * @param string $name
 		 * @return \Phalcon\Annotations\Annotation
 		 */
 		public function get($name){ }
+
+
+		/**
+		 * Returns all the annotations that match a name
+		 *
+		 * @param string $name
+		 * @return \Phalcon\Annotations\Annotation[]
+		 */
+		public function getAll($name){ }
 
 
 		/**

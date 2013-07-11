@@ -19,6 +19,8 @@ namespace Phalcon\Mvc {
 
 		const OP_DELETE = 3;
 
+		public $_id;
+
 		protected $_dependencyInjector;
 
 		protected $_modelsManager;
@@ -161,9 +163,9 @@ namespace Phalcon\Mvc {
 		/**
 		 * Reads an attribute value by its name
 		 *
-		 * <code>
+		 *<code>
 		 *	echo $robot->readAttribute('name');
-		 * </code>
+		 *</code>
 		 *
 		 * @param string $attribute
 		 * @return mixed
@@ -363,7 +365,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *		public function beforeSave()
 		 *		{
-		 *			if (this->name == 'Peter') {
+		 *			if ($this->name == 'Peter') {
 		 *				$message = new Message("Sorry, but a robot cannot be named Peter");
 		 *				$this->appendMessage($message);
 		 *			}
@@ -479,10 +481,6 @@ namespace Phalcon\Mvc {
 
 		/**
 		 * Perform an aggregation using the Mongo aggregation framework
-		 *
-		 *<code>
-		 * echo 'There are ', Robots::aggregate(), ' robots';
-		 *</code>
 		 *
 		 * @param array $parameters
 		 * @return array

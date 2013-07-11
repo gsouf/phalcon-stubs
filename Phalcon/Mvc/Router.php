@@ -100,7 +100,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @return string
 		 */
-		protected function _getRewriteUri(){ }
+		public function getRewriteUri(){ }
 
 
 		/**
@@ -111,6 +111,7 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param string $uriSource
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function setUriSource($uriSource){ }
 
@@ -119,6 +120,7 @@ namespace Phalcon\Mvc {
 		 * Set whether router must remove the extra slashes in the handled routes
 		 *
 		 * @param boolean $remove
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function removeExtraSlashes($remove){ }
 
@@ -127,6 +129,7 @@ namespace Phalcon\Mvc {
 		 * Sets the name of the default namespace
 		 *
 		 * @param string $namespaceName
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function setDefaultNamespace($namespaceName){ }
 
@@ -135,6 +138,7 @@ namespace Phalcon\Mvc {
 		 * Sets the name of the default module
 		 *
 		 * @param string $moduleName
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function setDefaultModule($moduleName){ }
 
@@ -143,6 +147,7 @@ namespace Phalcon\Mvc {
 		 * Sets the default controller name
 		 *
 		 * @param string $controllerName
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function setDefaultController($controllerName){ }
 
@@ -151,6 +156,7 @@ namespace Phalcon\Mvc {
 		 * Sets the default action name
 		 *
 		 * @param string $actionName
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function setDefaultAction($actionName){ }
 
@@ -276,13 +282,16 @@ namespace Phalcon\Mvc {
 		 * Mounts a group of routes in the router
 		 *
 		 * @param \Phalcon\Mvc\Router\Group $route
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function mount($group){ }
 
 
 		/**
-		 * A set of paths used to
+		 * Set a group of paths to be returned when none of the defined routes are matched
 		 *
+		 * @param array $paths
+		 * @return \Phalcon\Mvc\Router
 		 */
 		public function notFound($paths){ }
 

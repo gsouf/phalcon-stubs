@@ -5,9 +5,10 @@ namespace Phalcon {
 	/**
 	 * Phalcon\Validation
 	 *
+	 * Allows to validate data using validators
 	 */
 	
-	class Validation {
+	class Validation extends \Phalcon\DI\Injectable implements \Phalcon\Events\EventsAwareInterface, \Phalcon\DI\InjectionAwareInterface {
 
 		protected $_data;
 
@@ -15,7 +16,11 @@ namespace Phalcon {
 
 		protected $_validators;
 
+		protected $_filters;
+
 		protected $_messages;
+
+		protected $_values;
 
 		/**
 		 * \Phalcon\Validation constructor
@@ -31,7 +36,7 @@ namespace Phalcon {
 		 * @param array|object $data
 		 * @param object $entity
 		 */
-		public function validate($data, $entity=null){ }
+		public function validate($data=null, $entity=null){ }
 
 
 		/**
@@ -42,6 +47,25 @@ namespace Phalcon {
 		 * @return \Phalcon\Validator
 		 */
 		public function add($attribute, $validator){ }
+
+
+		/**
+		 * Adds filters to the field
+		 *
+		 * @param string $attribute
+		 * @param array|string $attribute
+		 * @return \Phalcon\Validator
+		 */
+		public function setFilters($attribute, $filters){ }
+
+
+		/**
+		 * Returns all the filters or a specific one
+		 *
+		 * @param string $attribute
+		 * @return mixed
+		 */
+		public function getFilters($attribute=null){ }
 
 
 		/**
