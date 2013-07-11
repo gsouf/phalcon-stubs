@@ -30,3 +30,10 @@ Anywhere in you project you can clone the stubs :
 then move to the version you want : 
 
 ```git checkout 1.2.0``` or ```git checkout 1.1.0``` or ```git checkout 1.0.0```
+
+
+
+
+
+
+Dont forget to add it into you ```.gitignore```
