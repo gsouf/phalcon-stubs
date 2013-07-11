@@ -4,7 +4,7 @@ phalcon-stubs
 Tested with Netbeans
 
 
-Two solutions for adding phalcon stubs for your project into github :
+Two solutions for adding phalcon stubs for your project into github composer or clone+checkout :
 
 Composer 
 -----------
