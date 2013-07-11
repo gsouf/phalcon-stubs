@@ -35,5 +35,8 @@ then move to the version you want :
 
 
 
+.gitignore
+-----
+
 
 Dont forget to add it into you ```.gitignore```
