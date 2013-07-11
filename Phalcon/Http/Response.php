@@ -196,6 +196,13 @@ namespace Phalcon\Http {
 		 *	$response->redirect("posts/index");
 		 *	$response->redirect("http://en.wikipedia.org", true);
 		 *	$response->redirect("http://www.example.com/new-location", true, 301);
+		 *
+		 *	//Making a redirection based on a named route
+		 *	$response->redirect(array(
+		 *		"for" => "index-lang",
+		 *		"lang" => "jp",
+		 *		"controller" => "index"
+		 *	));
 		 *</code>
 		 *
 		 * @param string $location
@@ -281,6 +288,12 @@ namespace Phalcon\Http {
 		public function send(){ }
 
 
+		/**
+		 * Sets an attached file to be sent at the end of the request
+		 *
+		 * @param string $filePath
+		 * @param string $attachmentName
+		 */
 		public function setFileToSend($filePath, $attachmentName=null){ }
 
 	}

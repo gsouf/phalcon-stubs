@@ -21,7 +21,17 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the relation's type
+		 * Sets the intermediate model dat for has-*-through relations
+		 *
+		 * @param string|array $intermediateFields
+		 * @param string $intermediateModel
+		 * @param string $intermediateReferencedFields
+		 */
+		public function setIntermediateRelation($intermediateFields, $intermediateModel, $intermediateReferencedFields);
+
+
+		/**
+		 * Returns the relations type
 		 *
 		 * @return int
 		 */
@@ -77,19 +87,35 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Check whether the relation
+		 * Check whether the relation is a 'many-to-many' relation or not
 		 *
 		 * @return boolean
 		 */
-		public function hasThrough();
+		public function isThrough();
 
 
 		/**
-		 * Returns the 'through' relation if any
+		 * Gets the intermediate fields for has-*-through relations
+		 *
+		 * @return string|array
+		 */
+		public function getIntermediateFields();
+
+
+		/**
+		 * Gets the intermediate model for has-*-through relations
 		 *
 		 * @return string
 		 */
-		public function getThrough();
+		public function getIntermediateModel();
+
+
+		/**
+		 * Gets the intermediate referenced fields for has-*-through relations
+		 *
+		 * @return string|array
+		 */
+		public function getIntermediateReferencedFields();
 
 	}
 }

@@ -218,7 +218,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Delete every record in the resultset
+		 * Deletes every record in the resultset
 		 *
 		 * @param Closure $conditionCallback
 		 * @return boolean

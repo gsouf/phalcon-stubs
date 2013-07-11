@@ -47,10 +47,10 @@ namespace Phalcon\Logger\Adapter {
 
 
 		/**
-		  * Closes the logger
-		  *
-		  * @return boolean
-		  */
+		 * Closes the logger
+		 *
+		 * @return boolean
+		 */
 		public function close(){ }
 
 	}

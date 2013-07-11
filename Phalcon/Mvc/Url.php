@@ -9,10 +9,10 @@ namespace Phalcon\Mvc {
 	 *
 	 *<code>
 	 *
-	 * //Generate a url appending a uri to the base Uri
+	 * //Generate a URL appending the URI to the base URI
 	 * echo $url->get('products/edit/1');
 	 *
-	 * //Generate a url for a predefined route
+	 * //Generate a URL for a predefined route
 	 * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2012'));
 	 *
 	 *</code>
@@ -24,7 +24,11 @@ namespace Phalcon\Mvc {
 
 		protected $_baseUri;
 
+		protected $_staticBaseUri;
+
 		protected $_basePath;
+
+		protected $_router;
 
 		/**
 		 * Sets the DependencyInjector container
@@ -43,15 +47,28 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Sets a prefix to all the urls generated
+		 * Sets a prefix for all the URIs to be generated
 		 *
 		 *<code>
 		 *	$url->setBaseUri('/invo/');
+		 *	$url->setBaseUri('/invo/index.php/');
 		 *</code>
 		 *
 		 * @param string $baseUri
 		 */
 		public function setBaseUri($baseUri){ }
+
+
+		/**
+		 * Sets a prefix for all static URLs generated
+		 *
+		 *<code>
+		 *	$url->setStaticBaseUri('/invo/');
+		 *</code>
+		 *
+		 * @param string $staticBaseUri
+		 */
+		public function setStaticBaseUri($staticBaseUri){ }
 
 
 		/**
@@ -63,10 +80,10 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Sets a base paths for all the generated paths
+		 * Sets a base path for all the generated paths
 		 *
 		 *<code>
-		 *	$url->setBasePath('/var/www/');
+		 *	$url->setBasePath('/var/www/htdocs/');
 		 *</code>
 		 *
 		 * @param string $basePath
@@ -75,7 +92,7 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Returns a base path
+		 * Returns the base path
 		 *
 		 * @return string
 		 */
@@ -89,6 +106,15 @@ namespace Phalcon\Mvc {
 		 * @return string
 		 */
 		public function get($uri=null){ }
+
+
+		/**
+		 * Generates a URL for a static resource
+		 *
+		 * @param string|array $uri
+		 * @return string
+		 */
+		public function getStatic($uri=null){ }
 
 
 		/**

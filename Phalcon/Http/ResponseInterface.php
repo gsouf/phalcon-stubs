@@ -101,6 +101,19 @@ namespace Phalcon\Http {
 
 
 		/**
+		 * Sets HTTP response body. The parameter is automatically converted to JSON
+		 *
+		 *<code>
+		 *	$response->setJsonContent(array("status" => "OK"));
+		 *</code>
+		 *
+		 * @param string $content
+		 * @return \Phalcon\Http\ResponseInterface
+		 */
+		public function setJsonContent($content);
+
+
+		/**
 		 * Appends a string to the HTTP response body
 		 *
 		 * @param string $content
@@ -126,11 +139,28 @@ namespace Phalcon\Http {
 
 
 		/**
+		 * Sends cookies to the client
+		 *
+		 * @return \Phalcon\Http\ResponseInterface
+		 */
+		public function sendCookies();
+
+
+		/**
 		 * Prints out HTTP response to the client
 		 *
 		 * @return \Phalcon\Http\ResponseInterface
 		 */
 		public function send();
+
+
+		/**
+		 * Sets an attached file to be sent at the end of the request
+		 *
+		 * @param string $filePath
+		 * @param string $attachmentName
+		 */
+		public function setFileToSend($filePath, $attachmentName=null);
 
 	}
 }

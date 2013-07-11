@@ -110,7 +110,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Lowecases a string, this function make use of the mbstring extension if available
+		 * Lowercases a string, this function makes use of the mbstring extension if available
 		 *
 		 * @param string $str
 		 * @return string
@@ -119,7 +119,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Uppercases a string, this function make use of the mbstring extension if available
+		 * Uppercases a string, this function makes use of the mbstring extension if available
 		 *
 		 * @param string $str
 		 * @return string

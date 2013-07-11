@@ -19,6 +19,12 @@ namespace Phalcon\CLI {
 		protected $_moduleObject;
 
 		/**
+		 * \Phalcon\CLI\Console constructor
+		 */
+		public function __construct($dependencyInjector=null){ }
+
+
+		/**
 		 * Sets the DependencyInjector container
 		 *
 		 * @param \Phalcon\DiInterface $dependencyInjector

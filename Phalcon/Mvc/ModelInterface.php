@@ -116,19 +116,21 @@ namespace Phalcon\Mvc {
 		 * @param array $data
 		 * @param array $columnMap
 		 * @param int $dirtyState
+		 * @param boolean $keepSnapshots
 		 * @return \Phalcon\Mvc\Model $result
 		 */
-		public static function cloneResultMap($base, $data, $columnMap, $dirtyState=null);
+		public static function cloneResultMap($base, $data, $columnMap, $dirtyState=null, $keepSnapshots=null);
 
 
 		/**
 		 * Assigns values to a model from an array returning a new model
 		 *
-		 * @param array $result
-		 * @param \Phalcon\Mvc\ModelInterface $base
-		 * @return \Phalcon\Mvc\ModelInterface $result
+		 * @param \Phalcon\Mvc\Model $base
+		 * @param array $data
+		 * @param int $dirtyState
+		 * @return \Phalcon\Mvc\Model
 		 */
-		public static function cloneResult($base, $result);
+		public static function cloneResult($base, $data, $dirtyState=null);
 
 
 		/**
@@ -260,9 +262,10 @@ namespace Phalcon\Mvc {
 		 * Inserts or updates a model instance. Returning true on success or false otherwise.
 		 *
 		 * @param  array $data
+		 * @param  array $whiteList
 		 * @return boolean
 		 */
-		public function save($data=null);
+		public function save($data=null, $whiteList=null);
 
 
 		/**
@@ -270,9 +273,10 @@ namespace Phalcon\Mvc {
 		 * Returning true on success or false otherwise.
 		 *
 		 * @param  array $data
+		 * @param  array $whiteList
 		 * @return boolean
 		 */
-		public function create($data=null);
+		public function create($data=null, $whiteList=null);
 
 
 		/**
@@ -280,9 +284,10 @@ namespace Phalcon\Mvc {
 		 * Returning true on success or false otherwise.
 		 *
 		 * @param  array $data
+		 * @param  array $whiteList
 		 * @return boolean
 		 */
-		public function update($data=null);
+		public function update($data=null, $whiteList=null);
 
 
 		/**
@@ -329,11 +334,11 @@ namespace Phalcon\Mvc {
 		/**
 		 * Returns related records based on defined relations
 		 *
-		 * @param string $modelName
+		 * @param string $alias
 		 * @param array $arguments
 		 * @return \Phalcon\Mvc\Model\ResultsetInterface
 		 */
-		public function getRelated($modelName, $arguments=null);
+		public function getRelated($alias, $arguments=null);
 
 	}
 }

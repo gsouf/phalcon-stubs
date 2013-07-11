@@ -50,85 +50,85 @@ namespace Phalcon\Logger {
 
 
 		/**
-		  * Starts a transaction
-		  *
-		  */
+		 * Starts a transaction
+		 *
+		 */
 		public function begin();
 
 
 		/**
-		  * Commits the internal transaction
-		  *
-		  */
+		 * Commits the internal transaction
+		 *
+		 */
 		public function commit();
 
 
 		/**
-		  * Rollbacks the internal transaction
-		  *
-		  */
+		 * Rollbacks the internal transaction
+		 *
+		 */
 		public function rollback();
 
 
 		/**
-		  * Closes the logger
-		  *
-		  * @return boolean
-		  */
+		 * Closes the logger
+		 *
+		 * @return boolean
+		 */
 		public function close();
 
 
 		/**
-		  * Sends/Writes a debug message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes a debug message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function debug($message);
 
 
 		/**
-		  * Sends/Writes an error message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes an error message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function error($message);
 
 
 		/**
-		  * Sends/Writes an info message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes an info message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function info($message);
 
 
 		/**
-		  * Sends/Writes a notice message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes a notice message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function notice($message);
 
 
 		/**
-		  * Sends/Writes a warning message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes a warning message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function warning($message);
 
 
 		/**
-		  * Sends/Writes an alert message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes an alert message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function alert($message);
 
 	}

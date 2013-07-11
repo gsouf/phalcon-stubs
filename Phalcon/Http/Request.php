@@ -203,6 +203,14 @@ namespace Phalcon\Http {
 
 
 		/**
+		 * Gets decoded JSON HTTP raw request body
+		 *
+		 * @return string
+		 */
+		public function getJsonRawBody(){ }
+
+
+		/**
 		 * Gets active server address IP
 		 *
 		 * @return string
@@ -332,6 +340,12 @@ namespace Phalcon\Http {
 		 * @return \Phalcon\Http\Request\File[]
 		 */
 		public function getUploadedFiles($notErrored=null){ }
+
+
+		/**
+		 * Returns the headers in the
+		 */
+		public function getHeaders(){ }
 
 
 		/**

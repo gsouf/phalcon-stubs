@@ -29,7 +29,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Gets row in a specific position of the row
+		 * Gets a record in a specific position of the row
 		 *
 		 * @param int $index
 		 * @return string|\Phalcon\Mvc\ModelInterface

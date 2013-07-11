@@ -54,8 +54,9 @@ namespace Phalcon\Mvc\Model\Query {
 		 * \Phalcon\Mvc\Model\Query\Builder constructor
 		 *
 		 * @param array $params
+		 * @param \Phalcon\DI $dependencyInjector
 		 */
-		public function __construct($params=null){ }
+		public function __construct($params=null, $dependencyInjector=null){ }
 
 
 		/**
@@ -100,6 +101,7 @@ namespace Phalcon\Mvc\Model\Query {
 		 * Sets the models who makes part of the query
 		 *
 		 *<code>
+		 *	$builder->from('Robots');
 		 *	$builder->from(array('Robots', 'RobotsParts'));
 		 *</code>
 		 *
@@ -132,7 +134,7 @@ namespace Phalcon\Mvc\Model\Query {
 
 
 		/**
-		 * Adds a join to the query
+		 * Adds a INNER join to the query
 		 *
 		 *<code>
 		 *	$builder->join('Robots');
@@ -148,6 +150,25 @@ namespace Phalcon\Mvc\Model\Query {
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function join($model, $conditions=null, $alias=null, $type=null){ }
+
+
+		/**
+		 * Adds a INNER join to the query
+		 *
+		 *<code>
+		 *	$builder->innerJoin('Robots');
+		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id');
+		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
+		 *</code>
+		 *
+		 * @param string $model
+		 * @param string $conditions
+		 * @param string $alias
+		 * @param string $type
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function innerJoin($model, $conditions=null, $alias=null){ }
 
 
 		/**
@@ -184,7 +205,8 @@ namespace Phalcon\Mvc\Model\Query {
 		 * Sets the query conditions
 		 *
 		 *<code>
-		 *	$builder->where('name = :name: AND id > :id:');
+		 *	$builder->where('name = "Peter"');
+		 *	$builder->where('name = :name: AND id > :id:', array('name' => 'Peter', 'id' => 100));
 		 *</code>
 		 *
 		 * @param string $conditions
@@ -240,6 +262,21 @@ namespace Phalcon\Mvc\Model\Query {
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function betweenWhere($expr, $minimum, $maximum){ }
+
+
+		/**
+		 * Appends a NOT BETWEEN condition to the current conditions
+		 *
+		 *<code>
+		 *	$builder->notBetweenWhere('price', 100.25, 200.50);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param mixed $minimum
+		 * @param mixed $maximum
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function notBetweenWhere($expr, $minimum, $maximum){ }
 
 
 		/**

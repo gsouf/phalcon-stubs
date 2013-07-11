@@ -16,7 +16,7 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function get($name, $filters=null, $defaultValue=null);
+		public function get($name=null, $filters=null, $defaultValue=null);
 
 
 		/**
@@ -27,7 +27,7 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function getPost($name, $filters=null, $defaultValue=null);
+		public function getPost($name=null, $filters=null, $defaultValue=null);
 
 
 		/**
@@ -38,7 +38,7 @@ namespace Phalcon\Http {
 		 * @param mixed $defaultValue
 		 * @return mixed
 		 */
-		public function getQuery($name, $filters=null, $defaultValue=null);
+		public function getQuery($name=null, $filters=null, $defaultValue=null);
 
 
 		/**
@@ -245,17 +245,19 @@ namespace Phalcon\Http {
 		/**
 		 * Checks whether request include attached files
 		 *
+		 * @param boolean $notErrored
 		 * @return boolean
 		 */
-		public function hasFiles();
+		public function hasFiles($notErrored=null);
 
 
 		/**
 		 * Gets attached files as \Phalcon\Http\Request\FileInterface compatible instances
 		 *
+		 * @param boolean $notErrored
 		 * @return \Phalcon\Http\Request\FileInterface[]
 		 */
-		public function getUploadedFiles();
+		public function getUploadedFiles($notErrored=null);
 
 
 		/**

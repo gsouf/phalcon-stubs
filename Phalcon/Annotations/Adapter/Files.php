@@ -9,7 +9,7 @@ namespace Phalcon\Annotations\Adapter {
 	 *
 	 *<code>
 	 * $annotations = new \Phalcon\Annotations\Adapter\Files(array(
-	 *    'metaDataDir' => 'app/cache/metadata/'
+	 *    'annotationsDir' => 'app/cache/annotations/'
 	 * ));
 	 *</code>
 	 */

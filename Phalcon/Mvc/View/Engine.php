@@ -34,9 +34,10 @@ namespace Phalcon\Mvc\View {
 		 * Renders a partial inside another view
 		 *
 		 * @param string $partialPath
+		 * @param array $params
 		 * @return string
 		 */
-		public function partial($partialPath){ }
+		public function partial($partialPath, $params=null){ }
 
 
 		/**

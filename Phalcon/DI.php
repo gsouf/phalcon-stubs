@@ -5,8 +5,8 @@ namespace Phalcon {
 	/**
 	 * Phalcon\DI
 	 *
-	 * Phalcon\DI is a component that implements Dependency Injection of services and
-	 * it's itself a container for them.
+	 * Phalcon\DI is a component that implements Dependency Injection/Service Location
+	 * of services and it's itself a container for them.
 	 *
 	 * Since Phalcon is highly decoupled, Phalcon\DI is essential to integrate the different
 	 * components of the framework. The developer can also use this component to inject dependencies
@@ -170,10 +170,10 @@ namespace Phalcon {
 		/**
 		 * Check if a service is registered using the array syntax
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @return boolean
 		 */
-		public function offsetExists($alias){ }
+		public function offsetExists($name){ }
 
 
 		/**
@@ -183,10 +183,10 @@ namespace Phalcon {
 		 *	$di['request'] = new \Phalcon\Http\Request();
 		 *</code>
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @param mixed $definition
 		 */
-		public function offsetSet($alias, $definition){ }
+		public function offsetSet($name, $definition){ }
 
 
 		/**
@@ -196,18 +196,18 @@ namespace Phalcon {
 		 *	var_dump($di['request']);
 		 *</code>
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @return mixed
 		 */
-		public function offsetGet($alias){ }
+		public function offsetGet($name){ }
 
 
 		/**
 		 * Removes a service from the services container using the array syntax
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 */
-		public function offsetUnset($alias){ }
+		public function offsetUnset($name){ }
 
 
 		/**

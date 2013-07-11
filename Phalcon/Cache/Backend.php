@@ -18,6 +18,8 @@ namespace Phalcon\Cache {
 
 		protected $_lastKey;
 
+		protected $_lastLifetime;
+
 		protected $_fresh;
 
 		protected $_started;
@@ -95,6 +97,14 @@ namespace Phalcon\Cache {
 		 * @return string
 		 */
 		public function getLastKey(){ }
+
+
+		/**
+		 * Gets the last lifetime set
+		 *
+		 * @return int
+		 */
+		public function getLifetime(){ }
 
 	}
 }

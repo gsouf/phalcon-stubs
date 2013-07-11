@@ -54,12 +54,23 @@ namespace Phalcon\Mvc {
 
 		protected $_moduleObject;
 
+		protected $_implicitView;
+
 		/**
 		 * \Phalcon\Mvc\Application
 		 *
 		 * @param \Phalcon\DI $dependencyInjector
 		 */
 		public function __construct($dependencyInjector=null){ }
+
+
+		/**
+		 * By default. The view is implicitly buffering all the output
+		 * You can full disable the view component using this method
+		 *
+		 * @param boolean $implicitView
+		 */
+		public function useImplicitView($implicitView){ }
 
 
 		/**

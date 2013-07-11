@@ -37,9 +37,10 @@ namespace Phalcon\Mvc\Model {
 		 * Loads a model throwing an exception if it doesn't exist
 		 *
 		 * @param string $modelName
+		 * @param boolean $newInstance
 		 * @return \Phalcon\Mvc\ModelInterface
 		 */
-		public function load($modelName);
+		public function load($modelName, $newInstance);
 
 
 		/**
@@ -47,12 +48,12 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param   \Phalcon\Mvc\ModelInterface $model
 		 * @param mixed $fields
-		 * @param string $referenceModel
+		 * @param string $referencedModel
 		 * @param mixed $referencedFields
 		 * @param array $options
 		 * @return  \Phalcon\Mvc\Model\RelationInterface
 		 */
-		public function addHasOne($model, $fields, $referenceModel, $referencedFields, $options=null);
+		public function addHasOne($model, $fields, $referencedModel, $referencedFields, $options=null);
 
 
 		/**
@@ -60,12 +61,12 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param 	Phalcon\Mvc\ModelInterface $model
 		 * @param mixed $fields
-		 * @param string $referenceModel
+		 * @param string $referencedModel
 		 * @param mixed $referencedFields
 		 * @param array $options
 		 * @return 	Phalcon\Mvc\Model\RelationInterface
 		 */
-		public function addBelongsTo($model, $fields, $referenceModel, $referencedFields, $options=null);
+		public function addBelongsTo($model, $fields, $referencedModel, $referencedFields, $options=null);
 
 
 		/**
@@ -73,12 +74,12 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param 	Phalcon\Mvc\ModelInterface $model
 		 * @param mixed $fields
-		 * @param string $referenceModel
+		 * @param string $referencedModel
 		 * @param mixed $referencedFields
 		 * @param array $options
 		 * @return 	Phalcon\Mvc\Model\RelationInterface
 		 */
-		public function addHasMany($model, $fields, $referenceModel, $referencedFields, $options=null);
+		public function addHasMany($model, $fields, $referencedModel, $referencedFields, $options=null);
 
 
 		/**
@@ -198,11 +199,11 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Query the relations between two models
 		 *
-		 * @param string $firstModel
-		 * @param string $secondModel
+		 * @param string $first
+		 * @param string $second
 		 * @return array
 		 */
-		public function getRelationsBetween($firstModel, $secondModel);
+		public function getRelationsBetween($first, $second);
 
 
 		/**

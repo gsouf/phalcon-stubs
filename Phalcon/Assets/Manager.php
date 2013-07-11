@@ -10,12 +10,31 @@ namespace Phalcon\Assets {
 	
 	class Manager {
 
+		protected $_options;
+
 		protected $_collections;
 
 		protected $_implicitOutput;
 
 		/**
-		 * Sets if the html generated must be directly printed or returned
+		 * \Phalcon\Assets\Manager constructor
+		 *
+		 * @param array $options
+		 */
+		public function __construct($options=null){ }
+
+
+		/**
+		 * Sets the manager's options
+		 *
+		 * @param array $options
+		 * @return \Phalcon\Assets\Manager
+		 */
+		public function setOptions($options){ }
+
+
+		/**
+		 * Sets if the HTML generated must be directly printed or returned
 		 *
 		 * @param boolean $implicitOutput
 		 * @return \Phalcon\Assets\Manager
@@ -28,9 +47,11 @@ namespace Phalcon\Assets {
 		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Manager
 		 */
-		public function addCss($path, $local=null){ }
+		public function addCss($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
@@ -38,9 +59,11 @@ namespace Phalcon\Assets {
 		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Manager
 		 */
-		public function addJs($path, $local=null){ }
+		public function addJs($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
@@ -52,7 +75,7 @@ namespace Phalcon\Assets {
 		 *
 		 * @param string $type
 		 * @param \Phalcon\Assets\Resource $resource
-		  * @return \Phalcon\Assets\Manager
+		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addResourceByType($type, $resource){ }
 
@@ -65,7 +88,7 @@ namespace Phalcon\Assets {
 		 *</code>
 		 *
 		 * @param \Phalcon\Assets\Resource $resource
-		  * @return \Phalcon\Assets\Manager
+		 * @return \Phalcon\Assets\Manager
 		 */
 		public function addResource($resource){ }
 
@@ -136,6 +159,24 @@ namespace Phalcon\Assets {
 		 * @param string $collectionName
 		 */
 		public function outputJs($collectionName=null){ }
+
+
+		/**
+		 * Filters
+		 *
+		 * @param array $resources
+		 * @param array $filters
+		 */
+		public function filter(){ }
+
+
+		/**
+		 * Checks if a group of resources
+		 */
+		public function hasChanged($resources){ }
+
+
+		public function getResourceContent($resource){ }
 
 	}
 }

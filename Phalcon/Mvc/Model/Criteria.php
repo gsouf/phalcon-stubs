@@ -6,7 +6,16 @@ namespace Phalcon\Mvc\Model {
 	 * Phalcon\Mvc\Model\Criteria
 	 *
 	 * This class allows to build the array parameter required by Phalcon\Mvc\Model::find
-	 * and Phalcon\Mvc\Model::findFirst, using an object-oriented interfase
+	 * and Phalcon\Mvc\Model::findFirst using an object-oriented interface
+	 *
+	 *<code>
+	 *$robots = Robots::query()
+	 *    ->where("type = :type:")
+	 *    ->andWhere("year < 2000")
+	 *    ->bind(array("type" => "mechanical"))
+	 *    ->order("name")
+	 *    ->execute();
+	 *</code>
 	 */
 	
 	class Criteria implements \Phalcon\Mvc\Model\CriteriaInterface, \Phalcon\DI\InjectionAwareInterface {
@@ -14,6 +23,12 @@ namespace Phalcon\Mvc\Model {
 		protected $_model;
 
 		protected $_params;
+
+		protected $_bindParams;
+
+		protected $_bindTypes;
+
+		protected $_hiddenParamNumber;
 
 		/**
 		 * Sets the DependencyInjector container
@@ -49,7 +64,8 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Adds the bind parameter to the criteria
+		 * Sets the bound parameters in the criteria
+		 * This method replaces all previously set bound parameters
 		 *
 		 * @param string $bindParams
 		 * @return \Phalcon\Mvc\Model\Criteria
@@ -58,39 +74,196 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Adds the conditions parameter to the criteria
+		 * Sets the bind types in the criteria
+		 * This method replaces all previously set bound parameters
 		 *
-		 * @param string $conditions
+		 * @param string $bindTypes
 		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
-		public function where($conditions){ }
+		public function bindTypes($bindTypes){ }
+
+
+		/**
+		 * Sets the columns to be queried
+		 *
+		 *<code>
+		 *	$criteria->columns(array('id', 'name'));
+		 *</code>
+		 *
+		 * @param string|array $columns
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function columns($columns){ }
+
+
+		/**
+		 * Adds a INNER join to the query
+		 *
+		 *<code>
+		 *	$criteria->join('Robots');
+		 *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id');
+		 *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
+		 *</code>
+		 *
+		 * @param string $model
+		 * @param string $conditions
+		 * @param string $alias
+		 * @param string $type
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function join($model, $conditions=null, $alias=null, $type=null){ }
+
+
+		/**
+		 * Adds a INNER join to the query
+		 *
+		 *<code>
+		 *	$criteria->innerJoin('Robots');
+		 *	$criteria->innerJoin('Robots', 'r.id = RobotsParts.robots_id');
+		 *	$criteria->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *	$criteria->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
+		 *</code>
+		 *
+		 * @param string $model
+		 * @param string $conditions
+		 * @param string $alias
+		 * @param string $type
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function innerJoin($model, $conditions=null, $alias=null){ }
+
+
+		/**
+		 * Adds a LEFT join to the query
+		 *
+		 *<code>
+		 *	$criteria->leftJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *</code>
+		 *
+		 * @param string $model
+		 * @param string $conditions
+		 * @param string $alias
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function leftJoin($model, $conditions=null, $alias=null){ }
+
+
+		/**
+		 * Adds a RIGHT join to the query
+		 *
+		 *<code>
+		 *	$criteria->rightJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
+		 *</code>
+		 *
+		 * @param string $model
+		 * @param string $conditions
+		 * @param string $alias
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function rightJoin($model, $conditions=null, $alias=null){ }
+
+
+		/**
+		 * Sets the conditions parameter in the criteria
+		 *
+		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
+		 * @return \Phalcon\Mvc\Model\Criteria
+		 */
+		public function where($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using an AND operator (deprecated)
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
-		public function addWhere($conditions){ }
+		public function addWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using an AND operator
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
-		public function andWhere($conditions){ }
+		public function andWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
 
 		/**
 		 * Appends a condition to the current conditions using an OR operator
 		 *
 		 * @param string $conditions
+		 * @param array $bindParams
+		 * @param array $bindTypes
 		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
-		public function orWhere($conditions){ }
+		public function orWhere($conditions, $bindParams=null, $bindTypes=null){ }
+
+
+		/**
+		 * Appends a BETWEEN condition to the current conditions
+		 *
+		 *<code>
+		 *	$criteria->betweenWhere('price', 100.25, 200.50);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param mixed $minimum
+		 * @param mixed $maximum
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function betweenWhere($expr, $minimum, $maximum){ }
+
+
+		/**
+		 * Appends a NOT BETWEEN condition to the current conditions
+		 *
+		 *<code>
+		 *	$criteria->notBetweenWhere('price', 100.25, 200.50);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param mixed $minimum
+		 * @param mixed $maximum
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function notBetweenWhere($expr, $minimum, $maximum){ }
+
+
+		/**
+		 * Appends an IN condition to the current conditions
+		 *
+		 *<code>
+		 *	$criteria->inWhere('id', [1, 2, 3]);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param array $values
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function inWhere($expr, $values){ }
+
+
+		/**
+		 * Appends a NOT IN condition to the current conditions
+		 *
+		 *<code>
+		 *	$criteria->notInWhere('id', [1, 2, 3]);
+		 *</code>
+		 *
+		 * @param string $expr
+		 * @param array $values
+		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 */
+		public function notInWhere($expr, $values){ }
 
 
 		/**
@@ -103,12 +276,21 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Adds the order-by parameter to the criteria
+		 * Adds the order-by parameter to the criteria (deprecated)
 		 *
 		 * @param string $orderColumns
 		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public function order($orderColumns){ }
+
+
+		/**
+		 * Adds the order-by parameter to the criteria
+		 *
+		 * @param string $orderColumns
+		 * @return \Phalcon\Mvc\Model\Criteria
+		 */
+		public function orderBy($orderColumns){ }
 
 
 		/**
@@ -145,6 +327,14 @@ namespace Phalcon\Mvc\Model {
 		 * @return string
 		 */
 		public function getWhere(){ }
+
+
+		/**
+		 * Return the columns to be queried
+		 *
+		 * @return string|array
+		 */
+		public function getColumns(){ }
 
 
 		/**

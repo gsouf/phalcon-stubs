@@ -5,10 +5,12 @@ namespace Phalcon\Assets {
 	/**
 	 * Phalcon\Assets\Collection
 	 *
-	 * Represents a collection of resources // ArrayAccess,
+	 * Represents a collection of resources
 	 */
 	
 	class Collection implements \Countable, \Iterator, \Traversable {
+
+		protected $_name;
 
 		protected $_prefix;
 
@@ -17,6 +19,12 @@ namespace Phalcon\Assets {
 		protected $_resources;
 
 		protected $_position;
+
+		protected $_filters;
+
+		protected $_attributes;
+
+		protected $_join;
 
 		/**
 		 * Adds a resource to the collection
@@ -32,19 +40,23 @@ namespace Phalcon\Assets {
 		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Collection
 		 */
-		public function addCss($path, $local=null){ }
+		public function addCss($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
-		 * Adds a Js resource to the collection
+		 * Adds a javascript resource to the collection
 		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 * @return \Phalcon\Assets\Collection
 		 */
-		public function addJs($path, $local=null){ }
+		public function addJs($path, $local=null, $filter=null, $attributes=null){ }
 
 
 		/**
@@ -101,6 +113,15 @@ namespace Phalcon\Assets {
 
 
 		/**
+		 * Sets the name of the file for the filtered/join output
+		 *
+		 * @param string $name
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function setName($name){ }
+
+
+		/**
 		 * Sets a common prefix for all the resources
 		 *
 		 * @param string $prefix
@@ -132,6 +153,58 @@ namespace Phalcon\Assets {
 		 * @return boolean
 		 */
 		public function getLocal(){ }
+
+
+		/**
+		 * Sets extra HTML attributes
+		 *
+		 * @param array $attributes
+		 * @return $this
+		 */
+		public function setAttributes($attributes){ }
+
+
+		/**
+		 * Returns extra HTML attributes
+		 *
+		 * @return array
+		 */
+		public function getAttributes(){ }
+
+
+		/**
+		 * Adds a filter to the collection
+		 *
+		 * @param \Phalcon\Assets\FilterInterface $filter
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function addFilter($filter){ }
+
+
+		/**
+		 * Sets an array of filters in the collection
+		 *
+		 * @param array $filters
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function setFilters($filters){ }
+
+
+		/**
+		 * Returns the filters set in the collection
+		 *
+		 * @return array
+		 */
+		public function getFilters(){ }
+
+
+		/**
+		 * Sets if all filtered resources in the collection must be joined in a single result file
+		 *
+		 * @param boolean $join
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function join($join){ }
 
 	}
 }

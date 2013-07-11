@@ -11,12 +11,12 @@ namespace Phalcon {
 		/**
 		 * Registers a service in the services container
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @param mixed $definition
 		 * @param boolean $shared
 		 * @return \Phalcon\DI\ServiceInterface
 		 */
-		public function set($alias, $definition, $shared=null);
+		public function set($name, $definition, $shared=null);
 
 
 		/**
@@ -32,9 +32,9 @@ namespace Phalcon {
 		/**
 		 * Removes a service in the services container
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 */
-		public function remove($alias);
+		public function remove($name);
 
 
 		/**
@@ -42,32 +42,32 @@ namespace Phalcon {
 		 * Only is successful if a service hasn't been registered previously
 		 * with the same name
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @param mixed $definition
 		 * @param boolean $shared
 		 * @return \Phalcon\DI\ServiceInterface
 		 */
-		public function attempt($alias, $definition, $shared=null);
+		public function attempt($name, $definition, $shared=null);
 
 
 		/**
 		 * Resolves the service based on its configuration
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @param array $parameters
 		 * @return mixed
 		 */
-		public function get($alias, $parameters=null);
+		public function get($name, $parameters=null);
 
 
 		/**
 		 * Returns a shared service based on their configuration
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @param array $parameters
 		 * @return mixed
 		 */
-		public function getShared($alias, $parameters=null);
+		public function getShared($name, $parameters=null);
 
 
 		/**
@@ -101,10 +101,10 @@ namespace Phalcon {
 		/**
 		 * Check whether the DI contains a service by a name
 		 *
-		 * @param string $alias
+		 * @param string $name
 		 * @return boolean
 		 */
-		public function has($alias);
+		public function has($name);
 
 
 		/**

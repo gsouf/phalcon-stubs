@@ -5,7 +5,7 @@ namespace Phalcon\Forms {
 	/**
 	 * Phalcon\Forms\Manager
 	 *
-	 * Manages forms whithin the application. Allowing the developer to access them from
+	 * Manages forms within the application. Allowing the developer to access them from
 	 * any part of the application
 	 */
 	
@@ -45,6 +45,7 @@ namespace Phalcon\Forms {
 		 * Registers a form in the Forms Manager
 		 *
 		 * @param string $name
+		 * @param \Phalcon\Forms\Form $form
 		 * @return \Phalcon\Forms\Form
 		 */
 		public function set($name, $form){ }

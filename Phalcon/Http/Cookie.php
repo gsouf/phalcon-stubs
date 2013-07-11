@@ -42,9 +42,10 @@ namespace Phalcon\Http {
 		 * @param int $expire
 		 * @param string $path
 		 * @param boolean $secure
+		 * @param string $domain
 		 * @param boolean $httpOnly
 		 */
-		public function __construct($name, $value=null, $expire=null, $path=null, $secure=null, $httpOnly=null){ }
+		public function __construct($name, $value=null, $expire=null, $path=null, $secure=null, $domain=null, $httpOnly=null){ }
 
 
 		/**

@@ -26,6 +26,8 @@ namespace Phalcon\Forms {
 
 		protected $_options;
 
+		protected $_messages;
+
 		/**
 		 * \Phalcon\Forms\Element constructor
 		 *
@@ -76,6 +78,15 @@ namespace Phalcon\Forms {
 		 * @return \Phalcon\Forms\ElementInterface
 		 */
 		public function setFilters($filters){ }
+
+
+		/**
+		 * Adds a filter to current list of filters
+		 *
+		 * @param string $filter
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function addFilter($filter){ }
 
 
 		/**
@@ -263,6 +274,24 @@ namespace Phalcon\Forms {
 		 * @return boolean
 		 */
 		public function hasMessages(){ }
+
+
+		/**
+		 * Sets the validation messages related to the element
+		 *
+		 * @param \Phalcon\Validation\Message\Group $group
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function setMessages($group){ }
+
+
+		/**
+		 * Appends a message to the internal message list
+		 *
+		 * @param \Phalcon\Validation\Message $message
+		 * @return \Phalcon\Forms\ElementInterface
+		 */
+		public function appendMessage($message){ }
 
 
 		/**

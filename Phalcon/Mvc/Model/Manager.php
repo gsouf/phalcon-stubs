@@ -8,16 +8,16 @@ namespace Phalcon\Mvc\Model {
 	 * This components controls the initialization of models, keeping record of relations
 	 * between the different models of the application.
 	 *
-	 * A ModelsManager is injected to a model via a Dependency Injector Container such as Phalcon\DI.
+	 * A ModelsManager is injected to a model via a Dependency Injector/Services Container such as Phalcon\DI.
 	 *
 	 * <code>
-	 * $dependencyInjector = new Phalcon\DI();
+	 * $di = new Phalcon\DI();
 	 *
-	 * $dependencyInjector->set('modelsManager', function(){
+	 * $di->set('modelsManager', function() {
 	 *      return new Phalcon\Mvc\Model\Manager();
 	 * });
 	 *
-	 * $robot = new Robots($dependencyInjector);
+	 * $robot = new Robots($di);
 	 * </code>
 	 */
 	
@@ -46,6 +46,10 @@ namespace Phalcon\Mvc\Model {
 		protected $_belongsTo;
 
 		protected $_belongsToSingle;
+
+		protected $_hasManyToMany;
+
+		protected $_hasManyToManySingle;
 
 		protected $_initialized;
 
@@ -356,7 +360,19 @@ namespace Phalcon\Mvc\Model {
 		public function addHasMany($model, $fields, $referencedModel, $referencedFields, $options=null){ }
 
 
-		public function addHasManyThrough(){ }
+		/**
+		 * Setups a relation n-m between two models
+		 *
+		 * @param string $fields
+		 * @param string $intermediateModel
+		 * @param string $intermediateFields
+		 * @param string $intermediateReferencedFields
+		 * @param string $referencedModel
+		 * @param string $referencedFields
+		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
+		 */
+		public function addHasManyToMany($model, $fields, $intermediateModel, $intermediateFields, $intermediateReferencedFields, $referencedModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -566,11 +582,17 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the last query created or executed in the models manager
+		 * Returns the lastest query created or executed in the models manager
 		 *
 		 * @return \Phalcon\Mvc\Model\QueryInterface
 		 */
 		public function getLastQuery(){ }
+
+
+		/**
+		 * Destroys the PHQL cache
+		 */
+		public function __destruct(){ }
 
 	}
 }

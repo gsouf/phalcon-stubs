@@ -176,9 +176,9 @@ namespace Phalcon\Mvc {
 		/**
 		 * Writes an attribute value by its name
 		 *
-		 * <code>
+		 *<code>
 		 *	$robot->writeAttribute('name', 'Rosey');
-		 * </code>
+		 *</code>
 		 *
 		 * @param string $attribute
 		 * @param mixed $value

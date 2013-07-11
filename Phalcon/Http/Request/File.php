@@ -34,6 +34,8 @@ namespace Phalcon\Http\Request {
 
 		protected $_size;
 
+		protected $_type;
+
 		/**
 		 * \Phalcon\Http\Request\File constructor
 		 *
@@ -67,7 +69,15 @@ namespace Phalcon\Http\Request {
 
 
 		/**
-		 * Move the temporary file to a destination whithin the application
+		 * Returns the mime type reported by the browser
+		 *
+		 * @return string
+		 */
+		public function getType(){ }
+
+
+		/**
+		 * Move the temporary file to a destination within the application
 		 *
 		 * @param string $destination
 		 * @return boolean

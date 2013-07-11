@@ -152,7 +152,7 @@ namespace Phalcon\Mvc {
 		 * Sets base path. Depending of your platform, always add a trailing slash or backslash
 		 *
 		 * <code>
-		 * 	$view->setBasePath(__DIR__.'/');
+		 * 	$view->setBasePath(__DIR__ . '/');
 		 * </code>
 		 *
 		 * @param string $basePath
@@ -414,7 +414,7 @@ namespace Phalcon\Mvc {
 		 * }
 		 * </code>
 		 *
-		 * @param string $renderView
+		 * @param string|array $renderView
 		 */
 		public function pick($renderView){ }
 
@@ -427,10 +427,15 @@ namespace Phalcon\Mvc {
 		 * 	$this->partial('shared/footer');
 		 * </code>
 		 *
+		 * <code>
+		 * 	//Show a partial inside another view with parameters
+		 * 	$this->partial('shared/footer', array('conent' => $html));
+		 * </code>
+		 *
 		 * @param string $partialPath
-		 * @return string
+		 * @param array $params
 		 */
-		public function partial($partialPath){ }
+		public function partial($partialPath, $params=null){ }
 
 
 		/**
@@ -500,7 +505,7 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Returns cached ouput from another view stage
+		 * Returns cached output from another view stage
 		 *
 		 * @return string
 		 */

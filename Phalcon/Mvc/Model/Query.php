@@ -73,6 +73,8 @@ namespace Phalcon\Mvc\Model {
 
 		protected $_bindTypes;
 
+		protected static $_irPhqlCache;
+
 		/**
 		 * \Phalcon\Mvc\Model\Query constructor
 		 *
@@ -98,7 +100,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Tells to the query if only the first row in the resultset must be resturned
+		 * Tells to the query if only the first row in the resultset must be returned
 		 *
 		 * @param boolean $uniqueRow
 		 * @return \Phalcon\Mvc\Model\Query
@@ -188,6 +190,32 @@ namespace Phalcon\Mvc\Model {
 		 * @return string
 		 */
 		protected function _getJoinType(){ }
+
+
+		/**
+		 * Resolves joins involving has-one/belongs-to/has-many relations
+		 *
+		 * @param string $joinType
+		 * @param string $joinSource
+		 * @param string $modelAlias
+		 * @param string $joinAlias
+		 * @param \Phalcon\Mvc\Model\RelationInterface $relation
+		 * @return array
+		 */
+		protected function _getSingleJoin(){ }
+
+
+		/**
+		 * Resolves joins involving many-to-many relations
+		 *
+		 * @param string $joinType
+		 * @param string $joinSource
+		 * @param string $modelAlias
+		 * @param string $joinAlias
+		 * @param \Phalcon\Mvc\Model\RelationInterface $relation
+		 * @return array
+		 */
+		protected function _getMultiJoin(){ }
 
 
 		/**

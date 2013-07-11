@@ -33,10 +33,11 @@ namespace Phalcon\Http\Response {
 		 * @param int $expire
 		 * @param string $path
 		 * @param boolean $secure
+		 * @param string $domain
 		 * @param boolean $httpOnly
 		 * @return \Phalcon\Http\Response\CookiesInterface
 		 */
-		public function set($name, $value=null, $expire=null, $path=null, $secure=null, $httpOnly=null);
+		public function set($name, $value=null, $expire=null, $path=null, $secure=null, $domain=null, $httpOnly=null);
 
 
 		/**
@@ -46,6 +47,25 @@ namespace Phalcon\Http\Response {
 		 * @return \Phalcon\Http\Cookie
 		 */
 		public function get($name);
+
+
+		/**
+		 * Check if a cookie is defined in the bag or exists in the $_COOKIE superglobal
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function has($name);
+
+
+		/**
+		 * Deletes a cookie by its name
+		 * This method does not removes cookies from the $_COOKIE superglobal
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function delete($name);
 
 
 		/**

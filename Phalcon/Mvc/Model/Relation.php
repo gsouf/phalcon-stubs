@@ -5,7 +5,7 @@ namespace Phalcon\Mvc\Model {
 	/**
 	 * Phalcon\Mvc\Model\Relation
 	 *
-	 * This class represents each relationship between two models
+	 * This class represents a relationship between two models
 	 */
 	
 	class Relation implements \Phalcon\Mvc\Model\RelationInterface {
@@ -20,7 +20,11 @@ namespace Phalcon\Mvc\Model {
 
 		const HAS_MANY_THROUGH = 4;
 
-		const MANY_TO_MANY = 3;
+		const NO_ACTION = 0;
+
+		const ACTION_RESTRICT = 1;
+
+		const ACTION_CASCADE = 2;
 
 		protected $_type;
 
@@ -29,6 +33,12 @@ namespace Phalcon\Mvc\Model {
 		protected $_fields;
 
 		protected $_referencedFields;
+
+		protected $_intermediateModel;
+
+		protected $_intermediateFields;
+
+		protected $_intermediateReferencedFields;
 
 		protected $_options;
 
@@ -45,7 +55,17 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Returns the relation's type
+		 * Sets the intermediate model data for has-*-through relations
+		 *
+		 * @param string|array $intermediateFields
+		 * @param string $intermediateModel
+		 * @param string $intermediateReferencedFields
+		 */
+		public function setIntermediateRelation($intermediateFields, $intermediateModel, $intermediateReferencedFields){ }
+
+
+		/**
+		 * Returns the relation type
 		 *
 		 * @return int
 		 */
@@ -101,27 +121,43 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Check whether the relation
+		 * Check whether the relation is a 'many-to-many' relation or not
 		 *
 		 * @return boolean
 		 */
-		public function hasThrough(){ }
+		public function isThrough(){ }
 
 
 		/**
-		 * Returns the 'through' relation if any
-		 *
-		 * @return string
-		 */
-		public function getThrough(){ }
-
-
-		/**
-		 * Check if records in belongs-to/has-many are implicitly cached during the current request
+		 * Check if records returned by getting belongs-to/has-many are implicitly cached during the current request
 		 *
 		 * @return boolean
 		 */
 		public function isReusable(){ }
+
+
+		/**
+		 * Gets the intermediate fields for has-*-through relations
+		 *
+		 * @return string|array
+		 */
+		public function getIntermediateFields(){ }
+
+
+		/**
+		 * Gets the intermediate model for has-*-through relations
+		 *
+		 * @return string
+		 */
+		public function getIntermediateModel(){ }
+
+
+		/**
+		 * Gets the intermediate referenced fields for has-*-through relations
+		 *
+		 * @return string|array
+		 */
+		public function getIntermediateReferencedFields(){ }
 
 	}
 }

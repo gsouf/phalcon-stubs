@@ -97,5 +97,48 @@ namespace Phalcon\Db {
 		 */
 		public function select($definition){ }
 
+
+		/**
+		 * Checks whether the platform supports savepoints
+		 *
+		 * @return boolean
+		 */
+		public function supportsSavepoints(){ }
+
+
+		/**
+		 * Checks whether the platform supports releasing savepoints.
+		 *
+		 * @return boolean
+		 */
+		public function supportsReleaseSavepoints(){ }
+
+
+		/**
+		 * Generate SQL to create a new savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function createSavepoint($name){ }
+
+
+		/**
+		 * Generate SQL to release a savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function releaseSavepoint($name){ }
+
+
+		/**
+		 * Generate SQL to rollback a savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function rollbackSavepoint($name){ }
+
 	}
 }

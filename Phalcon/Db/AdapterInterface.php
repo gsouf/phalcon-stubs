@@ -151,7 +151,29 @@ namespace Phalcon\Db {
 		 * @param boolean $ifExists
 		 * @return boolean
 		 */
-		public function dropTable($tableName, $schemaName, $ifExists=null);
+		public function dropTable($tableName, $schemaName=null, $ifExists=null);
+
+
+		/**
+		 * Creates a view
+		 *
+		 * @param string $tableName
+		 * @param array $definition
+		 * @param string $schemaName
+		 * @return boolean
+		 */
+		public function createView($viewName, $definition, $schemaName=null);
+
+
+		/**
+		 * Drops a view
+		 *
+		 * @param string $viewName
+		 * @param   string $schemaName
+		 * @param boolean $ifExists
+		 * @return boolean
+		 */
+		public function dropView($viewName, $schemaName=null, $ifExists=null);
 
 
 		/**
@@ -264,12 +286,19 @@ namespace Phalcon\Db {
 		/**
 		 * List all tables on a database
 		 *
-		 * <code> print_r($connection->listTables("blog") ?></code>
-		 *
 		 * @param string $schemaName
 		 * @return array
 		 */
 		public function listTables($schemaName=null);
+
+
+		/**
+		 * List all views on a database
+		 *
+		 * @param string $schemaName
+		 * @return array
+		 */
+		public function listViews($schemaName=null);
 
 
 		/**
@@ -523,6 +552,58 @@ namespace Phalcon\Db {
 		 * @return boolean
 		 */
 		public function supportSequences();
+
+
+		/**
+		 * Creates a new savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function createSavepoint($name);
+
+
+		/**
+		 * Releases given savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function releaseSavepoint($name);
+
+
+		/**
+		 * Rollbacks given savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function rollbackSavepoint($name);
+
+
+		/**
+		 * Set if nested transactions should use savepoints
+		 *
+		 * @param boolean $nestedTransactionsWithSavepoints
+		 * @return \Phalcon\Db\AdapterInterface
+		 */
+		public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints);
+
+
+		/**
+		 * Returns if nested transactions should use savepoints
+		 *
+		 * @return boolean
+		 */
+		public function isNestedTransactionsWithSavepoints();
+
+
+		/**
+		 * Returns the savepoint name to use for nested transactions
+		 *
+		 * @return string
+		 */
+		public function getNestedTransactionSavepointName();
 
 
 		/**

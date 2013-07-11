@@ -30,7 +30,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Set the if the output must be implictly flushed to the output or returned as string
+		 * Set whether the output must be implictly flushed to the output or returned as string
 		 *
 		 * @param boolean $implicitFlush
 		 * @return \Phalcon\FlashInterface
@@ -39,7 +39,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Set the if the output must be implictly formatted with HTML
+		 * Set if the output must be implictily formatted with HTML
 		 *
 		 * @param boolean $automaticHtml
 		 * @return \Phalcon\FlashInterface

@@ -41,80 +41,80 @@ namespace Phalcon\Logger {
 
 
 		/**
-		  * Starts a transaction
-		  *
-		  */
+		 * Starts a transaction
+		 *
+		 */
 		public function begin(){ }
 
 
 		/**
-		  * Commits the internal transaction
-		  *
-		  */
+		 * Commits the internal transaction
+		 *
+		 */
 		public function commit(){ }
 
 
 		/**
-		  * Rollbacks the internal transaction
-		  *
-		  */
+		 * Rollbacks the internal transaction
+		 *
+		 */
 		public function rollback(){ }
 
 
 		/**
-		  * Sends/Writes an emergence message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes an emergence message to the log
+		 *
+		 * @param string $message
+		 */
 		public function emergence($message){ }
 
 
 		/**
-		  * Sends/Writes a debug message to the log
-		  *
-		  * @param string $message
-		  * @param ing $type
-		  */
+		 * Sends/Writes a debug message to the log
+		 *
+		 * @param string $message
+		 * @param ing $type
+		 */
 		public function debug($message){ }
 
 
 		/**
-		  * Sends/Writes an error message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes an error message to the log
+		 *
+		 * @param string $message
+		 */
 		public function error($message){ }
 
 
 		/**
-		  * Sends/Writes an info message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes an info message to the log
+		 *
+		 * @param string $message
+		 */
 		public function info($message){ }
 
 
 		/**
-		  * Sends/Writes a notice message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes a notice message to the log
+		 *
+		 * @param string $message
+		 */
 		public function notice($message){ }
 
 
 		/**
-		  * Sends/Writes a warning message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes a warning message to the log
+		 *
+		 * @param string $message
+		 */
 		public function warning($message){ }
 
 
 		/**
-		  * Sends/Writes an alert message to the log
-		  *
-		  * @param string $message
-		  */
+		 * Sends/Writes an alert message to the log
+		 *
+		 * @param string $message
+		 */
 		public function alert($message){ }
 
 

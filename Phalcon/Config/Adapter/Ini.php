@@ -5,7 +5,7 @@ namespace Phalcon\Config\Adapter {
 	/**
 	 * Phalcon\Config\Adapter\Ini
 	 *
-	 * Reads ini files and convert it to Phalcon\Config objects.
+	 * Reads ini files and converts them to Phalcon\Config objects.
 	 *
 	 * Given the next configuration file:
 	 *

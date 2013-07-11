@@ -39,7 +39,7 @@ namespace Phalcon\Translate {
 
 
 		/**
-		 * Elimina un indice del diccionario
+		 * Unsets a translation from the dictionary
 		 *
 		 * @param string $offset
 		 */

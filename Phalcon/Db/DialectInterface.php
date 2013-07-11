@@ -107,7 +107,7 @@ namespace Phalcon\Db {
 
 
 		/**
-		  * Generates SQL to delete an index from a table
+		 * Generates SQL to delete an index from a table
 		 *
 		 * @param string $tableName
 		 * @param string $schemaName
@@ -238,6 +238,49 @@ namespace Phalcon\Db {
 		 * @return string
 		 */
 		public function tableOptions($table, $schema=null);
+
+
+		/**
+		 * Checks whether the platform supports savepoints
+		 *
+		 * @return boolean
+		 */
+		public function supportsSavepoints();
+
+
+		/**
+		 * Checks whether the platform supports releasing savepoints.
+		 *
+		 * @return boolean
+		 */
+		public function supportsReleaseSavepoints();
+
+
+		/**
+		 * Generate SQL to create a new savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function createSavepoint($name);
+
+
+		/**
+		 * Generate SQL to release a savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function releaseSavepoint($name);
+
+
+		/**
+		 * Generate SQL to rollback a savepoint
+		 *
+		 * @param string $name
+		 * @return string
+		 */
+		public function rollbackSavepoint($name);
 
 	}
 }

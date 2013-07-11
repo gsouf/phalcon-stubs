@@ -69,7 +69,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Returns the data that is currently validated
+		 * Returns the validators added to the validation
 		 *
 		 * @return array
 		 */

@@ -6,7 +6,8 @@ namespace Phalcon\Db\Adapter\Pdo {
 	 * Phalcon\Db\Adapter\Pdo\Mysql
 	 *
 	 * Specific functions for the Mysql database system
-	 * <code>
+	 *
+	 *<code>
 	 *
 	 *	$config = array(
 	 *		"host" => "192.168.0.11",
@@ -18,7 +19,7 @@ namespace Phalcon\Db\Adapter\Pdo {
 	 *
 	 *	$connection = new Phalcon\Db\Adapter\Pdo\Mysql($config);
 	 *
-	 * </code>
+	 *</code>
 	 */
 	
 	class Mysql extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Events\EventsAwareInterface, \Phalcon\Db\AdapterInterface {

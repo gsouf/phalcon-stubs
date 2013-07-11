@@ -8,7 +8,7 @@ namespace Phalcon\Mvc\Model\Transaction {
 	 * This class will be thrown to exit a try/catch block for isolated transactions
 	 */
 	
-	class Failed extends \Exception {
+	class Failed extends \Phalcon\Mvc\Model\Transaction\Exception {
 
 		protected $_record;
 

@@ -61,10 +61,11 @@ namespace Phalcon\Http\Response {
 		 * @param int $expire
 		 * @param string $path
 		 * @param boolean $secure
+		 * @param string $domain
 		 * @param boolean $httpOnly
 		 * @return \Phalcon\Http\Response\Cookies
 		 */
-		public function set($name, $value=null, $expire=null, $path=null, $secure=null, $httpOnly=null){ }
+		public function set($name, $value=null, $expire=null, $path=null, $secure=null, $domain=null, $httpOnly=null){ }
 
 
 		/**
@@ -92,7 +93,7 @@ namespace Phalcon\Http\Response {
 		 * @param string $name
 		 * @return boolean
 		 */
-		public function delete(){ }
+		public function delete($name){ }
 
 
 		/**

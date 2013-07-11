@@ -19,7 +19,7 @@ namespace Phalcon\Paginator\Adapter {
 
 		/**
 		 * \Phalcon\Paginator\Adapter\NativeArray constructor
-		  *
+		 *
 		 * @param array $config
 		 */
 		public function __construct($config){ }

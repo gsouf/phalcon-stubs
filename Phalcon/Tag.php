@@ -10,7 +10,7 @@ namespace Phalcon {
 	 * This component is an abstract class that you can extend to add more helpers.
 	 */
 	
-	abstract class Tag {
+	class Tag {
 
 		const HTML32 = 1;
 
@@ -186,6 +186,16 @@ namespace Phalcon {
 
 
 		/**
+		 * Builds INPUT tags that implements the checked attribute
+		 *
+		 * @param   string $type
+		 * @param array $parameters
+		 * @return string
+		 */
+		protected static function _inputFieldChecked(){ }
+
+
+		/**
 		 * Builds a HTML input[type="text"] tag
 		 *
 		 * <code>
@@ -209,6 +219,19 @@ namespace Phalcon {
 		 * @return string
 		 */
 		public static function numericField($parameters){ }
+
+
+		/**
+		 * Builds a HTML input[type="email"] tag
+		 *
+		 * <code>
+		 *	echo \Phalcon\Tag::emailField("email");
+		 * </code>
+		 *
+		 * @param array $parameters
+		 * @return string
+		 */
+		public static function emailField($parameters){ }
 
 
 		/**
@@ -267,7 +290,7 @@ namespace Phalcon {
 		 * Builds a HTML input[type="check"] tag
 		 *
 		 *<code>
-		 * echo \Phalcon\Tag::checkField(array("name"));
+		 * echo \Phalcon\Tag::checkField(array("terms", "value" => "Y"));
 		 *</code>
 		 *
 		 * @param array $parameters
@@ -280,7 +303,7 @@ namespace Phalcon {
 		 * Builds a HTML input[type="radio"] tag
 		 *
 		 *<code>
-		 * echo \Phalcon\Tag::radioField(array("name"))
+		 * echo \Phalcon\Tag::radioField(array("wheather", "value" => "hot"))
 		 *</code>
 		 *
 		 * Volt syntax:
@@ -511,19 +534,21 @@ namespace Phalcon {
 		 * <code>
 		 * 	{{ image("img/bg.png") }}
 		 * 	{{ image("img/photo.jpg", "alt": "Some Photo") }}
+		 * 	{{ image("http://static.mywebsite.com/img/bg.png", false) }}
 		 * </code>
 		 *
 		 * @param  array $parameters
+		 * @param  boolean $local
 		 * @return string
 		 */
-		public static function image($parameters=null){ }
+		public static function image($parameters=null, $local=null){ }
 
 
 		/**
 		 * Converts texts into URL-friendly titles
 		 *
 		 *<code>
-		 * echo \Phalcon\Tag::friendlyTitle('Thiese are big important news', '-')
+		 * echo \Phalcon\Tag::friendlyTitle('These are big important news', '-')
 		 *</code>
 		 *
 		 * @param string $text

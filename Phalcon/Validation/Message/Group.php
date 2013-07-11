@@ -98,6 +98,15 @@ namespace Phalcon\Validation\Message {
 
 
 		/**
+		 * Filters the message group by field name
+		 *
+		 * @param string $fieldName
+		 * @return array
+		 */
+		public function filter($fieldName){ }
+
+
+		/**
 		 * Returns the number of messages in the list
 		 *
 		 * @return int
@@ -135,7 +144,7 @@ namespace Phalcon\Validation\Message {
 
 
 		/**
-		 * Check if the current message the iterator is valid
+		 * Check if the current message in the iterator is valid
 		 *
 		 * @return boolean
 		 */
@@ -143,7 +152,7 @@ namespace Phalcon\Validation\Message {
 
 
 		/**
-		 * Magic __set_state helps to re-build messages variable exporting
+		 * Magic __set_state helps to re-build messages variable when exporting
 		 *
 		 * @param array $group
 		 * @return \Phalcon\Mvc\Model\Message\Group

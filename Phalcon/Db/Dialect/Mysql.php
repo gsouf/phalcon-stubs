@@ -66,7 +66,7 @@ namespace Phalcon\Db\Dialect {
 
 
 		/**
-		  * Generates SQL to delete an index from a table
+		 * Generates SQL to delete an index from a table
 		 *
 		 * @param string $tableName
 		 * @param string $schemaName
@@ -151,6 +151,28 @@ namespace Phalcon\Db\Dialect {
 
 
 		/**
+		 * Generates SQL to create a view
+		 *
+		 * @param string $viewName
+		 * @param array $definition
+		 * @param string $schemaName
+		 * @return string
+		 */
+		public function createView($viewName, $definition, $schemaName){ }
+
+
+		/**
+		 * Generates SQL to drop a view
+		 *
+		 * @param string $viewName
+		 * @param string $schemaName
+		 * @param boolean $ifExists
+		 * @return string
+		 */
+		public function dropView($viewName, $schemaName, $ifExists=null){ }
+
+
+		/**
 		 * Generates SQL checking for the existence of a schema.table
 		 *
 		 * <code>
@@ -163,6 +185,16 @@ namespace Phalcon\Db\Dialect {
 		 * @return string
 		 */
 		public function tableExists($tableName, $schemaName=null){ }
+
+
+		/**
+		 * Generates SQL checking for the existence of a schema.view
+		 *
+		 * @param string $viewName
+		 * @param string $schemaName
+		 * @return string
+		 */
+		public function viewExists($viewName, $schemaName=null){ }
 
 
 		/**
@@ -190,6 +222,15 @@ namespace Phalcon\Db\Dialect {
 		 * @return      array
 		 */
 		public function listTables($schemaName=null){ }
+
+
+		/**
+		 * Generates the SQL to list all views of a schema or user
+		 *
+		 * @param string $schemaName
+		 * @return array
+		 */
+		public function listViews($schemaName=null){ }
 
 
 		/**

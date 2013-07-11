@@ -71,6 +71,11 @@ namespace Phalcon\Queue {
 		public function peekReady(){ }
 
 
+		/**
+		 * Reads the latest status from the Beanstalkd server
+		 *
+		 * @return array
+		 */
 		protected function readStatus(){ }
 
 

@@ -30,6 +30,8 @@ namespace Phalcon\Mvc {
 
 		protected $_router;
 
+		protected $_stopped;
+
 		protected $_notFoundHandler;
 
 		protected $_activeHandler;
@@ -204,6 +206,12 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Stops the middleware execution avoiding than other middlewares be executed
+		 */
+		public function stop(){ }
+
+
+		/**
 		 * Sets externally the handler that must be called by the matched route
 		 *
 		 * @param callable $activeHandler
@@ -289,12 +297,20 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Appends an 'finish' middleware to be called when the request is finished
+		 * Appends a 'finish' middleware to be called when the request is finished
 		 *
 		 * @param callable $handler
 		 * @return \Phalcon\Mvc\Micro
 		 */
 		public function finish($handler){ }
+
+
+		/**
+		 * Returns the internal handlers attached to the application
+		 *
+		 * @return array
+		 */
+		public function getHandlers(){ }
 
 	}
 }

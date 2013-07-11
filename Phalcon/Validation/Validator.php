@@ -38,5 +38,14 @@ namespace Phalcon\Validation {
 		 */
 		public function getOption($key){ }
 
+
+		/**
+		 * Sets an option in the validator
+		 *
+		 * @param string $key
+		 * @param mixed $value
+		 */
+		public function setOption($key, $value){ }
+
 	}
 }

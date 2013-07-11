@@ -28,6 +28,10 @@ namespace Phalcon\Db {
 
 		protected $_sqlBindTypes;
 
+		protected $_transactionLevel;
+
+		protected $_transactionsWithSavepoints;
+
 		protected static $_connectionConsecutive;
 
 		/**
@@ -52,6 +56,22 @@ namespace Phalcon\Db {
 		 * @return \Phalcon\Events\ManagerInterface
 		 */
 		public function getEventsManager(){ }
+
+
+		/**
+		 * Sets the dialect used to produce the SQL
+		 *
+		 * @param \Phalcon\Db\DialectInterface
+		 */
+		public function setDialect($dialect){ }
+
+
+		/**
+		 * Returns internal dialect instance
+		 *
+		 * @return \Phalcon\Db\DialectInterface
+		 */
+		public function getDialect(){ }
 
 
 		/**
@@ -266,7 +286,29 @@ namespace Phalcon\Db {
 		 * @param boolean $ifExists
 		 * @return boolean
 		 */
-		public function dropTable($tableName, $schemaName, $ifExists=null){ }
+		public function dropTable($tableName, $schemaName=null, $ifExists=null){ }
+
+
+		/**
+		 * Creates a view
+		 *
+		 * @param string $tableName
+		 * @param array $definition
+		 * @param string $schemaName
+		 * @return boolean
+		 */
+		public function createView($viewName, $definition, $schemaName=null){ }
+
+
+		/**
+		 * Drops a view
+		 *
+		 * @param string $viewName
+		 * @param   string $schemaName
+		 * @param boolean $ifExists
+		 * @return boolean
+		 */
+		public function dropView($viewName, $schemaName=null, $ifExists=null){ }
 
 
 		/**
@@ -390,6 +432,19 @@ namespace Phalcon\Db {
 
 
 		/**
+		 * List all views on a database
+		 *
+		 *<code>
+		 *	print_r($connection->listViews("blog")); ?>
+		 *</code>
+		 *
+		 * @param string $schemaName
+		 * @return array
+		 */
+		public function listViews($schemaName=null){ }
+
+
+		/**
 		 * Lists table indexes
 		 *
 		 *<code>
@@ -429,6 +484,58 @@ namespace Phalcon\Db {
 		 * @return array
 		 */
 		public function tableOptions($tableName, $schemaName=null){ }
+
+
+		/**
+		 * Creates a new savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function createSavepoint($name){ }
+
+
+		/**
+		 * Releases given savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function releaseSavepoint($name){ }
+
+
+		/**
+		 * Rollbacks given savepoint
+		 *
+		 * @param string $name
+		 * @return boolean
+		 */
+		public function rollbackSavepoint($name){ }
+
+
+		/**
+		 * Set if nested transactions should use savepoints
+		 *
+		 * @param boolean $nestedTransactionsWithSavepoints
+		 * @return \Phalcon\Db\AdapterInterface
+		 */
+		public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints){ }
+
+
+		/**
+		 * Returns if nested transactions should use savepoints
+		 *
+		 * @return boolean
+		 */
+		public function isNestedTransactionsWithSavepoints(){ }
+
+
+		/**
+		 * Returns the savepoint name to use for nested transactions
+		 *
+		 * @return string
+		 */
+		public function getNestedTransactionSavepointName(){ }
 
 
 		/**
@@ -526,14 +633,6 @@ namespace Phalcon\Db {
 		 * @return string
 		 */
 		public function getDialectType(){ }
-
-
-		/**
-		 * Returns internal dialect instance
-		 *
-		 * @return \Phalcon\Db\DialectInterface
-		 */
-		public function getDialect(){ }
 
 	}
 }

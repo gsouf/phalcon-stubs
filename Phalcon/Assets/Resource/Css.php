@@ -15,8 +15,10 @@ namespace Phalcon\Assets\Resource {
 		 *
 		 * @param string $path
 		 * @param boolean $local
+		 * @param boolean $filter
+		 * @param array $attributes
 		 */
-		public function __construct($path, $local=null){ }
+		public function __construct($path, $local=null, $filter=null, $attributes=null){ }
 
 	}
 }

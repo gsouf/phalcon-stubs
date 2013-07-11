@@ -682,18 +682,27 @@ namespace Phalcon\Mvc {
 
 		/**
 		 * Reads "belongs to" relations and check the virtual foreign keys when inserting or updating records
+		 * to verify that inserted/updated values are present in the related entity
 		 *
 		 * @return boolean
 		 */
-		protected function _checkForeignKeys(){ }
+		protected function _checkForeignKeysRestrict(){ }
 
 
 		/**
-		 * Reads both "hasMany" and "hasOne" relations and checks the virtual foreign keys when deleting records
+		 * Reads both "hasMany" and "hasOne" relations and checks the virtual foreign keys (restrict) when deleting records
 		 *
 		 * @return boolean
 		 */
-		protected function _checkForeignKeysReverse(){ }
+		protected function _checkForeignKeysReverseRestrict(){ }
+
+
+		/**
+		 * Reads both "hasMany" and "hasOne" relations and checks the virtual foreign keys (cascade) when deleting records
+		 *
+		 * @return boolean
+		 */
+		protected function _checkForeignKeysReverseCascade(){ }
 
 
 		/**
@@ -740,8 +749,11 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Saves related records that must be stored prior to save the master record
 		 *
-		 * @param array $related
+		 * @param \Phalcon\Db\AdapterInterface $connection
+		 * @param \Phalcon\Mvc\ModelInterface[] $related
+		 * @return boolean
 		 */
 		protected function _preSaveRelatedRecords(){ }
 
@@ -751,6 +763,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param \Phalcon\Db\AdapterInterface $connection
 		 * @param \Phalcon\Mvc\ModelInterface[] $related
+		 * @return boolean
 		 */
 		protected function _postSaveRelatedRecords(){ }
 
@@ -977,6 +990,7 @@ namespace Phalcon\Mvc {
 		 * @param string $referenceModel
 		 * @param mixed $referencedFields
 		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
 		protected function hasOne(){ }
 
@@ -1001,6 +1015,7 @@ namespace Phalcon\Mvc {
 		 * @param string $referenceModel
 		 * @param mixed $referencedFields
 		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
 		protected function belongsTo(){ }
 
@@ -1025,6 +1040,7 @@ namespace Phalcon\Mvc {
 		 * @param string $referenceModel
 		 * @param mixed $referencedFields
 		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
 		protected function hasMany(){ }
 
@@ -1039,21 +1055,29 @@ namespace Phalcon\Mvc {
 		 *
 		 *   public function initialize()
 		 *   {
-		 *       //A reference relation must be set
-		 *       $this->hasMany('id', 'RobotsParts', 'robots_id');
-		 *
 		 *       //Setup a many-to-many relation to Parts through RobotsParts
-		 *       $this->hasManyThrough('Parts', 'RobotsParts');
+		 *       $this->hasManyToMany(
+		 *			'id',
+		 *			'RobotsParts',
+		 *			'robots_id',
+		 *			'parts_id',
+		 *			'Parts',
+		 *			'id'
+		 *		);
 		 *   }
 		 *
 		 *}
 		 *</code>
 		 *
-		 * @param string $referenceModel
-		 * @param string $throughRelation
+		 * @param string $fields
+		 * @param string $intermediateModel
+		 * @param string $intermediateFields
+		 * @param string $intermediateReferencedFields
+		 * @param string $referencedModel
 		 * @param   array $options
+		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		protected function hasManyThrough(){ }
+		protected function hasManyToMany(){ }
 
 
 		/**
@@ -1061,7 +1085,7 @@ namespace Phalcon\Mvc {
 		 *
 		 *<code>
 		 *
-		 *use \Phalcon\Mvc\Model\Behaviors\Timestampable;
+		 *use \Phalcon\Mvc\Model\Behavior\Timestampable;
 		 *
 		 *class Robots extends \Phalcon\Mvc\Model
 		 *{
