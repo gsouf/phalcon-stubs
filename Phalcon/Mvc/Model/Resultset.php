@@ -119,7 +119,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Resulsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface
+		 * Resultsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface
 		 *
 		 * @param int $index
 		 * @param \Phalcon\Mvc\ModelInterface $value
@@ -128,7 +128,7 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Resulsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface
+		 * Resultsets cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface
 		 *
 		 * @param int $offset
 		 */

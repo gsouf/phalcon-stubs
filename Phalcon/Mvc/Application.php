@@ -69,6 +69,7 @@ namespace Phalcon\Mvc {
 		 * You can full disable the view component using this method
 		 *
 		 * @param boolean $implicitView
+		 * @return \Phalcon\Mvc\Application
 		 */
 		public function useImplicitView($implicitView){ }
 
@@ -108,6 +109,7 @@ namespace Phalcon\Mvc {
 		 * Sets the module name to be used if the router doesn't return a valid module
 		 *
 		 * @param string $defaultModule
+		 * @return \Phalcon\Mvc\Application
 		 */
 		public function setDefaultModule($defaultModule){ }
 

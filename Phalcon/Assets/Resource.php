@@ -190,6 +190,14 @@ namespace Phalcon\Assets {
 
 
 		/**
+		 * Returns the real target uri for the generated HTML
+		 *
+		 * @return string
+		 */
+		public function getRealTargetUri(){ }
+
+
+		/**
 		 * Returns the complete location where the resource is located
 		 *
 		 * @param string $basePath

@@ -103,7 +103,17 @@ namespace Phalcon\CLI {
 
 
 		/**
-		 * Handle the whole command-line tasks
+		 * Handle the command-line arguments.
+		 *  
+		 * 
+		 * <code>
+		 * 	$arguments = array(
+		 * 		'task' => 'taskname',
+		 * 		'action' => 'action',
+		 * 		'params' => array('parameter1', 'parameter2')
+		 * 	);
+		 * 	$console->handle($arguments);
+		 * </code>
 		 *
 		 * @param array $arguments
 		 * @return mixed

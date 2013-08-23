@@ -28,7 +28,7 @@ namespace Phalcon {
 	 *
 	 */
 	
-	class Config implements \ArrayAccess {
+	class Config implements \ArrayAccess, \Countable {
 
 		/**
 		 * \Phalcon\Config constructor
@@ -129,6 +129,12 @@ namespace Phalcon {
 		public function toArray(){ }
 
 
+		public function count(){ }
+
+
+		public function __wakeup(){ }
+
+
 		/**
 		 * Restores the state of a \Phalcon\Config object
 		 *
@@ -136,6 +142,15 @@ namespace Phalcon {
 		 * @return \Phalcon\Config
 		 */
 		public static function __set_state($data){ }
+
+
+		public function __get($index){ }
+
+
+		public function __set($index, $value){ }
+
+
+		public function __isset($index){ }
 
 	}
 }

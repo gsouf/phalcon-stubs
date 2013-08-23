@@ -88,6 +88,22 @@ namespace Phalcon\CLI {
 
 
 		/**
+		 * Handles a user exception
+		 *
+		 * @param \Exception $exception
+		 */
+		protected function _handleException(){ }
+
+
+		/**
+		 * Possible task class name that will be located to dispatch the request
+		 *
+		 * @return string
+		 */
+		public function getTaskClass(){ }
+
+
+		/**
 		 * Returns the lastest dispatched controller
 		 *
 		 * @return \Phalcon\CLI\Task

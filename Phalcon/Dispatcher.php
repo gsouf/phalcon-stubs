@@ -271,5 +271,13 @@ namespace Phalcon {
 		 */
 		public function wasForwarded(){ }
 
+
+		/**
+		 * Possible class name that will be located to dispatch the request
+		 *
+		 * @return string
+		 */
+		public function getHandlerClass(){ }
+
 	}
 }

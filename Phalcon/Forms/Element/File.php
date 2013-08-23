@@ -8,7 +8,7 @@ namespace Phalcon\Forms\Element {
 	 * Component INPUT[type=file] for forms
 	 */
 	
-	class File extends \Phalcon\Forms\Element {
+	class File extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface {
 
 		/**
 		 * Renders the element widget returning html

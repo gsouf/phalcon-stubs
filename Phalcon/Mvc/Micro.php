@@ -244,16 +244,18 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Check if a service is registered in the internal services container using the array syntax
+		 * Check if a service is registered in the internal services container using the array syntax.
+		 * Alias for \Phalcon\Mvc\Micro::hasService()
 		 *
 		 * @param string $alias
 		 * @return boolean
 		 */
-		public function offsetExists($alias){ }
+		public function offsetExists($serviceName){ }
 
 
 		/**
-		 * Allows to register a shared service in the internal services container using the array syntax
+		 * Allows to register a shared service in the internal services container using the array syntax.
+		 * Alias for \Phalcon\Mvc\Micro::setService()
 		 *
 		 *<code>
 		 *	$app['request'] = new \Phalcon\Http\Request();
@@ -262,11 +264,12 @@ namespace Phalcon\Mvc {
 		 * @param string $alias
 		 * @param mixed $definition
 		 */
-		public function offsetSet($alias, $definition){ }
+		public function offsetSet($serviceName, $definition, $shared=null){ }
 
 
 		/**
-		 * Allows to obtain a shared service in the internal services container using the array syntax
+		 * Allows to obtain a shared service in the internal services container using the array syntax.
+		 * Alias for \Phalcon\Mvc\Micro::getService()
 		 *
 		 *<code>
 		 *	var_dump($di['request']);
@@ -275,13 +278,14 @@ namespace Phalcon\Mvc {
 		 * @param string $alias
 		 * @return mixed
 		 */
-		public function offsetGet($alias){ }
+		public function offsetGet($serviceName){ }
 
 
 		/**
 		 * Removes a service from the internal services container using the array syntax
 		 *
 		 * @param string $alias
+		 * @todo Not implemented
 		 */
 		public function offsetUnset($alias){ }
 

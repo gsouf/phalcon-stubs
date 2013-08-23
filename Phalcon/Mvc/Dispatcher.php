@@ -88,6 +88,22 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Handles a user exception
+		 *
+		 * @param \Exception $exception
+		 */
+		protected function _handleException(){ }
+
+
+		/**
+		 * Possible controller class name that will be located to dispatch the request
+		 *
+		 * @return string
+		 */
+		public function getControllerClass(){ }
+
+
+		/**
 		 * Returns the lastest dispatched controller
 		 *
 		 * @return \Phalcon\Mvc\ControllerInterface

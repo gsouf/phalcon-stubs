@@ -187,6 +187,7 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 		 * Set a unique prefix to be used as prefix for compiled variables
 		 *
 		 * @param string $prefix
+		 * @return \Phalcon\Mvc\View\Engine\Volt\Compiler
 		 */
 		public function setUniquePrefix($prefix){ }
 

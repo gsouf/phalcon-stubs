@@ -82,6 +82,14 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Returns the prefix for all the generated static urls. By default /
+		 *
+		 * @return string
+		 */
+		public function getStaticBaseUri(){ }
+
+
+		/**
 		 * Sets a base path for all the generated paths
 		 *
 		 *<code>
@@ -116,9 +124,10 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param string|array $uri
+		 * @param array|object args Optional arguments to be appended to the query string
 		 * @return string
 		 */
-		public function get($uri=null){ }
+		public function get($uri=null, $args=null){ }
 
 
 		/**

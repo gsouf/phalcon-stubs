@@ -8,7 +8,7 @@ namespace Phalcon\Forms\Element {
 	 * Component INPUT[type=submit] for forms
 	 */
 	
-	class Submit extends \Phalcon\Forms\Element {
+	class Submit extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface {
 
 		/**
 		 * Renders the element widget

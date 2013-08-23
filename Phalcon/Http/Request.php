@@ -25,8 +25,6 @@ namespace Phalcon\Http {
 
 		protected $_dependencyInjector;
 
-		protected $_rawBody;
-
 		protected $_filter;
 
 		/**
@@ -277,7 +275,6 @@ namespace Phalcon\Http {
 
 
 		/**
-		 *
 		 * Checks whether HTTP method is GET. if $_SERVER['REQUEST_METHOD']=='GET'
 		 *
 		 * @return boolean
@@ -326,7 +323,7 @@ namespace Phalcon\Http {
 
 
 		/**
-		 * Checks whether request include attached files
+		 * Checks whether request includes attached files
 		 *
 		 * @return boolean
 		 */

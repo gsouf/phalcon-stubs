@@ -81,7 +81,8 @@ namespace Phalcon\Session {
 
 
 		/**
-		 * Magic setter to assign values to the session bag
+		 * Magic setter to assign values to the session bag.
+		 * Alias for \Phalcon\Session\Bag::set()
 		 *
 		 *<code>
 		 * $user->name = "Kimbra";
@@ -108,7 +109,8 @@ namespace Phalcon\Session {
 
 
 		/**
-		 * Magic getter to obtain values from the session bag
+		 * Magic getter to obtain values from the session bag.
+		 * Alias for \Phalcon\Session\Bag::get()
 		 *
 		 *<code>
 		 * echo $user->name;
@@ -134,7 +136,8 @@ namespace Phalcon\Session {
 
 
 		/**
-		 * Magic isset to check whether a property is defined in the bag
+		 * Magic isset to check whether a property is defined in the bag.
+		 * Alias for \Phalcon\Session\Bag::has()
 		 *
 		 *<code>
 		 * var_dump(isset($user['name']));
@@ -160,7 +163,8 @@ namespace Phalcon\Session {
 
 
 		/**
-		 * Magic unset to remove items using the array syntax
+		 * Magic unset to remove items using the property syntax.
+		 * Alias for \Phalcon\Session\Bag::remove()
 		 *
 		 *<code>
 		 * unset($user['name']);

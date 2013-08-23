@@ -46,7 +46,7 @@ namespace Phalcon\Mvc {
 		 * @param string|array $uri
 		 * @return string
 		 */
-		public function get($uri=null);
+		public function get($uri=null, $args=null);
 
 
 		/**

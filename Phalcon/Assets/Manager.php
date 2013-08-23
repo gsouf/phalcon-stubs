@@ -169,7 +169,7 @@ namespace Phalcon\Assets {
 		 * @param \Phalcon\Assets\Collection $collection
 		 * @param callback $callback
 		 */
-		public function output($collection, $callback){ }
+		public function output($collection, $callback, $type=null){ }
 
 
 		/**

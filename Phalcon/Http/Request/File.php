@@ -36,12 +36,16 @@ namespace Phalcon\Http\Request {
 
 		protected $_type;
 
+		protected $_error;
+
+		protected $_key;
+
 		/**
 		 * \Phalcon\Http\Request\File constructor
 		 *
 		 * @param array $file
 		 */
-		public function __construct($file){ }
+		public function __construct($file, $key=null){ }
 
 
 		/**
@@ -80,9 +84,29 @@ namespace Phalcon\Http\Request {
 		/**
 		 * Gets the real mime type of the upload file using finfo
 		 *
+		 * @todo Not implemented
 		 * @return string
 		 */
 		public function getRealType(){ }
+
+
+		/**
+		 * Returns the error code
+		 *
+		 * @return string
+		 */
+		public function getError(){ }
+
+
+		/**
+		 * Returns the file key
+		 *
+		 * @return string
+		 */
+		public function getKey(){ }
+
+
+		public function isUploadedFile(){ }
 
 
 		/**
@@ -92,6 +116,9 @@ namespace Phalcon\Http\Request {
 		 * @return boolean
 		 */
 		public function moveTo($destination){ }
+
+
+		public static function __set_state($file, $key=null){ }
 
 	}
 }

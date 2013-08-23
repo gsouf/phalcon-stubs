@@ -24,10 +24,6 @@ namespace Phalcon\Mvc\Model {
 
 		protected $_params;
 
-		protected $_bindParams;
-
-		protected $_bindTypes;
-
 		protected $_hiddenParamNumber;
 
 		/**

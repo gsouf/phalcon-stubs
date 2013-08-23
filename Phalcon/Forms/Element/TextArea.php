@@ -8,7 +8,7 @@ namespace Phalcon\Forms\Element {
 	 * Component TEXTAREA for forms
 	 */
 	
-	class TextArea extends \Phalcon\Forms\Element {
+	class TextArea extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface {
 
 		/**
 		 * Renders the element widget

@@ -12,7 +12,7 @@ namespace Phalcon\Mvc\Collection {
 	class Document implements \ArrayAccess {
 
 		/**
-		 * Checks whether offset exists in the row
+		 * Checks whether an offset exists in the document
 		 *
 		 * @param int $index
 		 * @return boolean

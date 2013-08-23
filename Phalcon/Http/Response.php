@@ -295,7 +295,7 @@ namespace Phalcon\Http {
 		 * @param string $filePath
 		 * @param string $attachmentName
 		 */
-		public function setFileToSend($filePath, $attachmentName=null){ }
+		public function setFileToSend($filePath, $attachmentName=null, $attachment=null){ }
 
 	}
 }

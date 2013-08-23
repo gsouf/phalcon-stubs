@@ -8,7 +8,7 @@ namespace Phalcon\Forms\Element {
 	 * Component INPUT[type=email] for forms
 	 */
 	
-	class Email extends \Phalcon\Forms\Element {
+	class Email extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface {
 
 		/**
 		 * Renders the element widget returning html

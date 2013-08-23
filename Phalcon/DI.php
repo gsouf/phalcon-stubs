@@ -168,7 +168,8 @@ namespace Phalcon {
 
 
 		/**
-		 * Check if a service is registered using the array syntax
+		 * Check if a service is registered using the array syntax.
+		 * Alias for \Phalcon\Di::has()
 		 *
 		 * @param string $name
 		 * @return boolean
@@ -177,7 +178,8 @@ namespace Phalcon {
 
 
 		/**
-		 * Allows to register a shared service using the array syntax
+		 * Allows to register a shared service using the array syntax.
+		 * Alias for \Phalcon\Di::setShared()
 		 *
 		 *<code>
 		 *	$di['request'] = new \Phalcon\Http\Request();
@@ -190,7 +192,8 @@ namespace Phalcon {
 
 
 		/**
-		 * Allows to obtain a shared service using the array syntax
+		 * Allows to obtain a shared service using the array syntax.
+		 * Alias for \Phalcon\Di::getShared()
 		 *
 		 *<code>
 		 *	var_dump($di['request']);
@@ -199,11 +202,12 @@ namespace Phalcon {
 		 * @param string $name
 		 * @return mixed
 		 */
-		public function offsetGet($name){ }
+		public function offsetGet($name, $parameters=null){ }
 
 
 		/**
-		 * Removes a service from the services container using the array syntax
+		 * Removes a service from the services container using the array syntax.
+		 * Alias for \Phalcon\Di::remove()
 		 *
 		 * @param string $name
 		 */
