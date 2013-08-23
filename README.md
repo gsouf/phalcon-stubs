@@ -33,9 +33,15 @@ then move to the version you want :
 
 ```git checkout 1.2.0``` or ```git checkout 1.1.0``` or ```git checkout 1.0.0```
 
+list of available versions :
 
+```v1.0.0```
 
+```v1.1.0```
 
+```v1.2.0```
+
+```v1.2.3```
 
 .gitignore
 -----
