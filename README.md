@@ -11,11 +11,11 @@ Composer
 
 The simplest way to install stubs, is to use composer :
 
-Add the line : ```"sneakybobito/phalcon-stubs": "1.2.0"``` in your ```composer.json``` and ```update``` or ```install```.
+Add the line : ```"sneakybobito/phalcon-stubs": "1.2.3"``` in your ```composer.json``` and ```update``` or ```install```.
 
 You may specify a different version :
 
-```"sneakybobito/phalcon-stubs": "1.1.0"```  ```"sneakybobito/phalcon-stubs": "1.0.0"```
+```"sneakybobito/phalcon-stubs": "1.2.0"```  ```"sneakybobito/phalcon-stubs": "1.1.0"```
 
 
 
