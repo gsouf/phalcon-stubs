@@ -34,20 +34,10 @@ namespace Phalcon\Mvc\Micro {
 		protected $_handlers;
 
 		/**
-		 * Internal function to add a handler to the group
-		 *
-		 * @param string|array $method
-		 * @param string $routePattern
-		 * @param mixed $handler
-		 */
-		protected function _addMap(){ }
-
-
-		/**
 		 * Sets a prefix for all routes added to the collection
 		 *
 		 * @param string $prefix
-		 * @return \Phalcon\Mvc\Micro\Collection
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function setPrefix($prefix){ }
 
@@ -73,7 +63,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param mixed $handler
 		 * @param boolean $lazy
-		 * @return \Phalcon\Mvc\Micro\Collection
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function setHandler($handler, $lazy=null){ }
 
@@ -82,7 +72,7 @@ namespace Phalcon\Mvc\Micro {
 		 * Sets if the main handler must be lazy loaded
 		 *
 		 * @param boolean $lazy
-		 * @return \Phalcon\Mvc\Micro\Collection
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function setLazy($lazy){ }
 
@@ -108,7 +98,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function map($routePattern, $handler){ }
 
@@ -118,7 +108,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function get($routePattern, $handler){ }
 
@@ -128,7 +118,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function post($routePattern, $handler){ }
 
@@ -138,7 +128,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function put($routePattern, $handler){ }
 
@@ -148,7 +138,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function patch($routePattern, $handler){ }
 
@@ -158,7 +148,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function head($routePattern, $handler){ }
 
@@ -168,7 +158,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function delete($routePattern, $handler){ }
 
@@ -178,7 +168,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
-		 * @return \Phalcon\Mvc\Router\RouteInterface
+		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function options($routePattern, $handler){ }
 

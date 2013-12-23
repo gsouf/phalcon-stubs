@@ -99,7 +99,7 @@ namespace Phalcon {
 		/**
 		 * Return current namespaces registered in the autoloader
 		 *
-		 * @param array
+		 * @return array
 		 */
 		public function getNamespaces(){ }
 

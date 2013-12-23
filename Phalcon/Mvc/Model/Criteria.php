@@ -46,7 +46,7 @@ namespace Phalcon\Mvc\Model {
 		 * Set a model on which the query will be executed
 		 *
 		 * @param string $modelName
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function setModelName($modelName){ }
 
@@ -64,7 +64,7 @@ namespace Phalcon\Mvc\Model {
 		 * This method replaces all previously set bound parameters
 		 *
 		 * @param string $bindParams
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function bind($bindParams){ }
 
@@ -74,7 +74,7 @@ namespace Phalcon\Mvc\Model {
 		 * This method replaces all previously set bound parameters
 		 *
 		 * @param string $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function bindTypes($bindTypes){ }
 
@@ -87,7 +87,7 @@ namespace Phalcon\Mvc\Model {
 		 *</code>
 		 *
 		 * @param string|array $columns
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function columns($columns){ }
 
@@ -106,7 +106,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $conditions
 		 * @param string $alias
 		 * @param string $type
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function join($model, $conditions=null, $alias=null, $type=null){ }
 
@@ -124,8 +124,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $model
 		 * @param string $conditions
 		 * @param string $alias
-		 * @param string $type
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function innerJoin($model, $conditions=null, $alias=null){ }
 
@@ -140,7 +139,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $model
 		 * @param string $conditions
 		 * @param string $alias
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function leftJoin($model, $conditions=null, $alias=null){ }
 
@@ -155,7 +154,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $model
 		 * @param string $conditions
 		 * @param string $alias
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function rightJoin($model, $conditions=null, $alias=null){ }
 
@@ -166,7 +165,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $conditions
 		 * @param array $bindParams
 		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function where($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -177,7 +176,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $conditions
 		 * @param array $bindParams
 		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function addWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -188,7 +187,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $conditions
 		 * @param array $bindParams
 		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function andWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -199,7 +198,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $conditions
 		 * @param array $bindParams
 		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function orWhere($conditions, $bindParams=null, $bindTypes=null){ }
 
@@ -214,7 +213,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $expr
 		 * @param mixed $minimum
 		 * @param mixed $maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function betweenWhere($expr, $minimum, $maximum){ }
 
@@ -229,7 +228,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param string $expr
 		 * @param mixed $minimum
 		 * @param mixed $maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function notBetweenWhere($expr, $minimum, $maximum){ }
 
@@ -243,7 +242,7 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param string $expr
 		 * @param array $values
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function inWhere($expr, $values){ }
 
@@ -257,7 +256,7 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param string $expr
 		 * @param array $values
-		 * @return \Phalcon\Mvc\Model\Query\Builder
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function notInWhere($expr, $values){ }
 
@@ -266,7 +265,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the conditions parameter to the criteria
 		 *
 		 * @param string $conditions
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaIntreface
 		 */
 		public function conditions($conditions){ }
 
@@ -275,7 +274,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the order-by parameter to the criteria (deprecated)
 		 *
 		 * @param string $orderColumns
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function order($orderColumns){ }
 
@@ -284,7 +283,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the order-by parameter to the criteria
 		 *
 		 * @param string $orderColumns
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function orderBy($orderColumns){ }
 
@@ -294,7 +293,7 @@ namespace Phalcon\Mvc\Model {
 		 *
 		 * @param int $limit
 		 * @param int $offset
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function limit($limit, $offset=null){ }
 
@@ -303,7 +302,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the "for_update" parameter to the criteria
 		 *
 		 * @param boolean $forUpdate
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function forUpdate($forUpdate=null){ }
 
@@ -312,7 +311,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the "shared_lock" parameter to the criteria
 		 *
 		 * @param boolean $sharedLock
-		 * @return \Phalcon\Mvc\Model\Criteria
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function sharedLock($sharedLock=null){ }
 
@@ -360,7 +359,7 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Returns all the parameters defined in the criteria
 		 *
-		 * @return string
+		 * @return array
 		 */
 		public function getParams(){ }
 
@@ -371,7 +370,7 @@ namespace Phalcon\Mvc\Model {
 		 * @param \Phalcon\DiInterface $dependencyInjector
 		 * @param string $modelName
 		 * @param array $data
-		 * @return static
+		 * @return \Phalcon\Mvc\Model\Criteria
 		 */
 		public static function fromInput($dependencyInjector, $modelName, $data){ }
 

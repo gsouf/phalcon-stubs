@@ -53,6 +53,20 @@ namespace Phalcon\Mvc\Model\Query {
 		/**
 		 * \Phalcon\Mvc\Model\Query\Builder constructor
 		 *
+		 *<code>
+		 * $params = array(
+		 *    'models'     => array('Users'),
+		 *    'columns'    => array('id', 'name', 'status'),
+		 *    'conditions' => "created > '2013-01-01' AND created < '2014-01-01'",
+		 *    'group'      => array('id', 'name'),
+		 *    'having'     => "name = 'Kamil'",
+		 *    'order'      => array('name', 'id'),
+		 *    'limit'      => 20,
+		 *    'offset'     => 20,
+		 *);
+		 *$queryBuilder = new \Phalcon\Mvc\Model\Query\Builder($params);
+		 *</code> 
+		 *
 		 * @param array $params
 		 * @param \Phalcon\DI $dependencyInjector
 		 */
@@ -165,7 +179,6 @@ namespace Phalcon\Mvc\Model\Query {
 		 * @param string $model
 		 * @param string $conditions
 		 * @param string $alias
-		 * @param string $type
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function innerJoin($model, $conditions=null, $alias=null){ }

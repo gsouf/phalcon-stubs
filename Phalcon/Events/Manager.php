@@ -25,7 +25,7 @@ namespace Phalcon\Events {
 		 * Attach a listener to the events manager
 		 *
 		 * @param string $eventType
-		 * @param object $handler
+		 * @param object|callable $handler
 		 * @param int $priority
 		 */
 		public function attach($eventType, $handler, $priority=null){ }
@@ -74,6 +74,15 @@ namespace Phalcon\Events {
 		/**
 		 * Removes all events from the EventsManager
 		 *
+		 * @param string $type
+		 */
+		public function detachAll($type=null){ }
+
+
+		/**
+		 * Removes all events from the EventsManager; alias of detachAll
+		 *
+		 * @deprecated
 		 * @param string $type
 		 */
 		public function dettachAll($type=null){ }

@@ -206,5 +206,13 @@ namespace Phalcon\Mvc {
 		 */
 		public function getRouteByName($name);
 
+
+		/**
+		 * Returns whether controller name should not be mangled
+		 *
+		 * @return bool
+		 */
+		public function isExactControllerName();
+
 	}
 }

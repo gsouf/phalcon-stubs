@@ -11,7 +11,10 @@ Composer
 
 The simplest way to install stubs, is to use composer :
 
-Add the line : ```"sneakybobito/phalcon-stubs": "1.2.0"``` in your ```composer.json``` and ```update``` or ```install```.
+Add the line : ```"sneakybobito/phalcon-stubs": "1.2.4"``` in your ```composer.json``` and ```update``` or ```install```.
+
+Best practise would be to place it in the [require-dev](http://getcomposer.org/doc/04-schema.md#require-dev) section of the composer.json.
+
 
 You may specify a different version :
 
@@ -20,10 +23,11 @@ You may specify a different version :
 
 
 
+
 Clone and checkout
 -----------
 
-If you dont want to use composer, then you can just put the stubs in your project by cloning the repo manually.
+If you don't want to use composer, then you can just put the stubs in your project by cloning the repo manually.
 
 Anywhere in you project you can clone the stubs :
 
@@ -31,9 +35,19 @@ Anywhere in you project you can clone the stubs :
 
 then move to the version you want : 
 
-```git checkout 1.2.0``` or ```git checkout 1.1.0``` or ```git checkout 1.0.0```
+```git checkout 1.2.4``` or ```git checkout 1.2.3``` or ```git checkout 1.1.0``` or ```git checkout 1.0.0```
 
+Available versions :
 
+```1.2.4```
+
+```1.2.3```
+
+```1.2.0```
+
+```1.1.0```
+
+```1.0.0```
 
 
 
@@ -41,4 +55,4 @@ then move to the version you want :
 -----
 
 
-Dont forget to add it into you ```.gitignore```
+If you use clone and checkout, then don't forget to add it into you ```.gitignore```

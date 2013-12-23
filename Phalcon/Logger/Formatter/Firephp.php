@@ -10,6 +10,8 @@ namespace Phalcon\Logger\Formatter {
 	
 	class Firephp extends \Phalcon\Logger\Formatter implements \Phalcon\Logger\FormatterInterface {
 
+		protected $_showBacktrace;
+
 		/**
 		 * Returns the string meaning of a logger constant
 		 *
@@ -17,6 +19,12 @@ namespace Phalcon\Logger\Formatter {
 		 * @return string
 		 */
 		public function getTypeString($type){ }
+
+
+		public function getShowBacktrace(){ }
+
+
+		public function setShowBacktrace($show=null){ }
 
 
 		/**

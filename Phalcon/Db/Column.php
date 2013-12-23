@@ -46,6 +46,8 @@ namespace Phalcon\Db {
 
 		const TYPE_BOOLEAN = 8;
 
+		const TYPE_DOUBLE = 9;
+
 		const BIND_PARAM_NULL = 0;
 
 		const BIND_PARAM_INT = 1;

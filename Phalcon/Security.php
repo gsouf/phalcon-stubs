@@ -101,9 +101,10 @@ namespace Phalcon {
 		 *
 		 * @param string $password
 		 * @param string $passwordHash
+		 * @param int $maxPasswordLength
 		 * @return boolean
 		 */
-		public function checkHash($password, $passwordHash){ }
+		public function checkHash($password, $passwordHash, $maxPasswordLength=null){ }
 
 
 		/**

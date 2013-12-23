@@ -59,7 +59,7 @@ namespace Phalcon {
 
 
 		/**
-		 * Internally gets the request dispatcher
+		 * Internally gets the dependency injector
 		 *
 		 * @return \Phalcon\DiInterface
 		 */
@@ -80,6 +80,14 @@ namespace Phalcon {
 		 * @return \Phalcon\EscaperInterface
 		 */
 		public static function getEscaperService(){ }
+
+
+		/**
+		 * Get current autoescape mode
+		 *
+		 * @return bool
+		 */
+		public static function getAutoescape(){ }
 
 
 		/**

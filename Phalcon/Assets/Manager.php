@@ -168,6 +168,7 @@ namespace Phalcon\Assets {
 		 *
 		 * @param \Phalcon\Assets\Collection $collection
 		 * @param callback $callback
+		 * @param string $type
 		 */
 		public function output($collection, $callback, $type=null){ }
 

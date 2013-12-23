@@ -74,9 +74,9 @@ namespace Phalcon\Annotations {
 
 
 		/**
-		 * Returns an argument in a specific position
+		 * Checks if the annotation has a specific argument
 		 *
-		 * @return mixed
+		 * @return bool
 		 */
 		public function hasArgument($position){ }
 
@@ -87,16 +87,17 @@ namespace Phalcon\Annotations {
 		 * @param string $name
 		 * @return mixed
 		 */
-		public function getNamedArgument($name){ }
+		public function getNamedArgument($position){ }
 
 
 		/**
 		 * Returns a named argument (deprecated)
 		 *
+		 * @deprecated
 		 * @param string $name
 		 * @return mixed
 		 */
-		public function getNamedParameter($name){ }
+		public function getNamedParameter($position){ }
 
 
 		/**
@@ -104,7 +105,7 @@ namespace Phalcon\Annotations {
 		 *
 		 * @return boolean
 		 */
-		public function hasNamedArgument($name){ }
+		public function hasNamedArgument($position){ }
 
 	}
 }

@@ -107,6 +107,8 @@ namespace Phalcon {
 		/**
 		 * Merges a configuration into the current one
 		 *
+		 * @brief void \Phalcon\Config::merge(array|object $with)
+		 *
 		 *<code>
 		 *	$appConfig = new \Phalcon\Config(array('database' => array('host' => 'localhost')));
 		 *	$globalConfig->merge($config2);
@@ -119,6 +121,8 @@ namespace Phalcon {
 
 		/**
 		 * Converts recursively the object to an array
+		 *
+		 * @brief array \Phalcon\Config::toArray(bool $recursive = true);
 		 *
 		 *<code>
 		 *	print_r($config->toArray());

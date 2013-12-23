@@ -106,8 +106,8 @@ namespace Phalcon {
 		 * Assigns the data to an entity
 		 * The entity is used to obtain the validation values
 		 *
-		 * @param string $entity
-		 * @param string $data
+		 * @param object $entity
+		 * @param object|array $data
 		 * @return \Phalcon\Validation
 		 */
 		public function bind($entity, $data){ }

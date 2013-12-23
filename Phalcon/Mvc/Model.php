@@ -992,7 +992,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		protected function hasOne(){ }
+		public function hasOne(){ }
 
 
 		/**
@@ -1017,7 +1017,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		protected function belongsTo(){ }
+		public function belongsTo(){ }
 
 
 		/**
@@ -1042,7 +1042,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		protected function hasMany(){ }
+		public function hasMany(){ }
 
 
 		/**
@@ -1078,7 +1078,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		protected function hasManyToMany(){ }
+		public function hasManyToMany(){ }
 
 
 		/**
@@ -1106,7 +1106,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param \Phalcon\Mvc\Model\BehaviorInterface $behavior
 		 */
-		protected function addBehavior(){ }
+		public function addBehavior(){ }
 
 
 		/**
@@ -1303,6 +1303,13 @@ namespace Phalcon\Mvc {
 
 		/**
 		 * Enables/disables options in the ORM
+		 * Available options:
+		 * events                — Enables/Disables globally the internal events
+		 * virtualForeignKeys    — Enables/Disables virtual foreign keys
+		 * columnRenaming        — Enables/Disables column renaming
+		 * notNullValidations    — Enables/Disables automatic not null validation
+		 * exceptionOnFailedSave — Enables/Disables throws an exception if the saving process fails
+		 * phqlLiterals          — Enables/Disables literals in PHQL this improves the security of applications  
 		 *
 		 * @param array $options
 		 */
