@@ -6,6 +6,6 @@
     "keywords": ["IDE","stubs","phalcon"],
     "homepage": "https://github.com/SneakyBobito/phalcon-stubs",
     "require": {
-        "php": ">=5.3.9"
+        "php": ">=5.3.2"
     }
 }
