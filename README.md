@@ -11,7 +11,7 @@ Composer
 
 The simplest way to install stubs, is to use composer :
 
-<<<<<<< HEAD
+
 Add the line : ```"sneakybobito/phalcon-stubs": "1.2.4"``` in your ```composer.json``` and ```update``` or ```install```.
 
 Best practise would be to place it in the [require-dev](http://getcomposer.org/doc/04-schema.md#require-dev) section of the composer.json.
