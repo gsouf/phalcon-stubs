@@ -1,7 +1,7 @@
 phalcon-stubs
 =============
 
-Brings auto completion for phalcon php into your ide (phpstorm, netbeans, ...) through composer Composer 
+Brings auto completion for phalcon php into your ide (phpstorm, netbeans, ...) through composer 
 
 Install
 -----------
