@@ -125,9 +125,10 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param string|array $uri
 		 * @param array|object args Optional arguments to be appended to the query string
+		 * @param bool|null $local
 		 * @return string
 		 */
-		public function get($uri=null, $args=null){ }
+		public function get($uri=null, $args=null, $local=null){ }
 
 
 		/**

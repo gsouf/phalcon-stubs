@@ -96,7 +96,7 @@ namespace Phalcon\Cache\Backend {
 
 		/**
 		 * Increment of a given key, by number $value
-		 * 
+		 *
 		 * @param  string $keyName
 		 * @param  long $value
 		 * @return mixed
@@ -106,7 +106,7 @@ namespace Phalcon\Cache\Backend {
 
 		/**
 		 * Decrement of a given key, by number $value
-		 * 
+		 *
 		 * @param  string $keyName
 		 * @param  long $value
 		 * @return mixed
@@ -116,7 +116,7 @@ namespace Phalcon\Cache\Backend {
 
 		/**
 		 * Immediately invalidates all existing items.
-		 * 
+		 *
 		 * @return boolean
 		 */
 		public function flush(){ }

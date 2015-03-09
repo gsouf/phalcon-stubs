@@ -26,7 +26,7 @@ namespace Phalcon\Http\Request {
 	 *</code>
 	 */
 	
-	class File implements \Phalcon\Http\Request\FileInterface {
+	class File extends \SplFileInfo implements \Phalcon\Http\Request\FileInterface {
 
 		protected $_name;
 
@@ -41,6 +41,8 @@ namespace Phalcon\Http\Request {
 		protected $_error;
 
 		protected $_key;
+
+		protected $_extension;
 
 		/**
 		 * \Phalcon\Http\Request\File constructor
@@ -125,6 +127,14 @@ namespace Phalcon\Http\Request {
 
 
 		public static function __set_state($params){ }
+
+
+		/**
+		 * Returns the file extension
+		 *
+		 * @return string
+		 */
+		public function getExtension(){ }
 
 	}
 }

@@ -8,7 +8,7 @@ namespace Phalcon\Validation {
 	 * Encapsulates validation info generated in the validation process
 	 */
 	
-	class Message {
+	class Message implements \Phalcon\Validation\MessageInterface {
 
 		protected $_type;
 

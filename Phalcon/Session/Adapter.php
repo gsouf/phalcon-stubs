@@ -171,5 +171,15 @@ namespace Phalcon\Session {
 
 		public function getIterator(){ }
 
+
+		/**
+		 * Set the current session id
+		 *
+		 *<code>
+		 *	$session->setId($id);
+		 *</code>
+		 */
+		public function setId($sid){ }
+
 	}
 }

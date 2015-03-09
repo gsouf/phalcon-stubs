@@ -71,9 +71,12 @@ namespace Phalcon\Queue\Beanstalk {
 
 
 		/**
-		 * The bury command puts a job into the "buried" state. Buried jobs are put into
-		 * a FIFO linked list and will not be touched by the server again until a client
-		 * kicks them with the "kick" command.
+		 * The `touch` command allows a worker to request more time to work on a job. 
+		 * This is useful for jobs that potentially take a long time, but you still
+		 * want the benefits of a TTR pulling a job away from an unresponsive worker.
+		 * A worker may periodically tell the server that it's still alive and processing
+		 * a job (e.g. it may do this on `DEADLINE_SOON`). The command postpones the auto
+		 * release of a reserved job until TTR seconds from when the command is issued.
 		 *
 		 * @return boolean
 		 */

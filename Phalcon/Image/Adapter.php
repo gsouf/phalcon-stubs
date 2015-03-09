@@ -27,7 +27,7 @@ namespace Phalcon\Image {
 		protected $_mime;
 
 		/**
-		 * Returns the real path of the image file 
+		 * Returns the real path of the image file
 		 *
 		 * @return string
 		 */
@@ -35,7 +35,7 @@ namespace Phalcon\Image {
 
 
 		/**
-		 * Returns the width of images 
+		 * Returns the width of images
 		 *
 		 * @return int
 		 */
@@ -43,7 +43,7 @@ namespace Phalcon\Image {
 
 
 		/**
-		 * Returns the height of images 
+		 * Returns the height of images
 		 *
 		 * @return int
 		 */
@@ -51,7 +51,7 @@ namespace Phalcon\Image {
 
 
 		/**
-		 * Returns the type of images 
+		 * Returns the type of images
 		 *
 		 * @return int
 		 */
@@ -59,7 +59,7 @@ namespace Phalcon\Image {
 
 
 		/**
-		 * Returns the mime of images 
+		 * Returns the mime of images
 		 *
 		 * @return string
 		 */
@@ -67,7 +67,7 @@ namespace Phalcon\Image {
 
 
 		/**
-		 * Returns the image of images 
+		 * Returns the image of images
 		 *
 		 * @return resource
 		 */
@@ -91,7 +91,7 @@ namespace Phalcon\Image {
 		 *
 		 * @param int $width   new width
 		 * @param int $height  new height
-		 * @param int $delta_x How much the seam can traverse on x-axis. Passing 0 causes the seams to be straight. 
+		 * @param int $delta_x How much the seam can traverse on x-axis. Passing 0 causes the seams to be straight.
 		 * @param int $rigidity Introduces a bias for non-straight seams. This parameter is typically 0.
 		 * @return \Phalcon\Image\Adapter
 		 */
@@ -104,8 +104,8 @@ namespace Phalcon\Image {
 		 *
 		 * @param int $width new width
 		 * @param int $height new height
-		 * @param int $offset_x  offset from the left
-		 * @param int $offset_y  offset from the top
+		 * @param int $offset_x offset from the left, if it's true then will center
+		 * @param int $offset_y offset from the top, if it's true then will middle
 		 * @return \Phalcon\Image\Adapter
 		 */
 		public function crop($width, $height, $offset_x=null, $offset_y=null){ }
@@ -181,7 +181,6 @@ namespace Phalcon\Image {
 
 		/**
 		 * Composite one image onto another
-		
 		 *
 		 * @param \Phalcon\Image\Adapter $mask  mask Image instance
 		 * @return \Phalcon\Image\Adapter
@@ -239,49 +238,49 @@ namespace Phalcon\Image {
 		public function render($type=null, $quality=null){ }
 
 
-		abstract protected function _resize($width, $height);
+		abstract protected function _resize($width, $height){ }
 
 
-		abstract protected function _liquidRescale($width, $height, $delta_x, $regidity);
+		abstract protected function _liquidRescale($width, $height, $delta_x, $regidity){ }
 
 
-		abstract protected function _crop($width, $height, $offset_x, $offset_y);
+		abstract protected function _crop($width, $height, $offset_x, $offset_y){ }
 
 
-		abstract protected function _rotate($degrees);
+		abstract protected function _rotate($degrees){ }
 
 
-		abstract protected function _flip($direction);
+		abstract protected function _flip($direction){ }
 
 
-		abstract protected function _sharpen($amount);
+		abstract protected function _sharpen($amount){ }
 
 
-		abstract protected function _reflection($height, $opacity, $fade_in);
+		abstract protected function _reflection($height, $opacity, $fade_in){ }
 
 
-		abstract protected function _watermark($watermark, $offset_x, $offset_y, $opacity);
+		abstract protected function _watermark($watermark, $offset_x, $offset_y, $opacity){ }
 
 
-		abstract protected function _text($text, $offset_x, $offset_y, $opacity, $r, $g, $b, $size, $fontfile);
+		abstract protected function _text($text, $offset_x, $offset_y, $opacity, $r, $g, $b, $size, $fontfile){ }
 
 
-		abstract protected function _mask($mask);
+		abstract protected function _mask($mask){ }
 
 
-		abstract protected function _background($r, $g, $b, $opacity);
+		abstract protected function _background($r, $g, $b, $opacity){ }
 
 
-		abstract protected function _blur($radius);
+		abstract protected function _blur($radius){ }
 
 
-		abstract protected function _pixelate($amount);
+		abstract protected function _pixelate($amount){ }
 
 
-		abstract protected function _save($file, $quality);
+		abstract protected function _save($file, $quality){ }
 
 
-		abstract protected function _render($type, $quality);
+		abstract protected function _render($type, $quality){ }
 
 	}
 }

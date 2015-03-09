@@ -97,7 +97,7 @@ namespace Phalcon\Cache\Backend {
 
 		/**
 		 * Immediately invalidates all existing items.
-		 * 
+		 *
 		 * @return boolean
 		 */
 		public function flush(){ }

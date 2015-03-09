@@ -175,7 +175,7 @@ namespace Phalcon\Mvc\Model\Query {
 
 
 		/**
-		 * Adds a INNER join to the query
+		 * Adds a join to the query
 		 *
 		 *<code>
 		 *	$builder->join('Robots');
@@ -200,13 +200,11 @@ namespace Phalcon\Mvc\Model\Query {
 		 *	$builder->innerJoin('Robots');
 		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id');
 		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
-		 *	$builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
 		 *</code>
 		 *
 		 * @param string $model
 		 * @param string $conditions
 		 * @param string $alias
-		 * @param string $type
 		 * @return \Phalcon\Mvc\Model\Query\Builder
 		 */
 		public function innerJoin($model, $conditions=null, $alias=null){ }

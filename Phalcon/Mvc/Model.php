@@ -182,7 +182,7 @@ namespace Phalcon\Mvc {
 		 * @param string $source
 		 * @return \Phalcon\Mvc\Model
 		 */
-		protected function setSource(){ }
+		protected function setSource($source){ }
 
 
 		/**
@@ -199,7 +199,7 @@ namespace Phalcon\Mvc {
 		 * @param string $schema
 		 * @return \Phalcon\Mvc\Model
 		 */
-		protected function setSchema(){ }
+		protected function setSchema($schema){ }
 
 
 		/**
@@ -623,10 +623,10 @@ namespace Phalcon\Mvc {
 		 *}
 		 *</code>
 		 *
-		 * @param object $validator
+		 * @param \Phalcon\Mvc\Model\ValidatorInterface $validator
 		 * @return \Phalcon\Mvc\Model
 		 */
-		protected function validate(){ }
+		protected function validate($validator){ }
 
 
 		/**
@@ -922,8 +922,9 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param array $attributes
+		 * @param boolean $replace
 		 */
-		protected function skipAttributes(){ }
+		protected function skipAttributes($attributes, $replace=null){ }
 
 
 		/**
@@ -944,8 +945,9 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param array $attributes
+		 * @param boolean $replace
 		 */
-		protected function skipAttributesOnCreate(){ }
+		protected function skipAttributesOnCreate($attributes, $replace=null){ }
 
 
 		/**
@@ -966,8 +968,9 @@ namespace Phalcon\Mvc {
 		 *</code>
 		 *
 		 * @param array $attributes
+		 * @param boolean $replace
 		 */
-		protected function skipAttributesOnUpdate(){ }
+		protected function skipAttributesOnUpdate($attributes, $replace=null){ }
 
 
 		/**
@@ -992,7 +995,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		public function hasOne(){ }
+		public function hasOne($fields, $referenceModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -1017,7 +1020,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		public function belongsTo(){ }
+		public function belongsTo($fields, $referenceModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -1042,7 +1045,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		public function hasMany(){ }
+		public function hasMany($fields, $referenceModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -1078,7 +1081,7 @@ namespace Phalcon\Mvc {
 		 * @param   array $options
 		 * @return  \Phalcon\Mvc\Model\Relation
 		 */
-		public function hasManyToMany(){ }
+		public function hasManyToMany($fields, $intermediateModel, $intermediateFields, $intermediateReferencedFields, $referenceModel, $referencedFields, $options=null){ }
 
 
 		/**
@@ -1106,7 +1109,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param \Phalcon\Mvc\Model\BehaviorInterface $behavior
 		 */
-		public function addBehavior(){ }
+		public function addBehavior($behavior){ }
 
 
 		/**
@@ -1127,7 +1130,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param boolean $keepSnapshots
 		 */
-		protected function keepSnapshots(){ }
+		protected function keepSnapshots($keepSnapshots){ }
 
 
 		/**
@@ -1191,7 +1194,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * @param boolean $dynamicUpdate
 		 */
-		protected function useDynamicUpdate(){ }
+		protected function useDynamicUpdate($dynamicUpdate){ }
 
 
 		/**

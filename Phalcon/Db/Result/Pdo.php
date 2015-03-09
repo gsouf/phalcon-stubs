@@ -149,7 +149,7 @@ namespace Phalcon\Db\Result {
 		 *
 		 * @param int $fetchMode
 		 */
-		public function setFetchMode($fetchMode){ }
+		public function setFetchMode($fetchMode, $fetchArg1=null, $fetchArg2=null){ }
 
 
 		/**
@@ -158,6 +158,14 @@ namespace Phalcon\Db\Result {
 		 * @return \PDOStatement
 		 */
 		public function getInternalResult(){ }
+
+
+		/**
+		 * Advances to the next rowset in a multi-rowset statement handle
+		 *
+		 * @return boolean
+		 */
+		public function nextRowset(){ }
 
 	}
 }

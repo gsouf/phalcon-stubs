@@ -16,13 +16,15 @@ namespace Phalcon\Db {
 
 		protected $_columns;
 
+		protected $_type;
+
 		/**
 		 * \Phalcon\Db\Index constructor
 		 *
 		 * @param string $indexName
 		 * @param array $columns
 		 */
-		public function __construct($indexName, $columns){ }
+		public function __construct($indexName, $columns, $type=null){ }
 
 
 		/**
@@ -39,6 +41,14 @@ namespace Phalcon\Db {
 		 * @return array
 		 */
 		public function getColumns(){ }
+
+
+		/**
+		 * Gets the index type
+		 *
+		 * @return string
+		 */
+		public function getType(){ }
 
 
 		/**
