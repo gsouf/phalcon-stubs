@@ -133,7 +133,7 @@ namespace Phalcon\Logger {
 
 
 		/**
-		 * Logs messages to the internal loggger. Appends logs to the
+		 * Logs messages to the internal logger. Appends messages to the log
 		 *
 		 * @param string $message
 		 * @param int $type

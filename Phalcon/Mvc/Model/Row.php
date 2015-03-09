@@ -53,5 +53,13 @@ namespace Phalcon\Mvc\Model {
 		 */
 		public function offsetUnset($offset){ }
 
+
+		/**
+		 * Returns the instance as an array representation
+		 *
+		 * @return array
+		 */
+		public function toArray(){ }
+
 	}
 }
