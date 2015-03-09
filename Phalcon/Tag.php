@@ -129,6 +129,7 @@ namespace Phalcon {
 		 * </code>
 		 *
 		 * @param array $values
+		 * @param boolean $merge
 		 */
 		public static function setDefaults($values){ }
 

@@ -196,7 +196,7 @@ namespace Phalcon {
 		 * @brief string \Phalcon\Debug::getCharset(void)
 		 * @return string
 		 */
-		public function getCharset(){ }
+		public static function getCharset(){ }
 
 
 		/**

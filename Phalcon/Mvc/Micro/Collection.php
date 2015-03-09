@@ -98,6 +98,7 @@ namespace Phalcon\Mvc\Micro {
 		 *
 		 * @param string $routePattern
 		 * @param callable $handler
+		 * @param string $name
 		 * @return \Phalcon\Mvc\Micro\CollectionInterface
 		 */
 		public function map($routePattern, $handler){ }

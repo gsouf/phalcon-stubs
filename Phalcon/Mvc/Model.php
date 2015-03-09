@@ -1319,5 +1319,16 @@ namespace Phalcon\Mvc {
 		 */
 		public static function setup($options){ }
 
+
+		/**
+		 * Reset the model data
+		 *
+		 * <code>
+		 * $robot = Robots::findFirst();
+		 * $robot->reset();
+		 * </code>
+		 */
+		public function reset(){ }
+
 	}
 }

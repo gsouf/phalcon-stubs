@@ -23,7 +23,7 @@ namespace Phalcon\Mvc {
 
 		protected $_dependencyInjector;
 
-		protected $_modelsManager;
+		protected $_collectionManager;
 
 		protected $_source;
 
@@ -38,10 +38,10 @@ namespace Phalcon\Mvc {
 		protected static $_disableEvents;
 
 		/**
-		 * \Phalcon\Mvc\Model constructor
+		 * \Phalcon\Mvc\Collection constructor
 		 *
 		 * @param \Phalcon\DiInterface $dependencyInjector
-		 * @param \Phalcon\Mvc\Collection\ManagerInterface $modelsManager
+		 * @param \Phalcon\Mvc\Collection\ManagerInterface $collectionManager
 		 */
 		final public function __construct($dependencyInjector=null){ }
 
@@ -95,11 +95,11 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Returns the models manager related to the entity instance
+		 * Returns the collection manager related to the entity instance
 		 *
-		 * @return \Phalcon\Mvc\Model\ManagerInterface
+		 * @return \Phalcon\Mvc\Collection\ManagerInterface
 		 */
-		public function getModelsManager(){ }
+		public function getCollectionManager(){ }
 
 
 		/**
@@ -111,7 +111,7 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Sets if a model must use implicit objects ids
+		 * Sets if a collection must use implicit objects ids
 		 *
 		 * @param boolean $useImplicitObjectIds
 		 */
@@ -119,7 +119,7 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Sets collection name which model should be mapped
+		 * Sets collection name which collection should be mapped
 		 *
 		 * @param string $source
 		 * @return \Phalcon\Mvc\Collection
@@ -128,7 +128,7 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Returns collection name mapped in the model
+		 * Returns collection name mapped in the collection
 		 *
 		 * @return string
 		 */
@@ -139,7 +139,7 @@ namespace Phalcon\Mvc {
 		 * Sets the DependencyInjection connection service name
 		 *
 		 * @param string $connectionService
-		 * @return \Phalcon\Mvc\Model
+		 * @return \Phalcon\Mvc\Collection
 		 */
 		public function setConnectionService($connectionService){ }
 
@@ -245,7 +245,7 @@ namespace Phalcon\Mvc {
 		 * Executes validators on every validation call
 		 *
 		 *<code>
-		 *use \Phalcon\Mvc\Model\Validator\ExclusionIn as ExclusionIn;
+		 *use \Phalcon\Mvc\Collection\Validator\ExclusionIn as ExclusionIn;
 		 *
 		 *class Subscriptors extends \Phalcon\Mvc\Collection
 		 *{
@@ -273,7 +273,7 @@ namespace Phalcon\Mvc {
 		 * Check whether validation process has generated any messages
 		 *
 		 *<code>
-		 *use \Phalcon\Mvc\Model\Validator\ExclusionIn as ExclusionIn;
+		 *use \Phalcon\Mvc\Collection\Validator\ExclusionIn as ExclusionIn;
 		 *
 		 *class Subscriptors extends \Phalcon\Mvc\Collection
 		 *{
@@ -349,7 +349,7 @@ namespace Phalcon\Mvc {
 		 *}
 		 * </code>
 		 *
-		 * @return \Phalcon\Mvc\Model\MessageInterface[]
+		 * @return \Phalcon\Mvc\Collection\MessageInterface[]
 		 */
 		public function getMessages(){ }
 
@@ -358,9 +358,9 @@ namespace Phalcon\Mvc {
 		 * Appends a customized message on the validation process
 		 *
 		 *<code>
-		 *	use \Phalcon\Mvc\Model\Message as Message;
+		 *	use \Phalcon\Mvc\Collection\Message as Message;
 		 *
-		 *	class Robots extends \Phalcon\Mvc\Model
+		 *	class Robots extends \Phalcon\Mvc\Collection
 		 *	{
 		 *
 		 *		public function beforeSave()
@@ -373,7 +373,7 @@ namespace Phalcon\Mvc {
 		 *	}
 		 *</code>
 		 *
-		 * @param \Phalcon\Mvc\Model\MessageInterface $message
+		 * @param \Phalcon\Mvc\Collection\MessageInterface $message
 		 */
 		public function appendMessage($message){ }
 
@@ -381,6 +381,9 @@ namespace Phalcon\Mvc {
 		/**
 		 * Creates/Updates a collection based on the values in the attributes
 		 *
+		 * @param array $data
+		 * @param array $whiteList
+		 * @param boolean $mode true is insert or false is update
 		 * @return boolean
 		 */
 		public function save(){ }
@@ -500,7 +503,23 @@ namespace Phalcon\Mvc {
 
 
 		/**
-		 * Deletes a model instance. Returning true on success or false otherwise.
+		 * Creates a document based on the values in the attributes
+		 *
+		 * @return boolean
+		 */
+		public function create(){ }
+
+
+		/**
+		 * Updates a document based on the values in the attributes
+		 *
+		 * @return boolean
+		 */
+		public function update(){ }
+
+
+		/**
+		 * Deletes a collection instance. Returning true on success or false otherwise.
 		 *
 		 * <code>
 		 *

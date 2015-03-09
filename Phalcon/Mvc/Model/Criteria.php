@@ -265,7 +265,7 @@ namespace Phalcon\Mvc\Model {
 		 * Adds the conditions parameter to the criteria
 		 *
 		 * @param string $conditions
-		 * @return \Phalcon\Mvc\Model\CriteriaIntreface
+		 * @return \Phalcon\Mvc\Model\CriteriaInterface
 		 */
 		public function conditions($conditions){ }
 

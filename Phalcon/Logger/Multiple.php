@@ -51,6 +51,7 @@ namespace Phalcon\Logger {
 		 *
 		 * @param string $message
 		 * @param int $type
+		 * @param array $context
 		 */
 		public function log($type, $message, $context=null){ }
 
@@ -59,6 +60,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes an emergency message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function emergency($message, $context=null){ }
 
@@ -70,7 +72,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes a debug message to the log
 		 *
 		 * @param string $message
-		 * @param ing $type
+		 * @param array $context
 		 */
 		public function debug($message, $context=null){ }
 
@@ -79,6 +81,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes an error message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function error($message, $context=null){ }
 
@@ -87,6 +90,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes an info message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function info($message, $context=null){ }
 
@@ -95,6 +99,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes a notice message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function notice($message, $context=null){ }
 
@@ -103,6 +108,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes a warning message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function warning($message, $context=null){ }
 
@@ -111,6 +117,7 @@ namespace Phalcon\Logger {
 		 * Sends/Writes an alert message to the log
 		 *
 		 * @param string $message
+		 * @param array $context
 		 */
 		public function alert($message, $context=null){ }
 

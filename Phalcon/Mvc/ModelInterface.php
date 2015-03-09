@@ -331,5 +331,11 @@ namespace Phalcon\Mvc {
 		 */
 		public function getRelated($alias, $arguments=null);
 
+
+		/**
+		 * Reset a model instance data
+		 */
+		public function reset();
+
 	}
 }

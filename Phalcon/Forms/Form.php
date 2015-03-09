@@ -261,7 +261,7 @@ namespace Phalcon\Forms {
 		/**
 		 * Returns the current element in the iterator
 		 *
-		 * @return \Phalcon\Validation\Message
+		 * @return \Phalcon\Forms\ElementInterface
 		 */
 		public function current(){ }
 

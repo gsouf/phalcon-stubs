@@ -172,6 +172,22 @@ namespace Phalcon\Mvc {
 
 
 		/**
+		 * Creates a model instance. Returning true on success or false otherwise
+		 *
+		 * @return boolean
+		 */
+		public function create();
+
+
+		/**
+		 * Updates a model instance. Returning true on success or false otherwise
+		 *
+		 * @return boolean
+		 */
+		public function update();
+
+
+		/**
 		 * Deletes a model instance. Returning true on success or false otherwise
 		 *
 		 * @return boolean

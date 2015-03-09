@@ -92,7 +92,7 @@ namespace Phalcon\Acl\Adapter {
 		 * 	$acl->addRole('administrator', 'consultant');
 		 * </code>
 		 *
-		 * @param  \Phalcon\Acl\RoleInterface $role
+		 * @param  \Phalcon\Acl\RoleInterface|string $role
 		 * @param  array|string $accessInherits
 		 * @return boolean
 		 */
@@ -143,7 +143,7 @@ namespace Phalcon\Acl\Adapter {
 		 * $acl->addResource('customers', array('create', 'search'));
 		 * </code>
 		 *
-		 * @param   \Phalcon\Acl\Resource $resource
+		 * @param   \Phalcon\Acl\Resource|string $resource
 		 * @param   array $accessList
 		 * @return  boolean
 		 */

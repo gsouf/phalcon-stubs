@@ -23,6 +23,7 @@ namespace Phalcon\Db {
 		 *
 		 * @param string $indexName
 		 * @param array $columns
+		 * @param string|null $type
 		 */
 		public function __construct($indexName, $columns, $type=null){ }
 
