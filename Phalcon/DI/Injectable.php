@@ -2,183 +2,178 @@
 
 namespace Phalcon\DI {
 
-    /**
-     * Phalcon\DI\Injectable
-     *
-     * This class allows to access services in the services container by just only accessing a public property
-     * with the same name of a registered service
-     */
-    abstract class Injectable implements \Phalcon\DI\InjectionAwareInterface, \Phalcon\Events\EventsAwareInterface
-    {
+	/**
+	 * Phalcon\DI\Injectable
+	 *
+	 * This class allows to access services in the services container by just only accessing a public property
+	 * with the same name of a registered service
+	 */
+	
+	abstract class Injectable implements \Phalcon\DI\InjectionAwareInterface, \Phalcon\Events\EventsAwareInterface {
 
-        protected $_dependencyInjector;
+		protected $_dependencyInjector;
 
-        protected $_eventsManager;
+		protected $_eventsManager;
 
-        /**
-        * @var \Phalcon\Mvc\ViewInterface
-        */
-        public $view;
+		/**
+ 		 * @var \Phalcon\Mvc\Dispatcher|\Phalcon\Mvc\DispatcherInterface
+ 		 */
+		public $dispatcher;
 
-        /**
-        * @var \Phalcon\Mvc\RouterInterface
-        */
-        public $router;
+		/**
+ 		 * @var \Phalcon\Mvc\Router|\Phalcon\Mvc\RouterInterface
+ 		 */
+		public $router;
 
-        /**
-        * @var \Phalcon\Mvc\DispatcherInterface
-        */
-        public $dispatcher;
+		/**
+ 		 * @var \Phalcon\Mvc\Url|\Phalcon\Mvc\UrlInterface
+ 		 */
+		public $url;
 
-        /**
-        * @var \Phalcon\Mvc\UrlInterface
-        */
-        public $url;
+		/**
+ 		 * @var \Phalcon\Http\Request|\Phalcon\HTTP\RequestInterface
+ 		 */
+		public $request;
 
-        /**
-        * @var \Phalcon\DiInterface
-        */
-        public $di;
+		/**
+ 		 * @var \Phalcon\Http\Response|\Phalcon\HTTP\ResponseInterface
+ 		 */
+		public $response;
 
-        /**
-        * @var \Phalcon\HTTP\RequestInterface
-        */
-        public $request;
+		/**
+ 		 * @var \Phalcon\Http\Response\Cookies|\Phalcon\Http\Response\CookiesInterface
+ 		 */
+		public $cookies;
 
-        /**
-        * @var \Phalcon\HTTP\ResponseInterface
-        */
-        public $response;
+		/**
+ 		 * @var \Phalcon\Filter|\Phalcon\FilterInterface
+ 		 */
+		public $filter;
 
-        /**
-        * @var \Phalcon\Flash\Direct
-        */
-        public $flash;
+		/**
+ 		 * @var \Phalcon\Flash\Direct
+ 		 */
+		public $flash;
 
-        /**
-        * @var \Phalcon\Flash\Session
-        */
-        public $flashSession;
+		/**
+ 		 * @var \Phalcon\Flash\Session
+ 		 */
+		public $flashSession;
 
-        /**
-        * @var \Phalcon\Session\AdapterInterface
-        */
-        public $session;
+		/**
+ 		 * @var \Phalcon\Session\Adapter\Files|\Phalcon\Session\Adapter|\Phalcon\Session\AdapterInterface
+ 		 */
+		public $session;
 
-        /**
-        * @var \Phalcon\Session\Bag
-        */
-        public $persistent;
+		/**
+ 		 * @var \Phalcon\Events\Manager
+ 		 */
+		public $eventsManager;
 
-        /**
-        * @var \Phalcon\Mvc\Model\ManagerInterface
-        */
-        public $modelsManager;
+		/**
+ 		 * @var \Phalcon\Db
+ 		 */
+		public $db;
 
-        /**
-        * @var \Phalcon\Mvc\Model\MetadataInterface
-        */
-        public $modelsMetadata;
+		/**
+ 		 * @var \Phalcon\Security
+ 		 */
+		public $security;
 
-        /**
-        * @var \Phalcon\Mvc\Model\Transaction\Manager
-        */
-        public $transactionManager;
+		/**
+ 		 * @var \Phalcon\Crypt
+ 		 */
+		public $crypt;
 
-        /**
-        * @var \Phalcon\FilterInterface
-        */
-        public $filter;
+		/**
+ 		 * @var \Phalcon\Tag
+ 		 */
+		public $tag;
 
-        /**
-        * @var \Phalcon\Security
-        */
-        public $security;
+		/**
+ 		 * @var \Phalcon\Escaper|\Phalcon\EscaperInterface
+ 		 */
+		public $escaper;
 
-        /**
-        * @var \Phalcon\Annotations\Adapter\Memory
-        */
-        public $annotations;
+		/**
+ 		 * @var \Phalcon\Annotations\Adapter\Memory|\Phalcon\Annotations\Adapter
+ 		 */
+		public $annotations;
 
-        /**
-        * @var \Phalcon\Http\Response\Cookies
-        */
-        public $cookies;
+		/**
+ 		 * @var \Phalcon\Mvc\Model\Manager|\Phalcon\Mvc\Model\ManagerInterface
+ 		 */
+		public $modelsManager;
 
-        /**
-        * @var \Phalcon\Events\Manager
-        */
-        public $eventsManager;
+		/**
+ 		 * @var \Phalcon\Mvc\Model\MetaData\Memory|\Phalcon\Mvc\Model\MetadataInterface
+ 		 */
+		public $modelsMetadata;
 
-        /**
-        * @var \Phalcon\Db
-        */
-        public $db;
+		/**
+ 		 * @var \Phalcon\Mvc\Model\Transaction\Manager
+ 		 */
+		public $transactionManager;
 
-        /**
-        * @var \Phalcon\Crypt
-        */
-        public $crypt;
+		/**
+ 		 * @var \Phalcon\Assets\Manager
+ 		 */
+		public $assets;
 
-        /**
-        * @var \Phalcon\Tag
-        */
-        public $tag;
+		/**
+		 * @var \Phalcon\DI|\Phalcon\DiInterface
+	 	 */
+		public $di;
 
-        /**
-        * @var \Phalcon\Escaper
-        */
-        public $escaper;
+		/**
+		 * @var \Phalcon\Session\Bag
+	 	 */
+		public $persistent;
+
+		/**
+ 		 * @var \Phalcon\Mvc\View|\Phalcon\Mvc\ViewInterface
+ 		 */
+		public $view;
 		
-        /**
-         * Sets the dependency injector
-         *
-         * @param \Phalcon\DiInterface $dependencyInjector
-         * @throw \Phalcon\Di\Exception
-         */
-        public function setDI($dependencyInjector)
-        {
-        }
+		/**
+		 * Sets the dependency injector
+		 *
+		 * @param \Phalcon\DiInterface $dependencyInjector
+		 * @throw \Phalcon\Di\Exception
+		 */
+		public function setDI($dependencyInjector){ }
 
 
-        /**
-         * Returns the internal dependency injector
-         *
-         * @return \Phalcon\DiInterface
-         */
-        public function getDI()
-        {
-        }
+		/**
+		 * Returns the internal dependency injector
+		 *
+		 * @return \Phalcon\DiInterface
+		 */
+		public function getDI(){ }
 
 
-        /**
-         * Sets the event manager
-         *
-         * @param \Phalcon\Events\ManagerInterface $eventsManager
-         */
-        public function setEventsManager($eventsManager)
-        {
-        }
+		/**
+		 * Sets the event manager
+		 *
+		 * @param \Phalcon\Events\ManagerInterface $eventsManager
+		 */
+		public function setEventsManager($eventsManager){ }
 
 
-        /**
-         * Returns the internal event manager
-         *
-         * @return \Phalcon\Events\ManagerInterface
-         */
-        public function getEventsManager()
-        {
-        }
+		/**
+		 * Returns the internal event manager
+		 *
+		 * @return \Phalcon\Events\ManagerInterface
+		 */
+		public function getEventsManager(){ }
 
 
-        /**
-         * Magic method __get
-         *
-         * @param string $propertyName
-         */
-        public function __get($property)
-        {
-        }
+		/**
+		 * Magic method __get
+		 *
+		 * @param string $propertyName
+		 */
+		public function __get($property){ }
 
-    }
+	}
 }
