@@ -2,240 +2,272 @@
 
 namespace Phalcon\Mvc\Model {
 
-	/**
-	 * Phalcon\Mvc\Model\CriteriaInterface initializer
-	 */
-	
-	interface CriteriaInterface {
+    /**
+     * Phalcon\Mvc\Model\CriteriaInterface initializer
+     */
+    interface CriteriaInterface
+        {
 
-		/**
-		 * Set a model on which the query will be executed
-		 *
-		 * @param string $modelName
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function setModelName($modelName);
-
-
-		/**
-		 * Returns an internal model name on which the criteria will be applied
-		 *
-		 * @return string
-		 */
-		public function getModelName();
+        /**
+         * Set a model on which the query will be executed
+         *
+         * @param string $modelName
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function setModelName($modelName);
 
 
-		/**
-		 * Adds the bind parameter to the criteria
-		 *
-		 * @param string $bindParams
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function bind($bindParams);
+        /**
+         * Returns an internal model name on which the criteria will be applied
+         *
+         * @return string
+         */
+        public function getModelName();
 
 
-		/**
-		 * Sets the bind types in the criteria
-		 * This method replaces all previously set bound parameters
-		 *
-		 * @param string $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
-		 */
-		public function bindTypes($bindTypes);
+        /**
+         * Adds the bind parameter to the criteria
+         *
+         * @param string $bindParams
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function bind($bindParams);
 
 
-		/**
-		 * Adds the conditions parameter to the criteria
-		 *
-		 * @param string $conditions
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function where($conditions);
+        /**
+         * Sets the bind types in the criteria
+         * This method replaces all previously set bound parameters
+         *
+         * @param string $bindTypes
+         * @return \Phalcon\Mvc\Model\Criteria
+         */
+        public function bindTypes($bindTypes);
 
 
-		/**
-		 * Adds the conditions parameter to the criteria
-		 *
-		 * @param string $conditions
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function conditions($conditions);
+        /**
+         * Sets the columns to be queried
+         *
+         *<code>
+         *	$criteria->columns(array('id', 'name'));
+         *</code>
+         *
+         * @param string|array $columns
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function columns($columns);
 
 
-		/**
-		 * Adds the order-by parameter to the criteria
-		 *
-		 * @param string $orderColumns
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function orderBy($orderColumns);
+        /**
+         * Adds a join to the query
+         *
+         *<code>
+         *	$criteria->join('Robots');
+         *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id');
+         *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r');
+         *	$criteria->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
+         *</code>
+         *
+         * @param string $model
+         * @param string $conditions
+         * @param string $alias
+         * @param string $type
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function join($model, $conditions=null, $alias=null, $type=null);
 
 
-		/**
-		 * Sets the limit parameter to the criteria
-		 *
-		 * @param int $limit
-		 * @param int $offset
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function limit($limit, $offset=null);
+        /**
+         * Adds the conditions parameter to the criteria
+         *
+         * @param string $conditions
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function where($conditions);
 
 
-		/**
-		 * Sets the "for_update" parameter to the criteria
-		 *
-		 * @param boolean $forUpdate
-		 * @return \Phalcon\Mvc\Model\CriteriaInterface
-		 */
-		public function forUpdate($forUpdate=null);
+        /**
+         * Adds the conditions parameter to the criteria
+         *
+         * @param string $conditions
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function conditions($conditions);
 
 
-		/**
-		 * Sets the "shared_lock" parameter to the criteria
-		 *
-		 * @param boolean $sharedLock
-		 * @return \Phalcon\Mvc\Model\Criteria
-		 */
-		public function sharedLock($sharedLock=null);
+        /**
+         * Adds the order-by parameter to the criteria
+         *
+         * @param string $orderColumns
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function orderBy($orderColumns);
 
 
-		/**
-		 * Appends a condition to the current conditions using an AND operator
-		 *
-		 * @param string $conditions
-		 * @param array $bindParams
-		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
-		 */
-		public function andWhere($conditions, $bindParams=null, $bindTypes=null);
+        /**
+         * Sets the limit parameter to the criteria
+         *
+         * @param int $limit
+         * @param int $offset
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function limit($limit, $offset=null);
 
 
-		/**
-		 * Appends a condition to the current conditions using an OR operator
-		 *
-		 * @param string $conditions
-		 * @param array $bindParams
-		 * @param array $bindTypes
-		 * @return \Phalcon\Mvc\Model\Criteria
-		 */
-		public function orWhere($conditions, $bindParams=null, $bindTypes=null);
+        /**
+         * Sets the "for_update" parameter to the criteria
+         *
+         * @param boolean $forUpdate
+         * @return \Phalcon\Mvc\Model\CriteriaInterface
+         */
+        public function forUpdate($forUpdate=null);
 
 
-		/**
-		 * Appends a BETWEEN condition to the current conditions
-		 *
-		 *<code>
-		 *	$builder->betweenWhere('price', 100.25, 200.50);
-		 *</code>
-		 *
-		 * @param string $expr
-		 * @param mixed $minimum
-		 * @param mixed $maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
-		 */
-		public function betweenWhere($expr, $minimum, $maximum);
+        /**
+         * Sets the "shared_lock" parameter to the criteria
+         *
+         * @param boolean $sharedLock
+         * @return \Phalcon\Mvc\Model\Criteria
+         */
+        public function sharedLock($sharedLock=null);
 
 
-		/**
-		 * Appends a NOT BETWEEN condition to the current conditions
-		 *
-		 *<code>
-		 *	$builder->notBetweenWhere('price', 100.25, 200.50);
-		 *</code>
-		 *
-		 * @param string $expr
-		 * @param mixed $minimum
-		 * @param mixed $maximum
-		 * @return \Phalcon\Mvc\Model\Query\Builder
-		 */
-		public function notBetweenWhere($expr, $minimum, $maximum);
+        /**
+         * Appends a condition to the current conditions using an AND operator
+         *
+         * @param string $conditions
+         * @param array $bindParams
+         * @param array $bindTypes
+         * @return \Phalcon\Mvc\Model\Criteria
+         */
+        public function andWhere($conditions, $bindParams=null, $bindTypes=null);
 
 
-		/**
-		 * Appends an IN condition to the current conditions
-		 *
-		 *<code>
-		 *	$builder->inWhere('id', [1, 2, 3]);
-		 *</code>
-		 *
-		 * @param string $expr
-		 * @param array $values
-		 * @return \Phalcon\Mvc\Model\Query\Builder
-		 */
-		public function inWhere($expr, $values);
+        /**
+         * Appends a condition to the current conditions using an OR operator
+         *
+         * @param string $conditions
+         * @param array $bindParams
+         * @param array $bindTypes
+         * @return \Phalcon\Mvc\Model\Criteria
+         */
+        public function orWhere($conditions, $bindParams=null, $bindTypes=null);
 
 
-		/**
-		 * Appends a NOT IN condition to the current conditions
-		 *
-		 *<code>
-		 *	$builder->notInWhere('id', [1, 2, 3]);
-		 *</code>
-		 *
-		 * @param string $expr
-		 * @param array $values
-		 * @return \Phalcon\Mvc\Model\Query\Builder
-		 */
-		public function notInWhere($expr, $values);
+        /**
+         * Appends a BETWEEN condition to the current conditions
+         *
+         *<code>
+         *	$criteria->betweenWhere('price', 100.25, 200.50);
+         *</code>
+         *
+         * @param string $expr
+         * @param mixed $minimum
+         * @param mixed $maximum
+         * @return \Phalcon\Mvc\Model\Query\Builder
+         */
+        public function betweenWhere($expr, $minimum, $maximum);
 
 
-		/**
-		 * Returns the conditions parameter in the criteria
-		 *
-		 * @return string
-		 */
-		public function getWhere();
+        /**
+         * Appends a NOT BETWEEN condition to the current conditions
+         *
+         *<code>
+         *	$criteria->notBetweenWhere('price', 100.25, 200.50);
+         *</code>
+         *
+         * @param string $expr
+         * @param mixed $minimum
+         * @param mixed $maximum
+         * @return \Phalcon\Mvc\Model\Query\Builder
+         */
+        public function notBetweenWhere($expr, $minimum, $maximum);
 
 
-		/**
-		 * Returns the conditions parameter in the criteria
-		 *
-		 * @return string
-		 */
-		public function getConditions();
+        /**
+         * Appends an IN condition to the current conditions
+         *
+         *<code>
+         *	$criteria->inWhere('id', [1, 2, 3]);
+         *</code>
+         *
+         * @param string $expr
+         * @param array $values
+         * @return \Phalcon\Mvc\Model\Query\Builder
+         */
+        public function inWhere($expr, $values);
 
 
-		/**
-		 * Returns the limit parameter in the criteria
-		 *
-		 * @return string
-		 */
-		public function getLimit();
+        /**
+         * Appends a NOT IN condition to the current conditions
+         *
+         *<code>
+         *	$criteria->notInWhere('id', [1, 2, 3]);
+         *</code>
+         *
+         * @param string $expr
+         * @param array $values
+         * @return \Phalcon\Mvc\Model\Query\Builder
+         */
+        public function notInWhere($expr, $values);
 
 
-		/**
-		 * Returns the order parameter in the criteria
-		 *
-		 * @return string
-		 */
-		public function getOrder();
+        /**
+         * Returns the conditions parameter in the criteria
+         *
+         * @return string
+         */
+        public function getWhere();
 
 
-		/**
-		 * Returns all the parameters defined in the criteria
-		 *
-		 * @return string
-		 */
-		public function getParams();
+        /**
+         * Returns the conditions parameter in the criteria
+         *
+         * @return string
+         */
+        public function getConditions();
 
 
-		/**
-		 * Builds a \Phalcon\Mvc\Model\Criteria based on an input array like $_POST
-		 *
-		 * @param \Phalcon\DiInterface $dependencyInjector
-		 * @param string $modelName
-		 * @param array $data
-		 * @return static
-		 */
-		public static function fromInput($dependencyInjector, $modelName, $data);
+        /**
+         * Returns the limit parameter in the criteria
+         *
+         * @return string
+         */
+        public function getLimit();
 
 
-		/**
-		 * Executes a find using the parameters built with the criteria
-		 *
-		 * @return \Phalcon\Mvc\Model\ResultsetInterface
-		 */
-		public function execute();
+        /**
+         * Returns the order parameter in the criteria
+         *
+         * @return string
+         */
+        public function getOrder();
 
-	}
+
+        /**
+         * Returns all the parameters defined in the criteria
+         *
+         * @return string
+         */
+        public function getParams();
+
+
+        /**
+         * Builds a \Phalcon\Mvc\Model\Criteria based on an input array like $_POST
+         *
+         * @param \Phalcon\DiInterface $dependencyInjector
+         * @param string $modelName
+         * @param array $data
+         * @return static
+         */
+        public static function fromInput($dependencyInjector, $modelName, $data);
+
+
+        /**
+         * Executes a find using the parameters built with the criteria
+         *
+         * @return \Phalcon\Mvc\Model\ResultsetInterface
+         */
+        public function execute();
+
+    }
 }

@@ -2,75 +2,133 @@
 
 namespace Phalcon\Db\Profiler {
 
-	/**
-	 * Phalcon\Db\Profiler\Item
-	 *
-	 * This class identifies each profile in a Phalcon\Db\Profiler
-	 *
-	 */
-	
-	class Item {
+    /**
+     * Phalcon\Db\Profiler\Item
+     *
+     * This class identifies each profile in a Phalcon\Db\Profiler
+     *
+     */
+    class Item
+    {
 
-		protected $_sqlStatement;
+        protected $_sqlStatement;
 
-		protected $_initialTime;
+        protected $_sqlVariables;
 
-		protected $_finalTime;
+        protected $_sqlBindTypes;
 
-		/**
-		 * Sets the SQL statement related to the profile
-		 *
-		 * @param string $sqlStatement
-		 */
-		public function setSQLStatement($sqlStatement){ }
+        protected $_initialTime;
 
+        protected $_finalTime;
 
-		/**
-		 * Returns the SQL statement related to the profile
-		 *
-		 * @return string
-		 */
-		public function getSQLStatement(){ }
+        /**
+         * Sets the SQL statement related to the profile
+         *
+         * @param string $sqlStatement
+         */
+        public function setSQLStatement($sqlStatement)
+        {
+        }
 
 
-		/**
-		 * Sets the timestamp on when the profile started
-		 *
-		 * @param int $initialTime
-		 */
-		public function setInitialTime($initialTime){ }
+        /**
+         * Returns the SQL statement related to the profile
+         *
+         * @return string
+         */
+        public function getSQLStatement()
+        {
+        }
 
 
-		/**
-		 * Sets the timestamp on when the profile ended
-		 *
-		 * @param int $finalTime
-		 */
-		public function setFinalTime($finalTime){ }
+        /**
+         * Sets the SQL variables related to the profile
+         *
+         * @param array $sqlParams
+         */
+        public function setSQLVariables($sqlVariables)
+        {
+        }
 
 
-		/**
-		 * Returns the initial time in milseconds on when the profile started
-		 *
-		 * @return double
-		 */
-		public function getInitialTime(){ }
+        /**
+         * Returns the SQL variables related to the profile
+         *
+         * @return array
+         */
+        public function getSQLVariables()
+        {
+        }
 
 
-		/**
-		 * Returns the initial time in milseconds on when the profile ended
-		 *
-		 * @return double
-		 */
-		public function getFinalTime(){ }
+        /**
+         * Sets the SQL bind types related to the profile
+         *
+         * @param array $sqlParams
+         */
+        public function setSQLBindTypes($sqlBindTypes)
+        {
+        }
 
 
-		/**
-		 * Returns the total time in seconds spent by the profile
-		 *
-		 * @return double
-		 */
-		public function getTotalElapsedSeconds(){ }
+        /**
+         * Returns the SQL bind types related to the profile
+         *
+         * @return array
+         */
+        public function getSQLBindTypes()
+        {
+        }
 
-	}
+
+        /**
+         * Sets the timestamp on when the profile started
+         *
+         * @param int $initialTime
+         */
+        public function setInitialTime($initialTime)
+        {
+        }
+
+
+        /**
+         * Sets the timestamp on when the profile ended
+         *
+         * @param int $finalTime
+         */
+        public function setFinalTime($finalTime)
+        {
+        }
+
+
+        /**
+         * Returns the initial time in milseconds on when the profile started
+         *
+         * @return double
+         */
+        public function getInitialTime()
+        {
+        }
+
+
+        /**
+         * Returns the initial time in milseconds on when the profile ended
+         *
+         * @return double
+         */
+        public function getFinalTime()
+        {
+        }
+
+
+        /**
+         * Returns the total time in seconds spent by the profile
+         *
+         * @return double
+         */
+        public function getTotalElapsedSeconds()
+        {
+        }
+
+    }
 }
