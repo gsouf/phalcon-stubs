@@ -1,77 +1,65 @@
-<?php 
+<?php
 
-namespace Phalcon\Db\Adapter\Pdo {
+namespace Phalcon\Db\Adapter\Pdo;
 
-	/**
-	 * Phalcon\Db\Adapter\Pdo\Postgresql
-	 *
-	 * Specific functions for the Postgresql database system
-	 * <code>
-	 *
-	 * $config = array(
-	 *  "host" => "192.168.0.11",
-	 *  "dbname" => "blog",
-	 *  "username" => "postgres",
-	 *  "password" => ""
-	 * );
-	 *
-	 * $connection = new Phalcon\Db\Adapter\Pdo\Postgresql($config);
-	 *
-	 * </code>
-	 */
-	
-	class Postgresql extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Events\EventsAwareInterface, \Phalcon\Db\AdapterInterface {
+class Postgresql extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInterface
+{
 
-		protected $_type;
-
-		protected $_dialectType;
-
-		/**
-		 * This method is automatically called in \Phalcon\Db\Adapter\Pdo constructor.
-		 * Call it when you need to restore a database connection.
-		 *
-		 * Support set search_path after connectted if schema is specified in config.
-		 *
-		 * @param array $descriptor
-		 * @return boolean
-		 */
-		public function connect($descriptor=null){ }
+    protected $_type = "pgsql";
 
 
-		/**
-		 * Returns an array of \Phalcon\Db\Column objects describing a table
-		 *
-		 * <code>print_r($connection->describeColumns("posts")); ?></code>
-		 *
-		 * @param string $table
-		 * @param string $schema
-		 * @return \Phalcon\Db\Column[]
-		 */
-		public function describeColumns($table, $schema=null){ }
+    protected $_dialectType = "postgresql";
 
 
-		/**
-		 * Check whether the database system requires an explicit value for identity columns
-		 *
-		 * @return boolean
-		 */
-		public function useExplicitIdValue(){ }
+    /**
+     * This method is automatically called in Phalcon\Db\Adapter\Pdo constructor.
+     * Call it when you need to restore a database connection.
+     *
+     * @param mixed $descriptor 
+     * @param array $$descriptor 
+     * @return boolean 
+     */
+	public function connect($descriptor = null) {}
 
+    /**
+     * Returns an array of Phalcon\Db\Column objects describing a table
+     * <code>
+     * print_r($connection->describeColumns("posts"));
+     * </code>
+     *
+     * @param string $table 
+     * @param string $schema 
+     * @return \Phalcon\Db\Column[] 
+     */
+	public function describeColumns($table, $schema = null) {}
 
-		/**
-		 * Return the default identity value to insert in an identity column
-		 *
-		 * @return \Phalcon\Db\RawValue
-		 */
-		public function getDefaultIdValue(){ }
+    /**
+     * Check whether the database system requires an explicit value for identity columns
+     *
+     * @return bool 
+     */
+	public function useExplicitIdValue() {}
 
+    /**
+     * Returns the default identity value to be inserted in an identity column
+     * <code>
+     * //Inserting a new robot with a valid default value for the column 'id'
+     * $success = $connection->insert(
+     * "robots",
+     * array($connection->getDefaultIdValue(), "Astro Boy", 1952),
+     * array("id", "name", "year")
+     * );
+     * </code>
+     *
+     * @return \Phalcon\Db\RawValue 
+     */
+	public function getDefaultIdValue() {}
 
-		/**
-		 * Check whether the database system requires a sequence to produce auto-numeric values
-		 *
-		 * @return boolean
-		 */
-		public function supportSequences(){ }
+    /**
+     * Check whether the database system requires a sequence to produce auto-numeric values
+     *
+     * @return bool 
+     */
+	public function supportSequences() {}
 
-	}
 }

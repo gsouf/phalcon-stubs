@@ -1,122 +1,96 @@
-<?php 
+<?php
 
-namespace Phalcon\CLI {
+namespace Phalcon\Cli;
 
-	/**
-	 * Phalcon\CLI\Dispatcher
-	 *
-	 * Dispatching is the process of taking the command-line arguments, extracting the module name,
-	 * task name, action name, and optional parameters contained in it, and then
-	 * instantiating a task and calling an action on it.
-	 *
-	 *<code>
-	 *
-	 *	$di = new Phalcon\DI();
-	 *
-	 *	$dispatcher = new Phalcon\CLI\Dispatcher();
-	 *
-	 *  $dispatcher->setDI($di);
-	 *
-	 *	$dispatcher->setTaskName('posts');
-	 *	$dispatcher->setActionName('index');
-	 *	$dispatcher->setParams(array());
-	 *
-	 *	$handle = $dispatcher->dispatch();
-	 *
-	 *</code>
-	 */
-	
-	class Dispatcher extends \Phalcon\Dispatcher implements \Phalcon\Events\EventsAwareInterface, \Phalcon\DI\InjectionAwareInterface, \Phalcon\DispatcherInterface {
+class Dispatcher extends \Phalcon\Dispatcher
+{
 
-		const EXCEPTION_NO_DI = 0;
-
-		const EXCEPTION_CYCLIC_ROUTING = 1;
-
-		const EXCEPTION_HANDLER_NOT_FOUND = 2;
-
-		const EXCEPTION_INVALID_HANDLER = 3;
-
-		const EXCEPTION_INVALID_PARAMS = 4;
-
-		const EXCEPTION_ACTION_NOT_FOUND = 5;
-
-		protected $_handlerSuffix;
-
-		protected $_defaultHandler;
-
-		protected $_defaultAction;
-
-		/**
-		 * Sets the default task suffix
-		 *
-		 * @param string $taskSuffix
-		 */
-		public function setTaskSuffix($taskSuffix){ }
+    protected $_handlerSuffix = "Task";
 
 
-		/**
-		 * Sets the default task name
-		 *
-		 * @param string $taskName
-		 */
-		public function setDefaultTask($taskName){ }
+    protected $_defaultHandler = "main";
 
 
-		/**
-		 * Sets the task name to be dispatched
-		 *
-		 * @param string $taskName
-		 */
-		public function setTaskName($taskName){ }
+    protected $_defaultAction = "main";
 
 
-		/**
-		 * Gets last dispatched task name
-		 *
-		 * @return string
-		 */
-		public function getTaskName(){ }
+    protected $_options;
 
 
-		/**
-		 * Throws an internal exception
-		 *
-		 * @param string $message
-		 * @param int $exceptionCode
-		 */
-		protected function _throwDispatchException(){ }
+    /**
+     * Phalcon\Cli\Dispatcher constructor
+     */
+	public function __construct() {}
 
+    /**
+     * Sets the default task suffix
+     *
+     * @param string $taskSuffix 
+     */
+	public function setTaskSuffix($taskSuffix) {}
 
-		/**
-		 * Handles a user exception
-		 *
-		 * @param \Exception $exception
-		 */
-		protected function _handleException(){ }
+    /**
+     * Sets the default task name
+     *
+     * @param string $taskName 
+     */
+	public function setDefaultTask($taskName) {}
 
+    /**
+     * Sets the task name to be dispatched
+     *
+     * @param string $taskName 
+     */
+	public function setTaskName($taskName) {}
 
-		/**
-		 * Possible task class name that will be located to dispatch the request
-		 *
-		 * @return string
-		 */
-		public function getTaskClass(){ }
+    /**
+     * Gets last dispatched task name
+     *
+     * @return string 
+     */
+	public function getTaskName() {}
 
+    /**
+     * Throws an internal exception
+     *
+     * @param string $message 
+     * @param int $exceptionCode 
+     */
+	protected function _throwDispatchException($message, $exceptionCode = 0) {}
 
-		/**
-		 * Returns the lastest dispatched controller
-		 *
-		 * @return \Phalcon\CLI\Task
-		 */
-		public function getLastTask(){ }
+    /**
+     * Handles a user exception
+     *
+     * @param \Exception $exception 
+     */
+	protected function _handleException(\Exception $exception) {}
 
+    /**
+     * Returns the lastest dispatched controller
+     *
+     * @return \Phalcon\CLI\Task 
+     */
+	public function getLastTask() {}
 
-		/**
-		 * Returns the active task in the dispatcher
-		 *
-		 * @return \Phalcon\CLI\Task
-		 */
-		public function getActiveTask(){ }
+    /**
+     * Returns the active task in the dispatcher
+     *
+     * @return \Phalcon\CLI\Task 
+     */
+	public function getActiveTask() {}
 
-	}
+    /**
+     * Set the options to be dispatched
+     *
+     * @param array $options 
+     */
+	public function setOptions($options) {}
+
+    /**
+     * Get dispatched options
+     *
+     * @return array 
+     */
+	public function getOptions() {}
+
 }

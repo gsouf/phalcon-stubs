@@ -1,14 +1,8 @@
-<?php 
+<?php
 
-namespace Phalcon\Config {
+namespace Phalcon\Config;
 
-	/**
-	 * Phalcon\Config\Exception
-	 *
-	 * Exceptions thrown in Phalcon\Config will use this class
-	 *
-	 */
-	
-	class Exception extends \Phalcon\Exception {
-	}
+class Exception extends \Phalcon\Exception
+{
+
 }

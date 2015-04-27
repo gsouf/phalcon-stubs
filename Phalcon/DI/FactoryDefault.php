@@ -1,21 +1,13 @@
-<?php 
+<?php
 
-namespace Phalcon\DI {
+namespace Phalcon\Di;
 
-	/**
-	 * Phalcon\DI\FactoryDefault
-	 *
-	 * This is a variant of the standard Phalcon\DI. By default it automatically
-	 * registers all the services provided by the framework. Thanks to this, the developer does not need
-	 * to register each service individually providing a full stack framework
-	 */
-	
-	class FactoryDefault extends \Phalcon\DI implements \Phalcon\DiInterface {
+class FactoryDefault extends \Phalcon\Di
+{
 
-		/**
-		 * \Phalcon\DI\FactoryDefault constructor
-		 */
-		public function __construct(){ }
+    /**
+     * Phalcon\Di\FactoryDefault constructor
+     */
+	public function __construct() {}
 
-	}
 }

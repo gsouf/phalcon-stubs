@@ -1,100 +1,87 @@
-<?php 
+<?php
 
-namespace Phalcon\Paginator\Adapter {
+namespace Phalcon\Paginator\Adapter;
 
-	/**
-	 * Phalcon\Paginator\Adapter\QueryBuilder
-	 *
-	 * Pagination using a PHQL query builder as source of data
-	 *
-	 *<code>
-	 *  $builder = $this->modelsManager->createBuilder()
-	 *                   ->columns('id, name')
-	 *                   ->from('Robots')
-	 *                   ->orderBy('name');
-	 *
-	 *  $paginator = new Phalcon\Paginator\Adapter\QueryBuilder(array(
-	 *      "builder" => $builder,
-	 *      "limit"=> 20,
-	 *      "page" => 1
-	 *  ));
-	 *</code>
-	 */
-	
-	class QueryBuilder implements \Phalcon\Paginator\AdapterInterface {
+class QueryBuilder implements \Phalcon\Paginator\AdapterInterface
+{
+    /**
+     * Configuration of paginator by model
+     */
+    protected $_config;
 
-		protected $_builder;
+    /**
+     * Paginator's data
+     */
+    protected $_builder;
 
-		protected $_limitRows;
+    /**
+     * Number of rows to be shown in the paginator. By default is null
+     */
+    protected $_limitRows;
 
-		protected $_page;
-
-		/**
-		 * \Phalcon\Paginator\Adapter\QueryBuilder
-		 *
-		 * @param array $config
-		 */
-		public function __construct($config){ }
+    /**
+     * Current page in paginate
+     */
+    protected $_page = 1;
 
 
-		/**
-		 * Returns a slice of the resultset to show in the pagination
-		 *
-		 * @return stdClass
-		 */
-		public function getPaginate(){ }
+    /**
+     * Phalcon\Paginator\Adapter\QueryBuilder
+     *
+     * @param array $config 
+     */
+	public function __construct($config) {}
 
+    /**
+     * Set the current page number
+     *
+     * @param int $currentPage 
+     * @return QueryBuilder 
+     */
+	public function setCurrentPage($currentPage) {}
 
-		/**
-		 * Set current rows limit
-		 *
-		 * @param int $limit
-		 *
-		 * @return \Phalcon\Paginator\Adapter\QueryBuilder $this Fluent interface
-		 */
-		public function setLimit($limit){ }
+    /**
+     * Get the current page number
+     *
+     * @return int 
+     */
+	public function getCurrentPage() {}
 
+    /**
+     * Set current rows limit
+     *
+     * @param int $limitRows 
+     * @return QueryBuilder 
+     */
+	public function setLimit($limitRows) {}
 
-		/**
-		 * Get current rows limit
-		 *
-		 * @return int $limit
-		 */
-		public function getLimit(){ }
+    /**
+     * Get current rows limit
+     *
+     * @return int 
+     */
+	public function getLimit() {}
 
+    /**
+     * Set query builder object
+     *
+     * @param mixed $builder 
+     * @return QueryBuilder 
+     */
+	public function setQueryBuilder(\Phalcon\Mvc\Model\Query\Builder $builder) {}
 
-		/**
-		 * Set current page number
-		 *
-		 * @param int $page
-		 */
-		public function setCurrentPage($page){ }
+    /**
+     * Get query builder object
+     *
+     * @return \Phalcon\Mvc\Model\Query\Builder 
+     */
+	public function getQueryBuilder() {}
 
+    /**
+     * Returns a slice of the resultset to show in the pagination
+     *
+     * @return \stdClass 
+     */
+	public function getPaginate() {}
 
-		/**
-		 * Get current page number
-		 *
-		 * @param int $page
-		 */
-		public function getCurrentPage(){ }
-
-
-		/**
-		 * Set query builder object
-		 *
-		 * @param \Phalcon\Mvc\Model\Query\BuilderInterface $builder
-		 *
-		 * @return \Phalcon\Paginator\Adapter\QueryBuilder $this Fluent interface
-		 */
-		public function setQueryBuilder($queryBuilder){ }
-
-
-		/**
-		 * Get query builder object
-		 *
-		 * @return \Phalcon\Mvc\Model\Query\BuilderInterface $builder
-		 */
-		public function getQueryBuilder(){ }
-
-	}
 }

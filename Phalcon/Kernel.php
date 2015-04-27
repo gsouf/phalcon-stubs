@@ -1,16 +1,16 @@
-<?php 
+<?php
 
-namespace Phalcon {
+namespace Phalcon;
 
-	class Kernel {
+class Kernel
+{
 
-		public static function preComputeHashKey($arrKey){ }
+    /**
+     * Produces a pre-computed hash key based on a string. This function produces different numbers in 32bit/64bit processors
+     *
+     * @param string $key 
+     * @return string 
+     */
+	public static function preComputeHashKey($key) {}
 
-
-		public static function preComputeHashKey32($arrKey){ }
-
-
-		public static function preComputeHashKey64($arrKey){ }
-
-	}
 }

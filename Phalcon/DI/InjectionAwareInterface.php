@@ -1,27 +1,22 @@
-<?php 
+<?php
 
-namespace Phalcon\DI {
+namespace Phalcon\Di;
 
-	/**
-	 * Phalcon\DI\InjectionAwareInterface initializer
-	 */
-	
-	interface InjectionAwareInterface {
+interface InjectionAwareInterface
+{
 
-		/**
-		 * Sets the dependency injector
-		 *
-		 * @param \Phalcon\DiInterface $dependencyInjector
-		 */
-		public function setDI($dependencyInjector);
+    /**
+     * Sets the dependency injector
+     *
+     * @param mixed $dependencyInjector 
+     */
+	public function setDI(\Phalcon\DiInterface $dependencyInjector);
 
+    /**
+     * Returns the internal dependency injector
+     *
+     * @return \Phalcon\DiInterface 
+     */
+	public function getDI();
 
-		/**
-		 * Returns the internal dependency injector
-		 *
-		 * @return \Phalcon\DiInterface
-		 */
-		public function getDI();
-
-	}
 }
