@@ -1,91 +1,69 @@
-<?php 
+<?php
 
-namespace Phalcon\Session\Adapter {
+namespace Phalcon\Session\Adapter;
 
-	/**
-	 * Phalcon\Session\Adapter\Libmemcached
-	 *
-	 * This adapter store sessions in libmemcached
-	 *
-	 *<code>
-	 * $session = new Phalcon\Session\Adapter\Libmemcached(array(
-	 *     'servers' => array(
-	 *         array('host' => 'localhost', 'port' => 11211, 'weight' => 1),
-	 *     ),
-	 *     'client' => array(
-	 *         Memcached::OPT_HASH => Memcached::HASH_MD5,
-	 *         Memcached::OPT_PREFIX_KEY => 'prefix.',
-	 *     ),
-	 *    'lifetime' => 3600,
-	 *    'prefix' => 'my_'
-	 * ));
-	 *
-	 * $session->start();
-	 *
-	 * $session->set('var', 'some-value');
-	 *
-	 * echo $session->get('var');
-	 *</code>
-	 */
-	
-	class Libmemcached extends \Phalcon\Session\Adapter implements \ArrayAccess, \Traversable, \IteratorAggregate, \Countable, \Phalcon\Session\AdapterInterface {
+class Libmemcached extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface
+{
 
-		protected $_lifetime;
-
-		protected $_libmemcached;
-
-		/**
-		 * Constructor for \Phalcon\Session\Adapter\Libmemcached
-		 *
-		 * @param array $options
-		 */
-		public function __construct($options){ }
+    protected $_libmemcached = null;
 
 
-		/**
-		 *
-		 * @return boolean
-		 */
-		public function open(){ }
+    protected $_lifetime = 8600;
 
 
-		/**
-		 *
-		 * @return boolean
-		 */
-		public function close(){ }
+
+	public function getLibmemcached() {}
 
 
-		/**
-		 *
-		 * @param string $sessionId
-		 * @return mixed
-		 */
-		public function read($sessionId){ }
+	public function getLifetime() {}
 
+    /**
+     * Phalcon\Session\Adapter\Libmemcached constructor
+     *
+     * @param array $options 
+     */
+	public function __construct($options = null) {}
 
-		/**
-		 *
-		 * @param string $sessionId
-		 * @param string $data
-		 */
-		public function write($sessionId, $data){ }
+    /**
+     * @return bool 
+     */
+	public function open() {}
 
+    /**
+     * @return bool 
+     */
+	public function close() {}
 
-		/**
-		 *
-		 * @param string $session_id optional, session id
-		 *
-		 * @return boolean
-		 */
-		public function destroy($sessionId=null){ }
+    /**
+     * {@inheritdoc}
+     *
+     * @param string $sessionId 
+     * @return mixed 
+     */
+	public function read($sessionId) {}
 
+    /**
+     * {@inheritdoc}
+     *
+     * @param string $sessionId 
+     * @param string $data 
+     */
+	public function write($sessionId, $data) {}
 
-		/**
-		 *
-		 * @return boolean
-		 */
-		public function gc(){ }
+    /**
+     * {@inheritdoc}
+     *
+     * @param mixed $session_id 
+     * @param string $sessionId 
+     * @return boolean 
+     */
+	public function destroy($session_id = null) {}
 
-	}
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool 
+     */
+	public function gc() {}
+
 }

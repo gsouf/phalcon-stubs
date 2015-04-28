@@ -1,64 +1,67 @@
-<?php 
+<?php
 
-namespace Phalcon\Db {
+namespace Phalcon\Db;
 
-	/**
-	 * Phalcon\Db\Index
-	 *
-	 * Allows to define indexes to be used on tables. Indexes are a common way
-	 * to enhance database performance. An index allows the database server to find
-	 * and retrieve specific rows much faster than it could do without an index
-	 */
-	
-	class Index implements \Phalcon\Db\IndexInterface {
+class Index implements \Phalcon\Db\IndexInterface
+{
+    /**
+     * Index name
+     *
+     * @var string
+     */
+    protected $_name;
 
-		protected $_indexName;
+    /**
+     * Index columns
+     *
+     * @var array
+     */
+    protected $_columns;
 
-		protected $_columns;
-
-		protected $_type;
-
-		/**
-		 * \Phalcon\Db\Index constructor
-		 *
-		 * @param string $indexName
-		 * @param array $columns
-		 * @param string|null $type
-		 */
-		public function __construct($indexName, $columns, $type=null){ }
+    /**
+     * Index type
+     *
+     * @var string
+     */
+    protected $_type;
 
 
-		/**
-		 * Gets the index name
-		 *
-		 * @return string
-		 */
-		public function getName(){ }
+    /**
+     * Index name
+     *
+     * @return string 
+     */
+	public function getName() {}
 
+    /**
+     * Index columns
+     *
+     * @return array 
+     */
+	public function getColumns() {}
 
-		/**
-		 * Gets the columns that comprends the index
-		 *
-		 * @return array
-		 */
-		public function getColumns(){ }
+    /**
+     * Index type
+     *
+     * @return string 
+     */
+	public function getType() {}
 
+    /**
+     * Phalcon\Db\Index constructor
+     *
+     * @param string $name 
+     * @param array $columns 
+     * @param mixed $type 
+     */
+	public function __construct($name, $columns, $type = null) {}
 
-		/**
-		 * Gets the index type
-		 *
-		 * @return string
-		 */
-		public function getType(){ }
+    /**
+     * Restore a Phalcon\Db\Index object from export
+     *
+     * @param array $data 
+     * @return Index 
+     */
+	public static function __set_state($data) {}
 
-
-		/**
-		 * Restore a \Phalcon\Db\Index object from export
-		 *
-		 * @param array $data
-		 * @return \Phalcon\Db\IndexInterface
-		 */
-		public static function __set_state($properties=null){ }
-
-	}
 }

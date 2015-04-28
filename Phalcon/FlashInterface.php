@@ -1,57 +1,44 @@
-<?php 
+<?php
 
-namespace Phalcon {
+namespace Phalcon;
 
-	/**
-	 * Phalcon\FlashInterface initializer
-	 */
-	
-	interface FlashInterface {
+interface FlashInterface
+{
 
-		/**
-		 * Shows a HTML error message
-		 *
-		 * @param string $message
-		 * @return string
-		 */
-		public function error($message);
+    /**
+     * Shows a HTML error message
+     *
+     * @param mixed $message 
+     */
+	public function error($message);
 
+    /**
+     * Shows a HTML notice/information message
+     *
+     * @param mixed $message 
+     */
+	public function notice($message);
 
-		/**
-		 * Shows a HTML notice/information message
-		 *
-		 * @param string $message
-		 * @return string
-		 */
-		public function notice($message);
+    /**
+     * Shows a HTML success message
+     *
+     * @param mixed $message 
+     */
+	public function success($message);
 
+    /**
+     * Shows a HTML warning message
+     *
+     * @param mixed $message 
+     */
+	public function warning($message);
 
-		/**
-		 * Shows a HTML success message
-		 *
-		 * @param string $message
-		 * @return string
-		 */
-		public function success($message);
+    /**
+     * Outputs a message
+     *
+     * @param string $type 
+     * @param mixed $message 
+     */
+	public function message($type, $message);
 
-
-		/**
-		 * Shows a HTML warning message
-		 *
-		 * @param string $message
-		 * @return string
-		 */
-		public function warning($message);
-
-
-		/**
-		 * Outputs a message
-		 *
-		 * @param  string $type
-		 * @param  string $message
-		 * @return string
-		 */
-		public function message($type, $message);
-
-	}
 }

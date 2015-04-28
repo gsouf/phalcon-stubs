@@ -1,163 +1,123 @@
-<?php 
+<?php
 
-namespace Phalcon {
+namespace Phalcon;
 
-	/**
-	 * Phalcon\Config
-	 *
-	 * Phalcon\Config is designed to simplify the access to, and the use of, configuration data within applications.
-	 * It provides a nested object property based user interface for accessing this configuration data within
-	 * application code.
-	 *
-	 *<code>
-	 *	$config = new Phalcon\Config(array(
-	 *		"database" => array(
-	 *			"adapter" => "Mysql",
-	 *			"host" => "localhost",
-	 *			"username" => "scott",
-	 *			"password" => "cheetah",
-	 *			"dbname" => "test_db"
-	 *		),
-	 *		"phalcon" => array(
-	 *			"controllersDir" => "../app/controllers/",
-	 *			"modelsDir" => "../app/models/",
-	 *			"viewsDir" => "../app/views/"
-	 *		)
-	 * ));
-	 *</code>
-	 *
-	 */
-	
-	class Config implements \ArrayAccess, \Countable {
+class Config implements \ArrayAccess, \Countable
+{
 
-		/**
-		 * \Phalcon\Config constructor
-		 *
-		 * @param array $arrayConfig
-		 */
-		public function __construct($arrayConfig=null){ }
+    /**
+     * Phalcon\Config constructor
+     *
+     * @param array $arrayConfig 
+     */
+	public function __construct($arrayConfig = null) {}
 
+    /**
+     * Allows to check whether an attribute is defined using the array-syntax
+     * <code>
+     * var_dump(isset($config['database']));
+     * </code>
+     *
+     * @param string $index 
+     * @return bool 
+     */
+	public function offsetExists($index) {}
 
-		/**
-		 * Allows to check whether an attribute is defined using the array-syntax
-		 *
-		 *<code>
-		 * var_dump(isset($config['database']));
-		 *</code>
-		 *
-		 * @param string $index
-		 * @return boolean
-		 */
-		public function offsetExists($property){ }
+    /**
+     * Gets an attribute from the configuration, if the attribute isn't defined returns null
+     * If the value is exactly null or is not defined the default value will be used instead
+     * <code>
+     * echo $config->get('controllersDir', '../app/controllers/');
+     * </code>
+     *
+     * @param string $index 
+     * @param mixed $defaultValue 
+     */
+	public function get($index, $defaultValue = null) {}
 
+    /**
+     * Gets an attribute using the array-syntax
+     * <code>
+     * print_r($config['database']);
+     * </code>
+     *
+     * @param string $index 
+     * @return string 
+     */
+	public function offsetGet($index) {}
 
-		/**
-		 * Gets an attribute from the configuration, if the attribute isn't defined returns null
-		 * If the value is exactly null or is not defined the default value will be used instead
-		 *
-		 *<code>
-		 * echo $config->get('controllersDir', '../app/controllers/');
-		 *</code>
-		 *
-		 * @param string $index
-		 * @param mixed $defaultValue
-		 * @return mixed
-		 */
-		public function get($index, $defaultValue=null){ }
+    /**
+     * Sets an attribute using the array-syntax
+     * <code>
+     * $config['database'] = array('type' => 'Sqlite');
+     * </code>
+     *
+     * @param string $index 
+     * @param mixed $value 
+     */
+	public function offsetSet($index, $value) {}
 
+    /**
+     * Unsets an attribute using the array-syntax
+     * <code>
+     * unset($config['database']);
+     * </code>
+     *
+     * @param string $index 
+     */
+	public function offsetUnset($index) {}
 
-		/**
-		 * Gets an attribute using the array-syntax
-		 *
-		 *<code>
-		 * print_r($config['database']);
-		 *</code>
-		 *
-		 * @param string $index
-		 * @return string
-		 */
-		public function offsetGet($property){ }
+    /**
+     * Merges a configuration into the current one
+     * <code>
+     * $appConfig = new \Phalcon\Config(array('database' => array('host' => 'localhost')));
+     * $globalConfig->merge($config2);
+     * </code>
+     *
+     * @param Config $config 
+     * @return this config
+     */
+	public function merge(Config $config) {}
 
+    /**
+     * Converts recursively the object to an array
+     * <code>
+     * print_r($config->toArray());
+     * </code>
+     *
+     * @return array 
+     */
+	public function toArray() {}
 
-		/**
-		 * Sets an attribute using the array-syntax
-		 *
-		 *<code>
-		 * $config['database'] = array('type' => 'Sqlite');
-		 *</code>
-		 *
-		 * @param string $index
-		 * @param mixed $value
-		 */
-		public function offsetSet($property, $value){ }
+    /**
+     * Returns the count of properties set in the config
+     * <code>
+     * print count($config);
+     * </code>
+     * or
+     * <code>
+     * print $config->count();
+     * </code>
+     *
+     * @return int 
+     */
+	public function count() {}
 
+    /**
+     * Restores the state of a Phalcon\Config object
+     *
+     * @param array $data 
+     * @return Config 
+     */
+	public static function __set_state($data) {}
 
-		/**
-		 * Unsets an attribute using the array-syntax
-		 *
-		 *<code>
-		 * unset($config['database']);
-		 *</code>
-		 *
-		 * @param string $index
-		 */
-		public function offsetUnset($property){ }
+    /**
+     * Helper method for merge configs (forwarding nested config instance)
+     *
+     * @param Config $config 
+     * @param Config $instance = null
+     * @return Config config
+     */
+	protected final function _merge(Config $config, $instance = null) {}
 
-
-		/**
-		 * Merges a configuration into the current one
-		 *
-		 * @brief void \Phalcon\Config::merge(array|object $with)
-		 *
-		 *<code>
-		 *	$appConfig = new \Phalcon\Config(array('database' => array('host' => 'localhost')));
-		 *	$globalConfig->merge($config2);
-		 *</code>
-		 *
-		 * @param \Phalcon\Config $config
-		 */
-		public function merge($config){ }
-
-
-		/**
-		 * Converts recursively the object to an array
-		 *
-		 * @brief array \Phalcon\Config::toArray(bool $recursive = true);
-		 *
-		 *<code>
-		 *	print_r($config->toArray());
-		 *</code>
-		 *
-		 * @return array
-		 */
-		public function toArray(){ }
-
-
-		public function count(){ }
-
-
-		public function __wakeup(){ }
-
-
-		/**
-		 * Restores the state of a \Phalcon\Config object
-		 *
-		 * @param array $data
-		 * @return \Phalcon\Config
-		 */
-		public static function __set_state($properties=null){ }
-
-
-		public function __get($property){ }
-
-
-		public function __set($property, $value){ }
-
-
-		public function __isset($property){ }
-
-
-		public function __unset($property){ }
-
-	}
 }

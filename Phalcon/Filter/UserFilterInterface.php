@@ -1,20 +1,15 @@
-<?php 
+<?php
 
-namespace Phalcon\Filter {
+namespace Phalcon\Filter;
 
-	/**
-	 * Phalcon\Filter\UserFilterInterface initializer
-	 */
-	
-	interface UserFilterInterface {
+interface UserFilterInterface
+{
 
-		/**
-		 * Filters a value
-		 *
-		 * @param mixed $value
-		 * @return mixed
-		 */
-		public function filter($value);
+    /**
+     * Filters a value
+     *
+     * @param mixed $value 
+     */
+	public function filter($value);
 
-	}
 }

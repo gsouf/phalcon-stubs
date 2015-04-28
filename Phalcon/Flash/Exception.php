@@ -1,14 +1,8 @@
-<?php 
+<?php
 
-namespace Phalcon\Flash {
+namespace Phalcon\Flash;
 
-	/**
-	 * Phalcon\Flash\Exception
-	 *
-	 * Exceptions thrown in Phalcon\Flash will use this class
-	 *
-	 */
-	
-	class Exception extends \Phalcon\Exception {
-	}
+class Exception extends \Phalcon\Exception
+{
+
 }

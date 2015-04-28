@@ -1,84 +1,78 @@
-<?php 
+<?php
 
-namespace Phalcon\Flash {
+namespace Phalcon\Flash;
 
-	/**
-	 * Phalcon\Flash\Session
-	 *
-	 * Temporarily stores the messages in session, then messages can be printed in the next request
-	 */
-	
-	class Session extends \Phalcon\Flash implements \Phalcon\FlashInterface, \Phalcon\DI\InjectionAwareInterface {
+class Session extends \Phalcon\Flash implements \Phalcon\FlashInterface, \Phalcon\Di\InjectionAwareInterface
+{
 
-		protected $_dependencyInjector;
-
-		/**
-		 * Sets the dependency injector
-		 *
-		 * @param \Phalcon\DiInterface $dependencyInjector
-		 */
-		public function setDI($dependencyInjector){ }
+    protected $_dependencyInjector;
 
 
-		/**
-		 * Returns the internal dependency injector
-		 *
-		 * @return \Phalcon\DiInterface
-		 */
-		public function getDI(){ }
+    /**
+     * Sets the dependency injector
+     *
+     * @param mixed $dependencyInjector 
+     */
+	public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
+    /**
+     * Returns the internal dependency injector
+     *
+     * @return \Phalcon\DiInterface 
+     */
+	public function getDI() {}
 
-		/**
-		 * Returns the messages stored in session
-		 *
-		 * @param boolean $remove
-		 * @return array
-		 */
-		protected function _getSessionMessages(){ }
+    /**
+     * Returns the messages stored in session
+     *
+     * @param bool $remove 
+     * @return array 
+     */
+	protected function _getSessionMessages($remove) {}
 
+    /**
+     * Stores the messages in session
+     *
+     * @param array $messages 
+     * @return array 
+     */
+	protected function _setSessionMessages($messages) {}
 
-		/**
-		 * Stores the messages in session
-		 *
-		 * @param array $messages
-		 */
-		protected function _setSessionMessages(){ }
+    /**
+     * Adds a message to the session flasher
+     *
+     * @param string $type 
+     * @param string $message 
+     */
+	public function message($type, $message) {}
 
+    /**
+     * Checks whether there are messages
+     *
+     * @param mixed $type 
+     * @return bool 
+     */
+	public function has($type = null) {}
 
-		/**
-		 * Adds a message to the session flasher
-		 *
-		 * @param string $type
-		 * @param string $message
-		 */
-		public function message($type, $message){ }
+    /**
+     * Returns the messages in the session flasher
+     *
+     * @param mixed $type 
+     * @param bool $remove 
+     * @return array 
+     */
+	public function getMessages($type = null, $remove = true) {}
 
+    /**
+     * Prints the messages in the session flasher
+     *
+     * @param bool $remove 
+     */
+	public function output($remove = true) {}
 
-		/**
-		 * Returns the messages in the session flasher
-		 *
-		 * @param string $type
-		 * @param boolean $remove
-		 * @return array
-		 */
-		public function getMessages($type=null, $remove=null){ }
+    /**
+     * Clear messages in the session messenger
+     */
+	public function clear() {}
 
-
-		/**
-		 * Prints the messages in the session flasher
-		 *
-		 * @param string $type
-		 * @param boolean $remove
-		 */
-		public function output($remove=null){ }
-
-
-		/**
-		 * bool \Phalcon\Flash\Session::has(string $type)
-		 *
-		 * @see https://github.com/phalcon/cphalcon/issues/1342
-		 */
-		public function has($type){ }
-
-	}
 }
