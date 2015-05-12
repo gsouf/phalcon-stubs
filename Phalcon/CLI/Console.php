@@ -1,120 +1,107 @@
-<?php
+<?php 
 
-namespace Phalcon\Cli;
+namespace Phalcon\Cli {
 
-class Console implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Events\EventsAwareInterface
-{
+	/**
+	 * Phalcon\Cli\Console
+	 *
+	 * This component allows to create CLI applications using Phalcon
+	 */
+	
+	class Console implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Events\EventsAwareInterface {
 
-    protected $_dependencyInjector;
+		protected $_dependencyInjector;
+
+		protected $_eventsManager;
+
+		protected $_modules;
+
+		protected $_moduleObject;
+
+		protected $_arguments;
+
+		protected $_options;
+
+		/**
+		 * \Phalcon\Cli\Console constructor
+		 */
+		public function __construct(\Phalcon\DiInterface $dependencyInjector=null){ }
 
 
-    protected $_eventsManager;
+		/**
+		 * Sets the DependencyInjector container
+		 */
+		public function setDI(\Phalcon\DiInterface $dependencyInjector){ }
 
 
-    protected $_modules;
+		/**
+		 * Returns the internal dependency injector
+		 */
+		public function getDI(){ }
 
 
-    protected $_moduleObject;
+		/**
+		 * Sets the events manager
+		 */
+		public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager){ }
 
 
-    protected $_arguments;
+		/**
+		 * Returns the internal event manager
+		 */
+		public function getEventsManager(){ }
 
 
-    protected $_options;
+		/**
+		 * Register an array of modules present in the console
+		 *
+		 *<code>
+		 *	$application->registerModules(array(
+		 *		'frontend' => array(
+		 *			'className' => 'Multiple\Frontend\Module',
+		 *			'path' => '../apps/frontend/Module.php'
+		 *		),
+		 *		'backend' => array(
+		 *			'className' => 'Multiple\Backend\Module',
+		 *			'path' => '../apps/backend/Module.php'
+		 *		)
+		 *	));
+		 *</code>
+		 */
+		public function registerModules($modules){ }
 
 
-    /**
-     * Phalcon\Cli\Console constructor
-     *
-     * @param \Phalcon\DiInterface $dependencyInjector 
-     */
-	public function __construct(\Phalcon\DiInterface $dependencyInjector = null) {}
+		/**
+		 * Merge modules with the existing ones
+		 *
+		 *<code>
+		 *	application->addModules(array(
+		 *		'admin' => array(
+		 *			'className' => 'Multiple\Admin\Module',
+		 *			'path' => '../apps/admin/Module.php'
+		 *		)
+		 *	));
+		 *</code>
+		 */
+		public function addModules($modules){ }
 
-    /**
-     * Sets the DependencyInjector container
-     *
-     * @param \Phalcon\DiInterface $dependencyInjector 
-     */
-	public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
-    /**
-     * Returns the internal dependency injector
-     *
-     * @return \Phalcon\DiInterface 
-     */
-	public function getDI() {}
+		/**
+		 * Return the modules registered in the console
+		 */
+		public function getModules(){ }
 
-    /**
-     * Sets the events manager
-     *
-     * @param \Phalcon\Events\ManagerInterface $eventsManager 
-     */
-	public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager) {}
 
-    /**
-     * Returns the internal event manager
-     *
-     * @return \Phalcon\Events\ManagerInterface 
-     */
-	public function getEventsManager() {}
+		/**
+		 * Handle the whole command-line tasks
+		 */
+		public function handle($arguments=null){ }
 
-    /**
-     * Register an array of modules present in the console
-     * <code>
-     * $application->registerModules(array(
-     * 'frontend' => array(
-     * 'className' => 'Multiple\Frontend\Module',
-     * 'path' => '../apps/frontend/Module.php'
-     * ),
-     * 'backend' => array(
-     * 'className' => 'Multiple\Backend\Module',
-     * 'path' => '../apps/backend/Module.php'
-     * )
-     * ));
-     * </code>
-     *
-     * @param array $modules 
-     */
-	public function registerModules($modules) {}
 
-    /**
-     * Merge modules with the existing ones
-     * <code>
-     * application->addModules(array(
-     * 'admin' => array(
-     * 'className' => 'Multiple\Admin\Module',
-     * 'path' => '../apps/admin/Module.php'
-     * )
-     * ));
-     * </code>
-     *
-     * @param array $modules 
-     */
-	public function addModules($modules) {}
+		/**
+		 * Set an specific argument
+		 */
+		public function setArgument($arguments=null, $str=null, $shift=null){ }
 
-    /**
-     * Return the modules registered in the console
-     *
-     * @return array 
-     */
-	public function getModules() {}
-
-    /**
-     * Handle the whole command-line tasks
-     *
-     * @param array $arguments 
-     * @return mixed 
-     */
-	public function handle($arguments = null) {}
-
-    /**
-     * Set an specific argument
-     *
-     * @param var $arguments 
-     * @param boolean $str 
-     * @param boolean $shift 
-     * @return Console 
-     */
-	public function setArgument($arguments = null, $str = true, $shift = true) {}
-
+	}
 }

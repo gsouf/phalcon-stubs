@@ -1,138 +1,154 @@
-<?php
+<?php 
 
-namespace Phalcon\Validation\Message;
+namespace Phalcon\Validation\Message {
 
-class Group implements \Countable, \ArrayAccess, \Iterator
-{
+	/**
+	 * Phalcon\Validation\Message\Group
+	 *
+	 * Represents a group of validation messages
+	 */
+	
+	class Group implements \Countable, \ArrayAccess, \Iterator, \Traversable {
 
-    protected $_position;
+		protected $_position;
+
+		protected $_messages;
+
+		/**
+		 * \Phalcon\Validation\Message\Group constructor
+		 *
+		 * @param array messages
+		 */
+		public function __construct($messages=null){ }
 
 
-    protected $_messages;
+		/**
+		 * Gets an attribute a message using the array syntax
+		 *
+		 *<code>
+		 * print_r($messages[0]);
+		 *</code>
+		 *
+		 * @param int index
+		 * @return \Phalcon\Validation\Message
+		 */
+		public function offsetGet($index){ }
 
 
-    /**
-     * Phalcon\Validation\Message\Group constructor
-     *
-     * @param array $messages 
-     */
-	public function __construct($messages = null) {}
+		/**
+		 * Sets an attribute using the array-syntax
+		 *
+		 *<code>
+		 * $messages[0] = new \Phalcon\Validation\Message('This is a message');
+		 *</code>
+		 *
+		 * @param int index
+		 * @param \Phalcon\Validation\Message message
+		 */
+		public function offsetSet($index, $message){ }
 
-    /**
-     * Gets an attribute a message using the array syntax
-     * <code>
-     * print_r($messages[0]);
-     * </code>
-     *
-     * @param int $index 
-     * @return \Phalcon\Validation\Message 
-     */
-	public function offsetGet($index) {}
 
-    /**
-     * Sets an attribute using the array-syntax
-     * <code>
-     * $messages[0] = new \Phalcon\Validation\Message('This is a message');
-     * </code>
-     *
-     * @param int $index 
-     * @param \Phalcon\Validation\Message $message 
-     */
-	public function offsetSet($index, $message) {}
+		/**
+		 * Checks if an index exists
+		 *
+		 *<code>
+		 * var_dump(isset($message['database']));
+		 *</code>
+		 *
+		 * @param int index
+		 * @return boolean
+		 */
+		public function offsetExists($index){ }
 
-    /**
-     * Checks if an index exists
-     * <code>
-     * var_dump(isset($message['database']));
-     * </code>
-     *
-     * @param int $index 
-     * @return boolean 
-     */
-	public function offsetExists($index) {}
 
-    /**
-     * Removes a message from the list
-     * <code>
-     * unset($message['database']);
-     * </code>
-     *
-     * @param string $index 
-     */
-	public function offsetUnset($index) {}
+		/**
+		 * Removes a message from the list
+		 *
+		 *<code>
+		 * unset($message['database']);
+		 *</code>
+		 *
+		 * @param string index
+		 */
+		public function offsetUnset($index){ }
 
-    /**
-     * Appends a message to the group
-     * <code>
-     * $messages->appendMessage(new \Phalcon\Validation\Message('This is a message'));
-     * </code>
-     *
-     * @param \Phalcon\Validation\MessageInterface $message 
-     */
-	public function appendMessage(\Phalcon\Validation\MessageInterface $message) {}
 
-    /**
-     * Appends an array of messages to the group
-     * <code>
-     * $messages->appendMessages($messagesArray);
-     * </code>
-     *
-     * @param \Phalcon\Validation\MessageInterface[] $messages 
-     */
-	public function appendMessages($messages) {}
+		/**
+		 * Appends a message to the group
+		 *
+		 *<code>
+		 * $messages->appendMessage(new \Phalcon\Validation\Message('This is a message'));
+		 *</code>
+		 */
+		public function appendMessage(\Phalcon\Validation\MessageInterface $message){ }
 
-    /**
-     * Filters the message group by field name
-     *
-     * @param string $fieldName 
-     * @return array 
-     */
-	public function filter($fieldName) {}
 
-    /**
-     * Returns the number of messages in the list
-     *
-     * @return int 
-     */
-	public function count() {}
+		/**
+		 * Appends an array of messages to the group
+		 *
+		 *<code>
+		 * $messages->appendMessages($messagesArray);
+		 *</code>
+		 *
+		 * @param \Phalcon\Validation\MessageInterface[] messages
+		 */
+		public function appendMessages($messages){ }
 
-    /**
-     * Rewinds the internal iterator
-     */
-	public function rewind() {}
 
-    /**
-     * Returns the current message in the iterator
-     *
-     * @return \Phalcon\Validation\Message 
-     */
-	public function current() {}
+		/**
+		 * Filters the message group by field name
+		 *
+		 * @param string fieldName
+		 * @return array
+		 */
+		public function filter($fieldName){ }
 
-    /**
-     * Returns the current position/key in the iterator
-     *
-     * @return int 
-     */
-	public function key() {}
 
-    /**
-     * Moves the internal iteration pointer to the next position
-     */
-	public function next() {}
+		/**
+		 * Returns the number of messages in the list
+		 */
+		public function count(){ }
 
-    /**
-     * Check if the current message in the iterator is valid
-     *
-     * @return boolean 
-     */
-	public function valid() {}
 
-    /**
-     * Magic __set_state helps to re-build messages variable when exporting
-     *
-     * @param array $group 
-     * @return \Phalcon\Validation\Message\Group 
-     */
-	public static function __set_state($group) {}
+		/**
+		 * Rewinds the internal iterator
+		 */
+		public function rewind(){ }
 
+
+		/**
+		 * Returns the current message in the iterator
+		 *
+		 * @return \Phalcon\Validation\Message
+		 */
+		public function current(){ }
+
+
+		/**
+		 * Returns the current position/key in the iterator
+		 */
+		public function key(){ }
+
+
+		/**
+		 * Moves the internal iteration pointer to the next position
+		 */
+		public function next(){ }
+
+
+		/**
+		 * Check if the current message in the iterator is valid
+		 */
+		public function valid(){ }
+
+
+		/**
+		 * Magic __set_state helps to re-build messages variable when exporting
+		 *
+		 * @param array group
+		 * @return \Phalcon\Validation\Message\Group
+		 */
+		public static function __set_state($group){ }
+
+	}
 }

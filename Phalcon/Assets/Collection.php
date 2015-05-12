@@ -1,267 +1,221 @@
-<?php
+<?php 
 
-namespace Phalcon\Assets;
+namespace Phalcon\Assets {
 
-class Collection implements \Countable, \Iterator
-{
+	class Collection implements \Countable, \Iterator, \Traversable {
 
-    protected $_prefix;
+		protected $_prefix;
 
+		protected $_local;
 
-    protected $_local = true;
+		protected $_resources;
 
+		protected $_codes;
 
-    protected $_resources = array();
+		protected $_position;
 
+		protected $_filters;
 
-    protected $_codes = array();
+		protected $_attributes;
 
+		protected $_join;
 
-    protected $_position;
+		protected $_targetUri;
 
+		protected $_targetPath;
 
-    protected $_filters = array();
+		protected $_targetLocal;
 
+		protected $_sourcePath;
 
-    protected $_attributes = array();
+		public function getPrefix(){ }
 
 
-    protected $_join = true;
+		public function getLocal(){ }
 
 
-    protected $_targetUri;
+		public function getResources(){ }
 
 
-    protected $_targetPath;
+		public function getCodes(){ }
 
 
-    protected $_targetLocal = true;
+		public function getPosition(){ }
 
 
-    protected $_sourcePath;
+		public function getFilters(){ }
 
 
+		public function getAttributes(){ }
 
-	public function getPrefix() {}
 
+		public function getJoin(){ }
 
-	public function getLocal() {}
 
+		public function getTargetUri(){ }
 
-	public function getResources() {}
 
+		public function getTargetPath(){ }
 
-	public function getCodes() {}
 
+		public function getTargetLocal(){ }
 
-	public function getPosition() {}
 
+		public function getSourcePath(){ }
 
-	public function getFilters() {}
 
+		/**
+		 * Adds a resource to the collection
+		 */
+		public function add(\Phalcon\Assets\Resource $resource){ }
 
-	public function getAttributes() {}
 
+		/**
+		 * Adds a inline code to the collection
+		 */
+		public function addInline(\Phalcon\Assets\Inline $code){ }
 
-	public function getJoin() {}
 
+		/**
+		 * Adds a CSS resource to the collection
+		 */
+		public function addCss($path, $local=null, $filter=null, $attributes=null){ }
 
-	public function getTargetUri() {}
 
+		/**
+		 * Adds a inline CSS to the collection
+		 */
+		public function addInlineCss($content, $filter=null, $attributes=null){ }
 
-	public function getTargetPath() {}
 
+		/**
+		 * Adds a javascript resource to the collection
+		 *
+		 * @param string path
+		 * @param boolean local
+		 * @param boolean filter
+		 * @param array attributes
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function addJs($path, $local=null, $filter=null, $attributes=null){ }
 
-	public function getTargetLocal() {}
 
+		/**
+		 * Adds a inline javascript to the collection
+		 *
+		 * @param string content
+		 * @param boolean filter
+		 * @param array attributes
+		 * @return \Phalcon\Assets\Collection
+		 */
+		public function addInlineJs($content, $filter=null, $attributes=null){ }
 
-	public function getSourcePath() {}
 
-    /**
-     * Adds a resource to the collection
-     *
-     * @param mixed $resource 
-     * @return Collection 
-     */
-	public function add(\Phalcon\Assets\Resource $resource) {}
+		/**
+		 * Returns the number of elements in the form
+		 */
+		public function count(){ }
 
-    /**
-     * Adds a inline code to the collection
-     *
-     * @param mixed $code 
-     * @return Collection 
-     */
-	public function addInline(\Phalcon\Assets\Inline $code) {}
 
-    /**
-     * Adds a CSS resource to the collection
-     *
-     * @param string $path 
-     * @param boolean $local 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
-     */
-	public function addCss($path, $local = null, $filter = false, $attributes = null) {}
-
-    /**
-     * Adds a inline CSS to the collection
-     *
-     * @param string $content 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
-     */
-	public function addInlineCss($content, $filter = false, $attributes = null) {}
-
-    /**
-     * Adds a javascript resource to the collection
-     *
-     * @param string $path 
-     * @param boolean $local 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
-     */
-	public function addJs($path, $local = null, $filter = false, $attributes = null) {}
-
-    /**
-     * Adds a inline javascript to the collection
-     *
-     * @param string $content 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
-     */
-	public function addInlineJs($content, $filter = false, $attributes = null) {}
-
-    /**
-     * Returns the number of elements in the form
-     *
-     * @return int 
-     */
-	public function count() {}
-
-    /**
-     * Rewinds the internal iterator
-     */
-	public function rewind() {}
-
-    /**
-     * Returns the current resource in the iterator
-     *
-     * @return \Phalcon\Assets\Resource 
-     */
-	public function current() {}
-
-    /**
-     * Returns the current position/key in the iterator
-     *
-     * @return int 
-     */
-	public function key() {}
-
-    /**
-     * Moves the internal iteration pointer to the next position
-     */
-	public function next() {}
-
-    /**
-     * Check if the current element in the iterator is valid
-     *
-     * @return bool 
-     */
-	public function valid() {}
-
-    /**
-     * Sets the target path of the file for the filtered/join output
-     *
-     * @param string $targetPath 
-     * @return Collection 
-     */
-	public function setTargetPath($targetPath) {}
-
-    /**
-     * Sets a base source path for all the resources in this collection
-     *
-     * @param string $sourcePath 
-     * @return Collection 
-     */
-	public function setSourcePath($sourcePath) {}
-
-    /**
-     * Sets a target uri for the generated HTML
-     *
-     * @param string $targetUri 
-     * @return Collection 
-     */
-	public function setTargetUri($targetUri) {}
-
-    /**
-     * Sets a common prefix for all the resources
-     *
-     * @param string $prefix 
-     * @return Collection 
-     */
-	public function setPrefix($prefix) {}
-
-    /**
-     * Sets if the collection uses local resources by default
-     *
-     * @param bool $local 
-     * @return Collection 
-     */
-	public function setLocal($local) {}
-
-    /**
-     * Sets extra HTML attributes
-     *
-     * @param array $attributes 
-     * @return Collection 
-     */
-	public function setAttributes($attributes) {}
-
-    /**
-     * Sets an array of filters in the collection
-     *
-     * @param array $filters 
-     * @return Collection 
-     */
-	public function setFilters($filters) {}
-
-    /**
-     * Sets the target local
-     *
-     * @param bool $targetLocal 
-     * @return Collection 
-     */
-	public function setTargetLocal($targetLocal) {}
-
-    /**
-     * Sets if all filtered resources in the collection must be joined in a single result file
-     *
-     * @param bool $join 
-     * @return Collection 
-     */
-	public function join($join) {}
-
-    /**
-     * Returns the complete location where the joined/filtered collection must be written
-     *
-     * @param string $basePath 
-     * @return string 
-     */
-	public function getRealTargetPath($basePath) {}
-
-    /**
-     * Adds a filter to the collection
-     *
-     * @param mixed $filter 
-     * @return Collection 
-     */
-	public function addFilter(\Phalcon\Assets\FilterInterface $filter) {}
-
-
-	public function __construct() {}
+		/**
+		 * Rewinds the internal iterator
+		 */
+		public function rewind(){ }
 
+
+		/**
+		 * Returns the current resource in the iterator
+		 */
+		public function current(){ }
+
+
+		/**
+		 * Returns the current position/key in the iterator
+		 *
+		 * @return int
+		 */
+		public function key(){ }
+
+
+		/**
+		 * Moves the internal iteration pointer to the next position
+		 */
+		public function next(){ }
+
+
+		/**
+		 * Check if the current element in the iterator is valid
+		 */
+		public function valid(){ }
+
+
+		/**
+		 * Sets the target path of the file for the filtered/join output
+		 */
+		public function setTargetPath($targetPath){ }
+
+
+		/**
+		 * Sets a base source path for all the resources in this collection
+		 */
+		public function setSourcePath($sourcePath){ }
+
+
+		/**
+		 * Sets a target uri for the generated HTML
+		 */
+		public function setTargetUri($targetUri){ }
+
+
+		/**
+		 * Sets a common prefix for all the resources
+		 */
+		public function setPrefix($prefix){ }
+
+
+		/**
+		 * Sets if the collection uses local resources by default
+		 */
+		public function setLocal($local){ }
+
+
+		/**
+		 * Sets extra HTML attributes
+		 */
+		public function setAttributes($attributes){ }
+
+
+		/**
+		 * Sets an array of filters in the collection
+		 */
+		public function setFilters($filters){ }
+
+
+		/**
+		 * Sets the target local
+		 */
+		public function setTargetLocal($targetLocal){ }
+
+
+		/**
+		 * Sets if all filtered resources in the collection must be joined in a single result file
+		 */
+		public function join($join){ }
+
+
+		/**
+		 * Returns the complete location where the joined/filtered collection must be written
+		 */
+		public function getRealTargetPath($basePath){ }
+
+
+		/**
+		 * Adds a filter to the collection
+		 */
+		public function addFilter(\Phalcon\Assets\FilterInterface $filter){ }
+
+
+		public function __construct(){ }
+
+	}
 }

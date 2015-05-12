@@ -1,22 +1,13 @@
-<?php
+<?php 
 
-namespace Phalcon\Events;
+namespace Phalcon\Events {
 
-interface EventsAwareInterface
-{
+	interface EventsAwareInterface {
 
-    /**
-     * Sets the events manager
-     *
-     * @param \Phalcon\Events\ManagerInterface $eventsManager 
-     */
-	public function setEventsManager(ManagerInterface $eventsManager);
+		public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager);
 
-    /**
-     * Returns the internal event manager
-     *
-     * @return \Phalcon\Events\ManagerInterface 
-     */
-	public function getEventsManager();
 
+		public function getEventsManager();
+
+	}
 }

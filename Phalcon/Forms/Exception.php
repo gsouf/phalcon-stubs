@@ -1,8 +1,7 @@
-<?php
+<?php 
 
-namespace Phalcon\Forms;
+namespace Phalcon\Forms {
 
-class Exception extends \Phalcon\Exception
-{
-
+	class Exception extends \Phalcon\Exception {
+	}
 }

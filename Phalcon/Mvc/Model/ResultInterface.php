@@ -1,15 +1,10 @@
-<?php
+<?php 
 
-namespace Phalcon\Mvc\Model;
+namespace Phalcon\Mvc\Model {
 
-interface ResultInterface
-{
+	interface ResultInterface {
 
-    /**
-     * Sets the object's state
-     *
-     * @param boolean $dirtyState 
-     */
-	public function setDirtyState($dirtyState);
+		public function setDirtyState($dirtyState);
 
+	}
 }

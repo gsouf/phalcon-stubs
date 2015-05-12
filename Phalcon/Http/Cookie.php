@@ -1,213 +1,186 @@
-<?php
+<?php 
 
-namespace Phalcon\Http;
+namespace Phalcon\Http {
 
-class Cookie implements \Phalcon\Di\InjectionAwareInterface
-{
+	/**
+	 * Phalcon\Http\Cookie
+	 *
+	 * Provide OO wrappers to manage a HTTP cookie
+	 */
+	
+	class Cookie implements \Phalcon\Di\InjectionAwareInterface {
 
-    protected $_readed = false;
+		protected $_readed;
+
+		protected $_restored;
+
+		protected $_useEncryption;
+
+		protected $_dependencyInjector;
+
+		protected $_filter;
+
+		protected $_name;
+
+		protected $_value;
+
+		protected $_expire;
+
+		protected $_path;
+
+		protected $_domain;
+
+		protected $_secure;
+
+		protected $_httpOnly;
+
+		/**
+		 * \Phalcon\Http\Cookie constructor
+		 *
+		 * @param string name
+		 * @param mixed value
+		 * @param int expire
+		 * @param string path
+		 * @param boolean secure
+		 * @param string domain
+		 * @param boolean httpOnly
+		 */
+		public function __construct($name, $value=null, $expire=null, $path=null, $secure=null, $domain=null, $httpOnly=null){ }
 
 
-    protected $_restored = false;
+		/**
+		 * Sets the dependency injector
+		 */
+		public function setDI(\Phalcon\DiInterface $dependencyInjector){ }
 
 
-    protected $_useEncryption = false;
+		/**
+		 * Returns the internal dependency injector
+		 */
+		public function getDI(){ }
 
 
-    protected $_dependencyInjector;
+		/**
+		 * Sets the cookie's value
+		 *
+		 * @param string value
+		 * @return \Phalcon\Http\Cookie
+		 */
+		public function setValue($value){ }
 
 
-    protected $_filter;
+		/**
+		 * Returns the cookie's value
+		 *
+		 * @param string|array filters
+		 * @param string defaultValue
+		 * @return mixed
+		 */
+		public function getValue($filters=null, $defaultValue=null){ }
 
 
-    protected $_name;
+		/**
+		 * Sends the cookie to the HTTP client
+		 * Stores the cookie definition in session
+		 */
+		public function send(){ }
 
 
-    protected $_value;
+		/**
+		 * Reads the cookie-related info from the SESSION to restore the cookie as it was set
+		 * This method is automatically called internally so normally you don't need to call it
+		 */
+		public function restore(){ }
 
 
-    protected $_expire;
+		/**
+		 * Deletes the cookie by setting an expire time in the past
+		 */
+		public function delete(){ }
 
 
-    protected $_path = "/";
+		/**
+		 * Sets if the cookie must be encrypted/decrypted automatically
+		 */
+		public function useEncryption($useEncryption){ }
 
 
-    protected $_domain;
+		/**
+		 * Check if the cookie is using implicit encryption
+		 */
+		public function isUsingEncryption(){ }
 
 
-    protected $_secure;
+		/**
+		 * Sets the cookie's expiration time
+		 */
+		public function setExpiration($expire){ }
 
 
-    protected $_httpOnly = true;
+		/**
+		 * Returns the current expiration time
+		 */
+		public function getExpiration(){ }
 
 
-    /**
-     * Phalcon\Http\Cookie constructor
-     *
-     * @param string $name 
-     * @param mixed $value 
-     * @param int $expire 
-     * @param string $path 
-     * @param boolean $secure 
-     * @param string $domain 
-     * @param boolean $httpOnly 
-     */
-	public function __construct($name, $value = null, $expire = 0, $path = "/", $secure = null, $domain = null, $httpOnly = null) {}
+		/**
+		 * Sets the cookie's expiration time
+		 */
+		public function setPath($path){ }
 
-    /**
-     * Sets the dependency injector
-     *
-     * @param mixed $dependencyInjector 
-     */
-	public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
-    /**
-     * Returns the internal dependency injector
-     *
-     * @return \Phalcon\DiInterface 
-     */
-	public function getDI() {}
+		/**
+		 * Returns the current cookie's name
+		 */
+		public function getName(){ }
 
-    /**
-     * Sets the cookie's value
-     *
-     * @param string $value 
-     * @return \Phalcon\Http\Cookie 
-     */
-	public function setValue($value) {}
 
-    /**
-     * Returns the cookie's value
-     *
-     * @param string|array $filters 
-     * @param string $defaultValue 
-     * @return mixed 
-     */
-	public function getValue($filters = null, $defaultValue = null) {}
+		/**
+		 * Returns the current cookie's path
+		 */
+		public function getPath(){ }
 
-    /**
-     * Sends the cookie to the HTTP client
-     * Stores the cookie definition in session
-     *
-     * @return Cookie 
-     */
-	public function send() {}
 
-    /**
-     * Reads the cookie-related info from the SESSION to restore the cookie as it was set
-     * This method is automatically called internally so normally you don't need to call it
-     *
-     * @return Cookie 
-     */
-	public function restore() {}
+		/**
+		 * Sets the domain that the cookie is available to
+		 */
+		public function setDomain($domain){ }
 
-    /**
-     * Deletes the cookie by setting an expire time in the past
-     */
-	public function delete() {}
 
-    /**
-     * Sets if the cookie must be encrypted/decrypted automatically
-     *
-     * @param bool $useEncryption 
-     * @return Cookie 
-     */
-	public function useEncryption($useEncryption) {}
+		/**
+		 * Returns the domain that the cookie is available to
+		 */
+		public function getDomain(){ }
 
-    /**
-     * Check if the cookie is using implicit encryption
-     *
-     * @return bool 
-     */
-	public function isUsingEncryption() {}
 
-    /**
-     * Sets the cookie's expiration time
-     *
-     * @param int $expire 
-     * @return Cookie 
-     */
-	public function setExpiration($expire) {}
+		/**
+		 * Sets if the cookie must only be sent when the connection is secure (HTTPS)
+		 */
+		public function setSecure($secure){ }
 
-    /**
-     * Returns the current expiration time
-     *
-     * @return string 
-     */
-	public function getExpiration() {}
 
-    /**
-     * Sets the cookie's expiration time
-     *
-     * @param string $path 
-     * @return Cookie 
-     */
-	public function setPath($path) {}
+		/**
+		 * Returns whether the cookie must only be sent when the connection is secure (HTTPS)
+		 */
+		public function getSecure(){ }
 
-    /**
-     * Returns the current cookie's name
-     *
-     * @return string 
-     */
-	public function getName() {}
 
-    /**
-     * Returns the current cookie's path
-     *
-     * @return string 
-     */
-	public function getPath() {}
+		/**
+		 * Sets if the cookie is accessible only through the HTTP protocol
+		 */
+		public function setHttpOnly($httpOnly){ }
 
-    /**
-     * Sets the domain that the cookie is available to
-     *
-     * @param string $domain 
-     * @return Cookie 
-     */
-	public function setDomain($domain) {}
 
-    /**
-     * Returns the domain that the cookie is available to
-     *
-     * @return string 
-     */
-	public function getDomain() {}
+		/**
+		 * Returns if the cookie is accessible only through the HTTP protocol
+		 */
+		public function getHttpOnly(){ }
 
-    /**
-     * Sets if the cookie must only be sent when the connection is secure (HTTPS)
-     *
-     * @param bool $secure 
-     * @return Cookie 
-     */
-	public function setSecure($secure) {}
 
-    /**
-     * Returns whether the cookie must only be sent when the connection is secure (HTTPS)
-     *
-     * @return bool 
-     */
-	public function getSecure() {}
+		/**
+		 * Magic __toString method converts the cookie's value to string
+		 */
+		public function __toString(){ }
 
-    /**
-     * Sets if the cookie is accessible only through the HTTP protocol
-     *
-     * @param bool $httpOnly 
-     * @return Cookie 
-     */
-	public function setHttpOnly($httpOnly) {}
-
-    /**
-     * Returns if the cookie is accessible only through the HTTP protocol
-     *
-     * @return bool 
-     */
-	public function getHttpOnly() {}
-
-    /**
-     * Magic __toString method converts the cookie's value to string
-     *
-     * @return string 
-     */
-	public function __toString() {}
-
+	}
 }

@@ -1,46 +1,22 @@
-<?php
+<?php 
 
-namespace Phalcon\Db;
+namespace Phalcon\Db {
 
-interface IndexInterface
-{
+	interface IndexInterface {
 
-    /**
-     * Phalcon\Db\Index constructor
-     *
-     * @param string $indexName 
-     * @param array $columns 
-     * @param string $type 
-     */
-	public function __construct($indexName, $columns, $type = null);
+		public function __construct($indexName, $columns, $type=null);
 
-    /**
-     * Gets the index name
-     *
-     * @return string 
-     */
-	public function getName();
 
-    /**
-     * Gets the columns that comprends the index
-     *
-     * @return array 
-     */
-	public function getColumns();
+		public function getName();
 
-    /**
-     * Gets the index type
-     *
-     * @return string 
-     */
-	public function getType();
 
-    /**
-     * Restore a Phalcon\Db\Index object from export
-     *
-     * @param array $data 
-     * @return \Phalcon\Db\IndexInterface 
-     */
-	public static function __set_state($data);
+		public function getColumns();
 
+
+		public function getType();
+
+
+		public static function __set_state($data);
+
+	}
 }

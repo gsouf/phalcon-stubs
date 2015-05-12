@@ -1,82 +1,37 @@
-<?php
+<?php 
 
-namespace Phalcon\Session;
+namespace Phalcon\Session {
 
-interface AdapterInterface
-{
+	interface AdapterInterface {
 
-    /**
-     * Starts session, optionally using an adapter
-     *
-     * @param array $options 
-     */
-	public function start();
+		public function start();
 
-    /**
-     * Sets session options
-     *
-     * @param array $options 
-     */
-	public function setOptions($options);
 
-    /**
-     * Get internal options
-     *
-     * @return array 
-     */
-	public function getOptions();
+		public function setOptions($options);
 
-    /**
-     * Gets a session variable from an application context
-     *
-     * @param string $index 
-     * @param mixed $defaultValue 
-     * @return mixed 
-     */
-	public function get($index, $defaultValue = null);
 
-    /**
-     * Sets a session variable in an application context
-     *
-     * @param string $index 
-     * @param string $value 
-     */
-	public function set($index, $value);
+		public function getOptions();
 
-    /**
-     * Check whether a session variable is set in an application context
-     *
-     * @param string $index 
-     * @return boolean 
-     */
-	public function has($index);
 
-    /**
-     * Removes a session variable from an application context
-     *
-     * @param string $index 
-     */
-	public function remove($index);
+		public function get($index, $defaultValue=null);
 
-    /**
-     * Returns active session id
-     *
-     * @return string 
-     */
-	public function getId();
 
-    /**
-     * Check whether the session has been started
-     *
-     * @return boolean 
-     */
-	public function isStarted();
+		public function set($index, $value);
 
-    /**
-     * Destroys the active session
-     *
-     * @return boolean 
-     */
-	public function destroy();
 
+		public function has($index);
+
+
+		public function remove($index);
+
+
+		public function getId();
+
+
+		public function isStarted();
+
+
+		public function destroy();
+
+	}
 }
