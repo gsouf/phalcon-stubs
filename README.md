@@ -15,9 +15,6 @@ You may specify a different version :
 ```"sneakybobito/phalcon-stubs": "1.3.4"```  ```"sneakybobito/phalcon-stubs": "1.2.0"```
 
 
-``
-
-
 list of available versions
 --------
 
