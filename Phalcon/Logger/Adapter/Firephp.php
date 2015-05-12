@@ -1,43 +1,49 @@
-<?php
+<?php 
 
-namespace Phalcon\Logger\Adapter;
+namespace Phalcon\Logger\Adapter {
 
-class Firephp extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface
-{
+	/**
+	 * Phalcon\Logger\Adapter\Firephp
+	 *
+	 * Sends logs to FirePHP
+	 *
+	 *<code>
+	 * $logger = new \Phalcon\Logger\Adapter\Firephp("");
+	 * $logger->log(\Phalcon\Logger::ERROR, "This is an error");
+	 * $logger->error("This is another error");
+	 *</code>
+	 */
+	
+	class Firephp extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface {
 
-    static private $_initialized;
+		private static $_initialized;
+
+		private static $_index;
+
+		/**
+		 * Returns the internal formatter
+		 *
+		 * @return \Phalcon\Logger\FormatterInterface
+		 */
+		public function getFormatter(){ }
 
 
-    static private $_index;
+		/**
+		 * Writes the log to the stream itself
+		 *
+		 * @param string $message
+		 * @param int $type
+		 * @param int $time
+		 * @param array $context
+		 * @see http://www.firephp.org/Wiki/Reference/Protocol
+		 */
+		public function logInternal($message, $type, $time, $context){ }
 
 
-    /**
-     * Returns the internal formatter
-     *
-     * @return \Phalcon\Logger\FormatterInterface 
-     */
-	public function getFormatter() {}
+		/**
+		 * Closes the logger
+		 */
+		public function close(){ }
 
-    /**
-     * Writes the log to the stream itself
-     *
-     * @see http://www.firephp.org/Wiki/Reference/Protocol
-     * @param string $message 
-     * @param int $type 
-     * @param int $time 
-     * @param array $context 
-     * @param string $$message 
-     * @param int $$type 
-     * @param int $$time 
-     * @param array $$context 
-     */
-	public function logInternal($message, $type, $time, $context) {}
-
-    /**
-     * Closes the logger
-     *
-     * @return boolean 
-     */
-	public function close() {}
-
+	}
 }

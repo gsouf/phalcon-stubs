@@ -1,58 +1,28 @@
-<?php
+<?php 
 
-namespace Phalcon\Mvc\Model;
+namespace Phalcon\Mvc\Model {
 
-interface ResultsetInterface
-{
+	interface ResultsetInterface {
 
-    /**
-     * Returns the internal type of data retrieval that the resultset is using
-     *
-     * @return int 
-     */
-	public function getType();
+		public function getType();
 
-    /**
-     * Get first row in the resultset
-     *
-     * @return \Phalcon\Mvc\ModelInterface 
-     */
-	public function getFirst();
 
-    /**
-     * Get last row in the resultset
-     *
-     * @return \Phalcon\Mvc\ModelInterface 
-     */
-	public function getLast();
+		public function getFirst();
 
-    /**
-     * Set if the resultset is fresh or an old one cached
-     *
-     * @param boolean $isFresh 
-     */
-	public function setIsFresh($isFresh);
 
-    /**
-     * Tell if the resultset if fresh or an old one cached
-     *
-     * @return boolean 
-     */
-	public function isFresh();
+		public function getLast();
 
-    /**
-     * Returns the associated cache for the resultset
-     *
-     * @return \Phalcon\Cache\BackendInterface 
-     */
-	public function getCache();
 
-    /**
-     * Returns a complete resultset as an array, if the resultset has a big number of rows
-     * it could consume more memory than currently it does.
-     *
-     * @return array 
-     */
-	public function toArray();
+		public function setIsFresh($isFresh);
 
+
+		public function isFresh();
+
+
+		public function getCache();
+
+
+		public function toArray();
+
+	}
 }

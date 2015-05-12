@@ -1,68 +1,66 @@
-<?php
+<?php 
 
-namespace Phalcon\Logger\Adapter;
+namespace Phalcon\Logger\Adapter {
 
-class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface
-{
-    /**
-     * File handler resource
-     *
-     * @var resource
-     */
-    protected $_fileHandler;
+	/**
+	 * Phalcon\Logger\Adapter\File
+	 *
+	 * Adapter to store logs in plain text files
+	 *
+	 *<code>
+	 *	$logger = new \Phalcon\Logger\Adapter\File("app/logs/test.log");
+	 *	$logger->log("This is a message");
+	 *	$logger->log("This is an error", \Phalcon\Logger::ERROR);
+	 *	$logger->error("This is another error");
+	 *	$logger->close();
+	 *</code>
+	 */
+	
+	class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface {
 
-    /**
-     * File Path
-     */
-    protected $_path;
+		protected $_fileHandler;
 
-    /**
-     * Path options
-     */
-    protected $_options;
+		protected $_path;
+
+		protected $_options;
+
+		/**
+		 * File Path
+		 */
+		public function getPath(){ }
 
 
-    /**
-     * File Path
-     */
-	public function getPath() {}
+		/**
+		 * \Phalcon\Logger\Adapter\File constructor
+		 *
+		 * @param string name
+		 * @param array options
+		 */
+		public function __construct($name, $options=null){ }
 
-    /**
-     * Phalcon\Logger\Adapter\File constructor
-     *
-     * @param string $name 
-     * @param array $options 
-     */
-	public function __construct($name, $options = null) {}
 
-    /**
-     * Returns the internal formatter
-     *
-     * @return \Phalcon\Logger\FormatterInterface 
-     */
-	public function getFormatter() {}
+		/**
+		 * Returns the internal formatter
+		 */
+		public function getFormatter(){ }
 
-    /**
-     * Writes the log to the file itself
-     *
-     * @param string $message 
-     * @param int $type 
-     * @param int $time 
-     * @param array $context 
-     * @param array $$context 
-     */
-	public function logInternal($message, $type, $time, $context) {}
 
-    /**
-     * Closes the logger
-     *
-     * @return boolean 
-     */
-	public function close() {}
+		/**
+		 * Writes the log to the file itself
+		 */
+		public function logInternal($message, $type, $time, $context){ }
 
-    /**
-     * Opens the internal file handler after unserialization
-     */
-	public function __wakeup() {}
 
+		/**
+		 * Closes the logger
+		 */
+		public function close(){ }
+
+
+		/**
+		 * Opens the internal file handler after unserialization
+		 */
+		public function __wakeup(){ }
+
+	}
 }

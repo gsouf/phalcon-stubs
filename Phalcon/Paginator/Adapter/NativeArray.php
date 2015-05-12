@@ -1,59 +1,44 @@
-<?php
+<?php 
 
-namespace Phalcon\Paginator\Adapter;
+namespace Phalcon\Paginator\Adapter {
 
-class NativeArray implements \Phalcon\Paginator\AdapterInterface
-{
-    /**
-     * Number of rows to show in the paginator. By default is null
-     */
-    protected $_limitRows = null;
+	/**
+	 * Phalcon\Paginator\Adapter\NativeArray
+	 *
+	 * Pagination using a PHP array as source of data
+	 *
+	 *<code>
+	 *	$paginator = new \Phalcon\Paginator\Adapter\Model(
+	 *		array(
+	 *			"data"  => array(
+	 *				array('id' => 1, 'name' => 'Artichoke'),
+	 *				array('id' => 2, 'name' => 'Carrots'),
+	 *				array('id' => 3, 'name' => 'Beet'),
+	 *				array('id' => 4, 'name' => 'Lettuce'),
+	 *				array('id' => 5, 'name' => '')
+	 *			),
+	 *			"limit" => 2,
+	 *			"page"  => $currentPage
+	 *		)
+	 *	);
+	 *</code>
+	 *
+	 */
+	
+	class NativeArray extends \Phalcon\Paginator\Adapter implements \Phalcon\Paginator\AdapterInterface {
 
-    /**
-     * Configuration of the paginator
-     */
-    protected $_config = null;
+		protected $_config;
 
-    /**
-     * Current page in paginate
-     */
-    protected $_page = null;
+		/**
+		 * \Phalcon\Paginator\Adapter\NativeArray constructor
+		 */
+		public function __construct($config){ }
 
 
-    /**
-     * Phalcon\Paginator\Adapter\NativeArray constructor
-     *
-     * @param array $config 
-     */
-	public function __construct($config) {}
+		/**
+		 * Returns a slice of the resultset to show in the pagination
+		 */
+		public function getPaginate(){ }
 
-    /**
-     * Set the current page number
-     *
-     * @param int $page 
-     */
-	public function setCurrentPage($page) {}
-
-    /**
-     * Set current rows limit
-     *
-     * @param int $limitRows 
-     * @return NativeArray 
-     */
-	public function setLimit($limitRows) {}
-
-    /**
-     * Get current rows limit
-     *
-     * @return int 
-     */
-	public function getLimit() {}
-
-    /**
-     * Returns a slice of the resultset to show in the pagination
-     *
-     * @return \stdClass 
-     */
-	public function getPaginate() {}
-
+	}
 }

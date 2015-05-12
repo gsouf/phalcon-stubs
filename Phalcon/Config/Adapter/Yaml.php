@@ -1,17 +1,39 @@
-<?php
+<?php 
 
-namespace Phalcon\Config\Adapter;
+namespace Phalcon\Config\Adapter {
 
-class Yaml extends \Phalcon\Config
-{
+	/**
+	 * Phalcon\Config\Adapter\Yaml
+	 *
+	 * Reads YAML files and converts them to Phalcon\Config objects.
+	 *
+	 * Given the following configuration file:
+	 *
+	 *<code>
+	 * phalcon
+	 *   baseuri: /phalcon/
+	 * models:
+	 *   metadata: memory
+	 *</code>
+	 *
+	 * You can read it as follows:
+	 *
+	 *<code>
+	 * $config = new Phalcon\Config\Adapter\Yaml("path/config.yaml");
+	 * echo $config->phalcon->baseuri;
+	 * echo $config->models->metadata;
+	 *</code>
+	 *
+	 */
+	
+	class Yaml extends \Phalcon\Config implements \Countable, \ArrayAccess {
 
-    /**
-     * Phalcon\Config\Adapter\Yaml constructor
-     *
-     * @throws \Phalcon\Config\Exception
-     * @param string $filePath 
-     * @param array $callbacks 
-     */
-	public function __construct($filePath, $callbacks = null) {}
+		/**
+		 * \Phalcon\Config\Adapter\Yaml constructor
+		 *
+		 * @throws \Phalcon\Config\Exception
+		 */
+		public function __construct($filePath, $callbacks=null){ }
 
+	}
 }
