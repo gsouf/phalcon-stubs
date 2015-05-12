@@ -3,5 +3,5 @@
     "type": "library",
     "description": "IDE Stubs for phalconphp",
     "keywords": ["IDE","stubs","phalcon"],
-    "homepage": "https://github.com/SneakyBobito/phalcon-stubs"
+    "homepage": "https://github.com/gsouf/phalcon-stubs"
 }
