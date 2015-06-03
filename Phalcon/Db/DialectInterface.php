@@ -25,7 +25,7 @@ namespace Phalcon\Db {
 		public function addColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column);
 
 
-		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column);
+		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column, \Phalcon\Db\ColumnInterface $currentColumn=null);
 
 
 		public function dropColumn($tableName, $schemaName, $columnName);

@@ -23,6 +23,8 @@ namespace Phalcon\Mvc\Model\Resultset {
 
 		protected $_columnTypes;
 
+		protected $_disableHydration;
+
 		/**
 		 * \Phalcon\Mvc\Model\Resultset\Complex constructor
 		 *

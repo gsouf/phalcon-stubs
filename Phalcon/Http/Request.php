@@ -29,6 +29,8 @@ namespace Phalcon\Http {
 
 		protected $_filter;
 
+		protected $_putCache;
+
 		/**
 		 * Sets the dependency injector
 		 */
@@ -107,7 +109,7 @@ namespace Phalcon\Http {
 		 * Helper to get data from superglobals, applying filters if needed.
 		 * If no parameters are given the superglobal is returned.
 		 */
-		protected function getHelper($source, $name=null, $filters=null, $defaultValue=null, $notAllowEmpty=null, $noRecursive=null){ }
+		final protected function getHelper($source, $name=null, $filters=null, $defaultValue=null, $notAllowEmpty=null, $noRecursive=null){ }
 
 
 		/**
@@ -126,6 +128,12 @@ namespace Phalcon\Http {
 		 * Checks whether $_POST superglobal has certain index
 		 */
 		public function hasPost($name){ }
+
+
+		/**
+		 * Checks whether the PUT data has certain index
+		 */
+		public function hasPut($name){ }
 
 
 		/**
@@ -281,7 +289,7 @@ namespace Phalcon\Http {
 		/**
 		 * Recursively counts file in an array of files
 		 */
-		protected function hasFileHelper($data, $onlySuccessful){ }
+		final protected function hasFileHelper($data, $onlySuccessful){ }
 
 
 		/**
@@ -293,7 +301,7 @@ namespace Phalcon\Http {
 		/**
 		 * Smooth out $_FILES to have plain array with all files uploaded
 		 */
-		protected function smoothFiles($names, $types, $tmp_names, $sizes, $errors, $prefix){ }
+		final protected function smoothFiles($names, $types, $tmp_names, $sizes, $errors, $prefix){ }
 
 
 		/**
@@ -311,13 +319,13 @@ namespace Phalcon\Http {
 		/**
 		 * Process a request header and return an array of values with their qualities
 		 */
-		protected function _getQualityHeader($serverIndex, $name){ }
+		final protected function _getQualityHeader($serverIndex, $name){ }
 
 
 		/**
 		 * Process a request header and return the one with best quality
 		 */
-		protected function _getBestQuality($qualityParts, $name){ }
+		final protected function _getBestQuality($qualityParts, $name){ }
 
 
 		/**

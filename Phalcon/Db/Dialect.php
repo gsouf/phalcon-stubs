@@ -79,10 +79,6 @@ namespace Phalcon\Db {
 
 		/**
 		 * Transform an intermediate representation of a schema/table into a database system valid expression
-		 *
-		 * @param array table
-		 * @param string escapeChar
-		 * @return string
 		 */
 		final public function getSqlTable($table, $escapeChar=null){ }
 

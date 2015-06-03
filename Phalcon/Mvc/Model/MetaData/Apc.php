@@ -65,18 +65,12 @@ namespace Phalcon\Mvc\Model\MetaData {
 
 		/**
 		 * Reads meta-data from APC
-		 *
-		 * @param  string key
-		 * @return array
 		 */
 		public function read($key){ }
 
 
 		/**
 		 * Writes the meta-data to APC
-		 *
-		 * @param string key
-		 * @param array data
 		 */
 		public function write($key, $data){ }
 

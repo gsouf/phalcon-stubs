@@ -186,6 +186,12 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
+		 * Returns the connection to read or write data related to a model depending on the connection services.
+		 */
+		protected function _getConnection(\Phalcon\Mvc\ModelInterface $model, $connectionServices){ }
+
+
+		/**
 		 * Returns the connection service name used to read data related to a model
 		 */
 		public function getReadConnectionService(\Phalcon\Mvc\ModelInterface $model){ }
@@ -195,6 +201,12 @@ namespace Phalcon\Mvc\Model {
 		 * Returns the connection service name used to write data related to a model
 		 */
 		public function getWriteConnectionService(\Phalcon\Mvc\ModelInterface $model){ }
+
+
+		/**
+		 * Returns the connection service name used to read or write data related to a model depending on the connection services
+		 */
+		public function _getConnectionService(\Phalcon\Mvc\ModelInterface $model, $connectionServices){ }
 
 
 		/**
@@ -208,11 +220,6 @@ namespace Phalcon\Mvc\Model {
 		 * Dispatch a event to the listeners and behaviors
 		 * This method expects that the endpoint listeners/behaviors returns true
 		 * meaning that a least one was implemented
-		 *
-		 * @param \Phalcon\Mvc\ModelInterface model
-		 * @param string eventName
-		 * @param array data
-		 * @return boolean
 		 */
 		public function missingMethod(\Phalcon\Mvc\ModelInterface $model, $eventName, $data){ }
 
@@ -327,10 +334,6 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Returns a relation by its alias
-		 *
-		 * @param string modelName
-		 * @param string alias
-		 * @return \Phalcon\Mvc\Model\Relation|false
 		 */
 		public function getRelationByAlias($modelName, $alias){ }
 
@@ -338,10 +341,6 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Helper method to query records based on a relation definition
 		 *
-		 * @param \Phalcon\Mvc\Model\RelationInterface relation
-		 * @param string method
-		 * @param \Phalcon\Mvc\ModelInterface record
-		 * @param array parameters
 		 * @return \Phalcon\Mvc\Model\Resultset\Simple|Phalcon\Mvc\Model\Resultset\Simple|false
 		 */
 		public function getRelationRecords(\Phalcon\Mvc\Model\RelationInterface $relation, $method, \Phalcon\Mvc\ModelInterface $record, $parameters=null){ }
@@ -349,20 +348,12 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Returns a reusable object from the internal list
-		 *
-		 * @param string modelName
-		 * @param string key
-		 * @return object
 		 */
 		public function getReusableRecords($modelName, $key){ }
 
 
 		/**
 		 * Stores a reusable record in the internal list
-		 *
-		 * @param string modelName
-		 * @param string key
-		 * @param mixed records
 		 */
 		public function setReusableRecords($modelName, $key, $records){ }
 
@@ -375,39 +366,18 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Gets belongsTo related records from a model
-		 *
-		 * @param string method
-		 * @param string modelName
-		 * @param string modelRelation
-		 * @param \Phalcon\Mvc\ModelInterface record
-		 * @param array parameters
-		 * @return \Phalcon\Mvc\Model\ResultsetInterface
 		 */
 		public function getBelongsToRecords($method, $modelName, $modelRelation, \Phalcon\Mvc\ModelInterface $record, $parameters=null){ }
 
 
 		/**
 		 * Gets hasMany related records from a model
-		 *
-		 * @param string method
-		 * @param string modelName
-		 * @param string modelRelation
-		 * @param \Phalcon\Mvc\ModelInterface record
-		 * @param array parameters
-		 * @return \Phalcon\Mvc\Model\ResultsetInterface
 		 */
 		public function getHasManyRecords($method, $modelName, $modelRelation, \Phalcon\Mvc\ModelInterface $record, $parameters=null){ }
 
 
 		/**
 		 * Gets belongsTo related records from a model
-		 *
-		 * @param string method
-		 * @param string modelName
-		 * @param string modelRelation
-		 * @param \Phalcon\Mvc\ModelInterface record
-		 * @param array parameters
-		 * @return \Phalcon\Mvc\ModelInterface
 		 */
 		public function getHasOneRecords($method, $modelName, $modelRelation, \Phalcon\Mvc\ModelInterface $record, $parameters=null){ }
 
@@ -418,18 +388,12 @@ namespace Phalcon\Mvc\Model {
 		 *<code>
 		 *	$relations = $modelsManager->getBelongsTo(new Robots());
 		 *</code>
-		 *
-		 * @param  \Phalcon\Mvc\ModelInterface model
-		 * @return \Phalcon\Mvc\Model\RelationInterface[]
 		 */
 		public function getBelongsTo(\Phalcon\Mvc\ModelInterface $model){ }
 
 
 		/**
 		 * Gets hasMany relations defined on a model
-		 *
-		 * @param  \Phalcon\Mvc\ModelInterface model
-		 * @return \Phalcon\Mvc\Model\RelationInterface[]
 		 */
 		public function getHasMany(\Phalcon\Mvc\ModelInterface $model){ }
 
@@ -442,9 +406,6 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Gets hasManyToMany relations defined on a model
-		 *
-		 * @param  \Phalcon\Mvc\ModelInterface model
-		 * @return \Phalcon\Mvc\Model\RelationInterface[]
 		 */
 		public function getHasManyToMany(\Phalcon\Mvc\ModelInterface $model){ }
 
@@ -457,19 +418,12 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Query all the relationships defined on a model
-		 *
-		 * @param string $modelName
-		 * @return \Phalcon\Mvc\Model\RelationInterface[]
 		 */
 		public function getRelations($modelName){ }
 
 
 		/**
 		 * Query the first relationship defined between two models
-		 *
-		 * @param string first
-		 * @param string second
-		 * @return \Phalcon\Mvc\Model\RelationInterface[]
 		 */
 		public function getRelationsBetween($first, $second){ }
 
@@ -482,20 +436,12 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Creates a \Phalcon\Mvc\Model\Query and execute it
-		 *
-		 * @param string phql
-		 * @param array placeholders
-		 * @param array types
-		 * @return \Phalcon\Mvc\Model\QueryInterface
 		 */
 		public function executeQuery($phql, $placeholders=null, $types=null){ }
 
 
 		/**
 		 * Creates a \Phalcon\Mvc\Model\Query\Builder
-		 *
-		 * @param string|array params
-		 * @return \Phalcon\Mvc\Model\Query\BuilderInterface
 		 */
 		public function createBuilder($params=null){ }
 
@@ -520,8 +466,6 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Returns all the registered namespace aliases
-		 *
-		 * @return array
 		 */
 		public function getNamespaceAliases(){ }
 

@@ -240,7 +240,7 @@ namespace Phalcon\Mvc\Model {
 		/**
 		 * Analyzes a SELECT intermediate code and produces an array to be executed later
 		 */
-		final protected function _prepareSelect(){ }
+		final protected function _prepareSelect($ast=null, $merge=null){ }
 
 
 		/**

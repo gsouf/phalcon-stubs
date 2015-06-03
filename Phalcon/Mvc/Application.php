@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace Phalcon\Mvc {
 
@@ -45,7 +45,7 @@ namespace Phalcon\Mvc {
 	 *
 	 *</code>
 	 */
-
+	
 	class Application extends \Phalcon\Di\Injectable implements \Phalcon\Events\EventsAwareInterface, \Phalcon\Di\InjectionAwareInterface {
 
 		protected $_defaultModule;

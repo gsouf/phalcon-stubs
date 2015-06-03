@@ -30,19 +30,12 @@ namespace Phalcon\Logger\Adapter {
 
 		/**
 		 * Returns the internal formatter
-		 *
-		 * @return \Phalcon\Logger\Formatter\Line
 		 */
 		public function getFormatter(){ }
 
 
 		/**
 		 * Writes the log to the stream itself
-		 *
-		 * @param string message
-		 * @param int type
-		 * @param int time
-		 * @param array $context
 		 */
 		public function logInternal($message, $type, $time, $context){ }
 
