@@ -1032,7 +1032,7 @@ namespace Phalcon\Mvc {
 		 *}
 		 *</code>
 		 */
-		protected function addBehavior(\Phalcon\Mvc\Model\BehaviorInterface $behavior){ }
+		public function addBehavior(\Phalcon\Mvc\Model\BehaviorInterface $behavior){ }
 
 
 		/**

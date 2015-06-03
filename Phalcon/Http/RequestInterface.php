@@ -22,6 +22,9 @@ namespace Phalcon\Http {
 		public function hasPost($name);
 
 
+		public function hasPut($name);
+
+
 		public function hasQuery($name);
 
 

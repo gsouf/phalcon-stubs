@@ -15,11 +15,11 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *
 	 *		public function validation()
 	 *		{
-	 *			this->validate(new InclusionInValidator(array(
+	 *			$this->validate(new InclusionInValidator(array(
 	 *				"field" => 'status',
 	 *				'domain' => array('A', 'I')
 	 *			)));
-	 *			if (this->validationHasFailed() == true) {
+	 *			if ($this->validationHasFailed() == true) {
 	 *				return false;
 	 *			}
 	 *		}

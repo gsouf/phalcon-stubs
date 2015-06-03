@@ -55,13 +55,13 @@ namespace Phalcon {
 		 * Detect the character encoding of a string to be handled by an encoder
 		 * Special-handling for chr(172) and chr(128) to chr(159) which fail to be detected by mb_detect_encoding()
 		 */
-		public function detectEncoding($str){ }
+		final public function detectEncoding($str){ }
 
 
 		/**
 		 * Utility to normalize a string's encoding to UTF-32.
 		 */
-		public function normalizeEncoding($str){ }
+		final public function normalizeEncoding($str){ }
 
 
 		/**

@@ -245,5 +245,11 @@ namespace Phalcon {
 		 */
 		public function getHandlerClass(){ }
 
+
+		/**
+		 * Set empty properties to their defaults (where defaults are available)
+		 */
+		protected function _resolveEmptyProperties(){ }
+
 	}
 }

@@ -72,6 +72,12 @@ namespace Phalcon\Queue\Beanstalk {
 
 
 		/**
+		 * Get stats of the job.
+		 */
+		public function stats(){ }
+
+
+		/**
 		 * Checks if the job has been modified after unserializing the object
 		 */
 		public function __wakeup(){ }

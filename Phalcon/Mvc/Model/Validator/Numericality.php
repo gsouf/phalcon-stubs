@@ -15,10 +15,10 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *
 	 *  public function validation()
 	 *  {
-	 *      this->validate(new NumericalityValidator(array(
+	 *      $this->validate(new NumericalityValidator(array(
 	 *          "field" => 'price'
 	 *      )));
-	 *      if (this->validationHasFailed() == true) {
+	 *      if ($this->validationHasFailed() == true) {
 	 *          return false;
 	 *      }
 	 *  }

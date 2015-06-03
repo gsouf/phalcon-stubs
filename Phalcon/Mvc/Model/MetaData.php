@@ -108,10 +108,10 @@ namespace Phalcon\Mvc\Model {
 
 
 		/**
-		 * Reads meta-data for certain model using a MODEL_* constant
+		 * Reads meta-data for certain model
 		 *
 		 *<code>
-		 *	print_r($metaData->writeColumnMapIndex(new Robots(), MetaData::MODELS_REVERSE_COLUMN_MAP, array('leName' => 'name')));
+		 *	print_r($metaData->readMetaDataIndex(new Robots(), 0);
 		 *</code>
 		 *
 		 * @param \Phalcon\Mvc\ModelInterface model

@@ -47,6 +47,18 @@ namespace Phalcon\Db\Adapter\Pdo {
 
 
 		/**
+		 * Creates a table
+		 */
+		public function createTable($tableName, $schemaName, $definition){ }
+
+
+		/**
+		 * Modifies a table column based on a definition
+		 */
+		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column, \Phalcon\Db\ColumnInterface $currentColumn=null){ }
+
+
+		/**
 		 * Check whether the database system requires an explicit value for identity columns
 		 */
 		public function useExplicitIdValue(){ }

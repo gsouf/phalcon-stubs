@@ -15,10 +15,10 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *
 	 *  public function validation()
 	 *  {
-	 *      this->validate(new UrlValidator(array(
+	 *      $this->validate(new UrlValidator(array(
 	 *          'field' => 'source_url'
 	 *      )));
-	 *      if (this->validationHasFailed() == true) {
+	 *      if ($this->validationHasFailed() == true) {
 	 *          return false;
 	 *      }
 	 *  }

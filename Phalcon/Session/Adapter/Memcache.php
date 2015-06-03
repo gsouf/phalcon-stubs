@@ -27,6 +27,12 @@ namespace Phalcon\Session\Adapter {
 	
 	class Memcache extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface {
 
+		const SESSION_ACTIVE = 2;
+
+		const SESSION_NONE = 1;
+
+		const SESSION_DISABLED = 0;
+
 		protected $_memcache;
 
 		protected $_lifetime;

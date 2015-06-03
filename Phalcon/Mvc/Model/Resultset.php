@@ -41,8 +41,6 @@ namespace Phalcon\Mvc\Model {
 
 		const HYDRATE_ARRAYS = 1;
 
-		protected $_type;
-
 		protected $_result;
 
 		protected $_cache;
@@ -62,6 +60,16 @@ namespace Phalcon\Mvc\Model {
 		protected $_errorMessages;
 
 		protected $_hydrateMode;
+
+		/**
+		 * \Phalcon\Mvc\Model\Resultset constructor
+		 *
+		 * @param array columnTypes
+		 * @param \Phalcon\Db\ResultInterface|false result
+		 * @param \Phalcon\Cache\BackendInterface cache
+		 */
+		public function __construct($result, \Phalcon\Cache\BackendInterface $cache=null){ }
+
 
 		/**
 		 * Moves cursor to next row in the resultset
@@ -89,6 +97,7 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Changes internal pointer to a specific position in the resultset
+		 * Set new position if required and set this->_row
 		 */
 		final public function seek($position){ }
 

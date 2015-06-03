@@ -24,7 +24,7 @@ namespace Phalcon\Mvc\Model {
 		 * Appends a message to the validator
 		 *
 		 * @param string message
-		 * @param string field
+		 * @param string|array field
 		 * @param string type
 		 */
 		protected function appendMessage($message, $field=null, $type=null){ }

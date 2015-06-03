@@ -43,7 +43,7 @@ namespace Phalcon\Mvc\Model {
 		 * \Phalcon\Mvc\Model\Message constructor
 		 *
 		 * @param string message
-		 * @param string field
+		 * @param string|array field
 		 * @param string type
 		 * @param \Phalcon\Mvc\ModelInterface model
 		 */

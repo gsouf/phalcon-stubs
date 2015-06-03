@@ -59,6 +59,18 @@ namespace Phalcon\Queue {
 
 
 		/**
+		 * Get stats of the Beanstalk server.
+		 */
+		public function stats(){ }
+
+
+		/**
+		 * Get stats of a tube.
+		 */
+		public function statsTube($tube){ }
+
+
+		/**
 		 * Inspect the next ready job.
 		 */
 		public function peekReady(){ }
@@ -74,6 +86,12 @@ namespace Phalcon\Queue {
 		 * Reads the latest status from the Beanstalkd server
 		 */
 		final public function readStatus(){ }
+
+
+		/**
+		 * Fetch a YAML payload from the Beanstalkd server
+		 */
+		final public function readYaml(){ }
 
 
 		/**

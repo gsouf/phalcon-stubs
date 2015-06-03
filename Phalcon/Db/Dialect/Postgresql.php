@@ -27,7 +27,7 @@ namespace Phalcon\Db\Dialect {
 		/**
 		 * Generates SQL to modify a column in a table
 		 */
-		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column){ }
+		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column, \Phalcon\Db\ColumnInterface $currentColumn=null){ }
 
 
 		/**
@@ -158,6 +158,9 @@ namespace Phalcon\Db\Dialect {
 		 * Generates the SQL to describe the table creation options
 		 */
 		public function tableOptions($table, $schema=null){ }
+
+
+		protected function _getTableOptions($definition){ }
 
 	}
 }

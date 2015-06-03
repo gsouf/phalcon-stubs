@@ -387,7 +387,7 @@ namespace Phalcon\Db {
 		/**
 		 * Modifies a table column based on a definition
 		 */
-		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column){ }
+		public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column, \Phalcon\Db\ColumnInterface $currentColumn=null){ }
 
 
 		/**

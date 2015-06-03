@@ -10,6 +10,12 @@ namespace Phalcon\Session {
 	
 	abstract class Adapter {
 
+		const SESSION_ACTIVE = 2;
+
+		const SESSION_NONE = 1;
+
+		const SESSION_DISABLED = 0;
+
 		protected $_uniqueId;
 
 		protected $_started;
@@ -136,10 +142,25 @@ namespace Phalcon\Session {
 		 * Destroys the active session
 		 *
 		 *<code>
-		 *	var_dump(session->destroy());
+		 *	var_dump($session->destroy());
 		 *</code>
 		 */
 		public function destroy(){ }
+
+
+		/**
+		 * Returns the status of the current session. For PHP 5.3 this function will always return SESSION_NONE
+		 *
+		 *<code>
+		 *	var_dump($session->status());
+		 *
+		 *  // PHP 5.4 and above will give meaningful messages, 5.3 gets SESSION_NONE always
+		 *  if ($session->status() !== $session::SESSION_ACTIVE) {
+		 *      $session->start();
+		 *  }
+		 *</code>
+		 */
+		public function status(){ }
 
 
 		/**

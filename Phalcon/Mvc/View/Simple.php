@@ -145,8 +145,6 @@ namespace Phalcon\Mvc\View {
 
 		/**
 		 * Returns the cache instance used to cache
-		 *
-		 * @return \Phalcon\Cache\BackendInterface
 		 */
 		public function getCache(){ }
 
@@ -157,9 +155,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *  $this->view->cache(array('key' => 'my-key', 'lifetime' => 86400));
 		 *</code>
-		 *
-		 * @param boolean|array options
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function cache($options=null){ }
 
@@ -170,10 +165,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setParamToView('products', $products);
 		 *</code>
-		 *
-		 * @param string $key
-		 * @param mixed $value
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setParamToView($key, $value){ }
 
@@ -194,10 +185,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->setVar('products', $products);
 		 *</code>
-		 *
-		 * @param string key
-		 * @param mixed  value
-		 * @return \Phalcon\Mvc\View\Simple
 		 */
 		public function setVar($key, $value){ }
 
@@ -251,9 +238,6 @@ namespace Phalcon\Mvc\View {
 		 *<code>
 		 *	$this->view->products = $products;
 		 *</code>
-		 *
-		 * @param string key
-		 * @param mixed  value
 		 */
 		public function __set($key, $value){ }
 

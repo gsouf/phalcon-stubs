@@ -15,11 +15,11 @@ namespace Phalcon\Mvc\Model\Validator {
 	 *
 	 *  public function validation()
 	 *  {
-	 *      this->validate(new PresenceOf(array(
+	 *      $this->validate(new PresenceOf(array(
 	 *          "field" => 'name',
 	 *          "message" => 'The name is required'
 	 *      )));
-	 *      if (this->validationHasFailed() == true) {
+	 *      if ($this->validationHasFailed() == true) {
 	 *          return false;
 	 *      }
 	 *  }

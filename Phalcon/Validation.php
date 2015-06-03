@@ -31,8 +31,6 @@ namespace Phalcon {
 
 		/**
 		 * \Phalcon\Validation constructor
-		 *
-		 * @param array validators
 		 */
 		public function __construct($validators=null){ }
 
@@ -69,7 +67,7 @@ namespace Phalcon {
 		 * Adds filters to the field
 		 *
 		 * @param string field
-		 * @param array|string field
+		 * @param array|string filters
 		 * @return \Phalcon\Validation
 		 */
 		public function setFilters($field, $filters){ }
@@ -100,9 +98,6 @@ namespace Phalcon {
 
 		/**
 		 * Adds default messages to validators
-		 *
-		 * @param array messages
-		 * @return array
 		 */
 		public function setDefaultMessages($messages=null){ }
 
@@ -111,7 +106,6 @@ namespace Phalcon {
 		 * Get default message for validator type
 		 *
 		 * @param string type
-		 * @return string
 		 */
 		public function getDefaultMessage($type){ }
 
@@ -147,8 +141,8 @@ namespace Phalcon {
 		 * Assigns the data to an entity
 		 * The entity is used to obtain the validation values
 		 *
-		 * @param string entity
-		 * @param string data
+		 * @param object entity
+		 * @param array|object data
 		 * @return \Phalcon\Validation
 		 */
 		public function bind($entity, $data){ }
