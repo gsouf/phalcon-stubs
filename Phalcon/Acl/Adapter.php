@@ -1,103 +1,70 @@
-<?php
+<?php 
 
-namespace Phalcon\Acl;
+namespace Phalcon\Acl {
 
-/**
- * Phalcon\Acl\Adapter
- * Adapter for Phalcon\Acl adapters
- */
-abstract class Adapter implements \Phalcon\Acl\AdapterInterface, \Phalcon\Events\EventsAwareInterface
-{
-    /**
-     * Events manager
-     *
-     * @var mixed
-     */
-    protected $_eventsManager;
+	/**
+	 * Phalcon\Acl\Adapter
+	 *
+	 * Adapter for Phalcon\Acl adapters
+	 */
+	
+	abstract class Adapter implements \Phalcon\Acl\AdapterInterface, \Phalcon\Events\EventsAwareInterface {
 
-    /**
-     * Default access
-     *
-     * @var bool
-     */
-    protected $_defaultAccess = true;
+		protected $_eventsManager;
 
-    /**
-     * Access Granted
-     *
-     * @var bool
-     */
-    protected $_accessGranted = false;
+		protected $_defaultAccess;
 
-    /**
-     * Role which the list is checking if it's allowed to certain resource/access
-     *
-     * @var mixed
-     */
-    protected $_activeRole;
+		protected $_accessGranted;
 
-    /**
-     * Resource which the list is checking if some role can access it
-     *
-     * @var mixed
-     */
-    protected $_activeResource;
+		protected $_activeRole;
 
-    /**
-     * Active access which the list is checking if some role can access it
-     *
-     * @var mixed
-     */
-    protected $_activeAccess;
+		protected $_activeResource;
+
+		protected $_activeAccess;
+
+		/**
+		 * Role which the list is checking if it's allowed to certain resource/access
+		 * @var mixed
+		 */
+		public function getActiveRole(){ }
 
 
-    /**
-     * Role which the list is checking if it's allowed to certain resource/access
-     *
-     * @return mixed 
-     */
-    public function getActiveRole() {}
+		/**
+		 * Resource which the list is checking if some role can access it
+		 * @var mixed
+		 */
+		public function getActiveResource(){ }
 
-    /**
-     * Resource which the list is checking if some role can access it
-     *
-     * @return mixed 
-     */
-    public function getActiveResource() {}
 
-    /**
-     * Active access which the list is checking if some role can access it
-     *
-     * @return mixed 
-     */
-    public function getActiveAccess() {}
+		/**
+		 * Active access which the list is checking if some role can access it
+		 * @var mixed
+		 */
+		public function getActiveAccess(){ }
 
-    /**
-     * Sets the events manager
-     *
-     * @param mixed $eventsManager 
-     */
-    public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager) {}
 
-    /**
-     * Returns the internal event manager
-     *
-     * @return \Phalcon\Events\ManagerInterface 
-     */
-    public function getEventsManager() {}
+		/**
+		 * Sets the events manager
+		 */
+		public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager){ }
 
-    /**
-     * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
-     *
-     * @param int $defaultAccess 
-     */
-    public function setDefaultAction($defaultAccess) {}
 
-    /**
-     * Returns the default ACL access level
-     *
-     * @return int 
-     */
-    public function getDefaultAction() {}
+		/**
+		 * Returns the internal event manager
+		 */
+		public function getEventsManager(){ }
 
+
+		/**
+		 * Sets the default access level (Phalcon\Acl::ALLOW or \Phalcon\Acl::DENY)
+		 */
+		public function setDefaultAction($defaultAccess){ }
+
+
+		/**
+		 * Returns the default ACL access level
+		 */
+		public function getDefaultAction(){ }
+
+	}
 }

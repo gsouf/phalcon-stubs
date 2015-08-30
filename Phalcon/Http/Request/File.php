@@ -1,119 +1,105 @@
-<?php
+<?php 
 
-namespace Phalcon\Http\Request;
+namespace Phalcon\Http\Request {
 
-/**
- * Phalcon\Http\Request\File
- * Provides OO wrappers to the $_FILES superglobal
- * <code>
- * class PostsController extends \Phalcon\Mvc\Controller
- * {
- * public function uploadAction()
- * {
- * //Check if the user has uploaded files
- * if ($this->request->hasFiles() == true) {
- * //Print the real file names and their sizes
- * foreach ($this->request->getUploadedFiles() as $file){
- * echo $file->getName(), " ", $file->getSize(), "\n";
- * }
- * }
- * }
- * }
- * </code>
- */
-class File implements \Phalcon\Http\Request\FileInterface
-{
+	/**
+	 * Phalcon\Http\Request\File
+	 *
+	 * Provides OO wrappers to the $_FILES superglobal
+	 *
+	 *<code>
+	 *	class PostsController extends \Phalcon\Mvc\Controller
+	 *	{
+	 *
+	 *		public function uploadAction()
+	 *		{
+	 *			//Check if the user has uploaded files
+	 *			if ($this->request->hasFiles() == true) {
+	 *				//Print the real file names and their sizes
+	 *				foreach ($this->request->getUploadedFiles() as $file){
+	 *					echo $file->getName(), " ", $file->getSize(), "\n";
+	 *				}
+	 *			}
+	 *		}
+	 *
+	 *	}
+	 *</code>
+	 */
+	
+	class File implements \Phalcon\Http\Request\FileInterface {
 
-    protected $_name;
+		protected $_name;
 
+		protected $_tmp;
 
-    protected $_tmp;
+		protected $_size;
 
+		protected $_type;
 
-    protected $_size;
+		protected $_realType;
 
+		protected $_error;
 
-    protected $_type;
+		protected $_key;
 
+		protected $_extension;
 
-    protected $_realType;
-
-
-    protected $_error;
-
-
-    protected $_key;
-
-
-    protected $_extension;
-
+		public function getError(){ }
 
 
-    public function getError() {}
+		public function getKey(){ }
 
 
-    public function getKey() {}
+		public function getExtension(){ }
 
 
-    public function getExtension() {}
+		/**
+		 * \Phalcon\Http\Request\File constructor
+		 */
+		public function __construct($file, $key=null){ }
 
-    /**
-     * Phalcon\Http\Request\File constructor
-     *
-     * @param array $file 
-     * @param mixed $key 
-     */
-    public function __construct($file, $key = null) {}
 
-    /**
-     * Returns the file size of the uploaded file
-     *
-     * @return int 
-     */
-    public function getSize() {}
+		/**
+		 * Returns the file size of the uploaded file
+		 */
+		public function getSize(){ }
 
-    /**
-     * Returns the real name of the uploaded file
-     *
-     * @return string 
-     */
-    public function getName() {}
 
-    /**
-     * Returns the temporal name of the uploaded file
-     *
-     * @return string 
-     */
-    public function getTempName() {}
+		/**
+		 * Returns the real name of the uploaded file
+		 */
+		public function getName(){ }
 
-    /**
-     * Returns the mime type reported by the browser
-     * This mime type is not completely secure, use getRealType() instead
-     *
-     * @return string 
-     */
-    public function getType() {}
 
-    /**
-     * Gets the real mime type of the upload file using finfo
-     *
-     * @return string 
-     */
-    public function getRealType() {}
+		/**
+		 * Returns the temporal name of the uploaded file
+		 */
+		public function getTempName(){ }
 
-    /**
-     * Checks whether the file has been uploaded via Post.
-     *
-     * @return bool 
-     */
-    public function isUploadedFile() {}
 
-    /**
-     * Moves the temporary file to a destination within the application
-     *
-     * @param string $destination 
-     * @return bool 
-     */
-    public function moveTo($destination) {}
+		/**
+		 * Returns the mime type reported by the browser
+		 * This mime type is not completely secure, use getRealType() instead
+		 */
+		public function getType(){ }
 
+
+		/**
+		 * Gets the real mime type of the upload file using finfo
+		 */
+		public function getRealType(){ }
+
+
+		/**
+		 * Checks whether the file has been uploaded via Post.
+		 */
+		public function isUploadedFile(){ }
+
+
+		/**
+		 * Moves the temporary file to a destination within the application
+		 */
+		public function moveTo($destination){ }
+
+	}
 }

@@ -1,9 +1,7 @@
-<?php
+<?php 
 
-namespace Phalcon\Image;
+namespace Phalcon\Image {
 
-
-class Exception extends \Phalcon\Exception
-{
-
+	class Exception extends \Phalcon\Exception {
+	}
 }

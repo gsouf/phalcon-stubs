@@ -1,73 +1,31 @@
-<?php
+<?php 
 
-namespace Phalcon;
+namespace Phalcon {
 
-/**
- * Phalcon\EscaperInterface
- * Interface for Phalcon\Escaper
- */
-interface EscaperInterface
-{
+	interface EscaperInterface {
 
-    /**
-     * Sets the encoding to be used by the escaper
-     *
-     * @param string $encoding 
-     */
-    public function setEncoding($encoding);
+		public function setEncoding($encoding);
 
-    /**
-     * Returns the internal encoding used by the escaper
-     *
-     * @return string 
-     */
-    public function getEncoding();
 
-    /**
-     * Sets the HTML quoting type for htmlspecialchars
-     *
-     * @param int $quoteType 
-     */
-    public function setHtmlQuoteType($quoteType);
+		public function getEncoding();
 
-    /**
-     * Escapes a HTML string
-     *
-     * @param string $text 
-     * @return string 
-     */
-    public function escapeHtml($text);
 
-    /**
-     * Escapes a HTML attribute string
-     *
-     * @param string $text 
-     * @return string 
-     */
-    public function escapeHtmlAttr($text);
+		public function setHtmlQuoteType($quoteType);
 
-    /**
-     * Escape CSS strings by replacing non-alphanumeric chars by their hexadecimal representation
-     *
-     * @param string $css 
-     * @return string 
-     */
-    public function escapeCss($css);
 
-    /**
-     * Escape Javascript strings by replacing non-alphanumeric chars by their hexadecimal representation
-     *
-     * @param string $js 
-     * @return string 
-     */
-    public function escapeJs($js);
+		public function escapeHtml($text);
 
-    /**
-     * Escapes a URL. Internally uses rawurlencode
-     *
-     * @param string $url 
-     * @return string 
-     */
-    public function escapeUrl($url);
 
+		public function escapeHtmlAttr($text);
+
+
+		public function escapeCss($css);
+
+
+		public function escapeJs($js);
+
+
+		public function escapeUrl($url);
+
+	}
 }

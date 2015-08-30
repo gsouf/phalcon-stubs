@@ -1,73 +1,31 @@
-<?php
+<?php 
 
-namespace Phalcon\Di;
+namespace Phalcon\Di {
 
-/**
- * Phalcon\Di\ServiceInterface
- * Represents a service in the services container
- */
-interface ServiceInterface
-{
+	interface ServiceInterface {
 
-    /**
-     * Phalcon\Di\ServiceInterface
-     *
-     * @param string $name 
-     * @param mixed $definition 
-     * @param boolean $shared 
-     */
-    public function __construct($name, $definition, $shared = false);
+		public function __construct($name, $definition, $shared=null);
 
-    /**
-     * Returns the service's name
-     *
-     * @param string  
-     */
-    public function getName();
 
-    /**
-     * Sets if the service is shared or not
-     *
-     * @param bool $shared 
-     */
-    public function setShared($shared);
+		public function getName();
 
-    /**
-     * Check whether the service is shared or not
-     *
-     * @return bool 
-     */
-    public function isShared();
 
-    /**
-     * Set the service definition
-     *
-     * @param mixed $definition 
-     */
-    public function setDefinition($definition);
+		public function setShared($shared);
 
-    /**
-     * Returns the service definition
-     *
-     * @return mixed 
-     */
-    public function getDefinition();
 
-    /**
-     * Resolves the service
-     *
-     * @param array $parameters 
-     * @param \Phalcon\DiInterface $dependencyInjector 
-     * @return mixed 
-     */
-    public function resolve($parameters = null, \Phalcon\DiInterface $dependencyInjector = null);
+		public function isShared();
 
-    /**
-     * Restore the interal state of a service
-     *
-     * @param array $attributes 
-     * @return ServiceInterface 
-     */
-    public static function __set_state($attributes);
 
+		public function setDefinition($definition);
+
+
+		public function getDefinition();
+
+
+		public function resolve($parameters=null, \Phalcon\DiInterface $dependencyInjector=null);
+
+
+		public static function __set_state($attributes);
+
+	}
 }
