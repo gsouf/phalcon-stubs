@@ -155,6 +155,17 @@ class Response implements \Phalcon\Http\ResponseInterface, \Phalcon\Di\Injection
     public function setExpires(\DateTime $datetime) {}
 
     /**
+     * Sets Cache headers to use HTTP cache
+     * <code>
+     * $this->response->setCache(60);
+     * </code>
+     *
+     * @param int $minutes 
+     * @return Response 
+     */
+    public function setCache($minutes) {}
+
+    /**
      * Sends a Not-Modified response
      *
      * @return Response 

@@ -33,7 +33,6 @@ interface AdapterInterface
      *
      * @param string $index 
      * @param mixed $defaultValue 
-     * @return mixed 
      */
     public function get($index, $defaultValue = null);
 
@@ -41,7 +40,7 @@ interface AdapterInterface
      * Sets a session variable in an application context
      *
      * @param string $index 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function set($index, $value);
 
@@ -80,5 +79,13 @@ interface AdapterInterface
      * @return bool 
      */
     public function destroy();
+
+    /**
+     * Regenerate session's id
+     *
+     * @param bool $deleteOldSession 
+     * @return AdapterInterface 
+     */
+    public function regenerateId($deleteOldSession = true);
 
 }

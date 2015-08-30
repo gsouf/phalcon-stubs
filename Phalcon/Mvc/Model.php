@@ -305,7 +305,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * ));
      * </code>
      *
-     * @param \Phalcon\Mvc\ModelInterface|\Phalcon\Mvc\Model\Row $base 
+     * @param \Phalcon\Mvc\ModelInterface|Phalcon\Mvc\Model\Row $base 
      * @param array $data 
      * @param array $columnMap 
      * @param int $dirtyState 
@@ -1129,7 +1129,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * Magic method to get related records using the relation alias as a property
      *
      * @param string $property 
-     * @return \Phalcon\Mvc\Model\Resultset|\Phalcon\Mvc\Model 
+     * @return \Phalcon\Mvc\Model\Resultset|Phalcon\Mvc\Model 
      */
     public function __get($property) {}
 

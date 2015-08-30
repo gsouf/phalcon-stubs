@@ -222,7 +222,7 @@ abstract class Resultset implements \Phalcon\Mvc\Model\ResultsetInterface, \Iter
      * Updates every record in the resultset
      *
      * @param array $data 
-     * @param Closure $conditionCallback 
+     * @param \Closure $conditionCallback 
      * @return boolean 
      */
     public function update($data, \Closure $conditionCallback = null) {}

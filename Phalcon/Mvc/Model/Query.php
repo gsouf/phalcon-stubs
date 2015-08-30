@@ -374,7 +374,7 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
      *
      * @param array $bindParams 
      * @param array $bindTypes 
-     * @return Ṕhalcon\Mvc\ModelInterface 
+     * @return \Phalcon\Mvc\ModelInterface 
      */
     public function getSingleResult($bindParams = null, $bindTypes = null) {}
 

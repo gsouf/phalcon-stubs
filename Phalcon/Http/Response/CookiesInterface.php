@@ -31,10 +31,10 @@ interface CookiesInterface
      * @param mixed $value 
      * @param int $expire 
      * @param string $path 
-     * @param boolean $secure 
+     * @param bool $secure 
      * @param string $domain 
-     * @param boolean $httpOnly 
-     * @return \Phalcon\Http\Response\CookiesInterface 
+     * @param bool $httpOnly 
+     * @return CookiesInterface 
      */
     public function set($name, $value = null, $expire = 0, $path = "/", $secure = null, $domain = null, $httpOnly = null);
 

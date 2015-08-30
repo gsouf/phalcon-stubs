@@ -42,7 +42,7 @@ class Debug
     public function setUri($uri) {}
 
     /**
-     * Sets if files the exception"s backtrace must be showed
+     * Sets if files the exception's backtrace must be showed
      *
      * @param bool $showBackTrace 
      * @return Debug 

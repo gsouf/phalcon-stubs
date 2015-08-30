@@ -23,7 +23,7 @@ class Simple extends \Phalcon\Mvc\Model\Resultset implements \Iterator, \Seekabl
      * Phalcon\Mvc\Model\Resultset\Simple constructor
      *
      * @param array $columnMap 
-     * @param \Phalcon\Mvc\ModelInterface|\Phalcon\Mvc\Model\Row $model 
+     * @param \Phalcon\Mvc\ModelInterface|Phalcon\Mvc\Model\Row $model 
      * @param \Phalcon\Db\Result\Pdo|null $result 
      * @param \Phalcon\Cache\BackendInterface $cache 
      * @param boolean $keepSnapshots 

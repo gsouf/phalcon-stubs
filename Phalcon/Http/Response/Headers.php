@@ -24,7 +24,7 @@ class Headers implements \Phalcon\Http\Response\HeadersInterface
      * Gets a header value from the internal bag
      *
      * @param string $name 
-     * @return string 
+     * @return string|bool 
      */
     public function get($name) {}
 
@@ -38,7 +38,7 @@ class Headers implements \Phalcon\Http\Response\HeadersInterface
     /**
      * Removes a header to be sent at the end of the request
      *
-     * @param string $header Header name
+     * @param string $header 
      */
     public function remove($header) {}
 
@@ -62,7 +62,7 @@ class Headers implements \Phalcon\Http\Response\HeadersInterface
     public function toArray() {}
 
     /**
-     * Restore a Phalcon\Http\Response\Headers object
+     * Restore a \Phalcon\Http\Response\Headers object
      *
      * @param array $data 
      * @return Headers 

@@ -50,8 +50,9 @@ class Crypt implements \Phalcon\CryptInterface
 
 
     /**
-     * @brief Phalcon\CryptInterface Phalcon\Crypt::setPadding(int $scheme)
-     * @param int $scheme Padding scheme
+     * Changes the padding scheme used
+     *
+     * @param int $scheme 
      * @return \Phalcon\CryptInterface 
      */
     public function setPadding($scheme) {}
@@ -102,18 +103,13 @@ class Crypt implements \Phalcon\CryptInterface
     public function getKey() {}
 
     /**
-     * Adds padding @a padding_type to @a text
+     * Pads texts before encryption
      *
      * @see http://www.di-mgt.com.au/cryptopad.html
      * @param string $text 
      * @param string $mode 
      * @param int $blockSize 
      * @param int $paddingType 
-     * @param return_value $Result, possibly padded
-     * @param text $Message to be padded
-     * @param mode $Encryption mode; padding is applied only in CBC or ECB mode
-     * @param block_size $Cipher block size
-     * @param padding_type $Padding scheme
      */
     protected function _cryptPadText($text, $mode, $blockSize, $paddingType) {}
 

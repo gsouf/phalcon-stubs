@@ -8,6 +8,22 @@ namespace Phalcon\Translate;
  */
 abstract class Adapter
 {
+    /**
+     * @var Phalcon\Translate\InterpolatorInterface
+     */
+    protected $_interpolator;
+
+
+    /**
+     * @param array $options 
+     */
+    public function __construct($options) {}
+
+    /**
+     * @param mixed $interpolator 
+     * @return Adapter 
+     */
+    public function setInterpolator(\Phalcon\Translate\InterpolatorInterface $interpolator) {}
 
     /**
      * Returns the translation string of the given key

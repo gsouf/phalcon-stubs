@@ -59,10 +59,10 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param mixed $value 
      * @param int $expire 
      * @param string $path 
-     * @param boolean $secure 
+     * @param bool $secure 
      * @param string $domain 
-     * @param boolean $httpOnly 
-     * @return \Phalcon\Http\Response\Cookies 
+     * @param bool $httpOnly 
+     * @return Cookies 
      */
     public function set($name, $value = null, $expire = 0, $path = "/", $secure = null, $domain = null, $httpOnly = null) {}
 

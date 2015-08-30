@@ -670,7 +670,7 @@ class Tag
      * @param string $separator 
      * @param boolean $lowercase 
      * @param mixed $replace 
-     * @return text 
+     * @return string 
      */
     public static function friendlyTitle($text, $separator = "-", $lowercase = true, $replace = null) {}
 

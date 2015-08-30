@@ -54,10 +54,10 @@ abstract class Text
      * </code>
      *
      * @param string $str 
-     * @param mixed $separator 
+     * @param string $separator 
      * @return string 
      */
-    public static function increment($str, $separator = null) {}
+    public static function increment($str, $separator = "_") {}
 
     /**
      * Generates a random string based on the given type. Type is one of the RANDOM_* constants

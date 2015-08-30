@@ -20,6 +20,16 @@ class Csv extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\Adapt
     public function __construct($options) {}
 
     /**
+     * Load translates from file
+     *
+     * @param string $file 
+     * @param int $length 
+     * @param string $delimiter 
+     * @param string $enclosure 
+     */
+    private function _load($file, $length, $delimiter, $enclosure) {}
+
+    /**
      * Returns the translation related to the given key
      *
      * @param string $index 

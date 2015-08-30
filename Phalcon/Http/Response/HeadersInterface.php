@@ -21,7 +21,7 @@ interface HeadersInterface
      * Gets a header value from the internal bag
      *
      * @param string $name 
-     * @return string 
+     * @return string|bool 
      */
     public function get($name);
 
@@ -45,7 +45,7 @@ interface HeadersInterface
     public function reset();
 
     /**
-     * Restore a Phalcon\Http\Response\Headers object
+     * Restore a \Phalcon\Http\Response\Headers object
      *
      * @param array $data 
      * @return HeadersInterface 

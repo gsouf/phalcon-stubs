@@ -5,7 +5,7 @@ namespace Phalcon;
 /**
  * Phalcon\Di
  * Phalcon\Di is a component that implements Dependency Injection/Service Location
- * of services and it"s itself a container for them.
+ * of services and it's itself a container for them.
  * Since Phalcon is highly decoupled, Phalcon\Di is essential to integrate the different
  * components of the framework. The developer can also use this component to inject dependencies
  * and manage global instances of the different classes used in the application.
@@ -95,6 +95,7 @@ class Di implements \Phalcon\DiInterface
 
     /**
      * Removes a service in the services container
+     * It also removes any shared instance created for the service
      *
      * @param string $name 
      */
@@ -102,7 +103,7 @@ class Di implements \Phalcon\DiInterface
 
     /**
      * Attempts to register a service in the services container
-     * Only is successful if a service hasn"t been registered previously
+     * Only is successful if a service hasn't been registered previously
      * with the same name
      *
      * @param string $name 

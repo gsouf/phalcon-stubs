@@ -32,7 +32,7 @@ class View extends \Phalcon\Di\Injectable implements \Phalcon\Mvc\ViewInterface
     const LEVEL_AFTER_TEMPLATE = 4;
 
     /**
-     * Render Level: Hasta el layout del controlador
+     * Render Level: To the controller layout
      */
     const LEVEL_LAYOUT = 3;
 
@@ -225,7 +225,7 @@ class View extends \Phalcon\Di\Injectable implements \Phalcon\Mvc\ViewInterface
      * Sets the render level for the view
      * <code>
      * //Render the view related to the controller only
-     * $this->view->setRenderLevel(View::LEVEL_VIEW);
+     * $this->view->setRenderLevel(View::LEVEL_LAYOUT);
      * </code>
      *
      * @param int $level 

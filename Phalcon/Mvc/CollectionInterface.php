@@ -99,7 +99,7 @@ interface CollectionInterface
     public function appendMessage(\Phalcon\Mvc\Model\MessageInterface $message);
 
     /**
-     * Creates/Updates a collection based on the values in the atributes
+     * Creates/Updates a collection based on the values in the attributes
      *
      * @return bool 
      */

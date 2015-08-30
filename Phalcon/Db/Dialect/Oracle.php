@@ -254,4 +254,15 @@ class Oracle extends \Phalcon\Db\Dialect
      */
     public function supportsReleaseSavepoints() {}
 
+    /**
+     * Prepares table for this RDBMS
+     *
+     * @param string $table 
+     * @param string $schema 
+     * @param string $alias 
+     * @param string $escapeChar 
+     * @return string 
+     */
+    protected function prepareTable($table, $schema = null, $alias = null, $escapeChar = null) {}
+
 }

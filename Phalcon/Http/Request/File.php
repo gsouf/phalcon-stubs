@@ -38,23 +38,35 @@ class File implements \Phalcon\Http\Request\FileInterface
 
     protected $_realType;
 
-
+    /**
+     * @var string|null
+     */
     protected $_error;
 
-
+    /**
+     * @var string|null
+     */
     protected $_key;
 
-
+    /**
+     * @var string
+     */
     protected $_extension;
 
 
-
+    /**
+     * @return string|null 
+     */
     public function getError() {}
 
-
+    /**
+     * @return string|null 
+     */
     public function getKey() {}
 
-
+    /**
+     * @return string 
+     */
     public function getExtension() {}
 
     /**

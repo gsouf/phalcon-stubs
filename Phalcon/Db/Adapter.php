@@ -145,9 +145,9 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * </code>
      *
      * @param string $sqlQuery 
-     * @param int $fetchMode 
-     * @param array $bindParams 
-     * @param array $bindTypes 
+     * @param mixed $fetchMode 
+     * @param mixed $bindParams 
+     * @param mixed $bindTypes 
      * @return array 
      */
     public function fetchOne($sqlQuery, $fetchMode = Db::FETCH_ASSOC, $bindParams = null, $bindTypes = null) {}
@@ -411,10 +411,6 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
     /**
      * Creates a view
      *
-     * @param	string tableName
-     * @param	array definition
-     * @param	string schemaName
-     * @return	boolean
      * @param string $viewName 
      * @param array $definition 
      * @param mixed $schemaName 

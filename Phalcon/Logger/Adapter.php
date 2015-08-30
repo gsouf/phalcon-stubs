@@ -158,7 +158,7 @@ abstract class Adapter
      *
      * @param mixed $type 
      * @param mixed $message 
-     * @param mixed $context 
+     * @param array $context 
      * @return \Phalcon\Logger\AdapterInterface 
      */
     public function log($type, $message = null, $context = null) {}

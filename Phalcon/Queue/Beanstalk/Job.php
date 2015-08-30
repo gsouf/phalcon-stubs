@@ -27,11 +27,11 @@ class Job
     /**
      * Phalcon\Queue\Beanstalk\Job
      *
-     * @param \Phalcon\Queue\Beanstalk $queue 
+     * @param mixed $queue 
      * @param string $id 
-     * @param string $body 
+     * @param mixed $body 
      */
-    public function __construct($queue, $id, $body) {}
+    public function __construct(\Phalcon\Queue\Beanstalk $queue, $id, $body) {}
 
     /**
      * Removes a job from the server entirely

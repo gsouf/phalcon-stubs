@@ -73,12 +73,22 @@ abstract class Adapter
     public function getName() {}
 
     /**
+     * {@inheritdoc}
+     *
+     * @param bool $deleteOldSession 
+     * @return Adapter 
+     */
+    public function regenerateId($deleteOldSession = true) {}
+
+    /**
      * Gets a session variable from an application context
+     * <code>
+     * $session->get('auth', 'yes');
+     * </code>
      *
      * @param string $index 
      * @param mixed $defaultValue 
-     * @param boolean $remove 
-     * @return mixed 
+     * @param bool $remove 
      */
     public function get($index, $defaultValue = null, $remove = false) {}
 
@@ -89,7 +99,7 @@ abstract class Adapter
      * </code>
      *
      * @param string $index 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function set($index, $value) {}
 
@@ -172,7 +182,6 @@ abstract class Adapter
      * Alias: Gets a session variable from an application context
      *
      * @param string $index 
-     * @return mixed 
      */
     public function __get($index) {}
 
@@ -180,7 +189,7 @@ abstract class Adapter
      * Alias: Sets a session variable in an application context
      *
      * @param string $index 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function __set($index, $value) {}
 

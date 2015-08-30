@@ -495,7 +495,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * @param string $method 
      * @param mixed $record 
      * @param mixed $parameters 
-     * @return \Phalcon\Mvc\Model\Resultset\Simple|\Phalcon\Mvc\Model\Resultset\Simple|false 
+     * @return \Phalcon\Mvc\Model\Resultset\Simple|Phalcon\Mvc\Model\Resultset\Simple|false 
      */
     public function getRelationRecords(\Phalcon\Mvc\Model\RelationInterface $relation, $method, \Phalcon\Mvc\ModelInterface $record, $parameters = null) {}
 
@@ -644,7 +644,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
     public function createBuilder($params = null) {}
 
     /**
-     * Returns the lastest query created or executed in the models manager
+     * Returns the last query created or executed in the models manager
      *
      * @return \Phalcon\Mvc\Model\QueryInterface 
      */

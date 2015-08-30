@@ -108,7 +108,7 @@ interface DiInterface extends \ArrayAccess
     /**
      * Return the services registered in the DI
      *
-     * @return array 
+     * @return \Phalcon\Di\ServiceInterface[] 
      */
     public function getServices();
 

@@ -3,14 +3,15 @@
 namespace Phalcon\Session\Adapter;
 
 /**
- * Phalcon\Session\Adapter\Memcache
- * This adapter store sessions in memcache
+ * Phalcon\Session\Adapter\Redis
+ * This adapter store sessions in Redis
  * <code>
- * $session = new \Phalcon\Session\Adapter\Memcache(array(
+ * $session = new \Phalcon\Session\Adapter\Redis(array(
  * 'uniqueId' => 'my-private-app',
- * 'host' => '127.0.0.1',
- * 'port' => 11211,
- * 'persistent' => true,
+ * 'host' => 'localhost',
+ * 'port' => 6379,
+ * 'auth' => 'foobared',
+ * 'persistent' => false,
  * 'lifetime' => 3600,
  * 'prefix' => 'my_'
  * ));
@@ -19,23 +20,23 @@ namespace Phalcon\Session\Adapter;
  * echo $session->get('var');
  * </code>
  */
-class Memcache extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface
+class Redis extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface
 {
 
-    protected $_memcache = null;
+    protected $_redis = null;
 
 
     protected $_lifetime = 8600;
 
 
 
-    public function getMemcache() {}
+    public function getRedis() {}
 
 
     public function getLifetime() {}
 
     /**
-     * Phalcon\Session\Adapter\Memcache constructor
+     * Phalcon\Session\Adapter\Redis constructor
      *
      * @param array $options 
      */
