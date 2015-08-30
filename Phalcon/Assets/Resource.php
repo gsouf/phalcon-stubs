@@ -1,142 +1,170 @@
-<?php 
+<?php
 
-namespace Phalcon\Assets {
+namespace Phalcon\Assets;
 
-	/**
-	 * Phalcon\Assets\Resource
-	 *
-	 * Represents an asset resource
-	 *
-	 *<code>
-	 * $resource = new \Phalcon\Assets\Resource('js', 'javascripts/jquery.js');
-	 *</code>
-	 */
-	
-	class Resource {
+/**
+ * Phalcon\Assets\Resource
+ * Represents an asset resource
+ * <code>
+ * $resource = new \Phalcon\Assets\Resource('js', 'javascripts/jquery.js');
+ * </code>
+ */
+class Resource
+{
 
-		protected $_type;
-
-		protected $_path;
-
-		protected $_local;
-
-		protected $_filter;
-
-		protected $_attributes;
-
-		protected $_sourcePath;
-
-		protected $_targetPath;
-
-		protected $_targetUri;
-
-		public function getType(){ }
+    protected $_type;
 
 
-		public function getPath(){ }
+    protected $_path;
 
 
-		public function getLocal(){ }
+    protected $_local;
 
 
-		public function getFilter(){ }
+    protected $_filter;
 
 
-		public function getAttributes(){ }
+    protected $_attributes;
 
 
-		public function getSourcePath(){ }
+    protected $_sourcePath;
 
 
-		public function getTargetPath(){ }
+    protected $_targetPath;
 
 
-		public function getTargetUri(){ }
+    protected $_targetUri;
 
 
-		/**
-		 * \Phalcon\Assets\Resource constructor
-		 *
-		 * @param string type
-		 * @param string path
-		 * @param boolean local
-		 * @param boolean filter
-		 * @param array attributes
-		 */
-		public function __construct($type, $path, $local=null, $filter=null, $attributes=null){ }
+
+    public function getType() {}
 
 
-		/**
-		 * Sets the resource's type
-		 */
-		public function setType($type){ }
+    public function getPath() {}
 
 
-		/**
-		 * Sets the resource's path
-		 */
-		public function setPath($path){ }
+    public function getLocal() {}
 
 
-		/**
-		 * Sets if the resource is local or external
-		 */
-		public function setLocal($local){ }
+    public function getFilter() {}
 
 
-		/**
-		 * Sets if the resource must be filtered or not
-		 */
-		public function setFilter($filter){ }
+    public function getAttributes() {}
 
 
-		/**
-		 * Sets extra HTML attributes
-		 */
-		public function setAttributes($attributes){ }
+    public function getSourcePath() {}
 
 
-		/**
-		 * Sets a target uri for the generated HTML
-		 */
-		public function setTargetUri($targetUri){ }
+    public function getTargetPath() {}
 
 
-		/**
-		 * Sets the resource's source path
-		 */
-		public function setSourcePath($sourcePath){ }
+    public function getTargetUri() {}
 
+    /**
+     * Phalcon\Assets\Resource constructor
+     *
+     * @param string $type 
+     * @param string $path 
+     * @param boolean $local 
+     * @param boolean $filter 
+     * @param array $attributes 
+     */
+    public function __construct($type, $path, $local = true, $filter = true, $attributes = null) {}
 
-		/**
-		 * Sets the resource's target path
-		 */
-		public function setTargetPath($targetPath){ }
+    /**
+     * Sets the resource's type
+     *
+     * @param string $type 
+     * @return Resource 
+     */
+    public function setType($type) {}
 
+    /**
+     * Sets the resource's path
+     *
+     * @param string $path 
+     * @return Resource 
+     */
+    public function setPath($path) {}
 
-		/**
-		 * Returns the content of the resource as an string
-		 * Optionally a base path where the resource is located can be set
-		 */
-		public function getContent($basePath=null){ }
+    /**
+     * Sets if the resource is local or external
+     *
+     * @param bool $local 
+     * @return Resource 
+     */
+    public function setLocal($local) {}
 
+    /**
+     * Sets if the resource must be filtered or not
+     *
+     * @param bool $filter 
+     * @return Resource 
+     */
+    public function setFilter($filter) {}
 
-		/**
-		 * Returns the real target uri for the generated HTML
-		 */
-		public function getRealTargetUri(){ }
+    /**
+     * Sets extra HTML attributes
+     *
+     * @param array $attributes 
+     * @return Resource 
+     */
+    public function setAttributes($attributes) {}
 
+    /**
+     * Sets a target uri for the generated HTML
+     *
+     * @param string $targetUri 
+     * @return Resource 
+     */
+    public function setTargetUri($targetUri) {}
 
-		/**
-		 * Returns the complete location where the resource is located
-		 */
-		public function getRealSourcePath($basePath=null){ }
+    /**
+     * Sets the resource's source path
+     *
+     * @param string $sourcePath 
+     * @return Resource 
+     */
+    public function setSourcePath($sourcePath) {}
 
+    /**
+     * Sets the resource's target path
+     *
+     * @param string $targetPath 
+     * @return Resource 
+     */
+    public function setTargetPath($targetPath) {}
 
-		/**
-		 * Returns the complete location where the resource must be written
-		 */
-		public function getRealTargetPath($basePath=null){ }
+    /**
+     * Returns the content of the resource as an string
+     * Optionally a base path where the resource is located can be set
+     *
+     * @param string $basePath 
+     * @return string 
+     */
+    public function getContent($basePath = null) {}
 
-	}
+    /**
+     * Returns the real target uri for the generated HTML
+     *
+     * @return string 
+     */
+    public function getRealTargetUri() {}
+
+    /**
+     * Returns the complete location where the resource is located
+     *
+     * @param string $basePath 
+     * @return string 
+     */
+    public function getRealSourcePath($basePath = null) {}
+
+    /**
+     * Returns the complete location where the resource must be written
+     *
+     * @param string $basePath 
+     * @return string 
+     */
+    public function getRealTargetPath($basePath = null) {}
+
 }

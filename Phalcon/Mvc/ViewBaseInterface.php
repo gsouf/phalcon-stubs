@@ -1,34 +1,77 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc {
+namespace Phalcon\Mvc;
 
-	interface ViewBaseInterface {
+/**
+ * Phalcon\Mvc\ViewInterface
+ * Interface for Phalcon\Mvc\View and Phalcon\Mvc\View\Simple
+ */
+interface ViewBaseInterface
+{
 
-		public function setViewsDir($viewsDir);
+    /**
+     * Sets views directory. Depending of your platform, always add a trailing slash or backslash
+     *
+     * @param string $viewsDir 
+     */
+    public function setViewsDir($viewsDir);
 
+    /**
+     * Gets views directory
+     *
+     * @return string 
+     */
+    public function getViewsDir();
 
-		public function getViewsDir();
+    /**
+     * Adds parameters to views (alias of setVar)
+     *
+     * @param string $key 
+     * @param mixed $value 
+     */
+    public function setParamToView($key, $value);
 
+    /**
+     * Adds parameters to views
+     *
+     * @param string $key 
+     * @param mixed $value 
+     */
+    public function setVar($key, $value);
 
-		public function setParamToView($key, $value);
+    /**
+     * Returns parameters to views
+     *
+     * @return array 
+     */
+    public function getParamsToView();
 
+    /**
+     * Returns the cache instance used to cache
+     *
+     * @return \Phalcon\Cache\BackendInterface 
+     */
+    public function getCache();
 
-		public function setVar($key, $value);
+    /**
+     * Cache the actual view render to certain level
+     *
+     * @param boolean|array $options 
+     */
+    public function cache($options = true);
 
+    /**
+     * Externally sets the view content
+     *
+     * @param string $content 
+     */
+    public function setContent($content);
 
-		public function getParamsToView();
+    /**
+     * Returns cached output from another view stage
+     *
+     * @return string 
+     */
+    public function getContent();
 
-
-		public function getCache();
-
-
-		public function cache($options=null);
-
-
-		public function setContent($content);
-
-
-		public function getContent();
-
-	}
 }

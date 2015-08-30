@@ -1,294 +1,286 @@
-<?php 
+<?php
 
-namespace Phalcon\Http {
-    use DateTime;
-    use Phalcon\Di;
-    use Phalcon\Di\InjectionAwareInterface;
-    use Phalcon\DiInterface;
-    use Phalcon\Http\Response\Cookies;
-    use Phalcon\Http\Response\Headers;
+namespace Phalcon\Http;
+
+/**
+ * Phalcon\Http\Response
+ * Part of the HTTP cycle is return responses to the clients.
+ * Phalcon\HTTP\Response is the Phalcon component responsible to achieve this task.
+ * HTTP responses are usually composed by headers and body.
+ * <code>
+ * $response = new \Phalcon\Http\Response();
+ * $response->setStatusCode(200, "OK");
+ * $response->setContent("<html><body>Hello</body></html>");
+ * $response->send();
+ * </code>
+ */
+class Response implements \Phalcon\Http\ResponseInterface, \Phalcon\Di\InjectionAwareInterface
+{
+
+    protected $_sent = false;
+
+
+    protected $_content;
+
+
+    protected $_headers;
+
+
+    protected $_cookies;
+
+
+    protected $_file;
+
+
+    protected $_dependencyInjector;
+
+
+    protected $_statusCodes;
+
 
     /**
-	 * Phalcon\Http\Response
-	 *
-	 * Part of the HTTP cycle is return responses to the clients.
-	 * Phalcon\HTTP\Response is the Phalcon component responsible to achieve this task.
-	 * HTTP responses are usually composed by headers and body.
-	 *
-	 *<code>
-	 *	$response = new \Phalcon\Http\Response();
-	 *	$response->setStatusCode(200, "OK");
-	 *	$response->setContent("<html><body>Hello</body></html>");
-	 *	$response->send();
-	 *</code>
-	 */
-	
-	class Response implements ResponseInterface, InjectionAwareInterface {
+     * Phalcon\Http\Response constructor
+     *
+     * @param string $content 
+     * @param int $code 
+     * @param string $status 
+     */
+    public function __construct($content = null, $code = null, $status = null) {}
 
-		protected $_sent;
+    /**
+     * Sets the dependency injector
+     *
+     * @param mixed $dependencyInjector 
+     */
+    public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
-		protected $_content;
+    /**
+     * Returns the internal dependency injector
+     *
+     * @return \Phalcon\DiInterface 
+     */
+    public function getDI() {}
 
-		protected $_headers;
+    /**
+     * Sets the HTTP response code
+     * <code>
+     * $response->setStatusCode(404, "Not Found");
+     * </code>
+     *
+     * @param int $code 
+     * @param string $message 
+     * @return Response 
+     */
+    public function setStatusCode($code, $message = null) {}
 
-		protected $_cookies;
+    /**
+     * Returns the status code
+     * <code>
+     * print_r($response->getStatusCode());
+     * </code>
+     *
+     * @return array 
+     */
+    public function getStatusCode() {}
 
-		protected $_file;
+    /**
+     * Sets a headers bag for the response externally
+     *
+     * @param mixed $headers 
+     * @return Response 
+     */
+    public function setHeaders(\Phalcon\Http\Response\HeadersInterface $headers) {}
 
-		protected $_dependencyInjector;
+    /**
+     * Returns headers set by the user
+     *
+     * @return \Phalcon\Http\Response\HeadersInterface 
+     */
+    public function getHeaders() {}
 
-		protected $_statusCodes;
+    /**
+     * Sets a cookies bag for the response externally
+     *
+     * @param mixed $cookies 
+     * @return Response 
+     */
+    public function setCookies(\Phalcon\Http\Response\CookiesInterface $cookies) {}
 
-		/**
-		 * \Phalcon\Http\Response constructor
-		 *
-		 * @param string $content
-		 * @param int $code
-		 * @param string $status
-		 */
-		public function __construct($content=null, $code=null, $status=null){ }
+    /**
+     * Returns coookies set by the user
+     *
+     * @return \Phalcon\Http\Response\CookiesInterface 
+     */
+    public function getCookies() {}
 
+    /**
+     * Overwrites a header in the response
+     * <code>
+     * $response->setHeader("Content-Type", "text/plain");
+     * </code>
+     *
+     * @param string $name 
+     * @param string $value 
+     * @return \Phalcon\Http\Response 
+     */
+    public function setHeader($name, $value) {}
 
-        /**
-         * Sets the dependency injector
-         * @param DiInterface $dependencyInjector
-         */
-		public function setDI(DiInterface $dependencyInjector){ }
+    /**
+     * Send a raw header to the response
+     * <code>
+     * $response->setRawHeader("HTTP/1.1 404 Not Found");
+     * </code>
+     *
+     * @param string $header 
+     * @return Response 
+     */
+    public function setRawHeader($header) {}
 
+    /**
+     * Resets all the stablished headers
+     *
+     * @return Response 
+     */
+    public function resetHeaders() {}
 
-		/**
-		 * Returns the internal dependency injector
-         *
-         * @return DI
-		 */
-		public function getDI(){ }
+    /**
+     * Sets a Expires header to use HTTP cache
+     * <code>
+     * $this->response->setExpires(new DateTime());
+     * </code>
+     *
+     * @param mixed $datetime 
+     * @return Response 
+     */
+    public function setExpires(\DateTime $datetime) {}
 
+    /**
+     * Sends a Not-Modified response
+     *
+     * @return Response 
+     */
+    public function setNotModified() {}
 
-        /**
-         * Sets the HTTP response code
-         *
-         *<code>
-         *    $response->setStatusCode(404, "Not Found");
-         *</code>
-         *
-         * @param int $code
-         * @param null $message
-         * @return Response
-         */
-		public function setStatusCode($code, $message=null){ }
+    /**
+     * Sets the response content-type mime, optionally the charset
+     * <code>
+     * $response->setContentType('application/pdf');
+     * $response->setContentType('text/plain', 'UTF-8');
+     * </code>
+     *
+     * @param string $contentType 
+     * @param string $charset 
+     * @return \Phalcon\Http\Response 
+     */
+    public function setContentType($contentType, $charset = null) {}
 
+    /**
+     * Set a custom ETag
+     * <code>
+     * $response->setEtag(md5(time()));
+     * </code>
+     *
+     * @param string $etag 
+     * @return Response 
+     */
+    public function setEtag($etag) {}
 
-		/**
-		 * Returns the status code
-		 *
-		 *<code>
-		 *	print_r($response->getStatusCode());
-		 *</code>
-		 */
-		public function getStatusCode(){ }
+    /**
+     * Redirect by HTTP to another action or URL
+     * <code>
+     * //Using a string redirect (internal/external)
+     * $response->redirect("posts/index");
+     * $response->redirect("http://en.wikipedia.org", true);
+     * $response->redirect("http://www.example.com/new-location", true, 301);
+     * //Making a redirection based on a named route
+     * $response->redirect(array(
+     * "for" => "index-lang",
+     * "lang" => "jp",
+     * "controller" => "index"
+     * ));
+     * </code>
+     *
+     * @param string|array $location 
+     * @param boolean $externalRedirect 
+     * @param int $statusCode 
+     * @return \Phalcon\Http\Response 
+     */
+    public function redirect($location = null, $externalRedirect = false, $statusCode = 302) {}
 
+    /**
+     * Sets HTTP response body
+     * <code>
+     * response->setContent("<h1>Hello!</h1>");
+     * </code>
+     *
+     * @param string $content 
+     * @return Response 
+     */
+    public function setContent($content) {}
 
-        /**
-         * Sets a headers bag for the response externally
-         * @param Headers $headers
-         */
-		public function setHeaders(Headers $headers){ }
+    /**
+     * Sets HTTP response body. The parameter is automatically converted to JSON
+     * <code>
+     * $response->setJsonContent(array("status" => "OK"));
+     * </code>
+     *
+     * @param mixed $content 
+     * @param int $jsonOptions 
+     * @return \Phalcon\Http\Response 
+     */
+    public function setJsonContent($content, $jsonOptions = 0) {}
 
+    /**
+     * Appends a string to the HTTP response body
+     *
+     * @param string $content 
+     * @return \Phalcon\Http\Response 
+     */
+    public function appendContent($content) {}
 
-		/**
-		 * Returns headers set by the user
-         * @return Headers
-		 */
-		public function getHeaders(){ }
+    /**
+     * Gets the HTTP response body
+     *
+     * @return string 
+     */
+    public function getContent() {}
 
+    /**
+     * Check if the response is already sent
+     *
+     * @return bool 
+     */
+    public function isSent() {}
 
-        /**
-         * Sets a cookies bag for the response externally
-         * @param Cookies $cookies
-         */
-		public function setCookies(Cookies $cookies){ }
+    /**
+     * Sends headers to the client
+     *
+     * @return Response 
+     */
+    public function sendHeaders() {}
 
+    /**
+     * Sends cookies to the client
+     *
+     * @return Response 
+     */
+    public function sendCookies() {}
 
-		/**
-		 * Returns coookies set by the user
-		 *
-		 * @return Cookies
-		 */
-		public function getCookies(){ }
+    /**
+     * Prints out HTTP response to the client
+     *
+     * @return Response 
+     */
+    public function send() {}
 
+    /**
+     * Sets an attached file to be sent at the end of the request
+     *
+     * @param string $filePath 
+     * @param string $attachmentName 
+     * @param mixed $attachment 
+     * @return \Phalcon\Http\Response 
+     */
+    public function setFileToSend($filePath, $attachmentName = null, $attachment = true) {}
 
-		/**
-		 * Overwrites a header in the response
-		 *
-		 *<code>
-		 *	$response->setHeader("Content-Type", "text/plain");
-		 *</code>
-		 *
-		 * @param string $name
-		 * @param string $value
-		 * @return Response
-		 */
-		public function setHeader($name, $value){ }
-
-
-        /**
-         * Send a raw header to the response
-         *
-         *<code>
-         *    $response->setRawHeader("HTTP/1.1 404 Not Found");
-         *</code>
-         * @param $header string
-         */
-		public function setRawHeader($header){ }
-
-
-		/**
-		 * Resets all the established headers
-		 */
-		public function resetHeaders(){ }
-
-
-        /**
-         * Sets a Expires header to use HTTP cache
-         *
-         *<code>
-         *    $this->response->setExpires(new DateTime());
-         *</code>
-         * @param DateTime $datetime
-         */
-		public function setExpires(DateTime $datetime){ }
-
-
-		/**
-		 * Sends a Not-Modified response
-		 */
-		public function setNotModified(){ }
-
-
-		/**
-		 * Sets the response content-type mime, optionally the charset
-		 *
-		 *<code>
-		 *	$response->setContentType('application/pdf');
-		 *	$response->setContentType('text/plain', 'UTF-8');
-		 *</code>
-		 *
-		 * @param string $contentType
-		 * @param string $charset
-		 * @return Response
-		 */
-		public function setContentType($contentType, $charset=null){ }
-
-
-        /**
-         * Set a custom ETag
-         *
-         *<code>
-         *    $response->setEtag(md5(time()));
-         *</code>
-         * @param $etag string
-         */
-		public function setEtag($etag){ }
-
-
-		/**
-		 * Redirect by HTTP to another action or URL
-		 *
-		 *<code>
-		 *  //Using a string redirect (internal/external)
-		 *	$response->redirect("posts/index");
-		 *	$response->redirect("http://en.wikipedia.org", true);
-		 *	$response->redirect("http://www.example.com/new-location", true, 301);
-		 *
-		 *	//Making a redirection based on a named route
-		 *	$response->redirect(array(
-		 *		"for" => "index-lang",
-		 *		"lang" => "jp",
-		 *		"controller" => "index"
-		 *	));
-		 *</code>
-		 *
-		 * @param string|array location
-		 * @param boolean $externalRedirect
-		 * @param int $statusCode
-		 * @return \Phalcon\Http\Response
-		 */
-		public function redirect($location=null, $externalRedirect=null, $statusCode=null){ }
-
-
-        /**
-         * Sets HTTP response body
-         *
-         *<code>
-         *    response->setContent("<h1>Hello!</h1>");
-         *</code>
-         * @param $content
-         */
-		public function setContent($content){ }
-
-
-		/**
-		 * Sets HTTP response body. The parameter is automatically converted to JSON
-		 *
-		 *<code>
-		 *	$response->setJsonContent(array("status" => "OK"));
-		 *</code>
-		 *
-		 * @param mixed $content
-		 * @param int $jsonOptions
-		 * @return Response
-		 */
-		public function setJsonContent($content, $jsonOptions=null){ }
-
-
-		/**
-		 * Appends a string to the HTTP response body
-		 *
-		 * @param string $content
-		 * @return Response
-		 */
-		public function appendContent($content){ }
-
-
-		/**
-		 * Gets the HTTP response body
-		 */
-		public function getContent(){ }
-
-
-		/**
-		 * Check if the response is already sent
-		 */
-		public function isSent(){ }
-
-
-		/**
-		 * Sends headers to the client
-		 */
-		public function sendHeaders(){ }
-
-
-		/**
-		 * Sends cookies to the client
-		 */
-		public function sendCookies(){ }
-
-
-		/**
-		 * Prints out HTTP response to the client
-		 */
-		public function send(){ }
-
-
-        /**
-         * Sets an attached file to be sent at the end of the request
-         *
-         * @param $filePath
-         * @param null $attachmentName
-         * @param null $attachment
-         * @return Response
-         */
-		public function setFileToSend($filePath, $attachmentName=null, $attachment=null){ }
-
-	}
 }

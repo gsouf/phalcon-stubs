@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Http\Response {
+namespace Phalcon\Http\Response;
 
-	class Exception extends \Phalcon\Exception {
-	}
+/**
+ * Phalcon\Http\Response\Exception
+ * Exceptions thrown in Phalcon\Http\Response will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

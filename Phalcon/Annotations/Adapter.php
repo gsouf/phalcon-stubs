@@ -1,61 +1,74 @@
-<?php 
+<?php
 
-namespace Phalcon\Annotations {
+namespace Phalcon\Annotations;
 
-	/**
-	 * Phalcon\Annotations\Adapter
-	 *
-	 * This is the base class for Phalcon\Annotations adapters
-	 */
-	
-	abstract class Adapter {
+/**
+ * Phalcon\Annotations\Adapter
+ * This is the base class for Phalcon\Annotations adapters
+ */
+abstract class Adapter
+{
 
-		protected $_reader;
-
-		protected $_annotations;
-
-		/**
-		 * Sets the annotations parser
-		 */
-		public function setReader(\Phalcon\Annotations\ReaderInterface $reader){ }
+    protected $_reader;
 
 
-		/**
-		 * Returns the annotation reader
-		 */
-		public function getReader(){ }
+    protected $_annotations;
 
 
-		/**
-		 * Parses or retrieves all the annotations found in a class
-		 *
-		 * @param string|object className
-		 */
-		public function get($className){ }
+    /**
+     * Sets the annotations parser
+     *
+     * @param mixed $reader 
+     */
+    public function setReader(\Phalcon\Annotations\ReaderInterface $reader) {}
 
+    /**
+     * Returns the annotation reader
+     *
+     * @return \Phalcon\Annotations\ReaderInterface 
+     */
+    public function getReader() {}
 
-		/**
-		 * Returns the annotations found in all the class' methods
-		 */
-		public function getMethods($className){ }
+    /**
+     * Parses or retrieves all the annotations found in a class
+     *
+     * @param string|object $className 
+     * @return \Phalcon\Annotations\Reflection 
+     */
+    public function get($className) {}
 
+    /**
+     * Returns the annotations found in all the class' methods
+     *
+     * @param string $className 
+     * @return array 
+     */
+    public function getMethods($className) {}
 
-		/**
-		 * Returns the annotations found in a specific method
-		 */
-		public function getMethod($className, $methodName){ }
+    /**
+     * Returns the annotations found in a specific method
+     *
+     * @param string $className 
+     * @param string $methodName 
+     * @return \Phalcon\Annotations\Collection 
+     */
+    public function getMethod($className, $methodName) {}
 
+    /**
+     * Returns the annotations found in all the class' methods
+     *
+     * @param string $className 
+     * @return array 
+     */
+    public function getProperties($className) {}
 
-		/**
-		 * Returns the annotations found in all the class' methods
-		 */
-		public function getProperties($className){ }
+    /**
+     * Returns the annotations found in a specific property
+     *
+     * @param string $className 
+     * @param string $propertyName 
+     * @return \Phalcon\Annotations\Collection 
+     */
+    public function getProperty($className, $propertyName) {}
 
-
-		/**
-		 * Returns the annotations found in a specific property
-		 */
-		public function getProperty($className, $propertyName){ }
-
-	}
 }

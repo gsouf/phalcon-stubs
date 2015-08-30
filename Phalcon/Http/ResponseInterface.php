@@ -1,58 +1,150 @@
-<?php 
+<?php
 
-namespace Phalcon\Http {
+namespace Phalcon\Http;
 
-	interface ResponseInterface {
+/**
+ * Phalcon\Http\Response
+ * Interface for Phalcon\Http\Response
+ */
+interface ResponseInterface
+{
 
-		public function setStatusCode($code, $message=null);
+    /**
+     * Sets the HTTP response code
+     *
+     * @param int $code 
+     * @param string $message 
+     * @return ResponseInterface 
+     */
+    public function setStatusCode($code, $message = null);
 
+    /**
+     * Returns headers set by the user
+     *
+     * @return \Phalcon\Http\Response\HeadersInterface 
+     */
+    public function getHeaders();
 
-		public function getHeaders();
+    /**
+     * Overwrites a header in the response
+     *
+     * @param string $name 
+     * @param string $value 
+     * @return \Phalcon\Http\ResponseInterface 
+     */
+    public function setHeader($name, $value);
 
+    /**
+     * Send a raw header to the response
+     *
+     * @param string $header 
+     * @return ResponseInterface 
+     */
+    public function setRawHeader($header);
 
-		public function setHeader($name, $value);
+    /**
+     * Resets all the stablished headers
+     *
+     * @return ResponseInterface 
+     */
+    public function resetHeaders();
 
+    /**
+     * Sets output expire time header
+     *
+     * @param mixed $datetime 
+     * @return ResponseInterface 
+     */
+    public function setExpires(\DateTime $datetime);
 
-		public function setRawHeader($header);
+    /**
+     * Sends a Not-Modified response
+     *
+     * @return ResponseInterface 
+     */
+    public function setNotModified();
 
+    /**
+     * Sets the response content-type mime, optionally the charset
+     *
+     * @param string $contentType 
+     * @param string $charset 
+     * @return \Phalcon\Http\ResponseInterface 
+     */
+    public function setContentType($contentType, $charset = null);
 
-		public function resetHeaders();
+    /**
+     * Redirect by HTTP to another action or URL
+     *
+     * @param string $location 
+     * @param boolean $externalRedirect 
+     * @param int $statusCode 
+     * @return \Phalcon\Http\ResponseInterface 
+     */
+    public function redirect($location = null, $externalRedirect = false, $statusCode = 302);
 
+    /**
+     * Sets HTTP response body
+     *
+     * @param string $content 
+     * @return ResponseInterface 
+     */
+    public function setContent($content);
 
-		public function setExpires(\DateTime $datetime);
+    /**
+     * Sets HTTP response body. The parameter is automatically converted to JSON
+     * <code>
+     * response->setJsonContent(array("status" => "OK"));
+     * </code>
+     *
+     * @param string $content 
+     * @return \Phalcon\Http\ResponseInterface 
+     */
+    public function setJsonContent($content);
 
+    /**
+     * Appends a string to the HTTP response body
+     *
+     * @param string $content 
+     * @return \Phalcon\Http\ResponseInterface 
+     */
+    public function appendContent($content);
 
-		public function setNotModified();
+    /**
+     * Gets the HTTP response body
+     *
+     * @return string 
+     */
+    public function getContent();
 
+    /**
+     * Sends headers to the client
+     *
+     * @return ResponseInterface 
+     */
+    public function sendHeaders();
 
-		public function setContentType($contentType, $charset=null);
+    /**
+     * Sends cookies to the client
+     *
+     * @return ResponseInterface 
+     */
+    public function sendCookies();
 
+    /**
+     * Prints out HTTP response to the client
+     *
+     * @return ResponseInterface 
+     */
+    public function send();
 
-		public function redirect($location=null, $externalRedirect=null, $statusCode=null);
+    /**
+     * Sets an attached file to be sent at the end of the request
+     *
+     * @param string $filePath 
+     * @param string $attachmentName 
+     * @return ResponseInterface 
+     */
+    public function setFileToSend($filePath, $attachmentName = null);
 
-
-		public function setContent($content);
-
-
-		public function setJsonContent($content);
-
-
-		public function appendContent($content);
-
-
-		public function getContent();
-
-
-		public function sendHeaders();
-
-
-		public function sendCookies();
-
-
-		public function send();
-
-
-		public function setFileToSend($filePath, $attachmentName=null);
-
-	}
 }

@@ -1,25 +1,36 @@
-<?php 
+<?php
 
-namespace Phalcon {
+namespace Phalcon;
 
-	class Image {
 
-		const NONE = 1;
+class Image
+{
 
-		const WIDTH = 2;
+    const NONE = 1;
 
-		const HEIGHT = 3;
 
-		const AUTO = 4;
+    const WIDTH = 2;
 
-		const INVERSE = 5;
 
-		const PRECISE = 6;
+    const HEIGHT = 3;
 
-		const TENSILE = 7;
 
-		const HORIZONTAL = 11;
+    const AUTO = 4;
 
-		const VERTICAL = 12;
-	}
+
+    const INVERSE = 5;
+
+
+    const PRECISE = 6;
+
+
+    const TENSILE = 7;
+
+
+    const HORIZONTAL = 11;
+
+
+    const VERTICAL = 12;
+
+
 }
