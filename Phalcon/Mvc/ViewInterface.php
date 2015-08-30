@@ -1,88 +1,196 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc {
+namespace Phalcon\Mvc;
 
-	interface ViewInterface {
+/**
+ * Phalcon\Mvc\ViewInterface
+ * Interface for Phalcon\Mvc\View
+ */
+interface ViewInterface extends \Phalcon\Mvc\ViewBaseInterface
+{
 
-		public function setLayoutsDir($layoutsDir);
+    /**
+     * Sets the layouts sub-directory. Must be a directory under the views directory. Depending of your platform, always add a trailing slash or backslash
+     *
+     * @param string $layoutsDir 
+     */
+    public function setLayoutsDir($layoutsDir);
 
+    /**
+     * Gets the current layouts sub-directory
+     *
+     * @return string 
+     */
+    public function getLayoutsDir();
 
-		public function getLayoutsDir();
+    /**
+     * Sets a partials sub-directory. Must be a directory under the views directory. Depending of your platform, always add a trailing slash or backslash
+     *
+     * @param string $partialsDir 
+     */
+    public function setPartialsDir($partialsDir);
 
+    /**
+     * Gets the current partials sub-directory
+     *
+     * @return string 
+     */
+    public function getPartialsDir();
 
-		public function setPartialsDir($partialsDir);
+    /**
+     * Sets base path. Depending of your platform, always add a trailing slash or backslash
+     *
+     * @param string $basePath 
+     */
+    public function setBasePath($basePath);
 
+    /**
+     * Gets base path
+     *
+     * @return string 
+     */
+    public function getBasePath();
 
-		public function getPartialsDir();
+    /**
+     * Sets the render level for the view
+     *
+     * @param string $level 
+     */
+    public function setRenderLevel($level);
 
+    /**
+     * Sets default view name. Must be a file without extension in the views directory
+     *
+     * @param string $viewPath 
+     */
+    public function setMainView($viewPath);
 
-		public function setBasePath($basePath);
+    /**
+     * Returns the name of the main view
+     *
+     * @return string 
+     */
+    public function getMainView();
 
+    /**
+     * Change the layout to be used instead of using the name of the latest controller name
+     *
+     * @param string $layout 
+     */
+    public function setLayout($layout);
 
-		public function setRenderLevel($level);
+    /**
+     * Returns the name of the main view
+     *
+     * @return string 
+     */
+    public function getLayout();
 
+    /**
+     * Appends template before controller layout
+     *
+     * @param string|array $templateBefore 
+     */
+    public function setTemplateBefore($templateBefore);
 
-		public function setMainView($viewPath);
+    /**
+     * Resets any template before layouts
+     */
+    public function cleanTemplateBefore();
 
+    /**
+     * Appends template after controller layout
+     *
+     * @param string|array $templateAfter 
+     */
+    public function setTemplateAfter($templateAfter);
 
-		public function getMainView();
+    /**
+     * Resets any template before layouts
+     */
+    public function cleanTemplateAfter();
 
+    /**
+     * Gets the name of the controller rendered
+     *
+     * @return string 
+     */
+    public function getControllerName();
 
-		public function setLayout($layout);
+    /**
+     * Gets the name of the action rendered
+     *
+     * @return string 
+     */
+    public function getActionName();
 
+    /**
+     * Gets extra parameters of the action rendered
+     *
+     * @return array 
+     */
+    public function getParams();
 
-		public function getLayout();
+    /**
+     * Starts rendering process enabling the output buffering
+     */
+    public function start();
 
+    /**
+     * Register templating engines
+     *
+     * @param array $engines 
+     */
+    public function registerEngines($engines);
 
-		public function setTemplateBefore($templateBefore);
+    /**
+     * Executes render process from dispatching data
+     *
+     * @param string $controllerName 
+     * @param string $actionName 
+     * @param array $params 
+     */
+    public function render($controllerName, $actionName, $params = null);
 
+    /**
+     * Choose a view different to render than last-controller/last-action
+     *
+     * @param string $renderView 
+     */
+    public function pick($renderView);
 
-		public function cleanTemplateBefore();
+    /**
+     * Finishes the render process by stopping the output buffering
+     */
+    public function finish();
 
+    /**
+     * Returns the path of the view that is currently rendered
+     *
+     * @return string 
+     */
+    public function getActiveRenderPath();
 
-		public function setTemplateAfter($templateAfter);
+    /**
+     * Disables the auto-rendering process
+     */
+    public function disable();
 
+    /**
+     * Enables the auto-rendering process
+     */
+    public function enable();
 
-		public function cleanTemplateAfter();
+    /**
+     * Resets the view component to its factory default values
+     */
+    public function reset();
 
+    /**
+     * Whether the automatic rendering is disabled
+     *
+     * @return bool 
+     */
+    public function isDisabled();
 
-		public function getControllerName();
-
-
-		public function getActionName();
-
-
-		public function getParams();
-
-
-		public function start();
-
-
-		public function registerEngines($engines);
-
-
-		public function render($controllerName, $actionName, $params=null);
-
-
-		public function pick($renderView);
-
-
-		public function finish();
-
-
-		public function getActiveRenderPath();
-
-
-		public function disable();
-
-
-		public function enable();
-
-
-		public function reset();
-
-
-		public function isDisabled();
-
-	}
 }

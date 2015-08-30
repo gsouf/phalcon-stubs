@@ -1,10 +1,23 @@
-<?php 
+<?php
 
-namespace Phalcon\Logger {
+namespace Phalcon\Logger;
 
-	interface FormatterInterface {
+/**
+ * Phalcon\Logger\FormatterInterface
+ * This interface must be implemented by formmaters in Phalcon\Logger
+ */
+interface FormatterInterface
+{
 
-		public function format($message, $type, $timestamp, $context=null);
+    /**
+     * Applies a format to a message before sent it to the internal log
+     *
+     * @param string $message 
+     * @param int $type 
+     * @param int $timestamp 
+     * @param mixed $context 
+     * @param array $$context 
+     */
+    public function format($message, $type, $timestamp, $context = null);
 
-	}
 }

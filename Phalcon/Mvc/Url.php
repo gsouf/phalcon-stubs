@@ -1,128 +1,141 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc {
+namespace Phalcon\Mvc;
 
-	/**
-	 * Phalcon\Mvc\Url
-	 *
-	 * This components helps in the generation of: URIs, URLs and Paths
-	 *
-	 *<code>
-	 *
-	 * //Generate a URL appending the URI to the base URI
-	 * echo $url->get('products/edit/1');
-	 *
-	 * //Generate a URL for a predefined route
-	 * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2012'));
-	 *
-	 *</code>
-	 */
-	
-	class Url implements \Phalcon\Mvc\UrlInterface, \Phalcon\Di\InjectionAwareInterface {
+/**
+ * Phalcon\Mvc\Url
+ * This components helps in the generation of: URIs, URLs and Paths
+ * <code>
+ * //Generate a URL appending the URI to the base URI
+ * echo $url->get('products/edit/1');
+ * //Generate a URL for a predefined route
+ * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2012'));
+ * </code>
+ */
+class Url implements \Phalcon\Mvc\UrlInterface, \Phalcon\Di\InjectionAwareInterface
+{
 
-		protected $_dependencyInjector;
-
-		protected $_baseUri;
-
-		protected $_staticBaseUri;
-
-		protected $_basePath;
-
-		protected $_router;
-
-		/**
-		 * Sets the DependencyInjector container
-		 */
-		public function setDI(\Phalcon\DiInterface $dependencyInjector){ }
+    protected $_dependencyInjector;
 
 
-		/**
-		 * Returns the DependencyInjector container
-		 */
-		public function getDI(){ }
+    protected $_baseUri = null;
 
 
-		/**
-		 * Sets a prefix for all the URIs to be generated
-		 *
-		 *<code>
-		 *	$url->setBaseUri('/invo/');
-		 *	$url->setBaseUri('/invo/index.php/');
-		 *</code>
-		 */
-		public function setBaseUri($baseUri){ }
+    protected $_staticBaseUri = null;
 
 
-		/**
-		 * Sets a prefix for all static URLs generated
-		 *
-		 *<code>
-		 *	$url->setStaticBaseUri('/invo/');
-		 *</code>
-		 */
-		public function setStaticBaseUri($staticBaseUri){ }
+    protected $_basePath = null;
 
 
-		/**
-		 * Returns the prefix for all the generated urls. By default /
-		 */
-		public function getBaseUri(){ }
+    protected $_router;
 
 
-		/**
-		 * Returns the prefix for all the generated static urls. By default /
-		 */
-		public function getStaticBaseUri(){ }
+    /**
+     * Sets the DependencyInjector container
+     *
+     * @param mixed $dependencyInjector 
+     */
+    public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
+    /**
+     * Returns the DependencyInjector container
+     *
+     * @return \Phalcon\DiInterface 
+     */
+    public function getDI() {}
 
-		/**
-		 * Sets a base path for all the generated paths
-		 *
-		 *<code>
-		 *	$url->setBasePath('/var/www/htdocs/');
-		 *</code>
-		 */
-		public function setBasePath($basePath){ }
+    /**
+     * Sets a prefix for all the URIs to be generated
+     * <code>
+     * $url->setBaseUri('/invo/');
+     * $url->setBaseUri('/invo/index.php/');
+     * </code>
+     *
+     * @param string $baseUri 
+     * @return Url 
+     */
+    public function setBaseUri($baseUri) {}
 
+    /**
+     * Sets a prefix for all static URLs generated
+     * <code>
+     * $url->setStaticBaseUri('/invo/');
+     * </code>
+     *
+     * @param string $staticBaseUri 
+     * @return Url 
+     */
+    public function setStaticBaseUri($staticBaseUri) {}
 
-		/**
-		 * Returns the base path
-		 */
-		public function getBasePath(){ }
+    /**
+     * Returns the prefix for all the generated urls. By default /
+     *
+     * @return string 
+     */
+    public function getBaseUri() {}
 
+    /**
+     * Returns the prefix for all the generated static urls. By default /
+     *
+     * @return string 
+     */
+    public function getStaticBaseUri() {}
 
-		/**
-		 * Generates a URL
-		 *
-		 *<code>
-		 * //Generate a URL appending the URI to the base URI
-		 * echo $url->get('products/edit/1');
-		 *
-		 * //Generate a URL for a predefined route
-		 * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2015'));
-		 *</code>
-		 */
-		public function get($uri=null, $args=null, $local=null, $baseUri=null){ }
+    /**
+     * Sets a base path for all the generated paths
+     * <code>
+     * $url->setBasePath('/var/www/htdocs/');
+     * </code>
+     *
+     * @param string $basePath 
+     * @return Url 
+     */
+    public function setBasePath($basePath) {}
 
+    /**
+     * Returns the base path
+     *
+     * @return string 
+     */
+    public function getBasePath() {}
 
-		/**
-		 * Generates a URL for a static resource
-		 *
-		 *<code>
-		 * // Generate a URL for a static resource
-		 * echo $url->getStatic("img/logo.png");
-		 *
-		 * // Generate a URL for a static predefined route
-		 * echo $url->getStatic(array('for' => 'logo-cdn'));
-		 *</code>
-		 */
-		public function getStatic($uri=null){ }
+    /**
+     * Generates a URL
+     * <code>
+     * //Generate a URL appending the URI to the base URI
+     * echo $url->get('products/edit/1');
+     * //Generate a URL for a predefined route
+     * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2015'));
+     * </code>
+     *
+     * @param mixed $uri 
+     * @param mixed $args 
+     * @param mixed $local 
+     * @param mixed $baseUri 
+     * @return string 
+     */
+    public function get($uri = null, $args = null, $local = null, $baseUri = null) {}
 
+    /**
+     * Generates a URL for a static resource
+     * <code>
+     * // Generate a URL for a static resource
+     * echo $url->getStatic("img/logo.png");
+     * // Generate a URL for a static predefined route
+     * echo $url->getStatic(array('for' => 'logo-cdn'));
+     * </code>
+     *
+     * @param mixed $uri 
+     * @return string 
+     */
+    public function getStatic($uri = null) {}
 
-		/**
-		 * Generates a local path
-		 */
-		public function path($path=null){ }
+    /**
+     * Generates a local path
+     *
+     * @param string $path 
+     * @return string 
+     */
+    public function path($path = null) {}
 
-	}
 }

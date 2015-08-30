@@ -1,13 +1,28 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc {
+namespace Phalcon\Mvc;
 
-	interface EntityInterface {
+/**
+ * Phalcon\Mvc\EntityInterface
+ * Interface for Phalcon\Mvc\Collection and Phalcon\Mvc\Model
+ */
+interface EntityInterface
+{
 
-		public function readAttribute($attribute);
+    /**
+     * Reads an attribute value by its name
+     *
+     * @param string $attribute 
+     * @return mixed 
+     */
+    public function readAttribute($attribute);
 
+    /**
+     * Writes an attribute value by its name
+     *
+     * @param string $attribute 
+     * @param mixed $value 
+     */
+    public function writeAttribute($attribute, $value);
 
-		public function writeAttribute($attribute, $value);
-
-	}
 }

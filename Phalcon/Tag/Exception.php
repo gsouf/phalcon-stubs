@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Tag {
+namespace Phalcon\Tag;
 
-	class Exception extends \Phalcon\Exception {
-	}
+/**
+ * Phalcon\Tag\Exception
+ * Exceptions thrown in Phalcon\Tag will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

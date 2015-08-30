@@ -1,90 +1,104 @@
-<?php 
+<?php
 
-namespace Phalcon\Cache {
+namespace Phalcon\Cache;
 
-	/**
-	 * Phalcon\Cache\Backend
-	 *
-	 * This class implements common functionality for backend adapters. A backend cache adapter may extend this class
-	 */
-	
-	abstract class Backend {
+/**
+ * Phalcon\Cache\Backend
+ * This class implements common functionality for backend adapters. A backend cache adapter may extend this class
+ */
+abstract class Backend
+{
 
-		protected $_frontend;
-
-		protected $_options;
-
-		protected $_prefix;
-
-		protected $_lastKey;
-
-		protected $_lastLifetime;
-
-		protected $_fresh;
-
-		protected $_started;
-
-		public function getFrontend(){ }
+    protected $_frontend;
 
 
-		public function setFrontend($frontend){ }
+    protected $_options;
 
 
-		public function getOptions(){ }
+    protected $_prefix = "";
 
 
-		public function setOptions($options){ }
+    protected $_lastKey = "";
 
 
-		public function getLastKey(){ }
+    protected $_lastLifetime = null;
 
 
-		public function setLastKey($lastKey){ }
+    protected $_fresh = false;
 
 
-		/**
-		 * \Phalcon\Cache\Backend constructor
-		 *
-		 * @param	Phalcon\Cache\FrontendInterface frontend
-		 * @param	array options
-		 */
-		public function __construct(\Phalcon\Cache\FrontendInterface $frontend, $options=null){ }
+    protected $_started = false;
 
 
-		/**
-		 * Starts a cache. The keyname allows to identify the created fragment
-		 *
-		 * @param   int|string keyName
-		 * @param   int lifetime
-		 * @return  mixed
-		 */
-		public function start($keyName, $lifetime=null){ }
+
+    public function getFrontend() {}
+
+    /**
+     * @param mixed $frontend 
+     */
+    public function setFrontend($frontend) {}
 
 
-		/**
-		 * Stops the frontend without store any cached content
-		 */
-		public function stop($stopBuffer=null){ }
+    public function getOptions() {}
+
+    /**
+     * @param mixed $options 
+     */
+    public function setOptions($options) {}
 
 
-		/**
-		 * Checks whether the last cache is fresh or cached
-		 */
-		public function isFresh(){ }
+    public function getLastKey() {}
 
+    /**
+     * @param mixed $lastKey 
+     */
+    public function setLastKey($lastKey) {}
 
-		/**
-		 * Checks whether the cache has starting buffering or not
-		 */
-		public function isStarted(){ }
+    /**
+     * Phalcon\Cache\Backend constructor
+     *
+     * @param	Phalcon\Cache\FrontendInterface frontend
+     * @param	array options
+     * @param mixed $frontend 
+     * @param mixed $options 
+     */
+    public function __construct(\Phalcon\Cache\FrontendInterface $frontend, $options = null) {}
 
+    /**
+     * Starts a cache. The keyname allows to identify the created fragment
+     *
+     * @param int|string $keyName 
+     * @param int $lifetime 
+     * @return mixed 
+     */
+    public function start($keyName, $lifetime = null) {}
 
-		/**
-		 * Gets the last lifetime set
-		 *
-		 * @return int
-		 */
-		public function getLifetime(){ }
+    /**
+     * Stops the frontend without store any cached content
+     *
+     * @param bool $stopBuffer 
+     */
+    public function stop($stopBuffer = true) {}
 
-	}
+    /**
+     * Checks whether the last cache is fresh or cached
+     *
+     * @return bool 
+     */
+    public function isFresh() {}
+
+    /**
+     * Checks whether the cache has starting buffering or not
+     *
+     * @return bool 
+     */
+    public function isStarted() {}
+
+    /**
+     * Gets the last lifetime set
+     *
+     * @return int 
+     */
+    public function getLifetime() {}
+
 }

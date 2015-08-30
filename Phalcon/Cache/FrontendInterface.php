@@ -1,28 +1,57 @@
-<?php 
+<?php
 
-namespace Phalcon\Cache {
+namespace Phalcon\Cache;
 
-	interface FrontendInterface {
+/**
+ * Phalcon\Cache\FrontendInterface
+ * Interface for Phalcon\Cache\Frontend adapters
+ */
+interface FrontendInterface
+{
 
-		public function getLifetime();
+    /**
+     * Returns the cache lifetime
+     *
+     * @return int 
+     */
+    public function getLifetime();
 
+    /**
+     * Check whether if frontend is buffering output
+     *
+     * @return bool 
+     */
+    public function isBuffering();
 
-		public function isBuffering();
+    /**
+     * Starts the frontend
+     */
+    public function start();
 
+    /**
+     * Returns output cached content
+     *
+     * @return string 
+     */
+    public function getContent();
 
-		public function start();
+    /**
+     * Stops the frontend
+     */
+    public function stop();
 
+    /**
+     * Serializes data before storing it
+     *
+     * @param mixed $data 
+     */
+    public function beforeStore($data);
 
-		public function getContent();
+    /**
+     * Unserializes data after retrieving it
+     *
+     * @param mixed $data 
+     */
+    public function afterRetrieve($data);
 
-
-		public function stop();
-
-
-		public function beforeStore($data);
-
-
-		public function afterRetrieve($data);
-
-	}
 }

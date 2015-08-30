@@ -1,170 +1,184 @@
 <?php
 
-namespace Phalcon\Cli\Router {
+namespace Phalcon\Cli\Router;
 
-	/**
-	 * Phalcon\Cli\Router\Route
-	 *
-	 * This class represents every route added to the router
-	 *
-	 */
+/**
+ * Phalcon\Cli\Router\Route
+ * This class represents every route added to the router
+ */
+class Route
+{
 
-	class Route {
-
-		const DEFAULT_DELIMITER =  ' ';
-
-		protected $_pattern;
-
-		protected $_compiledPattern;
-
-		protected $_paths;
-
-		protected $_converters;
-
-		protected $_id;
-
-		protected $_name;
-
-		protected $_beforeMatch;
-
-		protected $_delimiter;
-
-		protected static $_uniqueId;
-
-		protected static $_delimiterPath;
-
-		/**
-		 * \Phalcon\Cli\Router\Route constructor
-		 *
-		 * @param string pattern
-		 * @param array paths
-		 */
-		public function __construct($pattern, $paths=null){ }
+    const DEFAULT_DELIMITER = " ";
 
 
-		/**
-		 * Replaces placeholders from pattern returning a valid PCRE regular expression
-		 */
-		public function compilePattern($pattern){ }
+    protected $_pattern;
 
 
-		/**
-		 * Extracts parameters from a string
-		 *
-		 * @param string pattern
-		 * @return array|boolean
-		 */
-		public function extractNamedParams($pattern){ }
+    protected $_compiledPattern;
 
 
-		/**
-		 * Reconfigure the route adding a new pattern and a set of paths
-		 *
-		 * @param string pattern
-		 * @param array paths
-		 */
-		public function reConfigure($pattern, $paths=null){ }
+    protected $_paths;
 
 
-		/**
-		 * Returns the route's name
-		 */
-		public function getName(){ }
+    protected $_converters;
 
 
-		/**
-		 * Sets the route's name
-		 *
-		 *<code>
-		 * $router->add('/about', array(
-		 *     'controller' => 'about'
-		 * ))->setName('about');
-		 *</code>
-		 */
-		public function setName($name){ }
+    protected $_id;
 
 
-		/**
-		 * Sets a callback that is called if the route is matched.
-		 * The developer can implement any arbitrary conditions here
-		 * If the callback returns false the route is treated as not matched
-		 *
-		 * @param callback callback
-		 * @return \Phalcon\Cli\Router\Route
-		 */
-		public function beforeMatch($callback){ }
+    protected $_name;
 
 
-		/**
-		 * Returns the 'before match' callback if any
-		 *
-		 * @return mixed
-		 */
-		public function getBeforeMatch(){ }
+    protected $_beforeMatch;
 
 
-		/**
-		 * Returns the route's id
-		 */
-		public function getRouteId(){ }
+    protected $_delimiter;
 
 
-		/**
-		 * Returns the route's pattern
-		 */
-		public function getPattern(){ }
+    static protected $_uniqueId;
 
 
-		/**
-		 * Returns the route's compiled pattern
-		 */
-		public function getCompiledPattern(){ }
+    static protected $_delimiterPath;
 
 
-		/**
-		 * Returns the paths
-		 */
-		public function getPaths(){ }
+    /**
+     * Phalcon\Cli\Router\Route constructor
+     *
+     * @param string $pattern 
+     * @param array $paths 
+     */
+    public function __construct($pattern, $paths = null) {}
 
+    /**
+     * Replaces placeholders from pattern returning a valid PCRE regular expression
+     *
+     * @param string $pattern 
+     * @return string 
+     */
+    public function compilePattern($pattern) {}
 
-		/**
-		 * Returns the paths using positions as keys and names as values
-		 */
-		public function getReversedPaths(){ }
+    /**
+     * Extracts parameters from a string
+     *
+     * @param string $pattern 
+     * @return array|boolean 
+     */
+    public function extractNamedParams($pattern) {}
 
+    /**
+     * Reconfigure the route adding a new pattern and a set of paths
+     *
+     * @param string $pattern 
+     * @param array $paths 
+     */
+    public function reConfigure($pattern, $paths = null) {}
 
-		/**
-		 * Adds a converter to perform an additional transformation for certain parameter
-		 *
-		 * @param string name
-		 * @param callable converter
-		 * @return \Phalcon\Cli\Router\Route
-		 */
-		public function convert($name, $converter){ }
+    /**
+     * Returns the route's name
+     *
+     * @return string 
+     */
+    public function getName() {}
 
+    /**
+     * Sets the route's name
+     * <code>
+     * $router->add('/about', array(
+     * 'controller' => 'about'
+     * ))->setName('about');
+     * </code>
+     *
+     * @param string $name 
+     * @return Route 
+     */
+    public function setName($name) {}
 
-		/**
-		 * Returns the router converter
-		 */
-		public function getConverters(){ }
+    /**
+     * Sets a callback that is called if the route is matched.
+     * The developer can implement any arbitrary conditions here
+     * If the callback returns false the route is treated as not matched
+     *
+     * @param callback $callback 
+     * @return \Phalcon\Cli\Router\Route 
+     */
+    public function beforeMatch($callback) {}
 
+    /**
+     * Returns the 'before match' callback if any
+     *
+     * @return mixed 
+     */
+    public function getBeforeMatch() {}
 
-		/**
-		 * Resets the internal route id generator
-		 */
-		public static function reset(){ }
+    /**
+     * Returns the route's id
+     *
+     * @return string 
+     */
+    public function getRouteId() {}
 
+    /**
+     * Returns the route's pattern
+     *
+     * @return string 
+     */
+    public function getPattern() {}
 
-		/**
-		 * Set the routing delimiter
-		 */
-		public static function delimiter($delimiter=null){ }
+    /**
+     * Returns the route's compiled pattern
+     *
+     * @return string 
+     */
+    public function getCompiledPattern() {}
 
+    /**
+     * Returns the paths
+     *
+     * @return array 
+     */
+    public function getPaths() {}
 
-		/**
-		 * Get routing delimiter
-		 */
-		public static function getDelimiter(){ }
+    /**
+     * Returns the paths using positions as keys and names as values
+     *
+     * @return array 
+     */
+    public function getReversedPaths() {}
 
-	}
+    /**
+     * Adds a converter to perform an additional transformation for certain parameter
+     *
+     * @param string $name 
+     * @param callable $converter 
+     * @return \Phalcon\Cli\Router\Route 
+     */
+    public function convert($name, $converter) {}
+
+    /**
+     * Returns the router converter
+     *
+     * @return array 
+     */
+    public function getConverters() {}
+
+    /**
+     * Resets the internal route id generator
+     */
+    public static function reset() {}
+
+    /**
+     * Set the routing delimiter
+     *
+     * @param string $delimiter 
+     */
+    public static function delimiter($delimiter = null) {}
+
+    /**
+     * Get routing delimiter
+     *
+     * @return string 
+     */
+    public static function getDelimiter() {}
+
 }

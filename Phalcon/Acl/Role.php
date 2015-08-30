@@ -1,44 +1,53 @@
-<?php 
+<?php
 
-namespace Phalcon\Acl {
+namespace Phalcon\Acl;
 
-	/**
-	 * Phalcon\Acl\Role
-	 *
-	 * This class defines role entity and its description
-	 */
-	
-	class Role implements \Phalcon\Acl\RoleInterface {
+/**
+ * Phalcon\Acl\Role
+ * This class defines role entity and its description
+ */
+class Role implements \Phalcon\Acl\RoleInterface
+{
+    /**
+     * Role name
+     *
+     * @var string
+     */
+    protected $_name;
 
-		protected $_name;
-
-		protected $_description;
-
-		/**
-		 * Role name
-		 * @var string
-		 */
-		public function getName(){ }
-
-
-		/**
-		 * Role name
-		 * @var string
-		 */
-		public function __toString(){ }
+    /**
+     * Role description
+     *
+     * @var string
+     */
+    protected $_description;
 
 
-		/**
-		 * Role description
-		 * @var string
-		 */
-		public function getDescription(){ }
+    /**
+     * Role name
+     *
+     * @return string 
+     */
+    public function getName() {}
 
+    /**
+     * Role name
+     */
+    public function __toString() {}
 
-		/**
-		 * \Phalcon\Acl\Role constructor
-		 */
-		public function __construct($name, $description=null){ }
+    /**
+     * Role description
+     *
+     * @return string 
+     */
+    public function getDescription() {}
 
-	}
+    /**
+     * Phalcon\Acl\Role constructor
+     *
+     * @param string $name 
+     * @param string $description 
+     */
+    public function __construct($name, $description = null) {}
+
 }

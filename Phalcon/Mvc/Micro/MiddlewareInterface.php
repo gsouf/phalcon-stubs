@@ -1,10 +1,19 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc\Micro {
+namespace Phalcon\Mvc\Micro;
 
-	interface MiddlewareInterface {
+/**
+ * Phalcon\Mvc\Micro\MiddlewareInterface
+ * Allows to implement Phalcon\Mvc\Micro middleware in classes
+ */
+interface MiddlewareInterface
+{
 
-		public function call(\Phalcon\Mvc\Micro $application);
+    /**
+     * Calls the middleware
+     *
+     * @param mixed $application 
+     */
+    public function call(\Phalcon\Mvc\Micro $application);
 
-	}
 }
