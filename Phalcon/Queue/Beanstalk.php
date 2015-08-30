@@ -81,6 +81,13 @@ class Beanstalk
     public function statsTube($tube) {}
 
     /**
+     * Get list of a tubes.
+     *
+     * @return bool|array 
+     */
+    public function listTubes() {}
+
+    /**
      * Inspect the next ready job.
      *
      * @return bool|\Phalcon\Queue\Beanstalk\Job 

@@ -200,16 +200,6 @@ interface CriteriaInterface
     public function getParams();
 
     /**
-     * Builds a Phalcon\Mvc\Model\Criteria based on an input array like _POST
-     *
-     * @param mixed $dependencyInjector 
-     * @param string $modelName 
-     * @param array $data 
-     * @return CriteriaInterface 
-     */
-    public static function fromInput(\Phalcon\DiInterface $dependencyInjector, $modelName, $data);
-
-    /**
      * Executes a find using the parameters built with the criteria
      *
      * @return ResultsetInterface 

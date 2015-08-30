@@ -11,8 +11,11 @@ namespace Phalcon;
  * higher level of abstraction use Phalcon\Mvc\Model.
  * Phalcon\Db is an abstract class. You only can use it with a database adapter like Phalcon\Db\Adapter\Pdo
  * <code>
+ * use Phalcon\Db;
+ * use Phalcon\Db\Exception;
+ * use Phalcon\Db\Adapter\Pdo\Mysql as MysqlConnection;
  * try {
- * $connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+ * $connection = new MysqlConnection(array(
  * 'host' => '192.168.0.11',
  * 'username' => 'sigma',
  * 'password' => 'secret',
@@ -20,11 +23,11 @@ namespace Phalcon;
  * 'port' => '3306',
  * ));
  * $result = $connection->query("SELECTFROM robots LIMIT 5");
- * $result->setFetchMode(Phalcon\Db::FETCH_NUM);
+ * $result->setFetchMode(Db::FETCH_NUM);
  * while ($robot = $result->fetch()) {
  * print_r($robot);
  * }
- * } catch (Phalcon\Db\Exception $e) {
+ * } catch (Exception $e) {
  * echo $e->getMessage(), PHP_EOL;
  * }
  * </code>

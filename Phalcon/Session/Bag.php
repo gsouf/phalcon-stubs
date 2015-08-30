@@ -9,7 +9,7 @@ namespace Phalcon\Session;
  * <code>
  * $user = new \Phalcon\Session\Bag('user');
  * $user->name = "Kimbra Johnson";
- * $user->age = 22;
+ * $user->age  = 22;
  * </code>
  */
 class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagInterface, \IteratorAggregate, \ArrayAccess, \Countable
@@ -71,7 +71,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
      * </code>
      *
      * @param string $property 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function set($property, $value) {}
 
@@ -82,7 +82,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
      * </code>
      *
      * @param string $property 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function __set($property, $value) {}
 
@@ -93,8 +93,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
      * </code>
      *
      * @param string $property 
-     * @param string $defaultValue 
-     * @return mixed 
+     * @param mixed $defaultValue 
      */
     public function get($property, $defaultValue = null) {}
 
@@ -105,7 +104,6 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
      * </code>
      *
      * @param string $property 
-     * @return mixed 
      */
     public function __get($property) {}
 

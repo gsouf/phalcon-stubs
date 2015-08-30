@@ -106,7 +106,7 @@ class Collection implements \Countable, \Iterator
      * @param mixed $attributes 
      * @return Collection 
      */
-    public function addCss($path, $local = null, $filter = false, $attributes = null) {}
+    public function addCss($path, $local = null, $filter = true, $attributes = null) {}
 
     /**
      * Adds a inline CSS to the collection
@@ -116,7 +116,7 @@ class Collection implements \Countable, \Iterator
      * @param mixed $attributes 
      * @return Collection 
      */
-    public function addInlineCss($content, $filter = false, $attributes = null) {}
+    public function addInlineCss($content, $filter = true, $attributes = null) {}
 
     /**
      * Adds a javascript resource to the collection
@@ -127,7 +127,7 @@ class Collection implements \Countable, \Iterator
      * @param array $attributes 
      * @return \Phalcon\Assets\Collection 
      */
-    public function addJs($path, $local = null, $filter = false, $attributes = null) {}
+    public function addJs($path, $local = null, $filter = true, $attributes = null) {}
 
     /**
      * Adds a inline javascript to the collection
@@ -137,7 +137,7 @@ class Collection implements \Countable, \Iterator
      * @param mixed $attributes 
      * @return Collection 
      */
-    public function addInlineJs($content, $filter = false, $attributes = null) {}
+    public function addInlineJs($content, $filter = true, $attributes = null) {}
 
     /**
      * Returns the number of elements in the form

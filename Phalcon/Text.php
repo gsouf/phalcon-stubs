@@ -38,7 +38,7 @@ abstract class Text
     /**
      * Uncamelize strings which are camelized
      * <code>
-     * echo Phalcon\Text::camelize('CocoBongo'); //coco_bongo
+     * echo Phalcon\Text::uncamelize('CocoBongo'); //coco_bongo
      * </code>
      *
      * @param string $str 

@@ -158,11 +158,13 @@ abstract class Adapter
      * Destroys the active session
      * <code>
      * var_dump($session->destroy());
+     * var_dump($session->destroy(true));
      * </code>
      *
+     * @param bool $removeData 
      * @return bool 
      */
-    public function destroy() {}
+    public function destroy($removeData = false) {}
 
     /**
      * Returns the status of the current session. For PHP 5.3 this function will always return SESSION_NONE

@@ -63,6 +63,15 @@ interface ServiceInterface
     public function resolve($parameters = null, \Phalcon\DiInterface $dependencyInjector = null);
 
     /**
+     * Changes a parameter in the definition without resolve the service
+     *
+     * @param int $position 
+     * @param array $parameter 
+     * @return ServiceInterface 
+     */
+    public function setParameter($position, $parameter);
+
+    /**
      * Restore the interal state of a service
      *
      * @param array $attributes 

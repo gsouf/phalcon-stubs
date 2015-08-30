@@ -170,15 +170,15 @@ abstract class Adapter
      * Add a text to an image with a specified opacity
      *
      * @param string $text 
-     * @param int $offsetX 
-     * @param int $offsetY 
+     * @param mixed $offsetX 
+     * @param mixed $offsetY 
      * @param int $opacity 
      * @param string $color 
      * @param int $size 
      * @param string $fontfile 
      * @return Adapter 
      */
-    public function text($text, $offsetX = 0, $offsetY = 0, $opacity = 100, $color = "000000", $size = 12, $fontfile = null) {}
+    public function text($text, $offsetX = false, $offsetY = false, $opacity = 100, $color = "000000", $size = 12, $fontfile = null) {}
 
     /**
      * Composite one image onto another

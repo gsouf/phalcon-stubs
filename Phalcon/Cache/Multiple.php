@@ -106,4 +106,11 @@ class Multiple
      */
     public function exists($keyName = null, $lifetime = null) {}
 
+    /**
+     * Flush all backend(s)
+     *
+     * @return bool 
+     */
+    public function flush() {}
+
 }

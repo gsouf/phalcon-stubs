@@ -70,7 +70,7 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * Gets a cookie from the bag
      *
      * @param string $name 
-     * @return \Phalcon\Http\Cookie 
+     * @return \Phalcon\Http\CookieInterface 
      */
     public function get($name) {}
 

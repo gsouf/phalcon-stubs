@@ -113,6 +113,14 @@ class Relation implements \Phalcon\Mvc\Model\RelationInterface
     public function getOptions() {}
 
     /**
+     * Returns an option by the specified name
+     * If the option doesn't exist null is returned
+     *
+     * @param string $name 
+     */
+    public function getOption($name) {}
+
+    /**
      * Check whether the relation act as a foreign key
      *
      * @return bool 

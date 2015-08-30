@@ -6,7 +6,7 @@ namespace Phalcon\Http;
  * Phalcon\Http\Cookie
  * Provide OO wrappers to manage a HTTP cookie
  */
-class Cookie implements \Phalcon\Di\InjectionAwareInterface
+class Cookie implements \Phalcon\Http\CookieInterface, \Phalcon\Di\InjectionAwareInterface
 {
 
     protected $_readed = false;
@@ -93,7 +93,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sends the cookie to the HTTP client
      * Stores the cookie definition in session
      *
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function send() {}
 
@@ -101,7 +101,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Reads the cookie-related info from the SESSION to restore the cookie as it was set
      * This method is automatically called internally so normally you don't need to call it
      *
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function restore() {}
 
@@ -114,7 +114,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets if the cookie must be encrypted/decrypted automatically
      *
      * @param bool $useEncryption 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function useEncryption($useEncryption) {}
 
@@ -129,7 +129,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets the cookie's expiration time
      *
      * @param int $expire 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function setExpiration($expire) {}
 
@@ -144,7 +144,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets the cookie's expiration time
      *
      * @param string $path 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function setPath($path) {}
 
@@ -166,7 +166,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets the domain that the cookie is available to
      *
      * @param string $domain 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function setDomain($domain) {}
 
@@ -181,7 +181,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets if the cookie must only be sent when the connection is secure (HTTPS)
      *
      * @param bool $secure 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function setSecure($secure) {}
 
@@ -196,7 +196,7 @@ class Cookie implements \Phalcon\Di\InjectionAwareInterface
      * Sets if the cookie is accessible only through the HTTP protocol
      *
      * @param bool $httpOnly 
-     * @return Cookie 
+     * @return CookieInterface 
      */
     public function setHttpOnly($httpOnly) {}
 

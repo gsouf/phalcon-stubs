@@ -9,7 +9,7 @@ namespace Phalcon\Mvc\Model;
  * $phql = "SELECT c.price*0.16 AS taxes, c.* FROM Cars AS c JOIN Brands AS b
  * WHERE b.name = :name: ORDER BY c.name";
  * $result = manager->executeQuery($phql, array(
- * "name": "Lamborghini"
+ * "name" => "Lamborghini"
  * ));
  * foreach ($result as $row) {
  * echo "Name: ",  $row->cars->name, "\n";
@@ -90,6 +90,9 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
     protected $_bindTypes;
 
 
+    protected $_enableImplicitJoins;
+
+
     static protected $_irPhqlCache;
 
 
@@ -98,8 +101,9 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
      *
      * @param string $phql 
      * @param \Phalcon\DiInterface $dependencyInjector 
+     * @param mixed $options 
      */
-    public function __construct($phql = null, \Phalcon\DiInterface $dependencyInjector = null) {}
+    public function __construct($phql = null, \Phalcon\DiInterface $dependencyInjector = null, $options = null) {}
 
     /**
      * Sets the dependency injection container
@@ -192,8 +196,8 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
     /**
      * Resolves a JOIN clause checking if the associated models exist
      *
-     * @param \Phalcon\Mvc\Model\ManagerInterface $manager 
-     * @param array $join 
+     * @param mixed $manager 
+     * @param mixed $join 
      * @return array 
      */
     protected final function _getJoin(\Phalcon\Mvc\Model\ManagerInterface $manager, $join) {}

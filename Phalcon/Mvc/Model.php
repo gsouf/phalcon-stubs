@@ -424,7 +424,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * $number = Robots::count();
      * echo "There are ", $number, "\n";
      * //How many mechanical robots are there?
-     * $number = Robots::count("type='mechanical'");
+     * $number = Robots::count("type = 'mechanical'");
      * echo "There are ", $number, " mechanical robots\n";
      * </code>
      *
@@ -440,7 +440,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * $sum = Robots::sum(array('column' => 'price'));
      * echo "The total price of robots is ", $sum, "\n";
      * //How much are mechanical robots?
-     * $sum = Robots::sum(array("type='mechanical'", 'column' => 'price'));
+     * $sum = Robots::sum(array("type = 'mechanical'", 'column' => 'price'));
      * echo "The total price of mechanical robots is  ", $sum, "\n";
      * </code>
      *
@@ -588,7 +588,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
     public function validationHasFailed() {}
 
     /**
-     * Returns all the validation messages
+     * Returns array of validation messages
      * <code>
      * $robot = new Robots();
      * $robot->type = 'mechanical';
@@ -1115,7 +1115,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param string $method 
      * @param mixed $arguments 
      */
-    public static function __callStatic($method, $arguments = null) {}
+    public static function __callStatic($method, $arguments) {}
 
     /**
      * Magic method to assign values to the the model

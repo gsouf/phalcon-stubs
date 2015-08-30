@@ -106,9 +106,13 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
 
     /**
      * Sets SELECT DISTINCT / SELECT ALL flag
+     * <code>
+     * $builder->distinct("status");
+     * $builder->distinct(null);
+     * </code>
      *
-     * @param bool|null $distinct 
-     * @return \Phalcon\Mvc\Model\Query\BuilderInterface 
+     * @param mixed $distinct 
+     * @return Builder 
      */
     public function distinct($distinct) {}
 
@@ -122,11 +126,13 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
     /**
      * Sets the columns to be queried
      * <code>
+     * $builder->columns("id, name");
      * $builder->columns(array('id', 'name'));
+     * $builder->columns(array('name', 'number' => 'COUNT(*)'));
      * </code>
      *
-     * @param string|array $columns 
-     * @return \Phalcon\Mvc\Model\Query\Builder 
+     * @param mixed $columns 
+     * @return Builder 
      */
     public function columns($columns) {}
 
@@ -142,24 +148,35 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
      * <code>
      * $builder->from('Robots');
      * $builder->from(array('Robots', 'RobotsParts'));
+     * $builder->from(array('r' => 'Robots', 'rp' => 'RobotsParts'));
      * </code>
      *
-     * @param string|array $models 
-     * @return \Phalcon\Mvc\Model\Query\Builder 
+     * @param mixed $models 
+     * @return Builder 
      */
     public function from($models) {}
 
     /**
      * Add a model to take part of the query
      * <code>
+     * // Load data from models Robots
+     * $builder->addFrom('Robots');
+     * // Load data from model 'Robots' using 'r' as alias in PHQL
      * $builder->addFrom('Robots', 'r');
+     * // Load data from model 'Robots' using 'r' as alias in PHQL
+     * // and eager load model 'RobotsParts'
+     * $builder->addFrom('Robots', 'r', 'RobotsParts');
+     * // Load data from model 'Robots' using 'r' as alias in PHQL
+     * // and eager load models 'RobotsParts' and 'Parts'
+     * $builder->addFrom('Robots', 'r', ['RobotsParts', 'Parts']);
      * </code>
      *
-     * @param string $model 
-     * @param string $alias 
-     * @return \Phalcon\Mvc\Model\Query\Builder 
+     * @param mixed $model 
+     * @param mixed $alias 
+     * @param mixed $with 
+     * @return Builder 
      */
-    public function addFrom($model, $alias = null) {}
+    public function addFrom($model, $alias = null, $with = null) {}
 
     /**
      * Return the models who makes part of the query
@@ -171,10 +188,14 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
     /**
      * Adds a INNER join to the query
      * <code>
+     * // Inner Join model 'Robots' with automatic conditions and alias
      * $builder->join('Robots');
-     * $builder->join('Robots', 'r.id = RobotsParts.robots_id');
+     * // Inner Join model 'Robots' specifing conditions
+     * $builder->join('Robots', 'Robots.id = RobotsParts.robots_id');
+     * // Inner Join model 'Robots' specifing conditions and alias
      * $builder->join('Robots', 'r.id = RobotsParts.robots_id', 'r');
-     * $builder->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'INNER');
+     * // Left Join model 'Robots' specifing conditions, alias and type of join
+     * $builder->join('Robots', 'r.id = RobotsParts.robots_id', 'r', 'LEFT');
      * </code>
      *
      * @param string $model 
@@ -188,8 +209,11 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
     /**
      * Adds a INNER join to the query
      * <code>
+     * // Inner Join model 'Robots' with automatic conditions and alias
      * $builder->innerJoin('Robots');
-     * $builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id');
+     * // Inner Join model 'Robots' specifing conditions
+     * $builder->innerJoin('Robots', 'Robots.id = RobotsParts.robots_id');
+     * // Inner Join model 'Robots' specifing conditions and alias
      * $builder->innerJoin('Robots', 'r.id = RobotsParts.robots_id', 'r');
      * </code>
      *

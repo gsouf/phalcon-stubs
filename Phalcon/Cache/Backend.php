@@ -57,10 +57,8 @@ abstract class Backend
     /**
      * Phalcon\Cache\Backend constructor
      *
-     * @param	Phalcon\Cache\FrontendInterface frontend
-     * @param	array options
-     * @param mixed $frontend 
-     * @param mixed $options 
+     * @param \Phalcon\Cache\FrontendInterface $frontend 
+     * @param array $options 
      */
     public function __construct(\Phalcon\Cache\FrontendInterface $frontend, $options = null) {}
 

@@ -114,8 +114,8 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * Execute a text
      *
      * @param string $text 
-     * @param int $offsetX 
-     * @param int $offsetY 
+     * @param mixed $offsetX 
+     * @param mixed $offsetY 
      * @param int $opacity 
      * @param int $r 
      * @param int $g 

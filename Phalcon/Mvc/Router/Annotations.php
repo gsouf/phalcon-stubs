@@ -77,7 +77,7 @@ class Annotations extends \Phalcon\Mvc\Router
      * @param string $namespaceName 
      * @param string $controller 
      * @param string $action 
-     * @param \Phalcon\Annotations\Annotation $annotation 
+     * @param mixed $annotation 
      */
     public function processActionAnnotation($module, $namespaceName, $controller, $action, \Phalcon\Annotations\Annotation $annotation) {}
 

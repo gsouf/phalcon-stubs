@@ -388,9 +388,10 @@ class Criteria implements \Phalcon\Mvc\Model\CriteriaInterface, \Phalcon\Di\Inje
      * @param mixed $dependencyInjector 
      * @param string $modelName 
      * @param array $data 
+     * @param string $operator 
      * @return Criteria 
      */
-    public static function fromInput(\Phalcon\DiInterface $dependencyInjector, $modelName, $data) {}
+    public static function fromInput(\Phalcon\DiInterface $dependencyInjector, $modelName, $data, $operator = "AND") {}
 
     /**
      * Executes a find using the parameters built with the criteria
