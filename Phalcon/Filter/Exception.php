@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Filter {
+namespace Phalcon\Filter;
 
-	class Exception extends \Phalcon\Exception {
-	}
+/**
+ * Phalcon\Filter\Exception
+ * Exceptions thrown in Phalcon\Filter will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

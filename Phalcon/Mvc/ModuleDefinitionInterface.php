@@ -1,13 +1,26 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc {
+namespace Phalcon\Mvc;
 
-	interface ModuleDefinitionInterface {
+/**
+ * Phalcon\Mvc\ModuleDefinitionInterface
+ * This interface must be implemented by class module definitions
+ */
+interface ModuleDefinitionInterface
+{
 
-		public function registerAutoloaders(\Phalcon\DiInterface $dependencyInjector=null);
+    /**
+     * Registers an autoloader related to the module
+     *
+     * @param mixed $dependencyInjector 
+     */
+    public function registerAutoloaders(\Phalcon\DiInterface $dependencyInjector = null);
 
+    /**
+     * Registers services related to the module
+     *
+     * @param mixed $dependencyInjector 
+     */
+    public function registerServices(\Phalcon\DiInterface $dependencyInjector);
 
-		public function registerServices(\Phalcon\DiInterface $dependencyInjector);
-
-	}
 }

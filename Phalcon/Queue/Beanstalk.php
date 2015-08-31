@@ -1,119 +1,142 @@
-<?php 
+<?php
 
-namespace Phalcon\Queue {
+namespace Phalcon\Queue;
 
-	/**
-	* Phalcon\Queue\Beanstalk
-	*
-	* Class to access the beanstalk queue service.
-	* Partially implements the protocol version 1.2
-	*
-	* @see http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
-	*/
-	
-	class Beanstalk {
+/**
+ * Phalcon\Queue\Beanstalk
+ * Class to access the beanstalk queue service.
+ * Partially implements the protocol version 1.2
+ *
+ * @see http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
+ */
+class Beanstalk
+{
 
-		protected $_connection;
-
-		protected $_parameters;
-
-		/**
-		 * \Phalcon\Queue\Beanstalk
-		 *
-		 * @param array options
-		 */
-		public function __construct($options=null){ }
+    protected $_connection;
 
 
-		/**
-		 * Makes a connection to the Beanstalkd server
-		 */
-		public function connect(){ }
+    protected $_parameters;
 
 
-		/**
-		 * Inserts jobs into the queue
-		 *
-		 * @param string data
-		 * @param array options
-		 */
-		public function put($data, $options=null){ }
+    /**
+     * Phalcon\Queue\Beanstalk
+     *
+     * @param array $options 
+     */
+    public function __construct($options = null) {}
 
+    /**
+     * Makes a connection to the Beanstalkd server
+     *
+     * @return resource 
+     */
+    public function connect() {}
 
-		/**
-		 * Reserves a job in the queue
-		 */
-		public function reserve($timeout=null){ }
+    /**
+     * Inserts jobs into the queue
+     *
+     * @param string $data 
+     * @param array $options 
+     * @return string|bool 
+     */
+    public function put($data, $options = null) {}
 
+    /**
+     * Reserves a job in the queue
+     *
+     * @param mixed $timeout 
+     * @return bool|\Phalcon\Queue\Beanstalk\Job 
+     */
+    public function reserve($timeout = null) {}
 
-		/**
-		 * Change the active tube. By default the tube is "default"
-		 */
-		public function choose($tube){ }
+    /**
+     * Change the active tube. By default the tube is "default"
+     *
+     * @param string $tube 
+     * @return bool|string 
+     */
+    public function choose($tube) {}
 
+    /**
+     * Change the active tube. By default the tube is "default"
+     *
+     * @param string $tube 
+     * @return bool|string 
+     */
+    public function watch($tube) {}
 
-		/**
-		 * Change the active tube. By default the tube is "default"
-		 */
-		public function watch($tube){ }
+    /**
+     * Get stats of the Beanstalk server.
+     *
+     * @return bool|array 
+     */
+    public function stats() {}
 
+    /**
+     * Get stats of a tube.
+     *
+     * @param string $tube 
+     * @return bool|array 
+     */
+    public function statsTube($tube) {}
 
-		/**
-		 * Get stats of the Beanstalk server.
-		 */
-		public function stats(){ }
+    /**
+     * Get list of a tubes.
+     *
+     * @return bool|array 
+     */
+    public function listTubes() {}
 
+    /**
+     * Inspect the next ready job.
+     *
+     * @return bool|\Phalcon\Queue\Beanstalk\Job 
+     */
+    public function peekReady() {}
 
-		/**
-		 * Get stats of a tube.
-		 */
-		public function statsTube($tube){ }
+    /**
+     * Return the next job in the list of buried jobs
+     *
+     * @return bool|\Phalcon\Queue\Beanstalk\Job 
+     */
+    public function peekBuried() {}
 
+    /**
+     * Reads the latest status from the Beanstalkd server
+     *
+     * @return array 
+     */
+    final public function readStatus() {}
 
-		/**
-		 * Inspect the next ready job.
-		 */
-		public function peekReady(){ }
+    /**
+     * Fetch a YAML payload from the Beanstalkd server
+     *
+     * @return array 
+     */
+    final public function readYaml() {}
 
+    /**
+     * Reads a packet from the socket. Prior to reading from the socket will
+     * check for availability of the connection.
+     *
+     * @param int $length Number of bytes to read.
+     * @return string|boolean or `false` on error.
+     */
+    public function read($length = 0) {}
 
-		/**
-		 * Return the next job in the list of buried jobs
-		 */
-		public function peekBuried(){ }
+    /**
+     * Writes data to the socket. Performs a connection if none is available
+     *
+     * @param string $data 
+     * @return bool|int 
+     */
+    protected function write($data) {}
 
+    /**
+     * Closes the connection to the beanstalk server.
+     *
+     * @return bool 
+     */
+    public function disconnect() {}
 
-		/**
-		 * Reads the latest status from the Beanstalkd server
-		 */
-		final public function readStatus(){ }
-
-
-		/**
-		 * Fetch a YAML payload from the Beanstalkd server
-		 */
-		final public function readYaml(){ }
-
-
-		/**
-		 * Reads a packet from the socket. Prior to reading from the socket will
-		 * check for availability of the connection.
-		 *
-		 * @param int length Number of bytes to read.
-		 * @return string|boolean Data or `false` on error.
-		 */
-		public function read($length=null){ }
-
-
-		/**
-		 * Writes data to the socket. Performs a connection if none is available
-		 */
-		protected function write($data){ }
-
-
-		/**
-		 * Closes the connection to the beanstalk server.
-		 */
-		public function disconnect(){ }
-
-	}
 }

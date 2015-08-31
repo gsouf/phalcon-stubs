@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Assets {
+namespace Phalcon\Assets;
 
-	class Exception extends \Phalcon\Exception {
-	}
+/**
+ * Phalcon\Assets\Exception
+ * Exceptions thrown in Phalcon\Assets will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

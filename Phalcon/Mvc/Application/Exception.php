@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Mvc\Application {
+namespace Phalcon\Mvc\Application;
 
-	class Exception extends \Phalcon\Exception {
-	}
+/**
+ * Phalcon\Mvc\Application\Exception
+ * Exceptions thrown in Phalcon\Mvc\Application class will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

@@ -1,10 +1,20 @@
-<?php 
+<?php
 
-namespace Phalcon {
+namespace Phalcon;
 
-	class Kernel {
+/**
+ * Phalcon\Kernel
+ * This class allows to change the internal behavior of the framework in runtime
+ */
+class Kernel
+{
 
-		public static function preComputeHashKey($key){ }
+    /**
+     * Produces a pre-computed hash key based on a string. This function produces different numbers in 32bit/64bit processors
+     *
+     * @param string $key 
+     * @return string 
+     */
+    public static function preComputeHashKey($key) {}
 
-	}
 }

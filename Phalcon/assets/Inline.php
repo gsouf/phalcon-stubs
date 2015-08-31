@@ -1,66 +1,73 @@
-<?php 
+<?php
 
-namespace Phalcon\Assets {
+namespace Phalcon\Assets;
 
-	/**
-	 * Phalcon\Assets\Inline
-	 *
-	 * Represents an inline asset
-	 *
-	 *<code>
-	 * $inline = new \Phalcon\Assets\Inline('js', 'alert("hello world");');
-	 *</code>
-	 */
-	
-	class Inline {
+/**
+ * Phalcon\Assets\Inline
+ * Represents an inline asset
+ * <code>
+ * $inline = new \Phalcon\Assets\Inline('js', 'alert("hello world");');
+ * </code>
+ */
+class Inline
+{
 
-		protected $_type;
-
-		protected $_content;
-
-		protected $_filter;
-
-		protected $_attributes;
-
-		public function getType(){ }
+    protected $_type;
 
 
-		public function getContent(){ }
+    protected $_content;
 
 
-		public function getFilter(){ }
+    protected $_filter;
 
 
-		public function getAttributes(){ }
+    protected $_attributes;
 
 
-		/**
-		 * \Phalcon\Assets\Inline constructor
-		 *
-		 * @param string type
-		 * @param string content
-		 * @param boolean filter
-		 * @param array attributes
-		 */
-		public function __construct($type, $content, $filter=null, $attributes=null){ }
+
+    public function getType() {}
 
 
-		/**
-		 * Sets the inline's type
-		 */
-		public function setType($type){ }
+    public function getContent() {}
 
 
-		/**
-		 * Sets if the resource must be filtered or not
-		 */
-		public function setFilter($filter){ }
+    public function getFilter() {}
 
 
-		/**
-		 * Sets extra HTML attributes
-		 */
-		public function setAttributes($attributes){ }
+    public function getAttributes() {}
 
-	}
+    /**
+     * Phalcon\Assets\Inline constructor
+     *
+     * @param string $type 
+     * @param string $content 
+     * @param boolean $filter 
+     * @param array $attributes 
+     */
+    public function __construct($type, $content, $filter = true, $attributes = null) {}
+
+    /**
+     * Sets the inline's type
+     *
+     * @param string $type 
+     * @return Inline 
+     */
+    public function setType($type) {}
+
+    /**
+     * Sets if the resource must be filtered or not
+     *
+     * @param bool $filter 
+     * @return Inline 
+     */
+    public function setFilter($filter) {}
+
+    /**
+     * Sets extra HTML attributes
+     *
+     * @param array $attributes 
+     * @return Inline 
+     */
+    public function setAttributes($attributes) {}
+
 }
