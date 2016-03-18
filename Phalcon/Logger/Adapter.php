@@ -82,6 +82,13 @@ abstract class Adapter
     public function rollback() {}
 
     /**
+     * Returns the whether the logger is currently in an active transaction or not
+     *
+     * @return bool 
+     */
+    public function isTransaction() {}
+
+    /**
      * Sends/Writes a critical message to the log
      *
      * @param string $message 

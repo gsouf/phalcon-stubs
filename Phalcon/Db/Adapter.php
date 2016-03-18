@@ -137,10 +137,10 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * Returns the first row in a SQL query result
      * <code>
      * //Getting first robot
-     * $robot = $connection->fecthOne("SELECTFROM robots");
+     * $robot = $connection->fetchOne("SELECTFROM robots");
      * print_r($robot);
      * //Getting first robot with associative indexes only
-     * $robot = $connection->fecthOne("SELECTFROM robots", Phalcon\Db::FETCH_ASSOC);
+     * $robot = $connection->fetchOne("SELECTFROM robots", Phalcon\Db::FETCH_ASSOC);
      * print_r($robot);
      * </code>
      *

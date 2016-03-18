@@ -69,6 +69,8 @@ abstract class Adapter
 
     /**
      * Get session name
+     *
+     * @return string 
      */
     public function getName() {}
 
@@ -89,6 +91,7 @@ abstract class Adapter
      * @param string $index 
      * @param mixed $defaultValue 
      * @param bool $remove 
+     * @return mixed 
      */
     public function get($index, $defaultValue = null, $remove = false) {}
 
@@ -209,5 +212,8 @@ abstract class Adapter
      * @param string $index 
      */
     public function __unset($index) {}
+
+
+    public function __destruct() {}
 
 }

@@ -137,13 +137,13 @@ class Pdo implements \Phalcon\Db\ResultInterface
      * Changes the fetching mode affecting Phalcon\Db\Result\Pdo::fetch()
      * <code>
      * //Return array with integer indexes
-     * $result->setFetchMode(Phalcon\Db::FETCH_NUM);
+     * $result->setFetchMode(\Phalcon\Db::FETCH_NUM);
      * //Return associative array without integer indexes
-     * $result->setFetchMode(Phalcon\Db::FETCH_ASSOC);
+     * $result->setFetchMode(\Phalcon\Db::FETCH_ASSOC);
      * //Return associative array together with integer indexes
-     * $result->setFetchMode(Phalcon\Db::FETCH_BOTH);
+     * $result->setFetchMode(\Phalcon\Db::FETCH_BOTH);
      * //Return an object
-     * $result->setFetchMode(Phalcon\Db::FETCH_OBJ);
+     * $result->setFetchMode(\Phalcon\Db::FETCH_OBJ);
      * </code>
      *
      * @param int $fetchMode 

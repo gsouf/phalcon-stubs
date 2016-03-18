@@ -60,6 +60,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * @param mixed $defaultValue 
      * @param bool $notAllowEmpty 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     public function get($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {}
 
@@ -78,6 +79,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * @param mixed $defaultValue 
      * @param bool $notAllowEmpty 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     public function getPost($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {}
 
@@ -95,6 +97,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * @param mixed $defaultValue 
      * @param bool $notAllowEmpty 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     public function getPut($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {}
 
@@ -115,6 +118,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * @param mixed $defaultValue 
      * @param bool $notAllowEmpty 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     public function getQuery($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {}
 
@@ -128,6 +132,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * @param mixed $defaultValue 
      * @param bool $notAllowEmpty 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     protected final function getHelper($source, $name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {}
 
@@ -135,6 +140,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * Gets variable from $_SERVER superglobal
      *
      * @param string $name 
+     * @return string|null 
      */
     public function getServer($name) {}
 
@@ -440,7 +446,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
     /**
      * Gets a charsets array and their quality accepted by the browser/client from _SERVER["HTTP_ACCEPT_CHARSET"]
      *
-     * @return variable 
+     * @return mixed 
      */
     public function getClientCharsets() {}
 

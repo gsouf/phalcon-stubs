@@ -130,6 +130,13 @@ interface ColumnInterface
     public function getDefault();
 
     /**
+     * Check whether column has default value
+     *
+     * @return bool 
+     */
+    public function hasDefault();
+
+    /**
      * Restores the internal state of a Phalcon\Db\Column object
      *
      * @param array $data 

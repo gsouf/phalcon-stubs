@@ -108,6 +108,11 @@ class Column implements \Phalcon\Db\ColumnInterface
     const TYPE_JSONB = 16;
 
     /**
+     * Datetime abstract type
+     */
+    const TYPE_TIMESTAMP = 17;
+
+    /**
      * Bind Type Null
      */
     const BIND_PARAM_NULL = 0;
@@ -372,5 +377,12 @@ class Column implements \Phalcon\Db\ColumnInterface
      * @return Column 
      */
     public static function __set_state($data) {}
+
+    /**
+     * Check whether column has default value
+     *
+     * @return bool 
+     */
+    public function hasDefault() {}
 
 }
