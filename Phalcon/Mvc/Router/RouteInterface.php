@@ -19,6 +19,21 @@ interface RouteInterface
     public function __construct($pattern, $paths = null, $httpMethods = null);
 
     /**
+     * Sets a hostname restriction to the route
+     *
+     * @param string $hostname 
+     * @return RouteInterface 
+     */
+    public function setHostname($hostname);
+
+    /**
+     * Returns the hostname restriction if any
+     *
+     * @return string 
+     */
+    public function getHostname();
+
+    /**
      * Replaces placeholders from pattern returning a valid PCRE regular expression
      *
      * @param string $pattern 
@@ -59,7 +74,7 @@ interface RouteInterface
      * Sets a set of HTTP methods that constraint the matching of the route
      *
      * @param mixed $httpMethods 
-     * @return string|array 
+     * @return RouteInterface 
      */
     public function setHttpMethods($httpMethods);
 

@@ -235,7 +235,7 @@ class Manager
     /**
      * Returns existing collections in the manager
      *
-     * @return \Phalcon\Assets\Collection 
+     * @return Collection[] 
      */
     public function getCollections() {}
 

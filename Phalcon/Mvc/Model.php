@@ -404,7 +404,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param string|array $table 
      * @return boolean 
      */
-    protected function _exists(\Phalcon\Mvc\Model\MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
+    protected function _exists(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
 
     /**
      * Generate a PHQL SELECT statement for an aggregate
@@ -605,7 +605,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * </code>
      *
      * @param mixed $filter 
-     * @return \Phalcon\Mvc\Model\MessageInterface 
+     * @return MessageInterface[] 
      */
     public function getMessages($filter = null) {}
 
@@ -639,7 +639,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param mixed $identityField 
      * @return bool 
      */
-    protected function _preSave(\Phalcon\Mvc\Model\MetadataInterface $metaData, $exists, $identityField) {}
+    protected function _preSave(MetadataInterface $metaData, $exists, $identityField) {}
 
     /**
      * Executes internal events after save a record
@@ -659,7 +659,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param boolean|string $identityField 
      * @return boolean 
      */
-    protected function _doLowInsert(\Phalcon\Mvc\Model\MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
+    protected function _doLowInsert(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
 
     /**
      * Sends a pre-build UPDATE SQL statement to the relational database system
@@ -984,8 +984,9 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * Setups a behavior in a model
      * <code>
      * <?php
+     * use Phalcon\Mvc\Model;
      * use Phalcon\Mvc\Model\Behavior\Timestampable;
-     * class Robots extends \Phalcon\Mvc\Model
+     * class Robots extends Model
      * {
      * public function initialize()
      * {
@@ -1007,7 +1008,8 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * Sets if the model must keep the original record snapshot in memory
      * <code>
      * <?php
-     * class Robots extends \Phalcon\Mvc\Model
+     * use Phalcon\Mvc\Model;
+     * class Robots extends Model
      * {
      * public function initialize()
      * {
@@ -1063,7 +1065,8 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * Sets if a model must use dynamic update instead of the all-field update
      * <code>
      * <?php
-     * class Robots extends \Phalcon\Mvc\Model
+     * use Phalcon\Mvc\Model;
+     * class Robots extends Model
      * {
      * public function initialize()
      * {
@@ -1094,6 +1097,15 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @return mixed 
      */
     protected function _getRelatedRecords($modelName, $method, $arguments) {}
+
+    /**
+     * Try to check if the query must invoke a finder
+     *
+     * @param string $method 
+     * @param array $arguments 
+     * @return \Phalcon\Mvc\ModelInterface[]|\Phalcon\Mvc\ModelInterface|boolean 
+     */
+    protected final static function _invokeFinder($method, $arguments) {}
 
     /**
      * Handles method calls when a method is not implemented

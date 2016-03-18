@@ -204,6 +204,19 @@ class Sqlite extends \Phalcon\Db\Dialect
     public function listViews($schemaName = null) {}
 
     /**
+     * Generates the SQL to get query list of indexes
+     * <code>
+     * print_r($dialect->listIndexesSql("blog"))
+     * </code>
+     *
+     * @param string $table 
+     * @param string $schema 
+     * @param string $keyName 
+     * @return string 
+     */
+    public function listIndexesSql($table, $schema = null, $keyName = null) {}
+
+    /**
      * Generates SQL to query indexes on a table
      *
      * @param string $table 

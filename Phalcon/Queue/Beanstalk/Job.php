@@ -8,20 +8,28 @@ namespace Phalcon\Queue\Beanstalk;
  */
 class Job
 {
-
+    /**
+     * @var string
+     */
     protected $_id;
 
-
+    /**
+     * @var mixed
+     */
     protected $_body;
 
 
     protected $_queue;
 
 
-
+    /**
+     * @return string 
+     */
     public function getId() {}
 
-
+    /**
+     * @return mixed 
+     */
     public function getBody() {}
 
     /**

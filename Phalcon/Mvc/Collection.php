@@ -327,7 +327,7 @@ abstract class Collection implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\
      * }
      * </code>
      *
-     * @return \Phalcon\Mvc\Model\MessageInterface 
+     * @return MessageInterface[] 
      */
     public function getMessages() {}
 

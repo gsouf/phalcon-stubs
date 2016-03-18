@@ -11,6 +11,10 @@ namespace Phalcon\Security;
  * - libsodium
  * - openssl
  * - /dev/urandom
+ * A `Phalcon\Security\Random` could be mainly useful for:
+ * - Key generation (e.g. generation of complicated keys)
+ * - Creating random passwords for new user accounts
+ * - Encryption systems
  * <code>
  * $random = new \Phalcon\Security\Random();
  * // Random binary string
@@ -41,6 +45,11 @@ namespace Phalcon\Security;
  * echo $random->number(256); // 79
  * echo $random->number(100); // 29
  * echo $random->number(300); // 40
+ * // Random base58 string
+ * echo $random->base58();   // 4kUgL2pdQMSCQtjE
+ * echo $random->base58();   // Umjxqf7ZPwh765yR
+ * echo $random->base58(24); // qoXcgmw4A9dys26HaNEdCRj9
+ * echo $random->base58(7);  // 774SJD3vgP
  * </code>
  * This class partially borrows SecureRandom library from Ruby
  *
@@ -51,11 +60,15 @@ class Random
 
     /**
      * Generates a random binary string
+     * The `Random::bytes` method returns a string and accepts as input an int
+     * representing the length in bytes to be returned.
      * If $len is not specified, 16 is assumed. It may be larger in future.
      * The result may contain any byte: "x00" - "xFF".
      * <code>
      * $random = new \Phalcon\Security\Random();
      * $bytes = $random->bytes();
+     * var_dump(bin2hex($bytes));
+     * // possible ouput: string(32) "00f6c04b144b41fad6a59111c126e1ee"
      * </code>
      *
      * @throws Exception If secure random number generator is not available or unexpected partial read
@@ -80,9 +93,28 @@ class Random
     public function hex($len = null) {}
 
     /**
+     * Generates a random base58 string
+     * If $len is not specified, 16 is assumed. It may be larger in future.
+     * The result may contain alphanumeric characters except 0, O, I and l.
+     * It is similar to Base64 but has been modified to avoid both non-alphanumeric
+     * characters and letters which might look ambiguous when printed.
+     * <code>
+     * $random = new \Phalcon\Security\Random();
+     * echo $random->base58(); // 4kUgL2pdQMSCQtjE
+     * </code>
+     *
+     * @link https://en.wikipedia.org/wiki/Base58
+     * @throws Exception If secure random number generator is not available or unexpected partial read
+     * @param mixed $n 
+     * @return string 
+     */
+    public function base58($n = null) {}
+
+    /**
      * Generates a random base64 string
      * If $len is not specified, 16 is assumed. It may be larger in future.
      * The length of the result string is usually greater of $len.
+     * Size formula: 4 *( $len / 3) and this need to be rounded up to a multiple of 4.
      * <code>
      * $random = new \Phalcon\Security\Random();
      * echo $random->base64(12); // 3rcq39QzGK9fUqh8
@@ -135,6 +167,7 @@ class Random
 
     /**
      * Generates a random number between 0 and $len
+     * Returns an integer: 0 <= result <= $len.
      * <code>
      * $random = new \Phalcon\Security\Random();
      * echo $random->number(16); // 8

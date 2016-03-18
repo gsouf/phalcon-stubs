@@ -54,6 +54,7 @@ class Config implements \ArrayAccess, \Countable
      *
      * @param mixed $index 
      * @param mixed $defaultValue 
+     * @return mixed 
      */
     public function get($index, $defaultValue = null) {}
 

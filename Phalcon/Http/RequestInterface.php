@@ -236,7 +236,7 @@ interface RequestInterface
      * Gets attached files as Phalcon\Http\Request\FileInterface compatible instances
      *
      * @param bool $onlySuccessful 
-     * @return \Phalcon\Http\Request\FileInterface 
+     * @return \Phalcon\Http\Request\FileInterface[] 
      */
     public function getUploadedFiles($onlySuccessful = false);
 

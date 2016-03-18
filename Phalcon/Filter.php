@@ -72,6 +72,7 @@ class Filter implements \Phalcon\FilterInterface
      * @param mixed $value 
      * @param mixed $filters 
      * @param bool $noRecursive 
+     * @return mixed 
      */
     public function sanitize($value, $filters, $noRecursive = false) {}
 

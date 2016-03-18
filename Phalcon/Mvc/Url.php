@@ -106,6 +106,10 @@ class Url implements \Phalcon\Mvc\UrlInterface, \Phalcon\Di\InjectionAwareInterf
      * echo $url->get('products/edit/1');
      * //Generate a URL for a predefined route
      * echo $url->get(array('for' => 'blog-post', 'title' => 'some-cool-stuff', 'year' => '2015'));
+     * // Generate a URL with GET arguments (/show/products?id=1&name=Carrots)
+     * echo $url->get('show/products', array('id' => 1, 'name' => 'Carrots'));
+     * // Generate an absolute URL by setting the third parameter as false.
+     * echo $url->get('https://phalconphp.com/', null, false);
      * </code>
      *
      * @param mixed $uri 

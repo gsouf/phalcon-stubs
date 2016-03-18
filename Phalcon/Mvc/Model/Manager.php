@@ -564,7 +564,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * </code>
      *
      * @param mixed $model 
-     * @return array|\Phalcon\Mvc\Model\RelationInterface 
+     * @return array|RelationInterface[] 
      */
     public function getBelongsTo(\Phalcon\Mvc\ModelInterface $model) {}
 
@@ -572,7 +572,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * Gets hasMany relations defined on a model
      *
      * @param mixed $model 
-     * @return array|\Phalcon\Mvc\Model\RelationInterface 
+     * @return array|RelationInterface[] 
      */
     public function getHasMany(\Phalcon\Mvc\ModelInterface $model) {}
 
@@ -588,7 +588,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * Gets hasManyToMany relations defined on a model
      *
      * @param mixed $model 
-     * @return array|\Phalcon\Mvc\Model\RelationInterface 
+     * @return array|RelationInterface[] 
      */
     public function getHasManyToMany(\Phalcon\Mvc\ModelInterface $model) {}
 
@@ -596,7 +596,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * Gets hasOne relations defined on a model
      *
      * @param mixed $model 
-     * @return \Phalcon\Mvc\Model\RelationInterface 
+     * @return RelationInterface[] 
      */
     public function getHasOneAndHasMany(\Phalcon\Mvc\ModelInterface $model) {}
 
@@ -604,7 +604,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      * Query all the relationships defined on a model
      *
      * @param string $modelName 
-     * @return \Phalcon\Mvc\Model\RelationInterface 
+     * @return RelationInterface[] 
      */
     public function getRelations($modelName) {}
 
@@ -613,7 +613,7 @@ class Manager implements \Phalcon\Mvc\Model\ManagerInterface, \Phalcon\Di\Inject
      *
      * @param string $first 
      * @param string $second 
-     * @return bool|\Phalcon\Mvc\Model\RelationInterface 
+     * @return bool|RelationInterface[] 
      */
     public function getRelationsBetween($first, $second) {}
 

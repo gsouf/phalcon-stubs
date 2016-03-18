@@ -7,14 +7,21 @@ namespace Phalcon\Config\Adapter;
  * Reads YAML files and converts them to Phalcon\Config objects.
  * Given the following configuration file:
  * <code>
- * phalcon
- * baseuri: /phalcon/
+ * phalcon:
+ * baseuri:        /phalcon/
+ * controllersDir: !approot  /app/controllers/
  * models:
  * metadata: memory
  * </code>
  * You can read it as follows:
  * <code>
- * $config = new Phalcon\Config\Adapter\Yaml("path/config.yaml");
+ * define('APPROOT', dirname(__DIR__));
+ * $config = new Phalcon\Config\Adapter\Yaml("path/config.yaml", [
+ * '!approot' => function($value) {
+ * return APPROOT . $value;
+ * }
+ * ]);
+ * echo $config->phalcon->controllersDir;
  * echo $config->phalcon->baseuri;
  * echo $config->models->metadata;
  * </code>

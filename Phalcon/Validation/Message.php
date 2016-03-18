@@ -18,14 +18,18 @@ class Message implements \Phalcon\Validation\MessageInterface
     protected $_field;
 
 
+    protected $_code;
+
+
     /**
      * Phalcon\Validation\Message constructor
      *
      * @param string $message 
      * @param string $field 
      * @param string $type 
+     * @param int $code 
      */
-    public function __construct($message, $field = null, $type = null) {}
+    public function __construct($message, $field = null, $type = null, $code = null) {}
 
     /**
      * Sets message type
@@ -71,6 +75,21 @@ class Message implements \Phalcon\Validation\MessageInterface
      * @return string 
      */
     public function getField() {}
+
+    /**
+     * Sets code for the message
+     *
+     * @param int $code 
+     * @return Message 
+     */
+    public function setCode($code) {}
+
+    /**
+     * Returns the message code
+     *
+     * @return int 
+     */
+    public function getCode() {}
 
     /**
      * Magic __toString method returns verbose message

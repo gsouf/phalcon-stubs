@@ -87,7 +87,7 @@ interface CollectionInterface
     /**
      * Returns all the validation messages
      *
-     * @return \Phalcon\Mvc\Model\MessageInterface 
+     * @return MessageInterface[] 
      */
     public function getMessages();
 

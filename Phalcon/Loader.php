@@ -103,6 +103,7 @@ class Loader implements \Phalcon\Events\EventsAwareInterface
     /**
      * Register directories in which "not found" classes could be found
      *
+     * @deprecated From Phalcon 2.1.0 version has been removed support for prefixes strategy
      * @param array $prefixes 
      * @param bool $merge 
      * @return Loader 
@@ -112,6 +113,7 @@ class Loader implements \Phalcon\Events\EventsAwareInterface
     /**
      * Returns the prefixes currently registered in the autoloader
      *
+     * @deprecated From Phalcon 2.1.0 version has been removed support for prefixes strategy
      * @return array 
      */
     public function getPrefixes() {}
