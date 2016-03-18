@@ -11,6 +11,10 @@ namespace Phalcon\Security;
  * - libsodium
  * - openssl
  * - /dev/urandom
+ * A `Phalcon\Security\Random` could be mainly useful for:
+ * - Key generation (e.g. generation of complicated keys)
+ * - Creating random passwords for new user accounts
+ * - Encryption systems
  * <code>
  * $random = new \Phalcon\Security\Random();
  * // Random binary string
@@ -56,11 +60,15 @@ class Random
 
     /**
      * Generates a random binary string
+     * The `Random::bytes` method returns a string and accepts as input an int
+     * representing the length in bytes to be returned.
      * If $len is not specified, 16 is assumed. It may be larger in future.
      * The result may contain any byte: "x00" - "xFF".
      * <code>
      * $random = new \Phalcon\Security\Random();
      * $bytes = $random->bytes();
+     * var_dump(bin2hex($bytes));
+     * // possible ouput: string(32) "00f6c04b144b41fad6a59111c126e1ee"
      * </code>
      *
      * @throws Exception If secure random number generator is not available or unexpected partial read

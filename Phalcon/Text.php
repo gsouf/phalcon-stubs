@@ -168,4 +168,28 @@ abstract class Text
      */
     public static function dynamic($text, $leftDelimiter = "{", $rightDelimiter = "}", $separator = "|") {}
 
+    /**
+     * Makes a phrase underscored instead of spaced
+     * <code>
+     * echo Phalcon\Text::underscore('look behind'); // 'look_behind'
+     * echo Phalcon\Text::underscore('Awesome Phalcon'); // 'Awesome_Phalcon'
+     * </code>
+     *
+     * @param string $text 
+     * @return string 
+     */
+    public static function underscore($text) {}
+
+    /**
+     * Makes an underscored or dashed phrase human-readable
+     * <code>
+     * echo Phalcon\Text::humanize('start-a-horse'); // 'start a horse'
+     * echo Phalcon\Text::humanize('five_cats'); // 'five cats'
+     * </code>
+     *
+     * @param string $text 
+     * @return string 
+     */
+    public static function humanize($text) {}
+
 }

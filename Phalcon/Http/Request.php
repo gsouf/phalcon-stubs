@@ -373,7 +373,7 @@ class Request implements \Phalcon\Http\RequestInterface, \Phalcon\Di\InjectionAw
      * Gets attached files as Phalcon\Http\Request\File instances
      *
      * @param bool $onlySuccessful 
-     * @return \Phalcon\Http\Request\File 
+     * @return File[] 
      */
     public function getUploadedFiles($onlySuccessful = false) {}
 

@@ -559,7 +559,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @return	Phalcon\Db\Index[]
      * @param string $table 
      * @param mixed $schema 
-     * @return Index 
+     * @return Index[] 
      */
     public function describeIndexes($table, $schema = null) {}
 
@@ -571,7 +571,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      *
      * @param string $table 
      * @param string $schema 
-     * @return Reference 
+     * @return Reference[] 
      */
     public function describeReferences($table, $schema = null) {}
 

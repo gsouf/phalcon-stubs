@@ -39,19 +39,19 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      *
      * @param string $table 
      * @param string $schema 
-     * @return \Phalcon\Db\Column 
+     * @return Column[] 
      */
     public function describeColumns($table, $schema = null) {}
 
     /**
      * Lists table indexes
+     * <code>
+     * print_r($connection->describeIndexes('robots_parts'));
+     * </code>
      *
-     * @param	string table
-     * @param	string schema
-     * @return	Phalcon\Db\IndexInterface[]
-     * @param mixed $table 
-     * @param mixed $schema 
-     * @return \Phalcon\Db\IndexInterface 
+     * @param string $table 
+     * @param string $schema 
+     * @return \Phalcon\Db\IndexInterface[] 
      */
     public function describeIndexes($table, $schema = null) {}
 
@@ -63,7 +63,7 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @return	Phalcon\Db\ReferenceInterface[]
      * @param mixed $table 
      * @param mixed $schema 
-     * @return \Phalcon\Db\ReferenceInterface 
+     * @return ReferenceInterface[] 
      */
     public function describeReferences($table, $schema = null) {}
 

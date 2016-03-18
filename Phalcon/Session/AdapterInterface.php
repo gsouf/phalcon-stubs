@@ -33,7 +33,6 @@ interface AdapterInterface
      *
      * @param string $index
      * @param mixed $defaultValue
-     * @return mixed
      */
     public function get($index, $defaultValue = null);
 

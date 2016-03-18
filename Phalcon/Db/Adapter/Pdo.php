@@ -137,7 +137,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * Escapes a column/table/schema name
      * <code>
      * $escapedTable = $connection->escapeIdentifier('robots');
-     * $escapedTable = $connection->escapeIdentifier(array('store', 'robots'));
+     * $escapedTable = $connection->escapeIdentifier(['store', 'robots']);
      * </code>
      *
      * @param string $identifier 

@@ -126,6 +126,7 @@ class Di implements \Phalcon\DiInterface
      * Returns a service definition without resolving
      *
      * @param string $name 
+     * @return mixed 
      */
     public function getRaw($name) {}
 
@@ -140,9 +141,9 @@ class Di implements \Phalcon\DiInterface
     /**
      * Resolves the service based on its configuration
      *
-     * @return mixed
      * @param string $name 
      * @param mixed $parameters 
+     * @return mixed 
      */
     public function get($name, $parameters = null) {}
 
@@ -173,7 +174,7 @@ class Di implements \Phalcon\DiInterface
     /**
      * Return the services registered in the DI
      *
-     * @return \Phalcon\Di\Service 
+     * @return Service[] 
      */
     public function getServices() {}
 
@@ -221,7 +222,7 @@ class Di implements \Phalcon\DiInterface
      *
      * @param string $method 
      * @param array $arguments 
-     * @return mixed 
+     * @return mixed|null 
      */
     public function __call($method, $arguments = null) {}
 

@@ -7,7 +7,7 @@ namespace Phalcon\Queue;
  * Class to access the beanstalk queue service.
  * Partially implements the protocol version 1.2
  *
- * @see http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
+ * @link http://www.igvita.com/2010/05/20/scalable-work-queues-with-beanstalk/
  */
 class Beanstalk
 {

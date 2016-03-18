@@ -71,7 +71,6 @@ class Oracle extends \Phalcon\Db\Dialect
     public function addIndex($tableName, $schemaName, \Phalcon\Db\IndexInterface $index) {}
 
     /**
-     * /
      * Generates SQL to delete an index from a table
      *
      * @param string $tableName 

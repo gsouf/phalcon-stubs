@@ -10,7 +10,7 @@ namespace Phalcon\Cli;
  * <code>
  * class HelloTask extends \Phalcon\Cli\Task
  * {
- * //This action will be executed by default
+ * // This action will be executed by default
  * public function mainAction()
  * {
  * }

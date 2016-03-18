@@ -8,7 +8,7 @@ namespace Phalcon\Logger\Adapter;
  * <code>
  * $logger = new \Phalcon\Logger\Adapter\Stream("php://stderr");
  * $logger->log("This is a message");
- * $logger->log("This is an error", \Phalcon\Logger::ERROR);
+ * $logger->log(\Phalcon\Logger::ERROR, "This is an error");
  * $logger->error("This is another error");
  * </code>
  */

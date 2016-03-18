@@ -49,14 +49,14 @@ class Reflection
     /**
      * Returns the annotations found in the methods' docblocks
      *
-     * @return bool|\Phalcon\Annotations\Collection 
+     * @return bool|Collection[] 
      */
     public function getMethodsAnnotations() {}
 
     /**
      * Returns the annotations found in the properties' docblocks
      *
-     * @return bool|\Phalcon\Annotations\Collection 
+     * @return bool|Collection[] 
      */
     public function getPropertiesAnnotations() {}
 

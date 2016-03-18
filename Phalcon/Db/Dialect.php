@@ -318,7 +318,7 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
     /**
      * Resolve a HAVING clause
      *
-     * @param mixed $expression 
+     * @param array $expression 
      * @param string $escapeChar 
      * @param mixed $bindCounts 
      * @return string 

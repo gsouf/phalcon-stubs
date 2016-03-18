@@ -404,7 +404,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param string|array $table 
      * @return boolean 
      */
-    protected function _exists(\Phalcon\Mvc\Model\MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
+    protected function _exists(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
 
     /**
      * Generate a PHQL SELECT statement for an aggregate
@@ -605,7 +605,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * </code>
      *
      * @param mixed $filter 
-     * @return \Phalcon\Mvc\Model\MessageInterface 
+     * @return MessageInterface[] 
      */
     public function getMessages($filter = null) {}
 
@@ -639,7 +639,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param mixed $identityField 
      * @return bool 
      */
-    protected function _preSave(\Phalcon\Mvc\Model\MetadataInterface $metaData, $exists, $identityField) {}
+    protected function _preSave(MetadataInterface $metaData, $exists, $identityField) {}
 
     /**
      * Executes internal events after save a record
@@ -659,7 +659,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param boolean|string $identityField 
      * @return boolean 
      */
-    protected function _doLowInsert(\Phalcon\Mvc\Model\MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
+    protected function _doLowInsert(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
 
     /**
      * Sends a pre-build UPDATE SQL statement to the relational database system
