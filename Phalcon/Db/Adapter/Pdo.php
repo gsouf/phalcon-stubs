@@ -59,8 +59,9 @@ abstract class Pdo extends \Phalcon\Db\Adapter
     /**
      * Returns a PDO prepared statement to be executed with 'executePrepared'
      * <code>
+     * use Phalcon\Db\Column;
      * $statement = $db->prepare('SELECTFROM robots WHERE name = :name');
-     * $result = $connection->executePrepared($statement, array('name' => 'Voltron'));
+     * $result = $connection->executePrepared($statement, ['name' => 'Voltron'], ['name' => Column::BIND_PARAM_INT]);
      * </code>
      *
      * @param string $sqlStatement 
@@ -71,8 +72,9 @@ abstract class Pdo extends \Phalcon\Db\Adapter
     /**
      * Executes a prepared statement binding. This function uses integer indexes starting from zero
      * <code>
+     * use Phalcon\Db\Column;
      * $statement = $db->prepare('SELECTFROM robots WHERE name = :name');
-     * $result = $connection->executePrepared($statement, array('name' => 'Voltron'));
+     * $result = $connection->executePrepared($statement, ['name' => 'Voltron'], ['name' => Column::BIND_PARAM_INT]);
      * </code>
      *
      * @param \PDOStatement $statement 

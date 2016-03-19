@@ -178,8 +178,9 @@ class Debug
      * @param mixed $message 
      * @param mixed $file 
      * @param mixed $line 
+     * @param mixed $context 
      */
-    public function onUncaughtLowSeverity($severity, $message, $file, $line) {}
+    public function onUncaughtLowSeverity($severity, $message, $file, $line, $context) {}
 
     /**
      * Handles uncaught exceptions

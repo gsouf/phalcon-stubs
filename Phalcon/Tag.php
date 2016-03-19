@@ -132,9 +132,9 @@ class Tag
     /**
      * Assigns default values to generated tags by helpers
      * <code>
-     * //Assigning "peter" to "name" component
+     * // Assigning "peter" to "name" component
      * Phalcon\Tag::setDefault("name", "peter");
-     * //Later in the view
+     * // Later in the view
      * echo Phalcon\Tag::textField("name"); //Will have the value "peter" by default
      * </code>
      *
@@ -146,9 +146,9 @@ class Tag
     /**
      * Assigns default values to generated tags by helpers
      * <code>
-     * //Assigning "peter" to "name" component
+     * // Assigning "peter" to "name" component
      * Phalcon\Tag::setDefaults(array("name" => "peter"));
-     * //Later in the view
+     * // Later in the view
      * echo Phalcon\Tag::textField("name"); //Will have the value "peter" by default
      * </code>
      *
@@ -209,12 +209,9 @@ class Tag
     /**
      * Builds generic INPUT tags
      *
-     * @param	array parameters
-     * @return	string
      * @param string $type 
-     * @param mixed $parameters 
-     * @param bool $asValue 
-     * @param  $boolean asValue
+     * @param array $parameters 
+     * @param boolean $asValue 
      * @return string 
      */
     static protected final function _inputField($type, $parameters, $asValue = false) {}
@@ -222,10 +219,8 @@ class Tag
     /**
      * Builds INPUT tags that implements the checked attribute
      *
-     * @param	array parameters
-     * @return	string
      * @param string $type 
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     static protected final function _inputFieldChecked($type, $parameters) {}
@@ -244,9 +239,7 @@ class Tag
      * echo Phalcon\Tag::textField(array("name", "size" => 30));
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function textField($parameters) {}
@@ -257,9 +250,7 @@ class Tag
      * echo Phalcon\Tag::numericField(array("price", "min" => "1", "max" => "5"));
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function numericField($parameters) {}
@@ -278,9 +269,7 @@ class Tag
      * echo Phalcon\Tag::emailField("email");
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function emailField($parameters) {}
@@ -291,9 +280,7 @@ class Tag
      * echo Phalcon\Tag::dateField(array("born", "value" => "14-12-1980"))
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function dateField($parameters) {}
@@ -344,9 +331,7 @@ class Tag
      * echo Phalcon\Tag::passwordField(array("name", "size" => 30));
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function passwordField($parameters) {}
@@ -357,9 +342,7 @@ class Tag
      * echo Phalcon\Tag::hiddenField(array("name", "value" => "mike"));
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function hiddenField($parameters) {}
@@ -370,9 +353,7 @@ class Tag
      * echo Phalcon\Tag::fileField("file");
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function fileField($parameters) {}
@@ -406,10 +387,12 @@ class Tag
      * <code>
      * echo Phalcon\Tag::checkField(array("terms", "value" => "Y"));
      * </code>
+     * Volt syntax:
+     * <code>
+     * {{ check_field("terms") }}
+     * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function checkField($parameters) {}
@@ -424,9 +407,7 @@ class Tag
      * {{ radio_field("Save") }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function radioField($parameters) {}
@@ -441,9 +422,7 @@ class Tag
      * {{ image_input("src": "/img/button.png") }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function imageInput($parameters) {}
@@ -458,9 +437,7 @@ class Tag
      * {{ submit_button("Save") }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function submitButton($parameters) {}
@@ -471,9 +448,7 @@ class Tag
      * echo Phalcon\Tag::selectStatic("status", array("A" => "Active", "I" => "Inactive"))
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @param array $data 
      * @return string 
      */
@@ -482,20 +457,18 @@ class Tag
     /**
      * Builds a HTML SELECT tag using a Phalcon\Mvc\Model resultset as options
      * <code>
-     * echo Phalcon\Tag::select(array(
+     * echo Phalcon\Tag::select([
      * "robotId",
      * Robots::find("type = "mechanical""),
-     * "using" => array("id", "name")
-     * ));
+     * "using" => ["id", "name"]
+     * ]);
      * </code>
      * Volt syntax:
      * <code>
      * {{ select("robotId", robots, "using": ["id", "name"]) }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @param array $data 
      * @return string 
      */
@@ -511,9 +484,7 @@ class Tag
      * {{ text_area("comments", "cols": 10, "rows": 4) }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @return string 
      */
     public static function textArea($parameters) {}
@@ -577,7 +548,8 @@ class Tag
     public static function prependTitle($title) {}
 
     /**
-     * Gets the current document title
+     * Gets the current document title.
+     * The title will be automatically escaped.
      * <code>
      * echo Phalcon\Tag::getTitle();
      * </code>
@@ -615,9 +587,7 @@ class Tag
      * {{ stylesheet_link("css/style.css") }}
      * </code>
      *
-     * @param	array parameters
-     * @return	string
-     * @param mixed $parameters 
+     * @param array $parameters 
      * @param boolean $local 
      * @return string 
      */
@@ -668,7 +638,7 @@ class Tag
      *
      * @param string $text 
      * @param string $separator 
-     * @param boolean $lowercase 
+     * @param bool $lowercase 
      * @param mixed $replace 
      * @return string 
      */
@@ -695,10 +665,10 @@ class Tag
      * </code>
      *
      * @param string $tagName 
-     * @param array $parameters 
-     * @param boolean $selfClose 
-     * @param boolean $onlyStart 
-     * @param boolean $useEol 
+     * @param mixed $parameters 
+     * @param bool $selfClose 
+     * @param bool $onlyStart 
+     * @param bool $useEol 
      * @return string 
      */
     public static function tagHtml($tagName, $parameters = null, $selfClose = false, $onlyStart = false, $useEol = false) {}

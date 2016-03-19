@@ -406,8 +406,8 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
      * $builder->limit(100, 20);
      * </code>
      *
-     * @param int $limit 
-     * @param int $offset 
+     * @param mixed $limit 
+     * @param mixed $offset 
      * @return Builder 
      */
     public function limit($limit = null, $offset = null) {}
@@ -465,7 +465,7 @@ class Builder implements \Phalcon\Mvc\Model\Query\BuilderInterface, \Phalcon\Di\
     /**
      * Returns the query built
      *
-     * @return \Phalcon\Mvc\Model\Query 
+     * @return \Phalcon\Mvc\Model\QueryInterface 
      */
     public function getQuery() {}
 

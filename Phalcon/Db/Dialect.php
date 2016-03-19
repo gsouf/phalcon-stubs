@@ -33,6 +33,15 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
     public function getCustomFunctions() {}
 
     /**
+     * Escape Schema
+     *
+     * @param string $str 
+     * @param string $escapeChar 
+     * @return string 
+     */
+    public final function escapeSchema($str, $escapeChar = null) {}
+
+    /**
      * Escape identifiers
      *
      * @param string $str 

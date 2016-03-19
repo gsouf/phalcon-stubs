@@ -183,6 +183,7 @@ class Security implements \Phalcon\Di\InjectionAwareInterface
      * @param string $key 
      * @param string $algo 
      * @param boolean $raw 
+     * @return string 
      */
     public function computeHmac($data, $key, $algo, $raw = false) {}
 
@@ -194,7 +195,9 @@ class Security implements \Phalcon\Di\InjectionAwareInterface
     public function setDefaultHash($defaultHash) {}
 
     /**
-     * Sets the default hash
+     * Returns the default hash
+     *
+     * @return int|null 
      */
     public function getDefaultHash() {}
 

@@ -234,7 +234,7 @@ class Di implements \Phalcon\DiInterface
     public static function setDefault(\Phalcon\DiInterface $dependencyInjector) {}
 
     /**
-     * Return the lastest DI created
+     * Return the latest DI created
      *
      * @return \Phalcon\DiInterface 
      */

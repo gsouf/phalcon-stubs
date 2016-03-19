@@ -6,7 +6,7 @@ namespace Phalcon\Mvc\Model\MetaData;
  * Phalcon\Mvc\Model\MetaData\Memory
  * Stores model meta-data in memory. Data will be erased when the request finishes
  */
-class Memory extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface
+class Memory extends \Phalcon\Mvc\Model\MetaData
 {
 
     /**

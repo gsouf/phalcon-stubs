@@ -30,9 +30,10 @@ class Session extends \Phalcon\Flash implements \Phalcon\FlashInterface, \Phalco
      * Returns the messages stored in session
      *
      * @param bool $remove 
+     * @param mixed $type 
      * @return array 
      */
-    protected function _getSessionMessages($remove) {}
+    protected function _getSessionMessages($remove, $type = null) {}
 
     /**
      * Stores the messages in session

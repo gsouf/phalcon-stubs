@@ -108,6 +108,7 @@ abstract class Flash
      *
      * @param string $type 
      * @param string|array $message 
+     * @return string|void 
      */
     public function outputMessage($type, $message) {}
 

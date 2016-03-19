@@ -9,7 +9,7 @@ namespace Phalcon\Annotations\Adapter;
  * $annotations = new \Phalcon\Annotations\Adapter\Xcache();
  * </code>
  */
-class Xcache extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\AdapterInterface
+class Xcache extends \Phalcon\Annotations\Adapter
 {
 
     /**

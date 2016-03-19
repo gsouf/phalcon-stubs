@@ -3,9 +3,8 @@
 namespace Phalcon\Translate\Adapter;
 
 /**
- * Class Gettext
- *
- * @package Phalcon\Translate\Adapter
+ * Phalcon\Translate\Adapter\Gettext
+ * Allows translate using gettext
  */
 class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\AdapterInterface, \ArrayAccess
 {
@@ -29,6 +28,26 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      */
     protected $_category;
 
+
+    /**
+     * @return string|array 
+     */
+    public function getDirectory() {}
+
+    /**
+     * @return string 
+     */
+    public function getDefaultDomain() {}
+
+    /**
+     * @return string 
+     */
+    public function getLocale() {}
+
+    /**
+     * @return int 
+     */
+    public function getCategory() {}
 
     /**
      * Phalcon\Translate\Adapter\Gettext constructor
@@ -69,19 +88,17 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
     public function nquery($msgid1, $msgid2, $count, $placeholders = null, $domain = null) {}
 
     /**
-     * Changes the current domain (i.e. the translation file). The passed domain must be one
-     * of those passed to the constructor.
+     * Changes the current domain (i.e. the translation file)
      *
-     * @throws \InvalidArgumentException
-     * @param string $domain 
-     * @return string the new current domain.
+     * @param mixed $domain 
+     * @return string 
      */
     public function setDomain($domain) {}
 
     /**
      * Sets the default domain
      *
-     * @return string the new current domain.
+     * @return string 
      */
     public function resetDomain() {}
 
@@ -93,29 +110,29 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
     public function setDefaultDomain($domain) {}
 
     /**
-     * Gets the default domain
-     *
-     * @return string 
-     */
-    public function getDefaultDomain() {}
-
-    /**
      * Sets the path for a domain
+     * <code>
+     * // Set the directory path
+     * $gettext->setDirectory("/path/to/the/messages");
+     * // Set the domains and directories path
+     * $gettext->setDirectory([
+     * "messages" => "/path/to/the/messages",
+     * "another" => "/path/to/the/another"
+     * ]);
+     * </code>
      *
-     * @param mixed $directory 
+     * @param string|array $directory The directory path or an array of directories and domains
      */
     public function setDirectory($directory) {}
 
     /**
-     * Gets the path for a domain
-     *
-     * @param mixed $directory 
-     * @return string|array 
-     */
-    public function getDirectory($directory) {}
-
-    /**
      * Sets locale information
+     * <code>
+     * // Set locale to Dutch
+     * $gettext->setLocale(LC_ALL, 'nl_NL');
+     * // Try different possible locale names for german
+     * $gettext->setLocale(LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
+     * </code>
      *
      * @param int $category 
      * @param string $locale 
@@ -124,31 +141,17 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
     public function setLocale($category, $locale) {}
 
     /**
-     * Gets locale
-     *
-     * @return string 
-     */
-    public function getLocale() {}
-
-    /**
-     * Gets locale category
-     *
-     * @return int 
-     */
-    public function getCategory() {}
-
-    /**
      * Validator for constructor
      *
      * @param array $options 
      */
-    protected function prepareOptions($options) {}
+    private function prepareOptions($options) {}
 
     /**
      * Gets default options
      *
      * @return array 
      */
-    protected function getOptionsDefault() {}
+    private function getOptionsDefault() {}
 
 }

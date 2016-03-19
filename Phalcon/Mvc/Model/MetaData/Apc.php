@@ -14,7 +14,7 @@ namespace Phalcon\Mvc\Model\MetaData;
  * ));
  * </code>
  */
-class Apc extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface
+class Apc extends \Phalcon\Mvc\Model\MetaData
 {
 
     protected $_prefix = "";

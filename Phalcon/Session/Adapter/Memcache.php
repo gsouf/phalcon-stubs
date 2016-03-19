@@ -6,14 +6,15 @@ namespace Phalcon\Session\Adapter;
  * Phalcon\Session\Adapter\Memcache
  * This adapter store sessions in memcache
  * <code>
- * $session = new \Phalcon\Session\Adapter\Memcache(array(
- * 'uniqueId' => 'my-private-app',
- * 'host' => '127.0.0.1',
- * 'port' => 11211,
+ * use Phalcon\Session\Adapter\Memcache;
+ * $session = new Memcache([
+ * 'uniqueId'   => 'my-private-app',
+ * 'host'       => '127.0.0.1',
+ * 'port'       => 11211,
  * 'persistent' => true,
- * 'lifetime' => 3600,
- * 'prefix' => 'my_'
- * ));
+ * 'lifetime'   => 3600,
+ * 'prefix'     => 'my_'
+ * ]);
  * $session->start();
  * $session->set('var', 'some-value');
  * echo $session->get('var');
@@ -41,10 +42,14 @@ class Memcache extends \Phalcon\Session\Adapter implements \Phalcon\Session\Adap
      */
     public function __construct($options = array()) {}
 
-
+    /**
+     * @return bool 
+     */
     public function open() {}
 
-
+    /**
+     * @return bool 
+     */
     public function close() {}
 
     /**
@@ -67,12 +72,14 @@ class Memcache extends \Phalcon\Session\Adapter implements \Phalcon\Session\Adap
      * {@inheritdoc}
      *
      * @param string $sessionId 
-     * @return boolean 
+     * @return bool 
      */
     public function destroy($sessionId = null) {}
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool 
      */
     public function gc() {}
 
