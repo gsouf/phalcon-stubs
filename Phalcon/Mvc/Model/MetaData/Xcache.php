@@ -14,7 +14,7 @@ namespace Phalcon\Mvc\Model\MetaData;
  * ));
  * </code>
  */
-class Xcache extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface
+class Xcache extends \Phalcon\Mvc\Model\MetaData
 {
 
     protected $_prefix = "";

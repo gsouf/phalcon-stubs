@@ -11,7 +11,7 @@ namespace Phalcon\Mvc\Model\MetaData;
  * ));
  * </code>
  */
-class Files extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface
+class Files extends \Phalcon\Mvc\Model\MetaData
 {
 
     protected $_metaDataDir = "./";

@@ -193,6 +193,7 @@ class Manager
      * @param \Phalcon\Assets\Collection $collection 
      * @param callback $callback 
      * @param string $type 
+     * @return string|null 
      */
     public function output(\Phalcon\Assets\Collection $collection, $callback, $type) {}
 
@@ -201,6 +202,7 @@ class Manager
      *
      * @param \Phalcon\Assets\Collection $collection 
      * @param string $type 
+     * @return string|null 
      */
     public function outputInline(\Phalcon\Assets\Collection $collection, $type) {}
 
@@ -208,6 +210,7 @@ class Manager
      * Prints the HTML for CSS resources
      *
      * @param string $collectionName 
+     * @return string|null 
      */
     public function outputCss($collectionName = null) {}
 
@@ -215,6 +218,7 @@ class Manager
      * Prints the HTML for inline CSS
      *
      * @param string $collectionName 
+     * @return string|null 
      */
     public function outputInlineCss($collectionName = null) {}
 
@@ -222,6 +226,7 @@ class Manager
      * Prints the HTML for JS resources
      *
      * @param string $collectionName 
+     * @return string|null 
      */
     public function outputJs($collectionName = null) {}
 
@@ -229,6 +234,7 @@ class Manager
      * Prints the HTML for inline JS
      *
      * @param string $collectionName 
+     * @return string|null 
      */
     public function outputInlineJs($collectionName = null) {}
 

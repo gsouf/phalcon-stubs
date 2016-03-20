@@ -23,7 +23,7 @@ interface BagInterface
      * Setter of values
      *
      * @param string $property 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function set($property, $value);
 
@@ -48,7 +48,7 @@ interface BagInterface
      * Setter of values
      *
      * @param string $property 
-     * @param string $value 
+     * @param mixed $value 
      */
     public function __set($property, $value);
 

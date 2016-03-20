@@ -104,6 +104,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
      * </code>
      *
      * @param string $property 
+     * @return mixed 
      */
     public function __get($property) {}
 
@@ -176,6 +177,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
 
     /**
      * @param string $property 
+     * @return bool 
      */
     public final function offsetExists($property) {}
 
@@ -186,6 +188,7 @@ class Bag implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\Session\BagIn
 
     /**
      * @param string $property 
+     * @return mixed 
      */
     public final function offsetGet($property) {}
 

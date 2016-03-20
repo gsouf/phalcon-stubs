@@ -16,7 +16,7 @@ namespace Phalcon\Mvc\Model\MetaData;
  * ));
  * </code>
  */
-class Memcache extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface
+class Memcache extends \Phalcon\Mvc\Model\MetaData
 {
 
     protected $_ttl = 172800;

@@ -8,7 +8,7 @@ namespace Phalcon\Mvc\Model;
  * <code>
  * $phql = "SELECT c.price*0.16 AS taxes, c.* FROM Cars AS c JOIN Brands AS b
  * WHERE b.name = :name: ORDER BY c.name";
- * $result = manager->executeQuery($phql, array(
+ * $result = $manager->executeQuery($phql, array(
  * "name" => "Lamborghini"
  * ));
  * foreach ($result as $row) {
@@ -91,6 +91,9 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
 
 
     protected $_enableImplicitJoins;
+
+
+    protected $_sharedLock;
 
 
     static protected $_irPhqlCache;
@@ -421,6 +424,14 @@ class Query implements \Phalcon\Mvc\Model\QueryInterface, \Phalcon\Di\InjectionA
      * @return Query 
      */
     public function setBindTypes($bindTypes, $merge = false) {}
+
+    /**
+     * Set SHARED LOCK clause
+     *
+     * @param bool $sharedLock 
+     * @return Query 
+     */
+    public function setSharedLock($sharedLock = false) {}
 
     /**
      * Returns default bind types

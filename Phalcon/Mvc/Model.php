@@ -384,7 +384,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * </code>
      *
      * @param string|array $parameters 
-     * @return \Phalcon\Mvc\Model 
+     * @return static 
      */
     public static function findFirst($parameters = null) {}
 
@@ -399,12 +399,12 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
     /**
      * Checks if the current record already exists or not
      *
-     * @param \Phalcon\Mvc\Model\MetadataInterface $metaData 
+     * @param \Phalcon\Mvc\Model\MetaDataInterface $metaData 
      * @param \Phalcon\Db\AdapterInterface $connection 
      * @param string|array $table 
      * @return boolean 
      */
-    protected function _exists(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
+    protected function _exists(\Phalcon\Mvc\Model\MetaDataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table = null) {}
 
     /**
      * Generate a PHQL SELECT statement for an aggregate
@@ -639,7 +639,7 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
      * @param mixed $identityField 
      * @return bool 
      */
-    protected function _preSave(MetadataInterface $metaData, $exists, $identityField) {}
+    protected function _preSave(\Phalcon\Mvc\Model\MetaDataInterface $metaData, $exists, $identityField) {}
 
     /**
      * Executes internal events after save a record
@@ -653,13 +653,13 @@ abstract class Model implements \Phalcon\Mvc\EntityInterface, \Phalcon\Mvc\Model
     /**
      * Sends a pre-build INSERT SQL statement to the relational database system
      *
-     * @param \Phalcon\Mvc\Model\MetadataInterface $metaData 
+     * @param \Phalcon\Mvc\Model\MetaDataInterface $metaData 
      * @param \Phalcon\Db\AdapterInterface $connection 
      * @param string|array $table 
      * @param boolean|string $identityField 
      * @return boolean 
      */
-    protected function _doLowInsert(MetadataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
+    protected function _doLowInsert(\Phalcon\Mvc\Model\MetaDataInterface $metaData, \Phalcon\Db\AdapterInterface $connection, $table, $identityField) {}
 
     /**
      * Sends a pre-build UPDATE SQL statement to the relational database system

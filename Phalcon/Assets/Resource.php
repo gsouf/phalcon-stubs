@@ -11,19 +11,29 @@ namespace Phalcon\Assets;
  */
 class Resource
 {
-
+    /**
+     * @var string
+     */
     protected $_type;
 
-
+    /**
+     * @var string
+     */
     protected $_path;
 
-
+    /**
+     * @var boolean
+     */
     protected $_local;
 
-
+    /**
+     * @var boolean
+     */
     protected $_filter;
 
-
+    /**
+     * @var array | null
+     */
     protected $_attributes;
 
 
@@ -36,19 +46,29 @@ class Resource
     protected $_targetUri;
 
 
-
+    /**
+     * @return string 
+     */
     public function getType() {}
 
-
+    /**
+     * @return string 
+     */
     public function getPath() {}
 
-
+    /**
+     * @return boolean 
+     */
     public function getLocal() {}
 
-
+    /**
+     * @return boolean 
+     */
     public function getFilter() {}
 
-
+    /**
+     * @return array|null 
+     */
     public function getAttributes() {}
 
 

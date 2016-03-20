@@ -69,9 +69,10 @@ class Criteria implements \Phalcon\Mvc\Model\CriteriaInterface, \Phalcon\Di\Inje
      * This method replaces all previously set bound parameters
      *
      * @param array $bindParams 
+     * @param bool $merge 
      * @return Criteria 
      */
-    public function bind($bindParams) {}
+    public function bind($bindParams, $merge = false) {}
 
     /**
      * Sets the bind types in the criteria

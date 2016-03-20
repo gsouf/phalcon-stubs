@@ -35,9 +35,6 @@ class Response implements \Phalcon\Http\ResponseInterface, \Phalcon\Di\Injection
     protected $_dependencyInjector;
 
 
-    protected $_statusCodes;
-
-
     /**
      * Phalcon\Http\Response constructor
      *

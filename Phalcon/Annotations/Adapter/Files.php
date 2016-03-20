@@ -4,14 +4,13 @@ namespace Phalcon\Annotations\Adapter;
 
 /**
  * Phalcon\Annotations\Adapter\Files
- * Stores the parsed annotations in diles. This adapter is suitable for production
+ * Stores the parsed annotations in files. This adapter is suitable for production
  * <code>
- * $annotations = new \Phalcon\Annotations\Adapter\Files(array(
- * 'annotationsDir' => 'app/cache/annotations/'
- * ));
+ * use Phalcon\Annotations\Adapter\Files;
+ * $annotations = new Files(['annotationsDir' => 'app/cache/annotations/']);
  * </code>
  */
-class Files extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\AdapterInterface
+class Files extends \Phalcon\Annotations\Adapter
 {
 
     protected $_annotationsDir = "./";

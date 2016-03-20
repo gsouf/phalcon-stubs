@@ -92,8 +92,7 @@ class Memcache extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendI
      * Increment of given $keyName by $value
      *
      * @param string $keyName 
-     * @param mixed $value 
-     * @param long $lifetime 
+     * @param long $value 
      * @return long 
      */
     public function increment($keyName = null, $value = null) {}

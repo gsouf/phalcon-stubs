@@ -15,7 +15,7 @@ abstract class Validator implements \Phalcon\Validation\ValidatorInterface
     /**
      * Phalcon\Validation\Validator constructor
      *
-     * @param mixed $options 
+     * @param array $options 
      */
     public function __construct($options = null) {}
 

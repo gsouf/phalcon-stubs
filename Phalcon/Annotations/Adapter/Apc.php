@@ -9,7 +9,7 @@ namespace Phalcon\Annotations\Adapter;
  * $annotations = new \Phalcon\Annotations\Adapter\Apc();
  * </code>
  */
-class Apc extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\AdapterInterface
+class Apc extends \Phalcon\Annotations\Adapter
 {
 
     protected $_prefix = "";

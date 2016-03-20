@@ -6,7 +6,7 @@ namespace Phalcon\Annotations;
  * Phalcon\Annotations\Adapter
  * This is the base class for Phalcon\Annotations adapters
  */
-abstract class Adapter
+abstract class Adapter implements \Phalcon\Annotations\AdapterInterface
 {
 
     protected $_reader;

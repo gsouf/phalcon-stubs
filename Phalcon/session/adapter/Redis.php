@@ -6,15 +6,16 @@ namespace Phalcon\Session\Adapter;
  * Phalcon\Session\Adapter\Redis
  * This adapter store sessions in Redis
  * <code>
- * $session = new \Phalcon\Session\Adapter\Redis(array(
- * 'uniqueId' => 'my-private-app',
- * 'host' => 'localhost',
- * 'port' => 6379,
- * 'auth' => 'foobared',
+ * use Phalcon\Session\Adapter\Redis;
+ * $session = new Redis([
+ * 'uniqueId'   => 'my-private-app',
+ * 'host'       => 'localhost',
+ * 'port'       => 6379,
+ * 'auth'       => 'foobared',
  * 'persistent' => false,
- * 'lifetime' => 3600,
- * 'prefix' => 'my_'
- * ));
+ * 'lifetime'   => 3600,
+ * 'prefix'     => 'my_'
+ * ]);
  * $session->start();
  * $session->set('var', 'some-value');
  * echo $session->get('var');
@@ -42,16 +43,24 @@ class Redis extends \Phalcon\Session\Adapter implements \Phalcon\Session\Adapter
      */
     public function __construct($options = array()) {}
 
-
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool 
+     */
     public function open() {}
 
-
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool 
+     */
     public function close() {}
 
     /**
      * {@inheritdoc}
      *
-     * @param string $sessionId 
+     * @param mixed $sessionId 
      * @return mixed 
      */
     public function read($sessionId) {}
@@ -68,12 +77,14 @@ class Redis extends \Phalcon\Session\Adapter implements \Phalcon\Session\Adapter
      * {@inheritdoc}
      *
      * @param string $sessionId 
-     * @return boolean 
+     * @return bool 
      */
     public function destroy($sessionId = null) {}
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool 
      */
     public function gc() {}
 
