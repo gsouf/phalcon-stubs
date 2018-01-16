@@ -4,21 +4,28 @@ namespace Phalcon\Db;
 
 /**
  * Phalcon\Db\Profiler
+ *
  * Instances of Phalcon\Db can generate execution profiles
  * on SQL statements sent to the relational database. Profiled
  * information includes execution time in milliseconds.
  * This helps you to identify bottlenecks in your applications.
+ *
  * <code>
  * $profiler = new \Phalcon\Db\Profiler();
- * //Set the connection profiler
+ *
+ * // Set the connection profiler
  * $connection->setProfiler($profiler);
+ *
  * $sql = "SELECT buyer_name, quantity, product_name
  * FROM buyers LEFT JOIN products ON
  * buyers.pid=products.id";
- * //Execute a SQL statement
+ *
+ * // Execute a SQL statement
  * $connection->query($sql);
- * //Get the last profile in the profiler
+ *
+ * // Get the last profile in the profiler
  * $profile = $profiler->getLastProfile();
+ *
  * echo "SQL Statement: ", $profile->getSQLStatement(), "\n";
  * echo "Start Time: ", $profile->getInitialTime(), "\n";
  * echo "Final Time: ", $profile->getFinalTime(), "\n";
@@ -52,52 +59,52 @@ class Profiler
     /**
      * Starts the profile of a SQL sentence
      *
-     * @param string $sqlStatement 
-     * @param mixed $sqlVariables 
-     * @param mixed $sqlBindTypes 
-     * @return \Phalcon\Db\Profiler 
+     * @param string $sqlStatement
+     * @param mixed $sqlVariables
+     * @param mixed $sqlBindTypes
+     * @return Profiler
      */
     public function startProfile($sqlStatement, $sqlVariables = null, $sqlBindTypes = null) {}
 
     /**
      * Stops the active profile
      *
-     * @return Profiler 
+     * @return Profiler
      */
     public function stopProfile() {}
 
     /**
      * Returns the total number of SQL statements processed
      *
-     * @return int 
+     * @return int
      */
     public function getNumberTotalStatements() {}
 
     /**
      * Returns the total time in seconds spent by the profiles
      *
-     * @return double 
+     * @return double
      */
     public function getTotalElapsedSeconds() {}
 
     /**
      * Returns all the processed profiles
      *
-     * @return Item[] 
+     * @return \Phalcon\Db\Profiler\Item[]
      */
     public function getProfiles() {}
 
     /**
      * Resets the profiler, cleaning up all the profiles
      *
-     * @return Profiler 
+     * @return Profiler
      */
     public function reset() {}
 
     /**
      * Returns the last profile executed in the profiler
      *
-     * @return \Phalcon\Db\Profiler\Item 
+     * @return \Phalcon\Db\Profiler\Item
      */
     public function getLastProfile() {}
 

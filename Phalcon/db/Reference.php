@@ -4,14 +4,25 @@ namespace Phalcon\Db;
 
 /**
  * Phalcon\Db\Reference
+ *
  * Allows to define reference constraints on tables
+ *
  * <code>
- * $reference = new \Phalcon\Db\Reference("field_fk", array(
- * 'referencedSchema' => "invoicing",
- * 'referencedTable' => "products",
- * 'columns' => array("product_type", "product_code"),
- * 'referencedColumns' => array("type", "code")
- * ));
+ * $reference = new \Phalcon\Db\Reference(
+ *     "field_fk",
+ *     [
+ *         "referencedSchema"  => "invoicing",
+ *         "referencedTable"   => "products",
+ *         "columns"           => [
+ *             "product_type",
+ *             "product_code",
+ *         ],
+ *         "referencedColumns" => [
+ *             "type",
+ *             "code",
+ *         ],
+ *     ]
+ * );
  * </code>
  */
 class Reference implements \Phalcon\Db\ReferenceInterface
@@ -68,7 +79,7 @@ class Reference implements \Phalcon\Db\ReferenceInterface
     /**
      * Constraint name
      *
-     * @return string 
+     * @return string
      */
     public function getName() {}
 
@@ -81,51 +92,51 @@ class Reference implements \Phalcon\Db\ReferenceInterface
     /**
      * Referenced Table
      *
-     * @return string 
+     * @return string
      */
     public function getReferencedTable() {}
 
     /**
      * Local reference columns
      *
-     * @return array 
+     * @return array
      */
     public function getColumns() {}
 
     /**
      * Referenced Columns
      *
-     * @return array 
+     * @return array
      */
     public function getReferencedColumns() {}
 
     /**
      * ON DELETE
      *
-     * @return array 
+     * @return array
      */
     public function getOnDelete() {}
 
     /**
      * ON UPDATE
      *
-     * @return array 
+     * @return array
      */
     public function getOnUpdate() {}
 
     /**
      * Phalcon\Db\Reference constructor
      *
-     * @param string $name 
-     * @param array $definition 
+     * @param string $name
+     * @param array $definition
      */
     public function __construct($name, array $definition) {}
 
     /**
      * Restore a Phalcon\Db\Reference object from export
      *
-     * @param array $data 
-     * @return Reference 
+     * @param array $data
+     * @return Reference
      */
     public static function __set_state(array $data) {}
 

@@ -4,16 +4,17 @@ namespace Phalcon\Forms\Element;
 
 /**
  * Phalcon\Forms\Element\Hidden
+ *
  * Component INPUT[type=hidden] for forms
  */
-class Hidden extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface
+class Hidden extends \Phalcon\Forms\Element
 {
 
     /**
      * Renders the element widget returning html
      *
-     * @param array $attributes 
-     * @return string 
+     * @param array $attributes
+     * @return string
      */
     public function render($attributes = null) {}
 
