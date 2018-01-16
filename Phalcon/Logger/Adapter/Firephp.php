@@ -16,6 +16,8 @@ namespace Phalcon\Logger\Adapter {
 	 * $logger->log(Logger::ERROR, "This is an error");
 	 * $logger->error("This is another error");
 	 *</code>
+	 *
+	 * @deprecated Will be removed in 4.0.0
 	 */
 	
 	class Firephp extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface {

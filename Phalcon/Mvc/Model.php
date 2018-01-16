@@ -30,7 +30,7 @@ namespace Phalcon\Mvc {
 	 *     $messages = $robot->getMessages();
 	 *
 	 *     foreach ($messages as $message) {
-	 *         echo message;
+	 *         echo $message;
 	 *     }
 	 * } else {
 	 *     echo "Great, a new robot was saved successfully!";
@@ -399,6 +399,61 @@ namespace Phalcon\Mvc {
 		 * foreach ($robots as $robot) {
 		 *	 echo $robot->name, "\n";
 		 * }
+		 *
+		 * // encapsulate find it into an running transaction esp. useful for application unit-tests
+		 * // or complex business logic where we wanna control which transactions are used.
+		 *
+		 * $myTransaction = new Transaction(\Phalcon\Di::getDefault());
+		 * $myTransaction->begin();
+		 * $newRobot = new Robot();
+		 * $newRobot->setTransaction($myTransaction);
+		 * $newRobot->save(['name' => 'test', 'type' => 'mechanical', 'year' => 1944]);
+		 *
+		 * $resultInsideTransaction = Robot::find(['name' => 'test', Model::TRANSACTION_INDEX => $myTransaction]);
+		 * $resultOutsideTransaction = Robot::find(['name' => 'test']);
+		 *
+		 * foreach ($setInsideTransaction as $robot) {
+		 *     echo $robot->name, "\n";
+		 * }
+		 *
+		 * foreach ($setOutsideTransaction as $robot) {
+		 *     echo $robot->name, "\n";
+		 * }
+		 *
+		 * // reverts all not commited changes
+		 * $myTransaction->rollback();
+		 *
+		 * // creating two different transactions
+		 * $myTransaction1 = new Transaction(\Phalcon\Di::getDefault());
+		 * $myTransaction1->begin();
+		 * $myTransaction2 = new Transaction(\Phalcon\Di::getDefault());
+		 * $myTransaction2->begin();
+		 *
+		 *  // add a new robots
+		 * $firstNewRobot = new Robot();
+		 * $firstNewRobot->setTransaction($myTransaction1);
+		 * $firstNewRobot->save(['name' => 'first-transaction-robot', 'type' => 'mechanical', 'year' => 1944]);
+		 *
+		 * $secondNewRobot = new Robot();
+		 * $secondNewRobot->setTransaction($myTransaction2);
+		 * $secondNewRobot->save(['name' => 'second-transaction-robot', 'type' => 'fictional', 'year' => 1984]);
+		 *
+		 * // this transaction will find the robot.
+		 * $resultInFirstTransaction = Robot::find(['name' => 'first-transaction-robot', Model::TRANSACTION_INDEX => $myTransaction1]);
+		 * // this transaction won't find the robot.
+		 * $resultInSecondTransaction = Robot::find(['name' => 'first-transaction-robot', Model::TRANSACTION_INDEX => $myTransaction2]);
+		 * // this transaction won't find the robot.
+		 * $resultOutsideAnyExplicitTransaction = Robot::find(['name' => 'first-transaction-robot']);
+		 *
+		 * // this transaction won't find the robot.
+		 * $resultInFirstTransaction = Robot::find(['name' => 'second-transaction-robot', Model::TRANSACTION_INDEX => $myTransaction2]);
+		 * // this transaction will find the robot.
+		 * $resultInSecondTransaction = Robot::find(['name' => 'second-transaction-robot', Model::TRANSACTION_INDEX => $myTransaction1]);
+		 * // this transaction won't find the robot.
+		 * $resultOutsideAnyExplicitTransaction = Robot::find(['name' => 'second-transaction-robot']);
+		 *
+		 * $transaction1->rollback();
+		 * $transaction2->rollback();
 		 * </code>
 		 */
 		public static function find($parameters=null){ }
@@ -415,7 +470,7 @@ namespace Phalcon\Mvc {
 		 *
 		 * // What's the first mechanical robot in robots table?
 		 * $robot = Robots::findFirst(
-		 *     "type = 'mechanical'"
+		 *	 "type = 'mechanical'"
 		 * );
 		 *
 		 * echo "The first mechanical robot name is ", $robot->name;
@@ -429,14 +484,30 @@ namespace Phalcon\Mvc {
 		 * );
 		 *
 		 * echo "The first virtual robot name is ", $robot->name;
-		 * </code>
 		 *
-		 * @param string|array parameters
-		 * @return static
+		 * // behaviour with transaction
+		 * $myTransaction = new Transaction(\Phalcon\Di::getDefault());
+		 * $myTransaction->begin();
+		 * $newRobot = new Robot();
+		 * $newRobot->setTransaction($myTransaction);
+		 * $newRobot->save(['name' => 'test', 'type' => 'mechanical', 'year' => 1944]);
+		 *
+		 * $findsARobot = Robot::findFirst(['name' => 'test', Model::TRANSACTION_INDEX => $myTransaction]);
+		 * $doesNotFindARobot = Robot::findFirst(['name' => 'test']);
+		 *
+		 * var_dump($findARobot);
+		 * var_dump($doesNotFindARobot);
+		 *
+		 * $transaction->commit();
+		 * $doesFindTheRobotNow = Robot::findFirst(['name' => 'test']);
+		 * </code>
 		 */
 		public static function findFirst($parameters=null){ }
 
 
+		/**
+		 * shared prepare query logic for find and findFirst method
+		 */
 		private static function getPreparedQuery($params, $limit=null){ }
 
 
@@ -956,7 +1027,6 @@ namespace Phalcon\Mvc {
 		 * generated INSERT/UPDATE statement
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -979,7 +1049,6 @@ namespace Phalcon\Mvc {
 		 * generated INSERT statement
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1002,7 +1071,6 @@ namespace Phalcon\Mvc {
 		 * generated UPDATE statement
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1025,7 +1093,6 @@ namespace Phalcon\Mvc {
 		 * generated UPDATE statement
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1047,7 +1114,6 @@ namespace Phalcon\Mvc {
 		 * Setup a 1-1 relation between two models
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1065,7 +1131,6 @@ namespace Phalcon\Mvc {
 		 * Setup a reverse 1-1 or n-1 relation between two models
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class RobotsParts extends \Phalcon\Mvc\Model
 		 * {
@@ -1083,7 +1148,6 @@ namespace Phalcon\Mvc {
 		 * Setup a 1-n relation between two models
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1101,7 +1165,6 @@ namespace Phalcon\Mvc {
 		 * Setup an n-n relation between two models, through an intermediate relation
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * class Robots extends \Phalcon\Mvc\Model
 		 * {
@@ -1136,7 +1199,6 @@ namespace Phalcon\Mvc {
 		 * Setups a behavior in a model
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * use \Phalcon\Mvc\Model;
 		 * use \Phalcon\Mvc\Model\Behavior\Timestampable;
@@ -1166,7 +1228,6 @@ namespace Phalcon\Mvc {
 		 * Sets if the model must keep the original record snapshot in memory
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * use \Phalcon\Mvc\Model;
 		 *
@@ -1192,6 +1253,13 @@ namespace Phalcon\Mvc {
 		public function setSnapshotData($data, $columnMap=null){ }
 
 
+		/**
+		 * Sets the record's old snapshot data.
+		 * This method is used internally to set old snapshot data when the model was set up to keep snapshot data
+		 *
+		 * @param array data
+		 * @param array columnMap
+		 */
 		public function setOldSnapshotData($data, $columnMap=null){ }
 
 
@@ -1285,7 +1353,6 @@ namespace Phalcon\Mvc {
 		 * Sets if a model must use dynamic update instead of the all-field update
 		 *
 		 *<code>
-		 * <?php
 		 *
 		 * use \Phalcon\Mvc\Model;
 		 *

@@ -12,11 +12,12 @@ namespace Phalcon\Mvc\Model\Transaction {
 	 * A transaction produces a unique connection that is passed to every
 	 * object part of the transaction.
 	 *
-	 *<code>
-	 * try {
-	 *    use Phalcon\Mvc\Model\Transaction\Manager as TransactionManager;
+	 * <code>
+	 * use Phalcon\Mvc\Model\Transaction\Failed;
+	 * use Phalcon\Mvc\Model\Transaction\Manager;
 	 *
-	 *    $transactionManager = new TransactionManager();
+	 * try {
+	 *    $transactionManager = new Manager();
 	 *
 	 *    $transaction = $transactionManager->get();
 	 *
@@ -42,9 +43,9 @@ namespace Phalcon\Mvc\Model\Transaction {
 	 *    }
 	 *
 	 *    $transaction->commit();
-	 *} catch (Phalcon\Mvc\Model\Transaction\Failed $e) {
+	 * } catch (Failed $e) {
 	 *    echo "Failed, reason: ", $e->getMessage();
-	 *}
+	 * }
 	 *</code>
 	 */
 	
@@ -88,8 +89,6 @@ namespace Phalcon\Mvc\Model\Transaction {
 
 		/**
 		 * Returns the database service used to isolate the transaction
-		 *
-		 * @return string
 		 */
 		public function getDbService(){ }
 

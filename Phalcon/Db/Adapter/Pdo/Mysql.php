@@ -68,6 +68,9 @@ namespace Phalcon\Db\Adapter\Pdo {
 		public function describeReferences($table, $schema=null){ }
 
 
+		/**
+		 * Adds a foreign key to a table
+		 */
 		public function addForeignKey($tableName, $schemaName, \Phalcon\Db\ReferenceInterface $reference){ }
 
 	}

@@ -56,9 +56,15 @@ namespace Phalcon\Mvc {
 
 		protected $_sendCookies;
 
+		/**
+		 * Enables or disables sending headers by each request handling
+		 */
 		public function sendHeadersOnHandleRequest($sendHeaders){ }
 
 
+		/**
+		 * Enables or disables sending cookies by each request handling
+		 */
 		public function sendCookiesOnHandleRequest($sendCookies){ }
 
 

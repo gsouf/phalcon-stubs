@@ -323,6 +323,8 @@ namespace Phalcon\Mvc {
 
 		/**
 		 * Gets extra parameters of the action rendered
+		 *
+		 * @deprecated Will be removed in 4.0.0
 		 */
 		public function getParams(){ }
 

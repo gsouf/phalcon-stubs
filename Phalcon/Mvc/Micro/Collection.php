@@ -104,6 +104,15 @@ namespace Phalcon\Mvc\Micro {
 		public function map($routePattern, $handler, $name=null){ }
 
 
+		/**
+		 * Maps a route to a handler via methods
+		 *
+		 * @param  string routePattern
+		 * @param  callable handler
+		 * @param  string|array method
+		 * @param  string name
+		 * @return \Phalcon\Mvc\Micro\Collection
+		 */
 		public function mapVia($routePattern, $handler, $method, $name=null){ }
 
 

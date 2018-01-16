@@ -9,9 +9,12 @@ namespace Phalcon\Mvc\Model {
 	 * all succeed as one atomic action. Phalcon\Transaction is intended to be used with Phalcon_Model_Base.
 	 * Phalcon Transactions should be created using Phalcon\Transaction\Manager.
 	 *
-	 *<code>
+	 * <code>
+	 * use Phalcon\Mvc\Model\Transaction\Failed;
+	 * use Phalcon\Mvc\Model\Transaction\Manager;
+	 *
 	 * try {
-	 *     $manager = new \Phalcon\Mvc\Model\Transaction\Manager();
+	 *     $manager = new Manager();
 	 *
 	 *     $transaction = $manager->get();
 	 *
@@ -37,10 +40,10 @@ namespace Phalcon\Mvc\Model {
 	 *     }
 	 *
 	 *     $transaction->commit();
-	 * } catch(Phalcon\Mvc\Model\Transaction\Failed $e) {
+	 * } catch(Failed $e) {
 	 *     echo "Failed, reason: ", $e->getMessage();
 	 * }
-	 *</code>
+	 * </code>
 	 */
 	
 	class Transaction implements \Phalcon\Mvc\Model\TransactionInterface {
@@ -61,10 +64,6 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * \Phalcon\Mvc\Model\Transaction constructor
-		 *
-		 * @param \Phalcon\DiInterface dependencyInjector
-		 * @param boolean autoBegin
-		 * @param string service
 		 */
 		public function __construct(\Phalcon\DiInterface $dependencyInjector, $autoBegin=null, $service=null){ }
 
@@ -89,10 +88,6 @@ namespace Phalcon\Mvc\Model {
 
 		/**
 		 * Rollbacks the transaction
-		 *
-		 * @param  string rollbackMessage
-		 * @param  \Phalcon\Mvc\ModelInterface rollbackRecord
-		 * @return boolean
 		 */
 		public function rollback($rollbackMessage=null, \Phalcon\Mvc\ModelInterface $rollbackRecord=null){ }
 

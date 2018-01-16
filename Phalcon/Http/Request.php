@@ -162,6 +162,9 @@ namespace Phalcon\Http {
 		final public function hasServer($name){ }
 
 
+		/**
+		 * Checks whether headers has certain index
+		 */
 		final public function hasHeader($header){ }
 
 

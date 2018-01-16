@@ -225,9 +225,15 @@ namespace Phalcon\Mvc\View\Engine\Volt {
 		public function compileIf($statement, $extendsMode=null){ }
 
 
+		/**
+		 * Compiles a 'switch' statement returning PHP code
+		 */
 		public function compileSwitch($statement, $extendsMode=null){ }
 
 
+		/**
+		 * Compiles a "case"/"default" clause returning PHP code
+		 */
 		public function compileCase($statement, $caseClause=null){ }
 
 

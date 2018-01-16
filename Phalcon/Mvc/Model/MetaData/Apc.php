@@ -19,6 +19,9 @@ namespace Phalcon\Mvc\Model\MetaData {
 	 *     ]
 	 * );
 	 *</code>
+	 *
+	 * @deprecated Deprecated since 3.3.0, will be removed in 4.0.0
+	 * @see Phalcon\Mvc\Model\Metadata\Apcu
 	 */
 	
 	class Apc extends \Phalcon\Mvc\Model\MetaData implements \Phalcon\Mvc\Model\MetaDataInterface, \Phalcon\Di\InjectionAwareInterface {

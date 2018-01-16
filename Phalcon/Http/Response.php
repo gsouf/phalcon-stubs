@@ -65,9 +65,7 @@ namespace Phalcon\Http {
 		 * Returns the status code
 		 *
 		 *<code>
-		 * print_r(
-		 *     $response->getStatusCode()
-		 * );
+		 * echo $response->getStatusCode();
 		 *</code>
 		 */
 		public function getStatusCode(){ }
@@ -285,6 +283,13 @@ namespace Phalcon\Http {
 		public function setFileToSend($filePath, $attachmentName=null, $attachment=null){ }
 
 
+		/**
+		 * Remove a header in the response
+		 *
+		 *<code>
+		 * $response->removeHeader("Expires");
+		 *</code>
+		 */
 		public function removeHeader($name){ }
 
 	}
